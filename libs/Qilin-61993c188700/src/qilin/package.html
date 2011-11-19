@@ -1,0 +1,76 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+<!--
+
+
+-->
+</head>
+<body bgcolor="white">
+
+<p>Qilin is a Java SDK for rapid prototyping of cryptographic protocols.
+The purpose of the Qilin project is to make it easier to implement 
+the new cryptographic protocol you just read (or wrote) about in a recent theory paper.
+To this end, the API attempts to use the concepts and language from the theory
+of cryptography.</p>
+
+<p>Qilin is not intended for writing the most <i>efficient</i> implementation of a cryptographic
+protocol, or even the most <i>secure</i> implementation (although it does attempt to provide
+reasonable efficiency and security). Instead Qilin is optimized for <i>rapid development</i> 
+and <i>generality</i>.</p>
+
+<h3>Organization</h3>
+
+<p>The Qilin API is separated into three conceptual "levels":</p>
+<ol>
+	<li><b>Abstract Objects.</b> These correspond to Java interfaces, and 
+		appear in the root package</li>
+	<li><b>Generic Implementations.</b>These correspond to Java 
+		generic classes (some of which are abstract), 
+		and appear in the <code>generic</code> subpackages. 
+		When a generic implementations uses another object, 
+		whenever possible it uses the Abstract version of the object.</li>
+	<li><b>Concrete Implementations.</b>These correspond to Java classes that can be directly instantiated and appear in the <code>concrete</code> subpackages.
+		Usually the concrete implementations are thin wrappers around generic implementations.</li>
+</ol>
+
+<p>On an orthogonal axis, the API is divided into a number of different subpackages:</p>
+<ul>
+	<li>{@link qilin.primitives}: Cryptographic primitives (non-interactive).</li>
+	<li>{@link qilin.protocols}: Cryptographic protocols. Currently only two-party protocols are supported.</li>
+	<li>{@link qilin.comm}: The communication framework used by the protocol implementations. This package provides an abstract message-passing interface,
+		along with both TCP-based and queue-based implementations. </li>
+	<li>{@link qilin.util}: Various utilities used by the other packages.</li>
+</ul>
+
+<h3>Protocol Interoperability</h3>
+<p>One of the aims of the SDK is to allow easy interoperability with other implementations
+of a protocol. Thus, reliance on mechanisms that are specific to Java (such as Java's automatic
+serialization) is discouraged. Places where this assumption is violated should be clearly
+documented (and hopefully replaced with an interoperable version in the future).</p>
+
+<h3>Extending Qilin</h3>
+<p>When implementing a new primitive or protocol for the Qilin framework, please try to follow these guidelines:</p>
+<ol>
+	<li>Define an interface that captures the theoretical properties of the primitive. 
+		Note that the interface cannot capture many security properties directly; those should be specified in the documentation.
+		Also specify any assumptions that must be satisfied by the parameters to the inteface methods, including security assumptions
+		that are not checked by the compiler.</li>
+	<li>Implement the interface with a generic class. Try to strike a good balance
+		between making the code as general as possible and keeping it simple 
+		(when in doubt, go for general). </li>
+	<li>Instantiate the generic class with a concrete class. Try to make good default 
+		choices for the instantiation. Multiple instantiations are also possible (e.g.,
+		one using elliptic-curves and another using standard modular arithmetic).</li>
+</ol>
+
+
+<h2>Related Documentation</h2>
+
+The Phish-Market protocol is an example of a protocol implementation using the Qilin SDK, and 
+is distributed with the Qilin source.
+
+@see phishmarket
+
+</body>
+</html>

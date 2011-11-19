@@ -1,0 +1,26 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+<!--
+
+
+-->
+</head>
+<body bgcolor="white">
+
+<p>Multi-party protocol (currently only two-party protocols are supported).
+The protocol interfaces have the following structure: An outer interface for each protocol that provides a namespace,
+and an inner interface for each party participating in the protocol, named for that party's function.</p>
+
+<p>Protocols require communication between the parties. We use a message-based framework for communication (implemented
+in the {@link qilin.comm} package). Each protocol party maintains a {@link qilin.comm.Channel} to its peer in the protocol.
+Channels are bidirectional -- messages are both sent and received through the same channel. 
+To make them potentially more efficient, we separate protocols into two phases: an initialization phase that is performed once (and can do
+expensive setup), and an execution phase that may be performed multiple times. 
+The {@link qilin.protocols.ProtocolParty} interface is a base interface for every protocol party; it defines 
+the generic initialization method and a parameter-setting method which is used to set the
+communication channel to the peer.  
+</p>
+
+</body>
+</html>

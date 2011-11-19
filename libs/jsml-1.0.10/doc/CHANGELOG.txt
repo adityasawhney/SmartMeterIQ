@@ -1,0 +1,49 @@
+Nov-07-2011
+new in version 1.0.10
+- another bug fix in SML_Message.java when checking CRC thanks to Fabian Kohlmorgen from FH-Dortmund and prosyst
+- a small fix in OctetString.hashCode() thanks to Roland Schroth from RWE
+
+Oct-20-2011
+new in version 1.0.9
+- bug fix in SML_Message.java when checking CRC thanks to Fabian Kohlmorgen from FH-Dortmund
+
+Aug-5-2011
+new in version 1.0.8
+- bug fix in Unsigned64.java, thanks to Jan Heise and Boris Pigin from Vattenfall 
+
+Apr-6-2011
+new in version 1.0.7 
+- fixed bug in SML_ProcParValue
+- changed to maven build system
+
+Feb-15-2011
+new in version 1.0.6
+- fixed synchronization problem in SML_SerialReceiver
+
+Jan-20-2011
+new in version 1.05
+- improved the SSL support and included a sample that demonstrates the use of SSL
+
+Dec-16-2010
+new in version 1.03
+- added a simple class to receive SMLMessages (SML_SerialReceiver) over a serial interface
+- This class can be used to read out the eHZ Meter
+
+Aug-27-2010
+new in version 1.02
+- Additions to the OctetString Class - Thanks to ProSyst for the contribution
+
+Jul-15-2010
+new in version 1.01
+- SSL Support for the Server.
+- Added some missing SML-Objects
+
+Mai-4-2010
+new in version 1.0
+- completely restructured the SML Transport Layer implementation and API!
+- removed all loggers
+
+Dec-18-2009
+new in version 0.91
+- Fixed CRC
+- fixed bug in ImplicitChoice

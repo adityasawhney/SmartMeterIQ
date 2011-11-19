@@ -1,0 +1,70 @@
+<html>
+<head><title>Qilin Project</title></head>
+<body>
+<h1>The Qilin Crypto SDK</h1>
+<h4>An Open-Source Java SDK for rapid prototyping of cryptographic protocols.</h4>
+<object
+     type="image/svg+xml"
+     data="qilin.svg"
+     style="width:300px;height:300px;border:0;float:right"
+    ><img src="qilin.png"
+      alt="A Qilin"
+      style="width:300px;height:300px;border:0;float:right"
+   /></object>
+<p>(written and maintained by <a href="http://www.seas.harvard.edu/~talm/">Tal Moran</a>)</p>
+<h2>Overview</h2>
+<p>Qilin is a Java SDK for rapid prototyping of cryptographic protocols.
+The purpose of the Qilin project is to make it easier to implement 
+the new cryptographic protocol you just read (or wrote) about in a recent theory paper.
+To this end, the API attempts to use the concepts and language from the theory of cryptography.</p>
+
+<p>Qilin is not intended for writing the most <i>efficient</i> implementation of a cryptographic
+protocol, or even the most <i>secure</i> implementation (although it does attempt to provide
+reasonable efficiency and security). Instead Qilin is optimized for <i>rapid development</i> 
+and <i>generality</i>.
+ 
+ 
+<h2>Get Qilin</h2>
+<p>Qilin is an open-source project (released under the <a href="http://www.opensource.org/licenses/mit-license.php">MIT/X11 license</a>). We use the <a href="http://www.selenic.com/mercurial/">Mercurial</a> version-control system for development. If you have Mercurial installed, you can clone the repository using the command:</p>
+<pre>
+hg clone http://qilin.seas.harvard.edu/repo qilin-sdk
+</pre>
+<p>You can also browse the repository and download the entire source as a tarball or zip file using
+the <a href="repo/">web interface</a>.</p>
+
+<h2>Documentation</h2>
+<p>The SDK is <a href="docs/">documented with Javadoc</a>. 
+Some more background on the project can be found in the <a href="docs/qilin/package-summary.html">qilin package summary</a>.
+Qilin grew out of an implementation of the Phish-Market protocol; this implementation is distributed with 
+the SDK and serves as example code. The <a href="docs/phishmarket/package-summary.html">phishmarket package summary</a> contains
+an overview.</p>
+
+<h2>Developing Qilin</h2>
+<p>If you're looking for an interesting programming project and/or want to contribute your time to a worthy cause,
+there are plenty of things you can do to help Qilin:</p>
+<ul>
+<li>Add more primitives and protocols. Some possible suggestions are
+  <ul>
+  	<li>Other encryption protocols (e.g., <a href="http://en.wikipedia.org/wiki/Damgaard-Jurik_cryptosystem">Damgård-Jurik</a>)</li>
+  	<li>Primitives for cryptographic voting (e.g., verifiable shuffles).</li>
+  </ul></li>
+<li>Make Qilin more language-independent. Although Qilin is written in Java, one of the design
+   goals is to make it easy to write compatible applications on other platforms. Most
+   of the communication protocols are language-independent but some still make use of Java-specific properties (in particular, the automatic 
+   FiatShamir heuristic can depends on how Java uses the Random class for various tasks.</li>
+<li>Review/comment on existing code and SDK design.</li>
+<li>Add documentation to existing code.</li>
+</ul>
+<h4>Submitting Patches</h3>
+<p>Since Mercurial is a distributed version-control system, you can develop new features on private repository clones
+and merge with the main repository once they're done. If you would like to submit a patch, a comment or to participate some other way,
+please let me know. You can find my contact details on <a href="http://www.seas.harvard.edu/~talm">my homepage</a>.
+</p>
+
+
+<h3>Qilin?</h3>
+<p>A <a href="http://en.wikipedia.org/wiki/Qilin">Qilin</a> is a <a href="http://en.wikipedia.org/wiki/Cryptid">Cryptid</a> from Chinese 
+mythology. The preferred pronunciation for the project name is "Chillin" (as in "Get Chillin'"). </p>
+
+</body>
+</html>

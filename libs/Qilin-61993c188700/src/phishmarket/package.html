@@ -1,0 +1,53 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+<!--
+
+
+-->
+</head>
+<body bgcolor="white">
+
+<p>A protocol for encouraging data sharing among phishing take-down companies, implemented 
+using Qilin.</p>
+
+<p>A key way in which banks mitigate the effects of phishing is to remove
+fraudulent websites or suspend abusive domain names. This `take-down'
+is often subcontracted to specialist companies.  Prior work has shown
+that these take-down companies refuse to share their `feeds' of
+phishing website URLs with each other, and consequently, many phishing
+websites are not removed because the company with the take-down
+contract remains unaware of their existence.  The take-down companies
+are reticent to exchange their feeds with each other, fearing
+that competitors with less comprehensive feeds might `free-ride' off
+their efforts and stop investing resources to find new websites, as
+well as use the feeds to poach clients.</p> 
+
+<p>To help solve this problem,
+we propose the Phish-Market protocol, which enables companies with less comprehensive feeds to learn
+about websites impersonating their own clients that are held by other
+firms.  The protocol is designed so that the contributing firm is
+compensated only for those websites affecting its competitor's
+clients and only those previously unknown to the receiving firm.
+Crucially, the protocol does not reveal to the contributing source
+which URLs are needed by the receiver, as this is viewed as sensitive
+information by take-down firms.</p>
+
+<p>This package contains a generic implementation of {@link phishmarket.generic.ObliviousInformationPurchase}, 
+the "heart" of the Phish-Market protocol, and a complete application
+instantiated using elliptic-curves.  
+ </p>
+
+
+<h2>Related Documentation</h2>
+
+<ul>
+	<li>The Phish-Market protocol is described in detail in the paper: 
+"The Phish-Market Protocol: Securely Sharing Attack Data Between Competitors" 
+by Tal Moran and Tyler Moore (in submission).</li>
+</ul>
+
+@see qilin
+
+</body>
+</html>

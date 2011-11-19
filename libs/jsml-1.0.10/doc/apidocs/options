@@ -1,0 +1,22 @@
+-classpath
+'/home/stfe/git/openmuc/comm/jsml/target/classes:/home/stfe/.m2/repository/org/osgi/osgi_R4_compendium/1.0/osgi_R4_compendium-1.0.jar:/home/stfe/.m2/repository/org/rxtx/rxtx/2.1.7/rxtx-2.1.7.jar:/home/stfe/.m2/repository/org/osgi/osgi_R4_core/1.0/osgi_R4_core-1.0.jar'
+-encoding
+'UTF-8'
+-protected
+-sourcepath
+'/home/stfe/git/openmuc/comm/jsml/src/main/java'
+-author
+-bottom
+'Copyright &#169; 2011. All Rights Reserved.'
+-charset
+'UTF-8'
+-d
+'/home/stfe/git/openmuc/comm/jsml/target/site/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'org.openmuc.jsml 1.0.10 API'
+-use
+-version
+-windowtitle
+'org.openmuc.jsml 1.0.10 API'

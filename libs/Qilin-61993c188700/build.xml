@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="create_run_jar" name="Create Runnable Jar for Phishmarket ">
+
+	<property name="base" value="phishmarket" />
+
+	<taskdef name="JarOpt" classname="org.cmc.jaroptimizer.JarOptTask" 
+	classpath="jars/jaropt.jar" />
+
+	  <path id="project.class.path">
+	    <pathelement path="${classpath}" />
+	    <fileset dir="jars">
+		<include name="**/*.jar"/>
+	    </fileset>
+	  </path>
+
+<!--
+	<property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter" classpathref="project.class.path" />
+	<property name="build.classpath" refid="project.class.path" />
+-->
+
+
+	<!--ANT 1.7 is required                                        -->
+	<target name="version">
+		<exec executable="hg" output="bin/version" failifexecutionfails="false">
+			<arg line="-q id" />
+		</exec>
+	</target>
+	<target name="compile">
+		<mkdir dir="bin/"/>
+		<depend srcDir="src/" destDir="bin/" cache="depcache" closure="yes" />
+		<javac srcDir="src/" destDir="bin/"  classpathref="project.class.path" />
+	</target>
+	<target name="create_run_jar" depends="compile,version">
+		<delete file="${base}All.jar" />
+		<jar destfile="${base}All.jar" filesetmanifest="mergewithoutmain">
+			<manifest>
+				<attribute name="Built-By" value="${user.name}"/>
+				<attribute name="Class-Path" value="."/>
+			</manifest>
+			<fileset dir="bin"/>
+			<zipfileset excludes="META-INF/*.SF" src="jars/bcprov-jdk16-141.jar"/>
+			<zipfileset excludes="META-INF/*.SF" src="jars/junit-4.6.jar"/>
+			<zipfileset excludes="META-INF/*.SF" src="jars/commons-cli-1.2.jar"/>
+			<zipfileset excludes="META-INF/*.SF" src="jars/sqlitejdbc-v054.jar"/>
+		</jar>
+		<tempfile property="temp.file" deleteonexit="true" suffix=".jar" />
+		<JarOpt src="${base}All.jar" dst="${temp.file}" 
+		stripNonClassFiles="false"  
+		printDependencies="false" >
+			<includePattern>phishmarket.app.Seller</includePattern>
+			<includePattern>org.sqlite.*</includePattern>
+			<includePattern>org.ibex.*</includePattern>
+		</JarOpt  >
+		<delete file="${base}Seller.jar" />
+		<jar destfile="${base}Seller.jar" filesetmanifest="mergewithoutmain">
+			<manifest>
+				<attribute name="Built-By" value="${user.name}"/>
+				<attribute name="Main-Class" value="phishmarket.app.Seller"/>
+				<attribute name="Class-Path" value="."/>
+			</manifest>
+			<zipfileset src="${temp.file}"/>
+		</jar>
+		<JarOpt src="${base}All.jar" dst="${temp.file}" 
+		stripNonClassFiles="false"  
+		printDependencies="false" >
+			<includePattern>phishmarket.app.Buyer</includePattern>
+			<includePattern>org.sqlite.*</includePattern>
+			<includePattern>org.ibex.*</includePattern>
+		</JarOpt  >
+		<delete file="${base}Buyer.jar" />
+		<jar destfile="${base}Buyer.jar" filesetmanifest="mergewithoutmain">
+			<manifest>
+				<attribute name="Built-By" value="${user.name}"/>
+				<attribute name="Main-Class" value="phishmarket.app.Buyer"/>
+				<attribute name="Class-Path" value="."/>
+			</manifest>
+			<zipfileset src="${temp.file}"/>
+		</jar>
+	</target>
+	<target name="docs">
+		<javadoc sourcepath="src" destdir="doc" 
+			defaultexcludes="yes"
+			includenosourcepackages="true"
+			classpathref="project.class.path"
+			windowtitle="Qilin API">
+		</javadoc>
+	</target>
+</project>

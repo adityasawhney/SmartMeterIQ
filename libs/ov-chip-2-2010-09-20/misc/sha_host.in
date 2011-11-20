@@ -1,0 +1,20 @@
+#!/bin/bash
+
+## jcop emulator stuff
+## export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/tews/java/card/lib/x86
+## 
+## # Path to jpcsc.jar
+## JPCSC=/home/tews/java/card/lib/jar/jpcsc.jar
+## 
+## # Path to offcard.jar
+OFFCARD=
+
+
+JCKIT222=
+APDUIOJAR=$JCKIT222/lib/apduio.jar
+EMULATORIOJAR=../emulator/smartcardio/emulatorio.jar
+JCOPIOJAR=../emulator/jcop/jcopio.jar
+
+
+#set -x
+java -ea -classpath .:$EMULATORIOJAR:$JCOPIOJAR:$APDUIOJAR:$OFFCARD SHA_host $*

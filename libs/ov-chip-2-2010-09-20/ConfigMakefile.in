@@ -1,0 +1,101 @@
+## 
+## OV-chip 2.0 project
+## 
+## Digital Security (DS) group at Radboud Universiteit Nijmegen
+## 
+## Copyright (C) 2009
+## 
+## This program is free software; you can redistribute it and/or
+## modify it under the terms of the GNU General Public License as
+## published by the Free Software Foundation; either version 2 of
+## the License, or (at your option) any later version.
+## 
+## This program is distributed in the hope that it will be useful,
+## but WITHOUT ANY WARRANTY; without even the implied warranty of
+## MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+## General Public License in file COPYING in this or one of the
+## parent directories for more details.
+## 
+## Created 20.2.09 by Hendrik
+## 
+## config makefile
+## 
+## $Id: ConfigMakefile.in,v 1.2 2009-06-25 22:16:55 tews Exp $
+
+# Copy this file to ConfigMakefile and change the contents there.
+# (ConfigMakefile.in is in cvs, but ConfigMakefile is ignored, so
+# when changing the latter you will not commit your local 
+# configuration to cvs.
+
+###########################################################################
+###########################################################################
+#
+# REQUIRED
+#
+###########################################################################
+#
+# JAVA_HOME is needed for applet creation
+# (javacard converter complains otherwise)
+# There should be a file $(JAVA_HOME)/bin/java
+# For debian etch it is 
+# JAVA_HOME:=/usr/lib/jvm/java-1.5.0-sun-1.5.0.14
+# For java 1.6 from backports.org use
+# JAVA_HOME:=/usr/lib/jvm/java-6-sun
+JAVA_HOME:=
+export JAVA_HOME
+
+# Base directory of the java card development kit version 2.2.1. 
+# Needed for most of the applets and the host driver code.
+JCKIT221:=
+
+# For loading and deleting applets Wojciech Mostowskis 
+# global platform manager is needed. 
+#
+# Absolute path to gpm.jar.
+# (The public OV-chip releases contain gpm.jar in the root directory.)
+GPM:=
+
+###########################################################################
+###########################################################################
+#
+# OPTIONAL
+#
+###########################################################################
+#
+# Base directory of the java card development kit version 2.2.2. 
+# Not essential. Only required for 
+# - the 2.2.2 test applets in misc
+# - the emulatorio.jar library for talking to the SUN emulators 
+#   (but those emulators are pretty much useless)
+JCKIT222:=
+
+# For support of the jcop emulator offcard.jar from the jcop libraries 
+# is needed. 
+#
+# Path to offcard.jar (can be left empty).
+OFFCARD:=
+
+# The following preprocessor flags select certain variants of the code.
+# You can make a flag effective by adding -Dflag to CPPFLAGS below or
+# on the command line. For instance
+#   CPPFLAGS:=-DNO_CARD_ASSERT -DOPT_SPECIAL_SQUARE
+# or on the command line
+#   make 'CPPFLAGS=-DNO_CARD_ASSERT -DOPT_SPECIAL_SQUARE'
+#
+# Here is the list of possible flags:
+#   NO_CARD_ASSERT      disable assertions in the applet
+#   BIGNAT_USE_INT      Use int/long in Bignat instead of byte/short
+#   OPT_DOUBLE_ADD      Optimization: In Montgomery multiplication
+#				do addition and Montgomerycorrection in
+#				one loop.
+#   OPT_SKIP_DEVIDE     Optimization: Skip final division in Montgomery 
+#				multiplication if not strictly neccessary.
+#   OPT_SPECIAL_SQUARE  Optimization: Use a special squaring method instead
+#				of the general multiplication for squaring.
+# With BIGNAT_USE_INT the bignat code runs much faster, but is of course 
+# not suitable for java card.
+# In the bignat testframe the other optimizations only slow down the code. 
+# Enabling them is not recommended.
+
+CPPFLAGS:=
+

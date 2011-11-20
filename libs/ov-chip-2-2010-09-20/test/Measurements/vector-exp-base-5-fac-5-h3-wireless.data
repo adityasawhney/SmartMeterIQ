@@ -1,0 +1,504 @@
+Package found, deleting it. Delete finished.
+Load applet _java_build_dir/card/test/ov_test/javacard/ov_test.cap.
+DEBUG: packagePath: ov_test/javacard/
+DEBUG: package: ov_test
+DEBUG: package AID: 6F 76 5F 74 65 73 74 
+DEBUG: applet AIDs: [6F 76 5F 74 65 73 74 2E 61 70 70 ]
+Applet loading finished.
+Install applet ov_test.app of package ov_test.
+Installation arguments : C910.00F4.0102.0082.0005.0000.0121.B26E.2F10
+Install finished.
+Connected to applet created at 5 June 2009 23:58:34 CEST
+with maximal sizes 244, 258, 130 and 5.
+Applet was compiled WITHOUT assertion checks.
+Applet status matches, continue.
+### Performance test started on 8 June 2009 23:10:14 CEST
+### command ./test_host -reinstall -r 1 -vec-exp-perf -rounds 5 -vec-len 5 -pre-base-fac 5 
+### Performance test constants:
+###   int rsa_year   : 2009
+###   short size     : 26
+###   long size      : 256
+###   double size    : 130
+###   int short_bit_size : 1952
+###   int start_size : 0
+###   vector length  : 5
+###   pre computed   : 5
+###   divisor length : 100
+###   keep modulus   : false
+###   rounds         : 5
+###   start size     : 0
+###   verbosity      : 0
+###   apduscript     : false
+###   terminal       : PCSC_TERMINAL
+###   card reader    : 1
+################# PURE_JAVA power perf start
+## Effective size base 4 bytes (32 bits) exponent 2 bits (in 1 bytes)
+size 32 ^ 2 0.693 s (0.046 s 0.738 s)
+size 32 ^ 2 0.436 s (0.045 s 0.481 s)
+size 32 ^ 2 0.677 s (0.046 s 0.722 s)
+size 32 ^ 2 0.683 s (0.045 s 0.728 s)
+size 32 ^ 2 0.437 s (0.045 s 0.482 s)
+## Effective size base 5 bytes (40 bits) exponent 2 bits (in 1 bytes)
+size 40 ^ 2 0.802 s (0.046 s 0.848 s)
+size 40 ^ 2 0.802 s (0.045 s 0.848 s)
+size 40 ^ 2 0.801 s (0.046 s 0.847 s)
+size 40 ^ 2 0.802 s (0.045 s 0.848 s)
+size 40 ^ 2 0.804 s (0.045 s 0.849 s)
+## Effective size base 6 bytes (48 bits) exponent 5 bits (in 1 bytes)
+size 48 ^ 5 1.420 s (0.045 s 1.465 s)
+size 48 ^ 5 1.415 s (0.045 s 1.460 s)
+size 48 ^ 5 1.412 s (0.045 s 1.457 s)
+size 48 ^ 5 1.411 s (0.045 s 1.456 s)
+size 48 ^ 5 1.430 s (0.045 s 1.476 s)
+## Effective size base 7 bytes (56 bits) exponent 9 bits (in 2 bytes)
+size 56 ^ 9 3.158 s (0.045 s 3.203 s)
+size 56 ^ 9 3.173 s (0.045 s 3.218 s)
+size 56 ^ 9 3.189 s (0.045 s 3.235 s)
+size 56 ^ 9 3.199 s (0.045 s 3.244 s)
+size 56 ^ 9 3.188 s (0.046 s 3.234 s)
+## Effective size base 8 bytes (64 bits) exponent 12 bits (in 2 bytes)
+size 64 ^ 12 4.420 s (0.045 s 4.466 s)
+size 64 ^ 12 4.451 s (0.045 s 4.496 s)
+size 64 ^ 12 4.337 s (0.045 s 4.382 s)
+size 64 ^ 12 4.408 s (0.045 s 4.453 s)
+size 64 ^ 12 4.421 s (0.045 s 4.466 s)
+## Effective size base 9 bytes (72 bits) exponent 15 bits (in 2 bytes)
+size 72 ^ 15 5.253 s (0.045 s 5.297 s)
+size 72 ^ 15 5.862 s (0.045 s 5.907 s)
+size 72 ^ 15 5.731 s (0.046 s 5.777 s)
+size 72 ^ 15 5.933 s (0.045 s 5.979 s)
+size 72 ^ 15 5.853 s (0.046 s 5.898 s)
+## Effective size base 10 bytes (80 bits) exponent 18 bits (in 3 bytes)
+size 80 ^ 18 9.340 s (0.045 s 9.385 s)
+size 80 ^ 18 9.425 s (0.045 s 9.470 s)
+size 80 ^ 18 9.475 s (0.045 s 9.520 s)
+size 80 ^ 18 8.899 s (0.045 s 8.944 s)
+size 80 ^ 18 9.442 s (0.045 s 9.487 s)
+## Effective size base 11 bytes (88 bits) exponent 21 bits (in 3 bytes)
+size 88 ^ 21 11.579 s (0.045 s 11.624 s)
+size 88 ^ 21 10.998 s (0.045 s 11.043 s)
+size 88 ^ 21 11.757 s (0.046 s 11.802 s)
+size 88 ^ 21 11.799 s (0.045 s 11.844 s)
+size 88 ^ 21 11.712 s (0.045 s 11.757 s)
+## Effective size base 12 bytes (96 bits) exponent 23 bits (in 3 bytes)
+size 96 ^ 23 14.268 s (0.046 s 14.313 s)
+size 96 ^ 23 13.907 s (0.045 s 13.952 s)
+size 96 ^ 23 14.310 s (0.045 s 14.355 s)
+size 96 ^ 23 13.588 s (0.045 s 13.633 s)
+size 96 ^ 23 13.571 s (0.046 s 13.617 s)
+## Effective size base 13 bytes (104 bits) exponent 26 bits (in 4 bytes)
+size 104 ^ 26 19.516 s (0.045 s 19.561 s)
+size 104 ^ 26 20.007 s (0.045 s 20.053 s)
+size 104 ^ 26 19.316 s (0.045 s 19.361 s)
+size 104 ^ 26 19.547 s (0.045 s 19.592 s)
+size 104 ^ 26 19.582 s (0.045 s 19.627 s)
+## Effective size base 14 bytes (112 bits) exponent 28 bits (in 4 bytes)
+size 112 ^ 28 23.538 s (0.046 s 23.583 s)
+size 112 ^ 28 22.563 s (0.046 s 22.609 s)
+size 112 ^ 28 22.243 s (0.045 s 22.288 s)
+size 112 ^ 28 22.932 s (0.053 s 22.985 s)
+size 112 ^ 28 22.937 s (0.045 s 22.982 s)
+## Effective size base 15 bytes (120 bits) exponent 30 bits (in 4 bytes)
+size 120 ^ 30 26.615 s (0.045 s 26.660 s)
+size 120 ^ 30 27.199 s (0.046 s 27.245 s)
+size 120 ^ 30 27.236 s (0.045 s 27.281 s)
+size 120 ^ 30 25.874 s (0.045 s 25.920 s)
+size 120 ^ 30 26.802 s (0.045 s 26.847 s)
+## Effective size base 16 bytes (128 bits) exponent 32 bits (in 4 bytes)
+size 128 ^ 32 30.035 s (0.045 s 30.080 s)
+size 128 ^ 32 30.809 s (0.045 s 30.853 s)
+size 128 ^ 32 31.508 s (0.045 s 31.553 s)
+size 128 ^ 32 30.811 s (0.045 s 30.856 s)
+size 128 ^ 32 30.746 s (0.046 s 30.792 s)
+## Effective size base 17 bytes (136 bits) exponent 34 bits (in 5 bytes)
+size 136 ^ 34 40.248 s (0.045 s 40.293 s)
+size 136 ^ 34 39.610 s (0.045 s 39.656 s)
+size 136 ^ 34 39.504 s (0.046 s 39.550 s)
+size 136 ^ 34 39.968 s (0.045 s 40.014 s)
+size 136 ^ 34 40.193 s (0.046 s 40.238 s)
+## Effective size base 18 bytes (144 bits) exponent 36 bits (in 5 bytes)
+size 144 ^ 36 45.206 s (0.045 s 45.251 s)
+size 144 ^ 36 45.202 s (0.046 s 45.248 s)
+size 144 ^ 36 45.749 s (0.045 s 45.793 s)
+size 144 ^ 36 44.617 s (0.045 s 44.662 s)
+size 144 ^ 36 45.360 s (0.045 s 45.406 s)
+## Effective size base 19 bytes (152 bits) exponent 38 bits (in 5 bytes)
+size 152 ^ 38 51.411 s (0.045 s 51.456 s)
+size 152 ^ 38 51.495 s (0.045 s 51.541 s)
+size 152 ^ 38 51.465 s (0.046 s 51.511 s)
+size 152 ^ 38 51.451 s (0.045 s 51.496 s)
+size 152 ^ 38 51.582 s (0.045 s 51.627 s)
+## Effective size base 20 bytes (160 bits) exponent 40 bits (in 5 bytes)
+size 160 ^ 40 56.104 s (0.045 s 56.150 s)
+size 160 ^ 40 57.924 s (0.045 s 57.969 s)
+size 160 ^ 40 57.236 s (0.045 s 57.281 s)
+size 160 ^ 40 55.947 s (0.045 s 55.992 s)
+size 160 ^ 40 55.656 s (0.045 s 55.701 s)
+## Effective size base 21 bytes (168 bits) exponent 42 bits (in 6 bytes)
+size 168 ^ 42 70.314 s (0.045 s 70.360 s)
+size 168 ^ 42 71.043 s (0.045 s 71.088 s)
+size 168 ^ 42 70.122 s (0.046 s 70.168 s)
+size 168 ^ 42 70.095 s (0.045 s 70.141 s)
+size 168 ^ 42 71.444 s (0.045 s 71.489 s)
+## Effective size base 22 bytes (176 bits) exponent 44 bits (in 6 bytes)
+size 176 ^ 44 78.651 s (0.045 s 78.696 s)
+size 176 ^ 44 76.111 s (0.045 s 76.156 s)
+size 176 ^ 44 79.299 s (0.045 s 79.345 s)
+size 176 ^ 44 77.114 s (0.046 s 77.159 s)
+size 176 ^ 44 77.358 s (0.045 s 77.403 s)
+## Effective size base 23 bytes (184 bits) exponent 45 bits (in 6 bytes)
+size 184 ^ 45 85.344 s (0.045 s 85.389 s)
+size 184 ^ 45 85.252 s (0.045 s 85.297 s)
+size 184 ^ 45 84.277 s (0.045 s 84.322 s)
+size 184 ^ 45 84.366 s (0.045 s 84.411 s)
+size 184 ^ 45 84.393 s (0.045 s 84.438 s)
+## Effective size base 24 bytes (192 bits) exponent 47 bits (in 6 bytes)
+size 192 ^ 47 95.377 s (0.045 s 95.422 s)
+size 192 ^ 47 94.330 s (0.045 s 94.375 s)
+size 192 ^ 47 89.241 s (0.045 s 89.286 s)
+size 192 ^ 47 93.617 s (0.045 s 93.662 s)
+size 192 ^ 47 92.994 s (0.045 s 93.039 s)
+## Effective size base 25 bytes (200 bits) exponent 49 bits (in 7 bytes)
+size 200 ^ 49 108.867 s (0.045 s 108.912 s)
+size 200 ^ 49 111.014 s (0.045 s 111.059 s)
+size 200 ^ 49 113.708 s (0.046 s 113.754 s)
+size 200 ^ 49 112.148 s (0.045 s 112.194 s)
+size 200 ^ 49 112.231 s (0.045 s 112.276 s)
+## Effective size base 26 bytes (208 bits) exponent 50 bits (in 7 bytes)
+size 208 ^ 50 122.464 s (0.045 s 122.509 s)
+size 208 ^ 50 120.163 s (0.045 s 120.208 s)
+size 208 ^ 50 121.466 s (0.045 s 121.511 s)
+size 208 ^ 50 120.306 s (0.045 s 120.351 s)
+size 208 ^ 50 121.597 s (0.045 s 121.643 s)
+## Effective size base 27 bytes (216 bits) exponent 52 bits (in 7 bytes)
+size 216 ^ 52 133.595 s (0.045 s 133.640 s)
+size 216 ^ 52 133.782 s (0.046 s 133.827 s)
+size 216 ^ 52 132.887 s (0.045 s 132.932 s)
+size 216 ^ 52 131.906 s (0.046 s 131.952 s)
+size 216 ^ 52 133.021 s (0.045 s 133.066 s)
+## Effective size base 28 bytes (224 bits) exponent 53 bits (in 7 bytes)
+size 224 ^ 53 143.134 s (0.045 s 143.178 s)
+size 224 ^ 53 139.598 s (0.045 s 139.643 s)
+size 224 ^ 53 140.514 s (0.045 s 140.559 s)
+size 224 ^ 53 145.183 s (0.045 s 145.228 s)
+size 224 ^ 53 145.092 s (0.046 s 145.138 s)
+## Effective size base 29 bytes (232 bits) exponent 55 bits (in 7 bytes)
+size 232 ^ 55 153.252 s (0.045 s 153.296 s)
+size 232 ^ 55 156.463 s (0.045 s 156.508 s)
+size 232 ^ 55 152.657 s (0.045 s 152.702 s)
+size 232 ^ 55 155.985 s (0.045 s 156.029 s)
+size 232 ^ 55 151.883 s (0.046 s 151.928 s)
+## Effective size base 30 bytes (240 bits) exponent 56 bits (in 7 bytes)
+size 240 ^ 56 167.424 s (0.045 s 167.470 s)
+size 240 ^ 56 164.101 s (0.046 s 164.147 s)
+size 240 ^ 56 163.731 s (0.046 s 163.776 s)
+size 240 ^ 56 166.829 s (0.045 s 166.874 s)
+size 240 ^ 56 164.601 s (0.045 s 164.646 s)
+## Effective size base 31 bytes (248 bits) exponent 58 bits (in 8 bytes)
+size 248 ^ 58 188.802 s (0.046 s 188.848 s)
+size 248 ^ 58 190.141 s (0.045 s 190.186 s)
+size 248 ^ 58 194.238 s (0.045 s 194.282 s)
+size 248 ^ 58 193.032 s (0.045 s 193.077 s)
+size 248 ^ 58 191.709 s (0.045 s 191.754 s)
+## Effective size base 32 bytes (256 bits) exponent 59 bits (in 8 bytes)
+size 256 ^ 59 202.093 s (0.045 s 202.138 s)
+size 256 ^ 59 204.329 s (0.045 s 204.373 s)
+size 256 ^ 59 204.606 s (0.045 s 204.651 s)
+size 256 ^ 59 208.777 s (0.046 s 208.822 s)
+size 256 ^ 59 198.723 s (0.045 s 198.767 s)
+## Effective size base 33 bytes (264 bits) exponent 60 bits (in 8 bytes)
+size 264 ^ 60 220.960 s (0.045 s 221.005 s)
+size 264 ^ 60 217.273 s (0.045 s 217.317 s)
+size 264 ^ 60 219.221 s (0.045 s 219.266 s)
+size 264 ^ 60 218.870 s (0.045 s 218.915 s)
+size 264 ^ 60 217.958 s (0.045 s 218.003 s)
+## Effective size base 34 bytes (272 bits) exponent 62 bits (in 8 bytes)
+size 272 ^ 62 233.750 s (0.045 s 233.794 s)
+size 272 ^ 62 234.396 s (0.045 s 234.442 s)
+size 272 ^ 62 236.041 s (0.045 s 236.086 s)
+size 272 ^ 62 237.885 s (0.045 s 237.930 s)
+size 272 ^ 62 237.820 s (0.045 s 237.865 s)
+## Effective size base 35 bytes (280 bits) exponent 63 bits (in 8 bytes)
+size 280 ^ 63 255.392 s (0.046 s 255.438 s)
+size 280 ^ 63 241.291 s (0.045 s 241.336 s)
+size 280 ^ 63 252.763 s (0.045 s 252.808 s)
+size 280 ^ 63 248.695 s (0.045 s 248.740 s)
+size 280 ^ 63 247.101 s (0.045 s 247.146 s)
+## Effective size base 36 bytes (288 bits) exponent 64 bits (in 8 bytes)
+size 288 ^ 64 266.627 s (0.045 s 266.672 s)
+size 288 ^ 64 260.281 s (0.045 s 260.326 s)
+size 288 ^ 64 265.770 s (0.045 s 265.815 s)
+size 288 ^ 64 268.214 s (0.045 s 268.259 s)
+size 288 ^ 64 265.989 s (0.046 s 266.034 s)
+## Effective size base 37 bytes (296 bits) exponent 66 bits (in 9 bytes)
+size 296 ^ 66 304.227 s (0.045 s 304.272 s)
+size 296 ^ 66 306.524 s (0.045 s 306.569 s)
+size 296 ^ 66 298.197 s (0.045 s 298.242 s)
+size 296 ^ 66 304.257 s (0.045 s 304.302 s)
+size 296 ^ 66 300.303 s (0.046 s 300.349 s)
+## Effective size base 38 bytes (304 bits) exponent 67 bits (in 9 bytes)
+size 304 ^ 67 321.457 s (0.045 s 321.501 s)
+size 304 ^ 67 313.572 s (0.045 s 313.617 s)
+size 304 ^ 67 322.957 s (0.045 s 323.001 s)
+size 304 ^ 67 316.635 s (0.045 s 316.680 s)
+size 304 ^ 67 322.388 s (0.045 s 322.433 s)
+## Effective size base 39 bytes (312 bits) exponent 68 bits (in 9 bytes)
+size 312 ^ 68 329.482 s (0.045 s 329.527 s)
+size 312 ^ 68 342.728 s (0.045 s 342.773 s)
+size 312 ^ 68 336.469 s (0.045 s 336.514 s)
+size 312 ^ 68 343.474 s (0.045 s 343.519 s)
+size 312 ^ 68 342.344 s (0.045 s 342.389 s)
+## Effective size base 40 bytes (320 bits) exponent 69 bits (in 9 bytes)
+size 320 ^ 69 350.603 s (0.045 s 350.648 s)
+size 320 ^ 69 364.546 s (0.045 s 364.590 s)
+size 320 ^ 69 353.102 s (0.045 s 353.147 s)
+size 320 ^ 69 352.692 s (0.045 s 352.737 s)
+size 320 ^ 69 357.633 s (0.045 s 357.678 s)
+## Effective size base 41 bytes (328 bits) exponent 70 bits (in 9 bytes)
+size 328 ^ 70 383.345 s (0.045 s 383.391 s)
+size 328 ^ 70 375.375 s (0.045 s 375.420 s)
+size 328 ^ 70 376.757 s (0.045 s 376.803 s)
+size 328 ^ 70 378.551 s (0.046 s 378.597 s)
+size 328 ^ 70 381.405 s (0.045 s 381.449 s)
+## Effective size base 42 bytes (336 bits) exponent 72 bits (in 9 bytes)
+size 336 ^ 72 402.291 s (0.045 s 402.336 s)
+size 336 ^ 72 403.657 s (0.045 s 403.702 s)
+size 336 ^ 72 406.658 s (0.045 s 406.703 s)
+size 336 ^ 72 403.808 s (0.046 s 403.853 s)
+size 336 ^ 72 402.076 s (0.046 s 402.121 s)
+## Effective size base 43 bytes (344 bits) exponent 73 bits (in 10 bytes)
+size 344 ^ 73 445.896 s (0.049 s 445.945 s)
+size 344 ^ 73 441.327 s (0.045 s 441.372 s)
+size 344 ^ 73 446.576 s (0.045 s 446.621 s)
+size 344 ^ 73 439.912 s (0.045 s 439.957 s)
+size 344 ^ 73 435.964 s (0.045 s 436.009 s)
+## Effective size base 44 bytes (352 bits) exponent 74 bits (in 10 bytes)
+size 352 ^ 74 469.273 s (0.045 s 469.318 s)
+size 352 ^ 74 467.984 s (0.045 s 468.029 s)
+size 352 ^ 74 461.991 s (0.045 s 462.036 s)
+size 352 ^ 74 469.064 s (0.045 s 469.109 s)
+size 352 ^ 74 462.338 s (0.045 s 462.384 s)
+## Effective size base 45 bytes (360 bits) exponent 75 bits (in 10 bytes)
+size 360 ^ 75 482.920 s (0.045 s 482.965 s)
+size 360 ^ 75 495.188 s (0.045 s 495.233 s)
+size 360 ^ 75 489.492 s (0.045 s 489.537 s)
+size 360 ^ 75 499.187 s (0.045 s 499.232 s)
+size 360 ^ 75 492.826 s (0.045 s 492.870 s)
+## Effective size base 46 bytes (368 bits) exponent 76 bits (in 10 bytes)
+size 368 ^ 76 521.009 s (0.045 s 521.054 s)
+size 368 ^ 76 511.576 s (0.045 s 511.621 s)
+size 368 ^ 76 522.690 s (0.046 s 522.735 s)
+size 368 ^ 76 520.000 s (0.045 s 520.045 s)
+size 368 ^ 76 521.095 s (0.045 s 521.140 s)
+## Effective size base 47 bytes (376 bits) exponent 77 bits (in 10 bytes)
+Load applet _java_build_dir/card/test/ov_test/javacard/ov_test.cap.
+DEBUG: packagePath: ov_test/javacard/
+DEBUG: package: ov_test
+DEBUG: package AID: 6F 76 5F 74 65 73 74 
+DEBUG: applet AIDs: [6F 76 5F 74 65 73 74 2E 61 70 70 ]
+Applet loading finished.
+Install applet ov_test.app of package ov_test.
+Installation arguments : C910.00F4.0102.0082.0005.0000.0121.C47A.6480
+Install finished.
+Connected to applet created at 9 June 2009 12:05:04 CEST
+with maximal sizes 244, 258, 130 and 5.
+Applet was compiled WITHOUT assertion checks.
+Applet status matches, continue.
+### Performance test started on 9 June 2009 12:06:51 CEST
+### command ./test_host -reinstall -r 1 -vec-exp-perf -rounds 5 -vec-len 5 -pre-base-fac 5 -start-size 47 
+### Performance test constants:
+###   int rsa_year   : 2009
+###   short size     : 26
+###   long size      : 256
+###   double size    : 130
+###   int short_bit_size : 1952
+###   int start_size : 47
+###   vector length  : 5
+###   pre computed   : 5
+###   divisor length : 100
+###   keep modulus   : false
+###   rounds         : 5
+###   start size     : 47
+###   verbosity      : 0
+###   apduscript     : false
+###   terminal       : PCSC_TERMINAL
+###   card reader    : 1
+################# PURE_JAVA power perf start
+## Effective size base 47 bytes (376 bits) exponent 77 bits (in 10 bytes)
+size 376 ^ 77 548.407 s (0.053 s 548.459 s)
+size 376 ^ 77 536.341 s (0.045 s 536.386 s)
+size 376 ^ 77 534.770 s (0.045 s 534.815 s)
+size 376 ^ 77 544.951 s (0.045 s 544.996 s)
+size 376 ^ 77 547.708 s (0.045 s 547.753 s)
+## Effective size base 48 bytes (384 bits) exponent 78 bits (in 10 bytes)
+size 384 ^ 78 557.113 s (0.045 s 557.158 s)
+size 384 ^ 78 549.594 s (0.045 s 549.639 s)
+size 384 ^ 78 567.727 s (0.046 s 567.773 s)
+size 384 ^ 78 565.573 s (0.046 s 565.618 s)
+size 384 ^ 78 567.019 s (0.045 s 567.064 s)
+## Effective size base 49 bytes (392 bits) exponent 80 bits (in 10 bytes)
+size 392 ^ 80 593.609 s (0.045 s 593.653 s)
+size 392 ^ 80 595.194 s (0.045 s 595.239 s)
+size 392 ^ 80 592.828 s (0.045 s 592.873 s)
+size 392 ^ 80 608.125 s (0.045 s 608.170 s)
+size 392 ^ 80 595.925 s (0.045 s 595.970 s)
+## Effective size base 50 bytes (400 bits) exponent 81 bits (in 11 bytes)
+size 400 ^ 81 650.156 s (0.045 s 650.201 s)
+size 400 ^ 81 667.105 s (0.045 s 667.150 s)
+size 400 ^ 81 654.553 s (0.045 s 654.598 s)
+size 400 ^ 81 651.594 s (0.045 s 651.639 s)
+size 400 ^ 81 668.326 s (0.045 s 668.371 s)
+## Effective size base 51 bytes (408 bits) exponent 82 bits (in 11 bytes)
+size 408 ^ 82 689.338 s (0.045 s 689.383 s)
+size 408 ^ 82 668.113 s (0.045 s 668.159 s)
+size 408 ^ 82 675.866 s (0.045 s 675.912 s)
+size 408 ^ 82 684.670 s (0.046 s 684.715 s)
+size 408 ^ 82 686.573 s (0.045 s 686.618 s)
+## Effective size base 52 bytes (416 bits) exponent 83 bits (in 11 bytes)
+size 416 ^ 83 692.626 s (0.045 s 692.671 s)
+size 416 ^ 83 712.696 s (0.048 s 712.745 s)
+size 416 ^ 83 717.126 s (0.045 s 717.171 s)
+size 416 ^ 83 725.903 s (0.045 s 725.948 s)
+size 416 ^ 83 704.495 s (0.045 s 704.541 s)
+## Effective size base 53 bytes (424 bits) exponent 84 bits (in 11 bytes)
+size 424 ^ 84 746.499 s (0.045 s 746.544 s)
+size 424 ^ 84 760.907 s (0.045 s 760.953 s)
+size 424 ^ 84 757.025 s (0.046 s 757.070 s)
+size 424 ^ 84 746.468 s (0.045 s 746.514 s)
+size 424 ^ 84 744.729 s (0.046 s 744.774 s)
+## Effective size base 54 bytes (432 bits) exponent 85 bits (in 11 bytes)
+size 432 ^ 85 789.971 s (0.046 s 790.017 s)
+size 432 ^ 85 780.712 s (0.045 s 780.757 s)
+size 432 ^ 85 781.431 s (0.045 s 781.476 s)
+size 432 ^ 85 781.027 s (0.045 s 781.073 s)
+size 432 ^ 85 785.975 s (0.045 s 786.020 s)
+## Effective size base 55 bytes (440 bits) exponent 86 bits (in 11 bytes)
+size 440 ^ 86 814.320 s (0.045 s 814.365 s)
+size 440 ^ 86 799.696 s (0.045 s 799.742 s)
+size 440 ^ 86 802.609 s (0.045 s 802.654 s)
+size 440 ^ 86 811.453 s (0.045 s 811.498 s)
+size 440 ^ 86 813.474 s (0.045 s 813.519 s)
+## Effective size base 56 bytes (448 bits) exponent 87 bits (in 11 bytes)
+size 448 ^ 87 840.192 s (0.046 s 840.237 s)
+size 448 ^ 87 856.767 s (0.045 s 856.813 s)
+size 448 ^ 87 845.867 s (0.045 s 845.912 s)
+size 448 ^ 87 841.611 s (0.045 s 841.656 s)
+size 448 ^ 87 846.179 s (0.045 s 846.224 s)
+## Effective size base 57 bytes (456 bits) exponent 88 bits (in 11 bytes)
+Load applet _java_build_dir/card/test/ov_test/javacard/ov_test.cap.
+DEBUG: packagePath: ov_test/javacard/
+DEBUG: package: ov_test
+DEBUG: package AID: 6F 76 5F 74 65 73 74 
+DEBUG: applet AIDs: [6F 76 5F 74 65 73 74 2E 61 70 70 ]
+Applet loading finished.
+Install applet ov_test.app of package ov_test.
+Installation arguments : C910.00F4.0102.0082.0005.0000.0121.C47A.6480
+Install finished.
+Connected to applet created at 9 June 2009 12:05:04 CEST
+with maximal sizes 244, 258, 130 and 5.
+Applet was compiled WITHOUT assertion checks.
+Applet status matches, continue.
+### Performance test started on 9 June 2009 22:18:07 CEST
+### command ./test_host -reinstall -r 1 -vec-exp-perf -rounds 5 -vec-len 5 -pre-base-fac 5 -start-size 57 
+### Performance test constants:
+###   int rsa_year   : 2009
+###   short size     : 26
+###   long size      : 256
+###   double size    : 130
+###   int short_bit_size : 1952
+###   int start_size : 57
+###   vector length  : 5
+###   pre computed   : 5
+###   divisor length : 100
+###   keep modulus   : false
+###   rounds         : 5
+###   start size     : 57
+###   verbosity      : 0
+###   apduscript     : false
+###   terminal       : PCSC_TERMINAL
+###   card reader    : 1
+################# PURE_JAVA power perf start
+## Effective size base 57 bytes (456 bits) exponent 88 bits (in 11 bytes)
+size 456 ^ 88 876.450 s (0.046 s 876.496 s)
+size 456 ^ 88 875.824 s (0.045 s 875.869 s)
+size 456 ^ 88 889.354 s (0.045 s 889.399 s)
+size 456 ^ 88 865.507 s (0.045 s 865.552 s)
+size 456 ^ 88 879.624 s (0.045 s 879.669 s)
+## Effective size base 58 bytes (464 bits) exponent 89 bits (in 12 bytes)
+size 464 ^ 89 941.378 s (0.045 s 941.423 s)
+size 464 ^ 89 940.752 s (0.046 s 940.797 s)
+size 464 ^ 89 957.214 s (0.045 s 957.259 s)
+size 464 ^ 89 941.397 s (0.045 s 941.443 s)
+size 464 ^ 89 956.070 s (0.045 s 956.115 s)
+## Effective size base 59 bytes (472 bits) exponent 90 bits (in 12 bytes)
+size 472 ^ 90 998.610 s (0.045 s 998.655 s)
+size 472 ^ 90 999.223 s (0.045 s 999.269 s)
+size 472 ^ 90 995.781 s (0.045 s 995.826 s)
+size 472 ^ 90 998.806 s (0.045 s 998.851 s)
+size 472 ^ 90 1001.151 s (0.045 s 1001.197 s)
+## Effective size base 60 bytes (480 bits) exponent 91 bits (in 12 bytes)
+size 480 ^ 91 1022.899 s (0.045 s 1022.944 s)
+size 480 ^ 91 1025.921 s (0.045 s 1025.967 s)
+size 480 ^ 91 1032.860 s (0.045 s 1032.905 s)
+size 480 ^ 91 1009.831 s (0.046 s 1009.876 s)
+size 480 ^ 91 1026.689 s (0.045 s 1026.734 s)
+## Effective size base 61 bytes (488 bits) exponent 92 bits (in 12 bytes)
+size 488 ^ 92 1058.051 s (0.046 s 1058.097 s)
+size 488 ^ 92 1076.521 s (0.045 s 1076.566 s)
+size 488 ^ 92 1053.181 s (0.045 s 1053.226 s)
+size 488 ^ 92 1059.530 s (0.045 s 1059.574 s)
+size 488 ^ 92 1047.078 s (0.045 s 1047.123 s)
+## Effective size base 62 bytes (496 bits) exponent 93 bits (in 12 bytes)
+size 496 ^ 93 1102.893 s (0.046 s 1102.939 s)
+size 496 ^ 93 1099.446 s (0.045 s 1099.491 s)
+size 496 ^ 93 1111.891 s (0.045 s 1111.936 s)
+size 496 ^ 93 1121.438 s (0.045 s 1121.483 s)
+size 496 ^ 93 1097.315 s (0.045 s 1097.360 s)
+## Effective size base 63 bytes (504 bits) exponent 93 bits (in 12 bytes)
+size 504 ^ 93 1132.244 s (0.045 s 1132.289 s)
+size 504 ^ 93 1145.594 s (0.045 s 1145.639 s)
+size 504 ^ 93 1144.873 s (0.045 s 1144.919 s)
+size 504 ^ 93 1132.869 s (0.045 s 1132.915 s)
+size 504 ^ 93 1119.369 s (0.045 s 1119.413 s)
+## Effective size base 64 bytes (512 bits) exponent 94 bits (in 12 bytes)
+Load applet _java_build_dir/card/test/ov_test/javacard/ov_test.cap.
+DEBUG: packagePath: ov_test/javacard/
+DEBUG: package: ov_test
+DEBUG: package AID: 6F 76 5F 74 65 73 74 
+DEBUG: applet AIDs: [6F 76 5F 74 65 73 74 2E 61 70 70 ]
+Applet loading finished.
+Install applet ov_test.app of package ov_test.
+Installation arguments : C910.00F4.0102.0082.0005.0000.0121.CE85.1240
+Install finished.
+Connected to applet created at 11 June 2009 10:52:56 CEST
+with maximal sizes 244, 258, 130 and 5.
+Applet was compiled WITHOUT assertion checks.
+Applet status matches, continue.
+### Performance test started on 11 June 2009 10:55:33 CEST
+### command ./test_host -reinstall -r 1 -vec-exp-perf -rounds 5 -vec-len 5 -pre-base-fac 5 -start-size 64 
+### Performance test constants:
+###   int rsa_year   : 2009
+###   short size     : 26
+###   long size      : 256
+###   double size    : 130
+###   int short_bit_size : 1952
+###   int start_size : 64
+###   vector length  : 5
+###   pre computed   : 5
+###   divisor length : 100
+###   keep modulus   : false
+###   rounds         : 5
+###   start size     : 64
+###   verbosity      : 0
+###   apduscript     : false
+###   terminal       : PCSC_TERMINAL
+###   card reader    : 1
+################# PURE_JAVA power perf start
+## Effective size base 64 bytes (512 bits) exponent 94 bits (in 12 bytes)
+size 512 ^ 94 1189.399 s (0.045 s 1189.444 s)
+size 512 ^ 94 1168.965 s (0.045 s 1169.011 s)
+size 512 ^ 94 1176.170 s (0.045 s 1176.215 s)
+size 512 ^ 94 1166.177 s (0.045 s 1166.223 s)
+size 512 ^ 94 1195.241 s (0.046 s 1195.287 s)
+## Effective size base 65 bytes (520 bits) exponent 95 bits (in 12 bytes)
+Card communication error: javax.smartcardio.CardException: sun.security.smartcardio.PCSCException: SCARD_E_NOT_TRANSACTED

@@ -1,0 +1,5 @@
+#!/bin/bash
+
+set -x
+gpm $* -load _java_build_dir/card/test/ov_test/javacard/ov_test.cap \
+	-install -param C90600F401020005

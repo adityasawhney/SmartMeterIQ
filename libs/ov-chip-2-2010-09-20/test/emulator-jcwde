@@ -1,0 +1,12 @@
+#!/bin/bash
+
+JCKIT=/home/tews/java/card/jckits/jc222
+
+
+make -C ../emulator/wrapper owrapper
+
+
+(sleep 1; $JCKIT/bin/apdutool create-jcwde.apduscript)&
+
+../emulator/wrapper/owrapper -cp _java_build_dir/card/test jcwde-config.app $*
+

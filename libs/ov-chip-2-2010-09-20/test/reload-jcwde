@@ -1,0 +1,10 @@
+#!/bin/bash
+
+JCKIT=/home/tews/java/card/jckits/jc222
+
+$JCKIT/bin/apdutool <<EOF
+powerup;
+powerdown;
+EOF
+
+$JCKIT/bin/apdutool create-jcwde.apduscript

@@ -1,0 +1,60 @@
+#!/bin/bash
+
+rounds="1"
+log=performance-log
+fileopt=-write
+
+function usage(){
+    echo 'performance-test options ...'
+    echo 'valid options are:'
+    echo '  -read		do not generate test data'
+    echo '  -log logfile	write performance log to logfile'
+    exit 1
+}
+
+
+
+while [ $# -gt 0 ] ; do
+    case $1 in 
+	-log)
+	    log=$2; shift;;
+	-read)
+	    fileopt=-read;;
+	*)
+	    usage;;
+    esac
+    shift
+done
+
+
+function dotest() {
+    make clean
+    make "CPPFLAGS=$CPPFLAGS" testbignat
+
+    for f in $rounds ; do
+	echo >> $log
+	echo test $f $CPPFLAGS >> $log
+	./run-testbignat -vec-exp -vec-exp-var 5 -size 264 \
+	    -rounds 1000 $fileopt data$f \
+	    | tee -a $log
+    done
+}
+
+set -x
+set -e
+
+echo performance test > $log
+
+export CPPFLAGS="-DBIGNAT_USE_INT"
+dotest
+
+fileopt=-read
+export CPPFLAGS="-DBIGNAT_USE_INT -DOPT_DOUBLE_ADD"
+dotest
+
+export CPPFLAGS="-DBIGNAT_USE_INT -DOPT_SKIP_DEVIDE"
+dotest
+
+export CPPFLAGS="-DBIGNAT_USE_INT -DOPT_SPECIAL_SQUARE"
+dotest
+

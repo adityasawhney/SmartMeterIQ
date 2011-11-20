@@ -1,0 +1,47 @@
+// 
+// OV-chip 2.0 project
+// 
+// Digital Security (DS) group at Radboud Universiteit Nijmegen
+// 
+// Copyright (C) 2008, 2009
+// 
+// This program is free software; you can redistribute it and/or
+// modify it under the terms of the GNU General Public License as
+// published by the Free Software Foundation; either version 2 of
+// the License, or (at your option) any later version.
+// 
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+// General Public License in file COPYING in this or one of the
+// parent directories for more details.
+// 
+// Created 23.10.08 by Hendrik
+// 
+// bignat configuration
+// 
+// $Id: bignatconfig,v 1.3 2010-02-12 20:19:36 tews Exp $
+
+#ifdef BIGNAT_USE_INT
+  // Let bignat operate on ints, using long for multiplication results.
+  #define DIGIT_TYPE int
+  #define DOUBLE_DIGIT_TYPE long
+  #define APDU_DOUBLE_DIGIT_TYPE APDU_long
+
+#else
+
+  #define BIGNAT_USE_BYTE
+  // Let bignat operate on bytes, using short for multiplication results.
+  #define DIGIT_TYPE byte
+  #define DOUBLE_DIGIT_TYPE short
+  #define APDU_DOUBLE_DIGIT_TYPE APDU_short
+
+  #define ONLY_SUPPORTED_FOR_BYTE
+
+#endif
+
+
+
+/// Local Variables:
+/// mode: c
+/// End:

@@ -1,0 +1,605 @@
+<BODY>
+Internal (private) documentation of the OV-chip 2.0 sources.
+
+
+<H2>Overview</H2>
+
+This is the API documentation of the OV-chip specific java
+sources that have been developed during the OV-chip 2.0 project.
+<P>
+
+The OV-chip 2.0 project is sponsored by the NLnet foundation, see
+<A HREF="www.nlnet.nl" >the NLnet website</A> and <A
+HREF="https://ovchip.cs.ru.nl/OV-chip_2.0" >the project web
+pages.</A>
+<P>
+
+For an introduction into the sources on a more general level see
+the <A HREF="../hacker-guide.pdf" >OV-Chip 2.0 Hacker's Guide.</A>
+<P>
+
+This page contains
+<OL>
+<LI><A HREF="#cpp_directives" >The list of all currently used cpp
+preprocessor directives</A>
+</LI>
+<LI><A HREF="#assert_tags" >The list of all currently used assert
+tags</A>
+</LI>
+<LI><A HREF="#test_failed_tags">The list of all currently used
+OV_TEST_FAILED_00 tags</A>
+</LI>
+</OL>
+
+
+
+<A  name="cpp_directives">
+<H2>CPP preprocessor directives</H2>
+</A>
+
+To achieve some level of platform independence many files in this
+source tree must be processed with the C preprocessor cpp, see
+the hackers guide for more details. Here is a list of all
+preprocessor directives that are used.
+
+
+<DL>
+<!--
+ *   <a href="../../../overview-summary.html#APDU_DOUBLE_DIGIT_TYPE">APDU_DOUBLE_DIGIT_TYPE<a>
+  -->
+<DT><STRONG><a name="APDU_DOUBLE_DIGIT_TYPE">APDU_DOUBLE_DIGIT_TYPE</a></STRONG>
+<DD>{@link ds.ov2.util.APDU_Serializable} wrapper around <A
+      HREF="#DOUBLE_DIGIT_TYPE" >DOUBLE_DIGIT_TYPE</A>
+    <P>
+
+<!--
+ *   <a href="../../../overview-summary.html#APPLET_TESTFRAME">APPLET_TESTFRAME<a>
+  -->
+<DT><STRONG><a name="APPLET_TESTFRAME">APPLET_TESTFRAME</a></STRONG>
+<DD>Defined in the IDL-compiler supported testframe that runs
+        the applet code on a normal JVM. Enables special debug
+        code that should only run in this test frame.
+    <P>
+
+
+<!--
+ *   <a href="../../../overview-summary.html#ASSERT">ASSERT<a>
+  -->
+<DT><STRONG><a name="ASSERT">ASSERT</a></STRONG>
+<DD>On the host, it behaves like a normal assertion, because it
+      expands to {@code assert}.
+      On the card, expands to {@link ds.ov2.util.Misc#myassert 
+      Misc.myassert}, which throws an {@link
+      javacard.framework.ISOException} with response
+      status {@link ds.ov2.util.Response_status#OV_ASSERTION_00} 
+      if the condition is false. 
+      <P>
+      On the card assertion evaluation can be disabled with 
+      NO_CARD_ASSERT. In the bignat test frame with NO_ASSERT.
+      <P>
+      {@code ASSERT(x)} expands to {@code ASSERT_TAG(x, 0)}, which 
+      does the job.
+    <P>
+
+<!--
+ *   <a href="../../../overview-summary.html#ASSERT_TAG">ASSERT_TAG<a>
+  -->
+<DT><STRONG><a name="ASSERT_TAG">ASSERT_TAG(condition, tag)</a></STRONG>
+<DD>Same as ASSERT, except that on the card the tag is or-ed into
+      the lower byte of the response status. A number of assert tags
+      are already used, see <A HREF="#assert_tags" >the list below.</A>
+    <P>
+
+<!--
+ *   <a href="../../../overview-summary.html#BIGNAT_TESTFRAME">BIGNAT_TESTFRAME<a>
+  -->
+<DT><STRONG><a name="BIGNAT_TESTFRAME">BIGNAT_TESTFRAME</a></STRONG>
+<DD>When defined (inside the bignat testframe 
+     {@link ds.ov2.bignat.Testbignat Testbignat}) printing of debug
+     info to System.out is enabled.
+    <P>
+
+<!--
+ *   <a href="../../../overview-summary.html#BIGNAT_USE_BYTE ">BIGNAT_USE_BYTE <a>
+  -->
+<DT><STRONG><a name="BIGNAT_USE_BYTE ">BIGNAT_USE_BYTE </a></STRONG>
+<DD>when defined selects the byte/short
+    configuration,
+    when undefined selects the int/long configuration
+    <P>
+
+<!--
+ *   <a href="../../../overview-summary.html#BIGNAT_USE_INT">BIGNAT_USE_INT<a>
+  -->
+<DT><STRONG><a name="BIGNAT_USE_INT">BIGNAT_USE_INT</a></STRONG>
+<DD>currently not used. However, for
+      compatibility with future relases it is defined
+      precisely when BIGNAT_USE_BYTE is undefined.
+    <P>
+
+
+<!--
+ *   <a href="../../../overview-summary.html#CARD_SIGNATURE_ALWAYS_ACCEPT">CARD_SIGNATURE_ALWAYS_ACCEPT<a>
+  -->
+<DT><STRONG><a name="CARD_SIGNATURE_ALWAYS_ACCEPT">CARD_SIGNATURE_ALWAYS_ACCEPT</a></STRONG>
+<DD>If defined, the resign protocol in the plain RSA applet does
+always accept the new signature without checking the acceptance
+condition. This is useful, for instance, when all computations
+yield wrong results, because for instance <A
+HREF="#MONTGOMERY_MULT_SHORTCUT" >MONTGOMERY_MULT_SHORTCUT</A> is
+defined. 
+    <P>
+
+
+<!--
+ *   <a href="../../../overview-summary.html#CARD_TESTFRAME">CARD_TESTFRAME<a>
+  -->
+<DT><STRONG><a name="CARD_TESTFRAME">CARD_TESTFRAME</a></STRONG>
+<DD>Defined in all test applets.
+      Enables test code to be run on the card.
+      Implies that TESTFRAME and JAVACARD_APPLET is defined.
+    <P>
+
+
+<!--
+ *   <a href="../../../overview-summary.html#CREF_INSTALL_ARG_HACK">CREF_INSTALL_ARG_HACK<a>
+  -->
+<DT><STRONG><a name="CREF_INSTALL_ARG_HACK">CREF_INSTALL_ARG_HACK</a></STRONG>
+<DD>Enables workaround code to obtain applet-installation arguments
+	inside the buggy sun emulators cref and jcwde.
+    <P>
+
+
+<!--
+ *   <a href="../../../overview-summary.html#DIGIT_TYPE">DIGIT_TYPE<a>
+  -->
+<DT><STRONG><a name="DIGIT_TYPE">DIGIT_TYPE</a></STRONG>
+<DD>Expands to the type for one digit, byte for the byte/short 
+      configuration and int for the int/long configuration.
+    <P>
+
+<!--
+ *   <a href="../../../overview-summary.html#DOUBLE_DIGIT_TYPE">DOUBLE_DIGIT_TYPE<a>
+  -->
+<DT><STRONG><a name="DOUBLE_DIGIT_TYPE">DOUBLE_DIGIT_TYPE</a></STRONG>
+<DD>Expands to the type for a double digit, short for the byte/short 
+      configuration and long for the int/long configuration.
+    <P>
+
+<!--
+ *   <a href="../../../overview-summary.html#HOST_TESTFRAME">HOST_TESTFRAME<a>
+  -->
+<DT><STRONG><a name="HOST_TESTFRAME">HOST_TESTFRAME</a></STRONG>
+<DD>When defined enables code to be run inside a host test frame, 
+      such as printing intermediate values. Implies that TESTFRAME 
+      is defined and that JAVACARD_APPLET is undefined.
+    <P>
+
+<!--
+ *   <a href="../../../overview-summary.html#JAVACARD_APPLET">JAVACARD_APPLET<a>
+  -->
+<DT><STRONG><a name="JAVACARD_APPLET">JAVACARD_APPLET</a></STRONG>
+<DD>Switches between code variants for Java Card (when defined) and 
+      for the host (when undefiend).
+    <P>
+
+<!--
+ *   <a href="../../../overview-summary.html#JAVADOC">JAVADOC<a>
+  -->
+<DT><STRONG><a name="JAVADOC">JAVADOC</a></STRONG>
+<DD>When defined, enables all methods. Used to ensure the 
+      documentation contains everything.
+    <P>
+
+<!--
+ *   <a href="../../../overview-summary.html#MESSAGE_DIGEST">MESSAGE_DIGEST<a>
+  -->
+<DT><STRONG><a name="MESSAGE_DIGEST">MESSAGE_DIGEST</a></STRONG>
+<DD>Expands to either {@link javacard.security.MessageDigest} or
+    {@link ds.ov2.util.Message_digest_wrapper}. The former
+    provides the SHA hash function on Java Card. The latter
+    provides a drop-in replacement for the <A
+    HREF="#APPLET_TESTFRAME" >APPLET_TESTFRAME</A>. 
+    <P>
+
+
+<!--
+ *   <a href="../../../overview-summary.html#MONT_APPLET_TESTFRAME">MONT_APPLET_TESTFRAME<a>
+  -->
+<DT><STRONG><a name="MONT_APPLET_TESTFRAME">MONT_APPLET_TESTFRAME</a></STRONG>
+<DD>Selects the configuration for the host test frame (linking
+    applet and host code into one program) of the montgomerizing
+    RSA applet in the {@link ds.ov2.front} package. Only used in
+    the Makefile and the cpp config file there.
+    <P>
+
+
+<!--
+ *   <a href="../../../overview-summary.html#MONTGOMERY_MULT_SHORTCUT">MONTGOMERY_MULT_SHORTCUT<a>
+  -->
+<DT><STRONG><a name="MONTGOMERY_MULT_SHORTCUT">MONTGOMERY_MULT_SHORTCUT</a></STRONG>
+<DD><SRONG>Incorrect</STRONG> optimization for Montgomery 
+    multiplication. When defined, the multiplication
+    immediately returns one, regardless of the arguments. Useful for
+    performance only tests ...
+    <P>
+
+<!--
+ *   <a href="../../../overview-summary.html#NO_ASSERT">NO_ASSERT<a>
+  -->
+<DT><STRONG><a name="NO_ASSERT">NO_ASSERT</a></STRONG>
+<DD>When defined, disables assertion checking. Used only in the 
+      config file for the bignat test frame.
+    <P>
+
+<!--
+ *   <a href="../../../overview-summary.html#NO_CARD_ASSERT">NO_CARD_ASSERT<a>
+  -->
+<DT><STRONG><a name="NO_CARD_ASSERT">NO_CARD_ASSERT</a></STRONG>
+<DD>When defined, disables assertion checking on the card. Used 
+      for larger assertion blocks, that cannot be packed into
+      an expression.
+      Apart from that it appears in several config files for 
+      disabling assertions.
+    <P>
+
+
+<!--
+ *   <a href="../../../overview-summary.html#OPT_DOUBLE_ADD">OPT_DOUBLE_ADD<a>
+  -->
+<DT><STRONG><a name="OPT_DOUBLE_ADD">OPT_DOUBLE_ADD</a></STRONG>
+<DD>When enabled, the two additions inside {@link
+      ds.ov2.bignat.Bignat#montgomery_mult 
+      montgomery_mult}
+      are combined in one loop. In my tests this apparent optimization
+      slows down the code in the bignat test frame.
+    <P>
+
+<!--
+ *   <a href="../../../overview-summary.html#OPT_SKIP_DEVIDE">OPT_SKIP_DEVIDE<a>
+  -->
+<DT><STRONG><a name="OPT_SKIP_DEVIDE">OPT_SKIP_DEVIDE</a></STRONG>
+<DD>Optimization. When defined, the final division inside 
+    {@link ds.ov2.bignat.Bignat#montgomery_mult montgomery_mult}
+    is sometimes skipped.
+    <P>
+
+<!--
+ *   <a href="../../../overview-summary.html#OPT_SPECIAL_SQUARE">OPT_SPECIAL_SQUARE<a>
+  -->
+<DT><STRONG><a name="OPT_SPECIAL_SQUARE">OPT_SPECIAL_SQUARE</a></STRONG>
+<DD>Optimization. When defined makes a specially optimized method 
+    for modular squaring, {@link
+    ds.ov2.bignat.Bignat#montgomery_square montgomery_square},
+    available.
+    <P>
+
+
+<!--
+ *   <a href="../../../overview-summary.html#OV_MONT_RSA_APPLET">OV_MONT_RSA_APPLET<a>
+  -->
+<DT><STRONG><a name="OV_MONT_RSA_APPLET">OV_MONT_RSA_APPLET</a></STRONG>
+<DD>Selects the configuration for the montgomerizing
+    RSA applet in the {@link ds.ov2.front} package. Only used in
+    the cpp config file there.
+    <P>
+
+
+<!--
+ *   <a href="../../../overview-summary.html#OV_MONT_RSA_TEST_APPLET">OV_MONT_RSA_TEST_APPLET<a>
+  -->
+<DT><STRONG><a name="OV_MONT_RSA_TEST_APPLET">OV_MONT_RSA_TEST_APPLET</a></STRONG>
+<DD>Selects the configuration for the test version of the montgomerizing
+    RSA applet in the {@link ds.ov2.front} package. Only used in
+    the Makefile and the cpp config file there.
+    <P>
+
+
+<!--
+ *   <a href="../../../overview-summary.html#OV_PLAIN_RSA_APPLET">OV_PLAIN_RSA_APPLET<a>
+  -->
+<DT><STRONG><a name="OV_PLAIN_RSA_APPLET">OV_PLAIN_RSA_APPLET</a></STRONG>
+<DD>Selects the configuration for the plain
+    RSA applet in the {@link ds.ov2.front} package. Only used in
+    the cpp config file there.
+    <P>
+
+
+<!--
+ *   <a href="../../../overview-summary.html#OV_PLAIN_RSA_TEST_APPLET">OV_PLAIN_RSA_TEST_APPLET<a>
+  -->
+<DT><STRONG><a name="OV_PLAIN_RSA_TEST_APPLET">OV_PLAIN_RSA_TEST_APPLET</a></STRONG>
+<DD>Selects the configuration for the test version of the plain
+    RSA applet in the {@link ds.ov2.front} package. Only used in
+    the Makefile and the cpp config file there.
+    <P>
+
+
+<!--
+ *   <a href="../../../overview-summary.html#OV_SQUARE_RSA_APPLET">OV_SQUARE_RSA_APPLET<a>
+  -->
+<DT><STRONG><a name="OV_SQUARE_RSA_APPLET">OV_SQUARE_RSA_APPLET</a></STRONG>
+<DD>Selects the configuration for the squaring
+    RSA applet in the {@link ds.ov2.front} package. Only used in
+    the cpp config file there.
+    <P>
+
+
+<!--
+ *   <a href="../../../overview-summary.html#OV_SQUARE_RSA_TEST_APPLET">OV_SQUARE_RSA_TEST_APPLET<a>
+  -->
+<DT><STRONG><a name="OV_SQUARE_RSA_TEST_APPLET">OV_SQUARE_RSA_TEST_APPLET</a></STRONG>
+<DD>Selects the configuration for the test version of the squaring
+    RSA applet in the {@link ds.ov2.front} package. Only used in
+    the Makefile and the cpp config file there.
+    <P>
+
+
+<!--
+ *   <a href="../../../overview-summary.html#OV_SQUARE4_RSA_APPLET">OV_SQUARE4_RSA_APPLET<a>
+  -->
+<DT><STRONG><a name="OV_SQUARE4_RSA_APPLET">OV_SQUARE4_RSA_APPLET</a></STRONG>
+<DD>Selects the configuration for the square 4
+    RSA applet in the {@link ds.ov2.front} package. Only used in
+    the cpp config file there.
+    <P>
+
+
+<!--
+ *   <a href="../../../overview-summary.html#OV_SQUARE4_RSA_TEST_APPLET">OV_SQUARE4_RSA_TEST_APPLET<a>
+  -->
+<DT><STRONG><a name="OV_SQUARE4_RSA_TEST_APPLET">OV_SQUARE4_RSA_TEST_APPLET</a></STRONG>
+<DD>Selects the configuration for the test version of the square 4
+    RSA applet in the {@link ds.ov2.front} package. Only used in
+    the Makefile and the cpp config file there.
+    <P>
+
+
+<!--
+ *   <a href="../../../overview-summary.html#OV_TEST_APPLET">OV_TEST_APPLET<a>
+  -->
+<DT><STRONG><a name="OV_TEST_APPLET">OV_TEST_APPLET</a></STRONG>
+<DD>Selects the configuration for the test applet code in the
+        {@link ds.ov2.test} package. Only used in the Makefile
+        and the cpp config file there.
+    <P>
+
+
+<!--
+ *   <a href="../../../overview-summary.html#PACKAGE">PACKAGE<a>
+  -->
+<DT><STRONG><a name="PACKAGE">PACKAGE</a></STRONG>
+<DD>When defined, expands to the package name. Used on the card 
+    to let classes be part of different applets and packages.
+    <P>
+
+
+<!--
+ *   <a href="../../../overview-summary.html#PLAIN_APPLET_TESTFRAME">PLAIN_APPLET_TESTFRAME<a>
+  -->
+<DT><STRONG><a name="PLAIN_APPLET_TESTFRAME">PLAIN_APPLET_TESTFRAME</a></STRONG>
+<DD>Selects the configuration for the host test frame (linking
+    applet and host code into one program) of the plain
+    RSA applet in the {@link ds.ov2.front} package. Only used in
+    the Makefile and the cpp config file there.
+    <P>
+
+
+<!--
+ *   <a href="../../../overview-summary.html#PUBLIC">PUBLIC<a>
+  -->
+<DT><STRONG><a name="PUBLIC">PUBLIC</a></STRONG>
+<DD>Expands to public on the host and to nothing on the card, to 
+    hide the class on the card but make it visible to different 
+    packages on the host.
+    <P>
+
+<!--
+ *   <a href="../../../overview-summary.html#RANDOM">RANDOM<a>
+  -->
+<DT><STRONG><a name="RANDOM">RANDOM</a></STRONG>
+<DD>Type of the random number source. 
+    {@link javacard.security.RandomData} on the card 
+    and {@link java.util.Random} on the host.
+    <P>
+
+
+<!--
+ *   <a href="../../../overview-summary.html#RSA_CARD">RSA_CARD<a>
+  -->
+<DT><STRONG><a name="RSA_CARD">RSA_CARD</a></STRONG>
+<DD>Expands to either {@link ds.ov2.front.RSA_plain_card} or
+      {@link ds.ov2.front.RSA_mont_card}. This makes it possible
+      to share all except one file between the plain and the
+      Montgomerizing RSA applet.
+    <P>
+
+
+<!--
+ *   <a href="../../../overview-summary.html#RSA_CARD_PROTOCOL_STUBS">RSA_CARD_PROTOCOL_STUBS<a>
+  -->
+<DT><STRONG><a name="RSA_CARD_PROTOCOL_STUBS">RSA_CARD_PROTOCOL_STUBS</a></STRONG>
+<DD>Expands to either {@link ds.ov2.front.RSA_card_protocol_stubs} or
+      {@link ds.ov2.front.RSA_card_protocol_test_stubs}. The
+      former talks directly to cards or emulators via the
+      javax.smartcardio library. The latter invokes the step methods
+      directly, see also
+      <a href="#APPLET_TESTFRAME">APPLET_TESTFRAME<a>
+    <P>
+
+
+<!--
+ *   <a href="../../../overview-summary.html#RSA_DEBUG_PROTOCOL_STUBS">RSA_DEBUG_PROTOCOL_STUBS<a>
+  -->
+<DT><STRONG><a name="RSA_DEBUG_PROTOCOL_STUBS">RSA_DEBUG_PROTOCOL_STUBS</a></STRONG>
+<DD>Expands to either {@link ds.ov2.front.RSA_card_debug_stubs} or
+      {@link ds.ov2.front.RSA_card_debug_test_stubs}. The
+      former talks directly to cards or emulators via the
+      javax.smartcardio library. The latter invokes the step methods
+      directly, see also
+      <a href="#APPLET_TESTFRAME">APPLET_TESTFRAME<a>
+    <P>
+
+
+<!--
+ *   <a href="../../../overview-summary.html#RSA_EXPONENT">RSA_EXPONENT<a>
+  -->
+<DT><STRONG><a name="RSA_EXPONENT">RSA_EXPONENT</a></STRONG>
+<DD>Expands to either {@link ds.ov2.bignat.RSA_exponent} or
+      {@link ds.ov2.bignat.Fake_rsa_exponent}. The former
+      computes exponents on the card with the help of the RSA
+      cipher, the latter is a drop-in replacement for the <A
+      HREF="#APPLET_TESTFRAME" >APPLET_TESTFRAME</A>. Only used
+      in type declararations and constructor statements, where
+      {@link ds.ov2.bignat.RSA_exponent_interface} cannot be used.
+    <P>
+
+
+<!--
+ *   <a href="../../../overview-summary.html#SHIFT_LESSER">SHIFT_LESSER<a>
+  -->
+<DT><STRONG><a name="SHIFT_LESSER">SHIFT_LESSER</a></STRONG>
+<DD>Used internally to use {@link ds.ov2.bignat.Bignat#shift_lesser_debug
+      shift_lesser_debug} or
+      {@link ds.ov2.bignat.Bignat#shift_lesser shift_lesser} 
+      inside {@link ds.ov2.bignat.Bignat#remainder_divide remainder_divide}.
+    <P>
+
+
+<!--
+ *   <a href="../../../overview-summary.html#SHORT_SQUARED_RSA_MULT">SHORT_SQUARED_RSA_MULT<a>
+  -->
+<DT><STRONG><a name="SHORT_SQUARED_RSA_MULT">SHORT_SQUARED_RSA_MULT</a></STRONG>
+<DD>Name of the method used for short squaring multiplication in
+    the squaring applets. Expands to either {@link
+    ds.ov2.bignat.Bignat#short_squared_rsa_mult_2
+    Bignat.short_squared_rsa_mult_2} or {@link
+    ds.ov2.bignat.Bignat#short_squared_rsa_mult_4
+    Bignat.short_squared_rsa_mult_4}
+    <P>
+
+
+<!--
+ *   <a href="../../../overview-summary.html#SQUARE_APPLET_TESTFRAME">SQUARE_APPLET_TESTFRAME<a>
+  -->
+<DT><STRONG><a name="SQUARE_APPLET_TESTFRAME">SQUARE_APPLET_TESTFRAME</a></STRONG>
+<DD>Selects the configuration for the host test frame (linking
+    applet and host code into one program) of the squaring
+    RSA applet in the {@link ds.ov2.front} package. Only used in
+    the Makefile and the cpp config file there.
+    <P>
+
+
+<!--
+ *   <a href="../../../overview-summary.html#SQUARED_RSA_MULT">SQUARED_RSA_MULT<a>
+  -->
+<DT><STRONG><a name="SQUARED_RSA_MULT">SQUARED_RSA_MULT</a></STRONG>
+<DD>Name of the method used for squaring multiplication in the
+    squaring applets. Expands to either {@link
+    ds.ov2.bignat.Bignat#squared_rsa_mult_2 squared_rsa_mult_2} or {@link
+    ds.ov2.bignat.Bignat#squared_rsa_mult_4 squared_rsa_mult_4}.
+    <P>
+
+
+<!--
+ *   <a href="../../../overview-summary.html#SQUARE4_APPLET_TESTFRAME">SQUARE4_APPLET_TESTFRAME<a>
+  -->
+<DT><STRONG><a name="SQUARE4_APPLET_TESTFRAME">SQUARE4_APPLET_TESTFRAME</a></STRONG>
+<DD>Selects the configuration for the host test frame (linking
+    applet and host code into one program) of the square 4
+    RSA applet in the {@link ds.ov2.front} package. Only used in
+    the Makefile and the cpp config file there.
+    <P>
+
+
+<!--
+ *   <a href="../../../overview-summary.html#TESTFRAME">TESTFRAME<a>
+  -->
+<DT><STRONG><a name="TESTFRAME">TESTFRAME</a></STRONG>
+<DD>Defined whenever one of <A HREF="#Card_TESTFRAME"
+      >CARD_TESTFRAME</A> or <A HREF="#HOST_TESTFRAME" >HOST_TESTFRAME</A>
+      is defined for code that has to go into
+      each testframe.
+    <P>
+
+<!--
+ *   <a href="../../../overview-summary.html#USE_SQUARED_RSA_MULT_4">USE_SQUARED_RSA_MULT_4<a>
+  -->
+<DT><STRONG><a name="USE_SQUARED_RSA_MULT_4">USE_SQUARED_RSA_MULT_4</a></STRONG>
+<DD>Defined for the square 4 applet and host test frame,
+    undefined for the squaring applet and host test frame.
+    Distinguishes between these two squaring applets, see also
+    <a href="#SQUARE_RSA_MULT">SQUARE_RSA_MULT<a>, <A
+    HREF="#SHORT_SQUARED_RSA_MULT" >SHORT_SQUARED_RSA_MULT</A>
+    <P>
+
+
+<!--
+ *   <a href="../../../overview-summary.html#VARIABLE_SIZE_BIGNATS">VARIABLE_SIZE_BIGNATS<a>
+  -->
+<DT><STRONG><a name="VARIABLE_SIZE_BIGNATS">VARIABLE_SIZE_BIGNATS</a></STRONG>
+<DD>When defined enables code for resizing Bignats, and changing the 
+    length of {@link ds.ov2.bignat.Bignat_array bignat arrays} and 
+    {@link ds.ov2.bignat.Vector vecors}.
+    <P>
+
+</DL>
+
+
+<!--
+<a href="../../../overview-summary.html#assert_tags"><a>
+  -->
+<A  name="assert_tags">
+<H2>Currently used assert tags</H2>
+</A>
+
+There is no assert on Java Card, therefore the <A HREF="#ASSERT"
+>ASSERT</A> macro is used, which eventually throws an {@link
+javacard.framework.ISOException} on the card. The {@link
+javacard.framework.ISOException} yields the special response
+status {@link ds.ov2.util.Response_status#OV_ASSERTION_00}, where
+the lower 8 bit of the response status may carry additional
+information about the assertion. These lower 8 bits are called
+<EM>the assert tag</EM>.
+<P>
+
+
+For the <A HREF="#ASSERT" >ASSERT</A> macro the assert tag is
+always zero. The <A HREF="#ASSERT_TAG" >ASSERT_TAG</A> macro
+takes an extra argument for the assert tag. The assert tags
+uniquely identify an assertion statement. The following list
+shows the currently used assert tag values and the classes in
+which they appear.
+
+<DL>
+<DT><STRONG>0x01-0x10</STRONG>
+<DD>{@link ds.ov2.util.Card_protocol}
+<DT><STRONG>0x20-0x3F</STRONG>
+<DD>{@link ds.ov2.bignat.Bignat}
+<DT><STRONG>0xF0-0xFF</STRONG>
+<DD>reserved for ad-hoc debugging
+</DL>
+
+<!--
+<a href="../../../overview-summary.html#test_failed_tags"><a>
+  -->
+<A  name="test_failed_tags">
+<H2>Currently used {@link
+ds.ov2.util.Response_status#OV_TEST_FAILED_00 OV_TEST_FAILED_00} tags</H2>
+</A>
+
+If the test applet detects an error it may throw an {@link
+javacard.framework.ISOException} with the respose status {@link
+ds.ov2.util.Response_status#OV_TEST_FAILED_00}, where the lower
+byte provides additional information about which test failed. The
+following list shows the currently used tags.
+
+<DL>
+<DT><STRONG>0x01</STRONG>
+<DD>Data transmission problem detected in the tests of the
+OV-chip protocol layer. See {@link
+ds.ov2.test.Data_protocol_card#check_buffer
+test/Data_protocol.check_buffer}.
+</DL>
+
+</BODY>

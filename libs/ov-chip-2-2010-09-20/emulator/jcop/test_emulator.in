@@ -1,0 +1,9 @@
+#!/bin/bash
+
+#set -x
+
+# Path to offcard.jar
+OFFCARD=
+
+java -ea -classpath .:$OFFCARD \
+    ds/javacard/emulator/test/Test_jcop_emulator $*

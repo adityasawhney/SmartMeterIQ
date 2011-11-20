@@ -1,0 +1,3772 @@
+### Test applet host driver
+### Card testframe started on 07 April 2009 21:51:30 CEST
+### command ./cardtestframe -test-size -r 0 -plain 
+### Parameters:
+###    type   PLAIN_RSA_APPLET
+###    base   512
+###    exp    96
+###    attr   4
+###    year   2009
+###    resign 3
+###    proof  2
+###    verb   0
+Connecting to card terminals ... connected
+### TEST INIT RESIGN PARAMETERS:
+###    base   512	64 bytes
+###    exp    96	12 bytes
+###    attr   4
+start RSA key generation base 512 bits exponent 96 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 512 ^ 96 91.8 s ( 0.2 56.9 34.7 )
+resign 512 ^ 96 91.8 s ( 0.2 56.9 34.7 )
+gate 512 ^ 96 49.7 s ( 21.9 27.8 )
+gate 512 ^ 96 49.8 s ( 21.9 27.9 )
+resign 512 ^ 96 91.9 s ( 0.2 57.0 34.7 )
+gate 512 ^ 96 49.8 s ( 21.9 27.9 )
+gate 512 ^ 96 49.8 s ( 21.9 27.9 )
+resign 512 ^ 96 92.2 s ( 0.2 57.2 34.7 )
+gate 512 ^ 96 49.6 s ( 21.9 27.7 )
+gate 512 ^ 96 49.8 s ( 22.0 27.9 )
+start RSA key generation base 512 bits exponent 96 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 512 ^ 96 91.5 s ( 0.2 56.7 34.6 )
+resign 512 ^ 96 91.8 s ( 0.2 56.9 34.7 )
+gate 512 ^ 96 49.7 s ( 21.9 27.8 )
+gate 512 ^ 96 49.8 s ( 21.9 27.9 )
+resign 512 ^ 96 91.9 s ( 0.2 57.0 34.7 )
+gate 512 ^ 96 49.6 s ( 21.8 27.7 )
+gate 512 ^ 96 49.8 s ( 22.0 27.8 )
+resign 512 ^ 96 92.2 s ( 0.2 57.3 34.6 )
+gate 512 ^ 96 49.7 s ( 21.8 27.8 )
+gate 512 ^ 96 49.7 s ( 22.0 27.8 )
+start RSA key generation base 512 bits exponent 96 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 512 ^ 96 91.8 s ( 0.2 56.9 34.7 )
+resign 512 ^ 96 91.8 s ( 0.2 57.0 34.6 )
+gate 512 ^ 96 49.6 s ( 21.9 27.7 )
+gate 512 ^ 96 49.6 s ( 21.9 27.8 )
+resign 512 ^ 96 91.8 s ( 0.2 56.9 34.7 )
+gate 512 ^ 96 49.6 s ( 21.9 27.7 )
+gate 512 ^ 96 49.7 s ( 21.9 27.7 )
+resign 512 ^ 96 91.9 s ( 0.2 56.9 34.7 )
+gate 512 ^ 96 49.8 s ( 21.9 27.9 )
+gate 512 ^ 96 49.6 s ( 21.9 27.7 )
+### TEST INIT RESIGN PARAMETERS:
+###    base   544	68 bytes
+###    exp    104	13 bytes
+###    attr   4
+start RSA key generation base 544 bits exponent 104 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 544 ^ 104 102.6 s ( 0.2 63.6 38.9 )
+resign 544 ^ 104 102.9 s ( 0.2 63.8 38.9 )
+gate 544 ^ 104 55.7 s ( 24.5 31.2 )
+gate 544 ^ 104 55.7 s ( 24.5 31.2 )
+resign 544 ^ 104 102.7 s ( 0.2 63.7 38.8 )
+gate 544 ^ 104 55.4 s ( 24.6 30.9 )
+gate 544 ^ 104 55.3 s ( 24.5 30.8 )
+resign 544 ^ 104 102.8 s ( 0.2 63.6 38.9 )
+gate 544 ^ 104 55.7 s ( 24.5 31.2 )
+gate 544 ^ 104 55.7 s ( 24.5 31.1 )
+start RSA key generation base 544 bits exponent 104 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 544 ^ 104 102.5 s ( 0.2 63.4 38.9 )
+resign 544 ^ 104 102.8 s ( 0.2 63.7 38.9 )
+gate 544 ^ 104 55.7 s ( 24.4 31.3 )
+gate 544 ^ 104 55.7 s ( 24.5 31.2 )
+resign 544 ^ 104 102.7 s ( 0.2 63.7 38.8 )
+gate 544 ^ 104 55.7 s ( 24.4 31.3 )
+gate 544 ^ 104 55.8 s ( 24.5 31.3 )
+resign 544 ^ 104 102.8 s ( 0.2 63.7 38.8 )
+gate 544 ^ 104 55.8 s ( 24.5 31.2 )
+gate 544 ^ 104 55.8 s ( 24.6 31.2 )
+start RSA key generation base 544 bits exponent 104 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 544 ^ 104 103.0 s ( 0.2 63.9 38.9 )
+resign 544 ^ 104 102.8 s ( 0.2 63.8 38.9 )
+gate 544 ^ 104 55.6 s ( 24.5 31.1 )
+gate 544 ^ 104 55.6 s ( 24.5 31.0 )
+resign 544 ^ 104 102.8 s ( 0.2 63.8 38.8 )
+gate 544 ^ 104 55.2 s ( 24.5 30.7 )
+gate 544 ^ 104 55.2 s ( 24.5 30.7 )
+resign 544 ^ 104 102.7 s ( 0.2 63.7 38.8 )
+gate 544 ^ 104 55.2 s ( 24.5 30.7 )
+gate 544 ^ 104 55.2 s ( 24.5 30.7 )
+### TEST INIT RESIGN PARAMETERS:
+###    base   576	72 bytes
+###    exp    104	13 bytes
+###    attr   4
+start RSA key generation base 576 bits exponent 104 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 576 ^ 104 114.3 s ( 0.2 70.9 43.2 )
+resign 576 ^ 104 114.6 s ( 0.2 71.1 43.3 )
+gate 576 ^ 104 61.7 s ( 27.2 34.5 )
+gate 576 ^ 104 61.7 s ( 27.2 34.4 )
+resign 576 ^ 104 115.2 s ( 0.2 71.7 43.2 )
+gate 576 ^ 104 61.7 s ( 27.2 34.5 )
+gate 576 ^ 104 61.8 s ( 27.3 34.5 )
+resign 576 ^ 104 114.7 s ( 0.2 71.2 43.3 )
+gate 576 ^ 104 61.8 s ( 27.2 34.6 )
+gate 576 ^ 104 61.7 s ( 27.2 34.4 )
+start RSA key generation base 576 bits exponent 104 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 576 ^ 104 114.0 s ( 0.2 70.6 43.2 )
+resign 576 ^ 104 114.9 s ( 0.2 71.5 43.2 )
+gate 576 ^ 104 61.6 s ( 27.2 34.4 )
+gate 576 ^ 104 61.6 s ( 27.2 34.4 )
+resign 576 ^ 104 114.9 s ( 0.2 71.5 43.2 )
+gate 576 ^ 104 61.8 s ( 27.3 34.5 )
+gate 576 ^ 104 61.6 s ( 27.3 34.4 )
+resign 576 ^ 104 114.7 s ( 0.2 71.3 43.2 )
+gate 576 ^ 104 61.6 s ( 27.2 34.4 )
+gate 576 ^ 104 61.7 s ( 27.3 34.4 )
+start RSA key generation base 576 bits exponent 104 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 576 ^ 104 114.3 s ( 0.2 70.9 43.2 )
+resign 576 ^ 104 115.4 s ( 0.2 72.0 43.2 )
+gate 576 ^ 104 61.6 s ( 27.2 34.4 )
+gate 576 ^ 104 61.7 s ( 27.2 34.5 )
+resign 576 ^ 104 114.5 s ( 0.2 71.0 43.3 )
+gate 576 ^ 104 61.8 s ( 27.3 34.5 )
+gate 576 ^ 104 61.7 s ( 27.2 34.4 )
+resign 576 ^ 104 114.1 s ( 0.2 70.7 43.1 )
+gate 576 ^ 104 61.2 s ( 27.2 34.0 )
+gate 576 ^ 104 61.3 s ( 27.2 34.1 )
+### TEST INIT RESIGN PARAMETERS:
+###    base   608	76 bytes
+###    exp    112	14 bytes
+###    attr   4
+start RSA key generation base 608 bits exponent 112 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 608 ^ 112 126.1 s ( 0.2 78.1 47.8 )
+resign 608 ^ 112 126.3 s ( 0.2 78.3 47.7 )
+gate 608 ^ 112 68.0 s ( 30.1 37.9 )
+gate 608 ^ 112 68.0 s ( 30.1 37.9 )
+resign 608 ^ 112 126.4 s ( 0.2 78.4 47.8 )
+gate 608 ^ 112 68.0 s ( 30.1 37.9 )
+gate 608 ^ 112 68.0 s ( 30.1 37.9 )
+resign 608 ^ 112 126.2 s ( 0.2 78.2 47.8 )
+gate 608 ^ 112 67.3 s ( 30.0 37.2 )
+gate 608 ^ 112 67.3 s ( 30.1 37.2 )
+start RSA key generation base 608 bits exponent 112 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 608 ^ 112 126.6 s ( 0.2 78.5 47.9 )
+resign 608 ^ 112 126.6 s ( 0.2 78.5 47.8 )
+gate 608 ^ 112 68.1 s ( 30.0 38.0 )
+gate 608 ^ 112 68.2 s ( 30.1 38.1 )
+resign 608 ^ 112 126.3 s ( 0.2 78.4 47.7 )
+gate 608 ^ 112 68.1 s ( 30.0 38.0 )
+gate 608 ^ 112 68.1 s ( 30.1 38.0 )
+resign 608 ^ 112 126.5 s ( 0.2 78.5 47.8 )
+gate 608 ^ 112 68.1 s ( 30.1 38.0 )
+gate 608 ^ 112 68.0 s ( 30.1 37.9 )
+start RSA key generation base 608 bits exponent 112 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 608 ^ 112 126.1 s ( 0.2 78.1 47.8 )
+resign 608 ^ 112 126.5 s ( 0.2 78.5 47.8 )
+gate 608 ^ 112 68.3 s ( 30.1 38.2 )
+gate 608 ^ 112 68.3 s ( 30.1 38.2 )
+resign 608 ^ 112 126.8 s ( 0.2 78.8 47.8 )
+gate 608 ^ 112 68.2 s ( 30.0 38.2 )
+gate 608 ^ 112 68.3 s ( 30.1 38.2 )
+resign 608 ^ 112 126.7 s ( 0.2 78.6 47.9 )
+gate 608 ^ 112 68.3 s ( 30.0 38.2 )
+gate 608 ^ 112 68.4 s ( 30.1 38.3 )
+### TEST INIT RESIGN PARAMETERS:
+###    base   640	80 bytes
+###    exp    112	14 bytes
+###    attr   4
+start RSA key generation base 640 bits exponent 112 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 640 ^ 112 139.2 s ( 0.2 86.3 52.7 )
+resign 640 ^ 112 139.3 s ( 0.2 86.4 52.7 )
+gate 640 ^ 112 75.0 s ( 33.2 41.8 )
+gate 640 ^ 112 75.0 s ( 33.2 41.8 )
+resign 640 ^ 112 139.2 s ( 0.2 86.3 52.7 )
+gate 640 ^ 112 75.0 s ( 33.2 41.8 )
+gate 640 ^ 112 75.0 s ( 33.2 41.8 )
+resign 640 ^ 112 139.2 s ( 0.2 86.3 52.6 )
+gate 640 ^ 112 74.1 s ( 33.2 41.0 )
+gate 640 ^ 112 74.1 s ( 33.2 40.9 )
+start RSA key generation base 640 bits exponent 112 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 640 ^ 112 138.8 s ( 0.2 85.9 52.7 )
+resign 640 ^ 112 139.3 s ( 0.2 86.4 52.7 )
+gate 640 ^ 112 75.0 s ( 33.2 41.8 )
+gate 640 ^ 112 74.9 s ( 33.2 41.7 )
+resign 640 ^ 112 139.2 s ( 0.2 86.4 52.7 )
+gate 640 ^ 112 75.0 s ( 33.2 41.7 )
+gate 640 ^ 112 75.2 s ( 33.3 41.8 )
+resign 640 ^ 112 139.4 s ( 0.2 86.4 52.8 )
+gate 640 ^ 112 75.0 s ( 33.2 41.8 )
+gate 640 ^ 112 75.1 s ( 33.2 41.9 )
+start RSA key generation base 640 bits exponent 112 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 640 ^ 112 138.7 s ( 0.2 85.9 52.7 )
+resign 640 ^ 112 139.1 s ( 0.2 86.2 52.7 )
+gate 640 ^ 112 74.8 s ( 33.2 41.7 )
+gate 640 ^ 112 74.9 s ( 33.2 41.7 )
+resign 640 ^ 112 139.2 s ( 0.2 86.4 52.6 )
+gate 640 ^ 112 75.0 s ( 33.2 41.7 )
+gate 640 ^ 112 74.9 s ( 33.2 41.6 )
+resign 640 ^ 112 139.1 s ( 0.2 86.3 52.6 )
+gate 640 ^ 112 74.6 s ( 33.3 41.4 )
+gate 640 ^ 112 74.7 s ( 33.2 41.4 )
+### TEST INIT RESIGN PARAMETERS:
+###    base   672	84 bytes
+###    exp    112	14 bytes
+###    attr   4
+start RSA key generation base 672 bits exponent 112 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 672 ^ 112 152.2 s ( 0.2 94.3 57.8 )
+resign 672 ^ 112 152.6 s ( 0.2 94.6 57.8 )
+gate 672 ^ 112 81.9 s ( 36.4 45.5 )
+gate 672 ^ 112 82.1 s ( 36.5 45.7 )
+resign 672 ^ 112 152.4 s ( 0.2 94.5 57.7 )
+gate 672 ^ 112 81.1 s ( 36.4 44.7 )
+gate 672 ^ 112 81.2 s ( 36.5 44.8 )
+resign 672 ^ 112 152.6 s ( 0.2 94.6 57.8 )
+gate 672 ^ 112 81.9 s ( 36.4 45.5 )
+gate 672 ^ 112 82.0 s ( 36.5 45.6 )
+start RSA key generation base 672 bits exponent 112 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 672 ^ 112 152.5 s ( 0.2 94.6 57.7 )
+resign 672 ^ 112 152.6 s ( 0.2 94.7 57.8 )
+gate 672 ^ 112 81.9 s ( 36.4 45.5 )
+gate 672 ^ 112 82.0 s ( 36.5 45.5 )
+resign 672 ^ 112 153.4 s ( 0.2 95.4 57.7 )
+gate 672 ^ 112 81.9 s ( 36.4 45.5 )
+gate 672 ^ 112 81.8 s ( 36.4 45.4 )
+resign 672 ^ 112 152.8 s ( 0.2 94.7 57.9 )
+gate 672 ^ 112 81.9 s ( 36.4 45.5 )
+gate 672 ^ 112 82.0 s ( 36.4 45.6 )
+start RSA key generation base 672 bits exponent 112 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 672 ^ 112 152.7 s ( 0.2 94.7 57.8 )
+resign 672 ^ 112 152.9 s ( 0.2 95.0 57.7 )
+gate 672 ^ 112 82.0 s ( 36.5 45.5 )
+gate 672 ^ 112 82.2 s ( 36.5 45.7 )
+resign 672 ^ 112 153.0 s ( 0.2 95.0 57.8 )
+gate 672 ^ 112 82.0 s ( 36.4 45.6 )
+gate 672 ^ 112 82.2 s ( 36.5 45.7 )
+resign 672 ^ 112 152.5 s ( 0.2 94.6 57.7 )
+gate 672 ^ 112 81.8 s ( 36.5 45.2 )
+gate 672 ^ 112 81.9 s ( 36.5 45.4 )
+### TEST INIT RESIGN PARAMETERS:
+###    base   704	88 bytes
+###    exp    120	15 bytes
+###    attr   4
+start RSA key generation base 704 bits exponent 120 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 704 ^ 120 166.4 s ( 0.2 103.0 63.2 )
+resign 704 ^ 120 166.8 s ( 0.2 103.5 63.1 )
+gate 704 ^ 120 89.8 s ( 39.7 50.1 )
+gate 704 ^ 120 89.8 s ( 39.8 50.0 )
+resign 704 ^ 120 166.6 s ( 0.2 103.3 63.1 )
+gate 704 ^ 120 89.6 s ( 39.7 49.9 )
+gate 704 ^ 120 89.8 s ( 39.8 50.1 )
+resign 704 ^ 120 166.8 s ( 0.2 103.5 63.1 )
+gate 704 ^ 120 89.8 s ( 39.8 49.9 )
+gate 704 ^ 120 89.7 s ( 39.8 49.9 )
+start RSA key generation base 704 bits exponent 120 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 704 ^ 120 166.3 s ( 0.2 102.9 63.2 )
+resign 704 ^ 120 167.0 s ( 0.2 103.7 63.1 )
+gate 704 ^ 120 89.6 s ( 39.7 49.9 )
+gate 704 ^ 120 89.6 s ( 39.7 49.9 )
+resign 704 ^ 120 166.9 s ( 0.2 103.6 63.0 )
+gate 704 ^ 120 89.7 s ( 39.7 50.0 )
+gate 704 ^ 120 89.6 s ( 39.7 49.9 )
+resign 704 ^ 120 166.8 s ( 0.2 103.4 63.2 )
+gate 704 ^ 120 89.7 s ( 39.8 49.9 )
+gate 704 ^ 120 89.7 s ( 39.8 49.9 )
+start RSA key generation base 704 bits exponent 120 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 704 ^ 120 166.2 s ( 0.2 103.0 63.0 )
+resign 704 ^ 120 166.6 s ( 0.2 103.3 63.1 )
+gate 704 ^ 120 89.9 s ( 39.8 50.1 )
+gate 704 ^ 120 89.9 s ( 39.7 50.2 )
+resign 704 ^ 120 166.8 s ( 0.2 103.5 63.1 )
+gate 704 ^ 120 89.9 s ( 39.8 50.1 )
+gate 704 ^ 120 90.0 s ( 39.9 50.1 )
+resign 704 ^ 120 166.8 s ( 0.2 103.4 63.1 )
+gate 704 ^ 120 89.2 s ( 39.7 49.5 )
+gate 704 ^ 120 89.3 s ( 39.8 49.5 )
+### TEST INIT RESIGN PARAMETERS:
+###    base   736	92 bytes
+###    exp    120	15 bytes
+###    attr   4
+start RSA key generation base 736 bits exponent 120 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 736 ^ 120 180.8 s ( 0.2 111.9 68.7 )
+resign 736 ^ 120 181.5 s ( 0.2 112.5 68.7 )
+gate 736 ^ 120 97.2 s ( 43.3 53.9 )
+gate 736 ^ 120 97.2 s ( 43.2 53.9 )
+resign 736 ^ 120 181.6 s ( 0.2 112.7 68.7 )
+gate 736 ^ 120 97.1 s ( 43.2 53.9 )
+gate 736 ^ 120 97.2 s ( 43.3 53.9 )
+resign 736 ^ 120 182.1 s ( 0.2 113.2 68.7 )
+gate 736 ^ 120 97.2 s ( 43.3 53.9 )
+gate 736 ^ 120 97.1 s ( 43.2 53.9 )
+start RSA key generation base 736 bits exponent 120 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 736 ^ 120 181.3 s ( 0.2 112.4 68.7 )
+resign 736 ^ 120 181.4 s ( 0.2 112.6 68.6 )
+gate 736 ^ 120 97.1 s ( 43.2 53.8 )
+gate 736 ^ 120 96.9 s ( 43.2 53.7 )
+resign 736 ^ 120 181.7 s ( 0.2 112.8 68.7 )
+gate 736 ^ 120 97.0 s ( 43.2 53.7 )
+gate 736 ^ 120 96.9 s ( 43.2 53.7 )
+resign 736 ^ 120 181.4 s ( 0.2 112.5 68.6 )
+gate 736 ^ 120 96.9 s ( 43.2 53.7 )
+gate 736 ^ 120 97.0 s ( 43.3 53.7 )
+start RSA key generation base 736 bits exponent 120 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 736 ^ 120 181.7 s ( 0.2 112.8 68.7 )
+resign 736 ^ 120 182.9 s ( 0.2 114.0 68.6 )
+gate 736 ^ 120 97.2 s ( 43.2 54.0 )
+gate 736 ^ 120 97.2 s ( 43.3 54.0 )
+resign 736 ^ 120 182.2 s ( 0.2 113.3 68.7 )
+gate 736 ^ 120 97.3 s ( 43.2 54.1 )
+gate 736 ^ 120 97.2 s ( 43.3 54.0 )
+resign 736 ^ 120 181.4 s ( 0.2 112.4 68.7 )
+gate 736 ^ 120 97.1 s ( 43.2 53.9 )
+gate 736 ^ 120 97.2 s ( 43.3 53.9 )
+### TEST INIT RESIGN PARAMETERS:
+###    base   768	96 bytes
+###    exp    120	15 bytes
+###    attr   4
+start RSA key generation base 768 bits exponent 120 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 768 ^ 120 196.4 s ( 0.2 121.6 74.6 )
+resign 768 ^ 120 197.1 s ( 0.2 122.3 74.6 )
+gate 768 ^ 120 105.7 s ( 47.0 58.7 )
+gate 768 ^ 120 105.6 s ( 46.9 58.7 )
+resign 768 ^ 120 197.0 s ( 0.2 122.3 74.6 )
+gate 768 ^ 120 105.5 s ( 46.9 58.6 )
+gate 768 ^ 120 105.6 s ( 46.9 58.6 )
+resign 768 ^ 120 196.7 s ( 0.2 122.0 74.5 )
+gate 768 ^ 120 105.5 s ( 47.0 58.6 )
+gate 768 ^ 120 105.6 s ( 46.9 58.6 )
+start RSA key generation base 768 bits exponent 120 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 768 ^ 120 196.2 s ( 0.2 121.5 74.4 )
+resign 768 ^ 120 197.4 s ( 0.2 122.7 74.4 )
+gate 768 ^ 120 104.9 s ( 46.9 58.0 )
+gate 768 ^ 120 105.0 s ( 47.0 58.1 )
+resign 768 ^ 120 198.6 s ( 0.2 123.9 74.5 )
+gate 768 ^ 120 104.7 s ( 46.8 57.8 )
+gate 768 ^ 120 104.6 s ( 46.9 57.7 )
+resign 768 ^ 120 197.2 s ( 0.2 122.4 74.6 )
+gate 768 ^ 120 105.0 s ( 46.9 58.1 )
+gate 768 ^ 120 105.3 s ( 47.0 58.3 )
+start RSA key generation base 768 bits exponent 120 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 768 ^ 120 196.1 s ( 0.2 121.5 74.4 )
+resign 768 ^ 120 198.4 s ( 0.2 123.7 74.4 )
+gate 768 ^ 120 104.8 s ( 46.9 57.9 )
+gate 768 ^ 120 104.8 s ( 46.9 57.9 )
+resign 768 ^ 120 198.0 s ( 0.2 123.3 74.5 )
+gate 768 ^ 120 104.8 s ( 46.9 57.9 )
+gate 768 ^ 120 104.8 s ( 46.9 57.9 )
+resign 768 ^ 120 196.7 s ( 0.2 122.0 74.5 )
+gate 768 ^ 120 104.7 s ( 46.8 57.9 )
+gate 768 ^ 120 104.9 s ( 47.0 58.0 )
+### TEST INIT RESIGN PARAMETERS:
+###    base   800	100 bytes
+###    exp    128	16 bytes
+###    attr   4
+start RSA key generation base 800 bits exponent 128 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 800 ^ 128 212.5 s ( 0.2 131.8 80.5 )
+resign 800 ^ 128 212.6 s ( 0.2 131.8 80.5 )
+gate 800 ^ 128 114.2 s ( 50.7 63.5 )
+gate 800 ^ 128 114.1 s ( 50.7 63.4 )
+resign 800 ^ 128 212.6 s ( 0.2 131.8 80.6 )
+gate 800 ^ 128 113.7 s ( 50.7 62.9 )
+gate 800 ^ 128 113.6 s ( 50.6 62.9 )
+resign 800 ^ 128 212.3 s ( 0.2 131.5 80.6 )
+gate 800 ^ 128 112.9 s ( 50.7 62.2 )
+gate 800 ^ 128 113.0 s ( 50.6 62.3 )
+start RSA key generation base 800 bits exponent 128 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 800 ^ 128 212.3 s ( 0.2 131.4 80.7 )
+resign 800 ^ 128 212.6 s ( 0.2 131.8 80.6 )
+gate 800 ^ 128 113.9 s ( 50.7 63.2 )
+gate 800 ^ 128 114.0 s ( 50.7 63.3 )
+resign 800 ^ 128 212.8 s ( 0.2 131.9 80.7 )
+gate 800 ^ 128 113.9 s ( 50.7 63.2 )
+gate 800 ^ 128 114.0 s ( 50.6 63.4 )
+resign 800 ^ 128 213.0 s ( 0.2 132.2 80.5 )
+gate 800 ^ 128 114.0 s ( 50.7 63.4 )
+gate 800 ^ 128 114.1 s ( 50.7 63.4 )
+start RSA key generation base 800 bits exponent 128 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 800 ^ 128 212.1 s ( 0.2 131.4 80.5 )
+resign 800 ^ 128 212.5 s ( 0.2 131.7 80.6 )
+gate 800 ^ 128 113.5 s ( 50.7 62.8 )
+gate 800 ^ 128 113.6 s ( 50.7 62.9 )
+resign 800 ^ 128 213.1 s ( 0.2 132.3 80.6 )
+gate 800 ^ 128 113.4 s ( 50.7 62.8 )
+gate 800 ^ 128 113.4 s ( 50.7 62.7 )
+resign 800 ^ 128 212.4 s ( 0.2 131.6 80.5 )
+gate 800 ^ 128 113.4 s ( 50.6 62.8 )
+gate 800 ^ 128 113.4 s ( 50.6 62.7 )
+### TEST INIT RESIGN PARAMETERS:
+###    base   832	104 bytes
+###    exp    128	16 bytes
+###    attr   4
+start RSA key generation base 832 bits exponent 128 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 832 ^ 128 229.0 s ( 0.2 142.0 86.8 )
+resign 832 ^ 128 229.0 s ( 0.2 141.9 86.9 )
+gate 832 ^ 128 122.8 s ( 54.7 68.1 )
+gate 832 ^ 128 122.8 s ( 54.7 68.1 )
+resign 832 ^ 128 229.0 s ( 0.2 141.9 86.9 )
+gate 832 ^ 128 122.1 s ( 54.6 67.5 )
+gate 832 ^ 128 122.0 s ( 54.6 67.4 )
+resign 832 ^ 128 229.1 s ( 0.2 142.0 86.9 )
+gate 832 ^ 128 122.6 s ( 54.6 68.0 )
+gate 832 ^ 128 122.6 s ( 54.6 67.9 )
+start RSA key generation base 832 bits exponent 128 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 832 ^ 128 228.5 s ( 0.2 141.5 86.8 )
+resign 832 ^ 128 228.9 s ( 0.2 141.9 86.8 )
+gate 832 ^ 128 122.1 s ( 54.6 67.5 )
+gate 832 ^ 128 122.0 s ( 54.6 67.3 )
+resign 832 ^ 128 229.4 s ( 0.2 142.4 86.8 )
+gate 832 ^ 128 121.9 s ( 54.6 67.4 )
+gate 832 ^ 128 122.0 s ( 54.7 67.3 )
+resign 832 ^ 128 228.8 s ( 0.2 141.8 86.8 )
+gate 832 ^ 128 121.9 s ( 54.5 67.3 )
+gate 832 ^ 128 121.9 s ( 54.5 67.3 )
+start RSA key generation base 832 bits exponent 128 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 832 ^ 128 228.5 s ( 0.2 141.4 86.9 )
+resign 832 ^ 128 229.5 s ( 0.2 142.2 87.0 )
+gate 832 ^ 128 122.0 s ( 54.6 67.4 )
+gate 832 ^ 128 122.1 s ( 54.6 67.4 )
+resign 832 ^ 128 229.4 s ( 0.2 142.4 86.8 )
+gate 832 ^ 128 121.9 s ( 54.5 67.4 )
+gate 832 ^ 128 122.1 s ( 54.6 67.5 )
+resign 832 ^ 128 228.8 s ( 0.2 141.9 86.7 )
+gate 832 ^ 128 122.1 s ( 54.5 67.6 )
+gate 832 ^ 128 122.0 s ( 54.5 67.4 )
+### TEST INIT RESIGN PARAMETERS:
+###    base   864	108 bytes
+###    exp    136	17 bytes
+###    attr   4
+start RSA key generation base 864 bits exponent 136 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 864 ^ 136 245.8 s ( 0.2 152.2 93.4 )
+resign 864 ^ 136 246.2 s ( 0.2 152.7 93.3 )
+gate 864 ^ 136 131.3 s ( 58.7 72.6 )
+gate 864 ^ 136 131.4 s ( 58.7 72.7 )
+resign 864 ^ 136 246.3 s ( 0.2 152.7 93.4 )
+gate 864 ^ 136 131.9 s ( 58.7 73.1 )
+gate 864 ^ 136 132.3 s ( 58.9 73.4 )
+resign 864 ^ 136 246.4 s ( 0.2 152.8 93.4 )
+gate 864 ^ 136 132.2 s ( 58.8 73.3 )
+gate 864 ^ 136 132.1 s ( 58.7 73.4 )
+start RSA key generation base 864 bits exponent 136 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 864 ^ 136 245.9 s ( 0.2 152.3 93.4 )
+resign 864 ^ 136 246.5 s ( 0.2 152.8 93.4 )
+gate 864 ^ 136 131.7 s ( 58.7 73.0 )
+gate 864 ^ 136 131.6 s ( 58.7 72.9 )
+resign 864 ^ 136 246.9 s ( 0.2 153.3 93.4 )
+gate 864 ^ 136 131.5 s ( 58.7 72.9 )
+gate 864 ^ 136 131.7 s ( 58.8 72.9 )
+resign 864 ^ 136 247.4 s ( 0.2 153.8 93.3 )
+gate 864 ^ 136 131.7 s ( 58.7 72.9 )
+gate 864 ^ 136 131.6 s ( 58.7 72.9 )
+start RSA key generation base 864 bits exponent 136 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 864 ^ 136 246.3 s ( 0.2 152.8 93.3 )
+resign 864 ^ 136 246.3 s ( 0.2 152.8 93.3 )
+gate 864 ^ 136 132.3 s ( 58.7 73.5 )
+gate 864 ^ 136 132.2 s ( 58.8 73.4 )
+resign 864 ^ 136 246.5 s ( 0.2 152.9 93.4 )
+gate 864 ^ 136 132.2 s ( 58.7 73.5 )
+gate 864 ^ 136 132.3 s ( 58.8 73.5 )
+resign 864 ^ 136 247.0 s ( 0.2 153.3 93.5 )
+gate 864 ^ 136 131.4 s ( 58.7 72.6 )
+gate 864 ^ 136 131.3 s ( 58.7 72.6 )
+### TEST INIT RESIGN PARAMETERS:
+###    base   896	112 bytes
+###    exp    136	17 bytes
+###    attr   4
+start RSA key generation base 896 bits exponent 136 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 896 ^ 136 264.6 s ( 0.2 164.2 100.2 )
+resign 896 ^ 136 264.1 s ( 0.2 163.8 100.1 )
+gate 896 ^ 136 140.9 s ( 63.0 77.9 )
+gate 896 ^ 136 141.0 s ( 63.0 78.0 )
+resign 896 ^ 136 264.3 s ( 0.2 163.8 100.3 )
+gate 896 ^ 136 141.2 s ( 63.1 78.1 )
+gate 896 ^ 136 141.2 s ( 63.0 78.1 )
+resign 896 ^ 136 264.0 s ( 0.2 163.6 100.1 )
+gate 896 ^ 136 140.5 s ( 62.9 77.5 )
+gate 896 ^ 136 140.6 s ( 63.0 77.5 )
+start RSA key generation base 896 bits exponent 136 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 896 ^ 136 264.2 s ( 0.2 163.8 100.3 )
+resign 896 ^ 136 264.2 s ( 0.2 163.8 100.2 )
+gate 896 ^ 136 141.5 s ( 63.1 78.4 )
+gate 896 ^ 136 141.2 s ( 63.0 78.1 )
+resign 896 ^ 136 264.2 s ( 0.2 163.8 100.1 )
+gate 896 ^ 136 141.1 s ( 63.0 78.1 )
+gate 896 ^ 136 141.3 s ( 63.0 78.2 )
+resign 896 ^ 136 264.5 s ( 0.2 163.9 100.3 )
+gate 896 ^ 136 141.2 s ( 63.0 78.1 )
+gate 896 ^ 136 141.5 s ( 63.1 78.4 )
+start RSA key generation base 896 bits exponent 136 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 896 ^ 136 263.9 s ( 0.2 163.4 100.3 )
+resign 896 ^ 136 264.8 s ( 0.2 164.4 100.2 )
+gate 896 ^ 136 141.3 s ( 62.9 78.3 )
+gate 896 ^ 136 141.4 s ( 63.1 78.3 )
+resign 896 ^ 136 264.3 s ( 0.2 163.8 100.3 )
+gate 896 ^ 136 141.4 s ( 63.0 78.4 )
+gate 896 ^ 136 141.4 s ( 63.0 78.4 )
+resign 896 ^ 136 264.4 s ( 0.2 164.0 100.2 )
+gate 896 ^ 136 141.3 s ( 63.0 78.3 )
+gate 896 ^ 136 141.4 s ( 63.1 78.3 )
+### TEST INIT RESIGN PARAMETERS:
+###    base   928	116 bytes
+###    exp    136	17 bytes
+###    attr   4
+start RSA key generation base 928 bits exponent 136 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 928 ^ 136 282.9 s ( 0.3 175.3 107.3 )
+resign 928 ^ 136 283.1 s ( 0.3 175.5 107.3 )
+gate 928 ^ 136 151.2 s ( 67.5 83.7 )
+gate 928 ^ 136 151.1 s ( 67.4 83.7 )
+resign 928 ^ 136 283.0 s ( 0.3 175.3 107.4 )
+gate 928 ^ 136 151.2 s ( 67.4 83.8 )
+gate 928 ^ 136 151.3 s ( 67.5 83.8 )
+resign 928 ^ 136 284.6 s ( 0.3 177.0 107.2 )
+gate 928 ^ 136 151.2 s ( 67.5 83.7 )
+gate 928 ^ 136 151.2 s ( 67.6 83.6 )
+start RSA key generation base 928 bits exponent 136 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 928 ^ 136 282.7 s ( 0.3 175.0 107.4 )
+resign 928 ^ 136 283.0 s ( 0.3 175.4 107.3 )
+gate 928 ^ 136 150.6 s ( 67.5 83.1 )
+gate 928 ^ 136 150.7 s ( 67.6 83.1 )
+resign 928 ^ 136 283.1 s ( 0.3 175.4 107.5 )
+gate 928 ^ 136 150.6 s ( 67.5 83.1 )
+gate 928 ^ 136 150.6 s ( 67.4 83.1 )
+resign 928 ^ 136 283.3 s ( 0.3 175.6 107.4 )
+gate 928 ^ 136 150.5 s ( 67.5 83.1 )
+gate 928 ^ 136 150.7 s ( 67.5 83.2 )
+start RSA key generation base 928 bits exponent 136 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 928 ^ 136 282.7 s ( 0.3 175.0 107.4 )
+resign 928 ^ 136 283.8 s ( 0.3 176.1 107.4 )
+gate 928 ^ 136 151.1 s ( 67.4 83.7 )
+gate 928 ^ 136 151.3 s ( 67.4 83.9 )
+resign 928 ^ 136 283.0 s ( 0.3 175.3 107.4 )
+gate 928 ^ 136 150.6 s ( 67.5 83.2 )
+gate 928 ^ 136 150.6 s ( 67.5 83.1 )
+resign 928 ^ 136 283.0 s ( 0.3 175.4 107.2 )
+gate 928 ^ 136 150.7 s ( 67.5 83.2 )
+gate 928 ^ 136 150.5 s ( 67.4 83.1 )
+### TEST INIT RESIGN PARAMETERS:
+###    base   960	120 bytes
+###    exp    136	17 bytes
+###    attr   4
+start RSA key generation base 960 bits exponent 136 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 960 ^ 136 301.5 s ( 0.3 186.7 114.5 )
+resign 960 ^ 136 302.8 s ( 0.3 187.9 114.6 )
+gate 960 ^ 136 161.0 s ( 71.9 89.1 )
+gate 960 ^ 136 161.1 s ( 72.0 89.1 )
+resign 960 ^ 136 304.8 s ( 0.3 189.8 114.7 )
+gate 960 ^ 136 161.2 s ( 72.0 89.2 )
+gate 960 ^ 136 161.2 s ( 72.0 89.2 )
+resign 960 ^ 136 302.8 s ( 0.3 187.9 114.6 )
+gate 960 ^ 136 161.4 s ( 72.1 89.3 )
+gate 960 ^ 136 161.1 s ( 72.0 89.1 )
+start RSA key generation base 960 bits exponent 136 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 960 ^ 136 302.0 s ( 0.3 187.3 114.5 )
+resign 960 ^ 136 301.8 s ( 0.3 187.0 114.6 )
+gate 960 ^ 136 160.5 s ( 71.9 88.5 )
+gate 960 ^ 136 160.6 s ( 72.0 88.5 )
+resign 960 ^ 136 303.3 s ( 0.3 188.4 114.6 )
+gate 960 ^ 136 161.2 s ( 71.9 89.3 )
+gate 960 ^ 136 161.2 s ( 72.0 89.2 )
+resign 960 ^ 136 302.3 s ( 0.3 187.4 114.6 )
+gate 960 ^ 136 161.1 s ( 71.9 89.1 )
+gate 960 ^ 136 161.2 s ( 72.0 89.2 )
+start RSA key generation base 960 bits exponent 136 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 960 ^ 136 301.6 s ( 0.3 186.7 114.7 )
+resign 960 ^ 136 302.5 s ( 0.3 187.5 114.6 )
+gate 960 ^ 136 160.1 s ( 71.9 88.2 )
+gate 960 ^ 136 160.1 s ( 72.0 88.1 )
+resign 960 ^ 136 302.7 s ( 0.3 187.8 114.6 )
+gate 960 ^ 136 160.8 s ( 72.0 88.8 )
+gate 960 ^ 136 160.7 s ( 72.0 88.7 )
+resign 960 ^ 136 302.6 s ( 0.3 187.7 114.6 )
+gate 960 ^ 136 160.8 s ( 72.1 88.7 )
+gate 960 ^ 136 160.6 s ( 72.0 88.6 )
+### TEST INIT RESIGN PARAMETERS:
+###    base   992	124 bytes
+###    exp    144	18 bytes
+###    attr   4
+start RSA key generation base 992 bits exponent 144 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 992 ^ 144 321.3 s ( 0.3 199.0 122.1 )
+resign 992 ^ 144 322.0 s ( 0.3 199.6 122.2 )
+gate 992 ^ 144 171.7 s ( 76.6 95.1 )
+gate 992 ^ 144 171.8 s ( 76.9 94.8 )
+resign 992 ^ 144 321.9 s ( 0.3 199.4 122.2 )
+gate 992 ^ 144 171.4 s ( 76.7 94.7 )
+gate 992 ^ 144 171.8 s ( 76.8 95.0 )
+resign 992 ^ 144 322.0 s ( 0.3 199.6 122.1 )
+gate 992 ^ 144 171.6 s ( 76.7 94.9 )
+gate 992 ^ 144 171.8 s ( 76.8 95.0 )
+start RSA key generation base 992 bits exponent 144 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 992 ^ 144 321.3 s ( 0.3 198.9 122.1 )
+resign 992 ^ 144 322.3 s ( 0.3 199.6 122.4 )
+gate 992 ^ 144 171.4 s ( 76.7 94.7 )
+gate 992 ^ 144 171.4 s ( 76.9 94.5 )
+resign 992 ^ 144 322.2 s ( 0.3 199.7 122.2 )
+gate 992 ^ 144 172.0 s ( 76.8 95.2 )
+gate 992 ^ 144 172.0 s ( 76.7 95.2 )
+resign 992 ^ 144 322.3 s ( 0.3 199.7 122.3 )
+gate 992 ^ 144 172.1 s ( 76.8 95.3 )
+gate 992 ^ 144 172.2 s ( 76.7 95.4 )
+start RSA key generation base 992 bits exponent 144 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 992 ^ 144 321.9 s ( 0.3 199.4 122.2 )
+resign 992 ^ 144 323.0 s ( 0.3 200.4 122.3 )
+gate 992 ^ 144 172.2 s ( 76.7 95.4 )
+gate 992 ^ 144 172.1 s ( 76.9 95.3 )
+resign 992 ^ 144 322.6 s ( 0.3 199.8 122.5 )
+gate 992 ^ 144 172.1 s ( 76.7 95.4 )
+gate 992 ^ 144 172.2 s ( 76.8 95.3 )
+resign 992 ^ 144 322.2 s ( 0.3 199.7 122.1 )
+gate 992 ^ 144 172.1 s ( 76.7 95.4 )
+gate 992 ^ 144 172.2 s ( 76.8 95.4 )
+### TEST INIT RESIGN PARAMETERS:
+###    base   1024	128 bytes
+###    exp    144	18 bytes
+###    attr   4
+start RSA key generation base 1024 bits exponent 144 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 1024 ^ 144 342.1 s ( 0.3 211.9 130.0 )
+resign 1024 ^ 144 342.5 s ( 0.3 212.3 129.9 )
+gate 1024 ^ 144 181.5 s ( 81.6 99.8 )
+gate 1024 ^ 144 181.4 s ( 81.6 99.8 )
+resign 1024 ^ 144 342.8 s ( 0.3 212.5 130.0 )
+gate 1024 ^ 144 182.8 s ( 81.7 101.1 )
+gate 1024 ^ 144 182.9 s ( 81.8 101.1 )
+resign 1024 ^ 144 344.0 s ( 0.3 213.5 130.1 )
+gate 1024 ^ 144 183.1 s ( 81.9 101.1 )
+gate 1024 ^ 144 182.7 s ( 81.7 101.0 )
+start RSA key generation base 1024 bits exponent 144 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 1024 ^ 144 342.6 s ( 0.3 212.3 130.0 )
+resign 1024 ^ 144 343.0 s ( 0.3 212.6 130.1 )
+gate 1024 ^ 144 182.6 s ( 81.6 101.0 )
+gate 1024 ^ 144 182.5 s ( 81.8 100.7 )
+resign 1024 ^ 144 343.0 s ( 0.3 212.7 130.0 )
+gate 1024 ^ 144 182.7 s ( 81.7 101.1 )
+gate 1024 ^ 144 182.7 s ( 81.7 101.0 )
+resign 1024 ^ 144 343.2 s ( 0.3 213.0 129.9 )
+gate 1024 ^ 144 182.6 s ( 81.6 101.0 )
+gate 1024 ^ 144 182.6 s ( 81.7 100.9 )
+start RSA key generation base 1024 bits exponent 144 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 1024 ^ 144 342.7 s ( 0.3 212.6 129.9 )
+resign 1024 ^ 144 342.8 s ( 0.3 212.5 130.0 )
+gate 1024 ^ 144 182.7 s ( 81.6 101.1 )
+gate 1024 ^ 144 182.7 s ( 81.6 101.1 )
+resign 1024 ^ 144 343.3 s ( 0.3 212.9 130.1 )
+gate 1024 ^ 144 182.8 s ( 81.7 101.1 )
+gate 1024 ^ 144 182.6 s ( 81.6 101.0 )
+resign 1024 ^ 144 344.3 s ( 0.3 214.0 130.0 )
+gate 1024 ^ 144 182.8 s ( 81.8 101.0 )
+gate 1024 ^ 144 182.8 s ( 81.6 101.1 )
+### TEST INIT RESIGN PARAMETERS:
+###    base   1056	132 bytes
+###    exp    144	18 bytes
+###    attr   4
+start RSA key generation base 1056 bits exponent 144 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 1056 ^ 144 363.5 s ( 0.3 225.2 138.0 )
+resign 1056 ^ 144 364.0 s ( 0.3 225.6 138.1 )
+gate 1056 ^ 144 193.4 s ( 86.7 106.7 )
+gate 1056 ^ 144 193.6 s ( 86.8 106.7 )
+resign 1056 ^ 144 364.2 s ( 0.3 225.8 138.1 )
+gate 1056 ^ 144 193.6 s ( 86.7 106.9 )
+gate 1056 ^ 144 193.5 s ( 86.7 106.7 )
+resign 1056 ^ 144 364.1 s ( 0.3 225.7 138.1 )
+gate 1056 ^ 144 193.4 s ( 86.8 106.6 )
+gate 1056 ^ 144 193.4 s ( 86.6 106.8 )
+start RSA key generation base 1056 bits exponent 144 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 1056 ^ 144 364.7 s ( 0.3 226.5 137.9 )
+resign 1056 ^ 144 363.8 s ( 0.3 225.6 137.9 )
+gate 1056 ^ 144 193.6 s ( 86.6 107.0 )
+gate 1056 ^ 144 193.6 s ( 86.6 107.0 )
+resign 1056 ^ 144 364.6 s ( 0.3 226.4 137.8 )
+gate 1056 ^ 144 193.1 s ( 86.7 106.4 )
+gate 1056 ^ 144 192.9 s ( 86.6 106.3 )
+resign 1056 ^ 144 363.9 s ( 0.3 225.6 138.0 )
+gate 1056 ^ 144 193.5 s ( 86.7 106.8 )
+gate 1056 ^ 144 193.6 s ( 86.6 106.9 )
+start RSA key generation base 1056 bits exponent 144 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 1056 ^ 144 363.2 s ( 0.3 224.9 138.0 )
+resign 1056 ^ 144 363.5 s ( 0.3 225.3 137.8 )
+gate 1056 ^ 144 193.1 s ( 86.7 106.4 )
+gate 1056 ^ 144 193.1 s ( 86.6 106.5 )
+resign 1056 ^ 144 363.4 s ( 0.3 225.3 137.8 )
+gate 1056 ^ 144 194.0 s ( 86.6 107.3 )
+gate 1056 ^ 144 193.8 s ( 86.7 107.1 )
+resign 1056 ^ 144 363.5 s ( 0.3 225.4 137.8 )
+gate 1056 ^ 144 193.8 s ( 86.6 107.2 )
+gate 1056 ^ 144 194.0 s ( 86.8 107.2 )
+### TEST INIT RESIGN PARAMETERS:
+###    base   1088	136 bytes
+###    exp    152	19 bytes
+###    attr   4
+start RSA key generation base 1088 bits exponent 152 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 1088 ^ 152 384.5 s ( 0.3 238.1 146.1 )
+resign 1088 ^ 152 385.7 s ( 0.3 239.3 146.0 )
+gate 1088 ^ 152 205.2 s ( 91.8 113.3 )
+gate 1088 ^ 152 205.1 s ( 91.7 113.4 )
+resign 1088 ^ 152 385.3 s ( 0.3 239.0 146.1 )
+gate 1088 ^ 152 204.9 s ( 91.7 113.3 )
+gate 1088 ^ 152 205.0 s ( 91.8 113.2 )
+resign 1088 ^ 152 385.5 s ( 0.3 239.2 146.0 )
+gate 1088 ^ 152 205.1 s ( 91.7 113.4 )
+gate 1088 ^ 152 205.2 s ( 91.9 113.3 )
+start RSA key generation base 1088 bits exponent 152 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 1088 ^ 152 384.5 s ( 0.3 238.2 146.1 )
+resign 1088 ^ 152 385.6 s ( 0.3 239.2 146.1 )
+gate 1088 ^ 152 204.5 s ( 91.7 112.7 )
+gate 1088 ^ 152 204.6 s ( 91.9 112.7 )
+resign 1088 ^ 152 385.2 s ( 0.3 238.5 146.3 )
+gate 1088 ^ 152 205.2 s ( 91.7 113.5 )
+gate 1088 ^ 152 205.3 s ( 91.7 113.5 )
+resign 1088 ^ 152 385.3 s ( 0.3 238.8 146.2 )
+gate 1088 ^ 152 205.3 s ( 91.8 113.5 )
+gate 1088 ^ 152 205.5 s ( 91.8 113.7 )
+start RSA key generation base 1088 bits exponent 152 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 1088 ^ 152 385.6 s ( 0.3 239.2 146.2 )
+resign 1088 ^ 152 385.1 s ( 0.3 238.6 146.1 )
+gate 1088 ^ 152 205.1 s ( 91.8 113.3 )
+gate 1088 ^ 152 205.2 s ( 91.8 113.4 )
+resign 1088 ^ 152 385.7 s ( 0.3 239.3 146.0 )
+gate 1088 ^ 152 205.1 s ( 91.7 113.3 )
+gate 1088 ^ 152 205.2 s ( 91.9 113.3 )
+resign 1088 ^ 152 384.9 s ( 0.3 238.5 146.0 )
+gate 1088 ^ 152 205.0 s ( 91.7 113.2 )
+gate 1088 ^ 152 205.0 s ( 91.9 113.1 )
+### TEST INIT RESIGN PARAMETERS:
+###    base   1120	140 bytes
+###    exp    152	19 bytes
+###    attr   4
+start RSA key generation base 1120 bits exponent 152 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 1120 ^ 152 406.6 s ( 0.3 251.8 154.5 )
+resign 1120 ^ 152 407.2 s ( 0.3 252.3 154.6 )
+gate 1120 ^ 152 216.9 s ( 97.0 119.9 )
+gate 1120 ^ 152 217.1 s ( 97.0 120.1 )
+resign 1120 ^ 152 406.9 s ( 0.3 252.1 154.5 )
+gate 1120 ^ 152 216.0 s ( 96.9 119.1 )
+gate 1120 ^ 152 216.1 s ( 97.1 119.0 )
+resign 1120 ^ 152 407.1 s ( 0.3 252.4 154.4 )
+gate 1120 ^ 152 216.9 s ( 96.9 119.9 )
+gate 1120 ^ 152 217.0 s ( 97.0 119.9 )
+start RSA key generation base 1120 bits exponent 152 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 1120 ^ 152 406.5 s ( 0.3 251.7 154.5 )
+resign 1120 ^ 152 406.8 s ( 0.3 252.1 154.3 )
+gate 1120 ^ 152 215.2 s ( 96.9 118.2 )
+gate 1120 ^ 152 215.6 s ( 97.1 118.5 )
+resign 1120 ^ 152 406.8 s ( 0.3 252.0 154.4 )
+gate 1120 ^ 152 216.8 s ( 96.9 119.9 )
+gate 1120 ^ 152 217.0 s ( 97.0 119.9 )
+resign 1120 ^ 152 407.0 s ( 0.3 252.2 154.5 )
+gate 1120 ^ 152 217.1 s ( 97.1 120.0 )
+gate 1120 ^ 152 216.9 s ( 96.9 119.9 )
+start RSA key generation base 1120 bits exponent 152 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 1120 ^ 152 408.8 s ( 0.3 254.0 154.5 )
+resign 1120 ^ 152 406.9 s ( 0.3 252.0 154.6 )
+gate 1120 ^ 152 216.8 s ( 96.9 119.8 )
+gate 1120 ^ 152 216.9 s ( 96.9 119.9 )
+resign 1120 ^ 152 407.0 s ( 0.3 252.3 154.3 )
+gate 1120 ^ 152 217.2 s ( 96.9 120.2 )
+gate 1120 ^ 152 216.9 s ( 96.9 119.9 )
+resign 1120 ^ 152 407.1 s ( 0.3 252.1 154.6 )
+gate 1120 ^ 152 216.9 s ( 97.0 119.8 )
+gate 1120 ^ 152 216.9 s ( 96.9 119.9 )
+### TEST INIT RESIGN PARAMETERS:
+###    base   1152	144 bytes
+###    exp    152	19 bytes
+###    attr   4
+start RSA key generation base 1152 bits exponent 152 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 1152 ^ 152 429.4 s ( 0.3 266.0 163.1 )
+resign 1152 ^ 152 429.7 s ( 0.3 266.3 163.1 )
+gate 1152 ^ 152 228.8 s ( 102.5 126.3 )
+gate 1152 ^ 152 228.7 s ( 102.5 126.2 )
+resign 1152 ^ 152 429.7 s ( 0.3 266.3 163.1 )
+gate 1152 ^ 152 227.7 s ( 102.4 125.3 )
+gate 1152 ^ 152 227.9 s ( 102.4 125.4 )
+resign 1152 ^ 152 429.8 s ( 0.3 266.3 163.1 )
+gate 1152 ^ 152 227.8 s ( 102.4 125.4 )
+gate 1152 ^ 152 227.9 s ( 102.5 125.4 )
+start RSA key generation base 1152 bits exponent 152 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 1152 ^ 152 429.1 s ( 0.3 265.7 163.1 )
+resign 1152 ^ 152 430.7 s ( 0.3 267.1 163.2 )
+gate 1152 ^ 152 228.1 s ( 102.4 125.7 )
+gate 1152 ^ 152 228.1 s ( 102.4 125.7 )
+resign 1152 ^ 152 431.4 s ( 0.3 268.0 163.1 )
+gate 1152 ^ 152 227.4 s ( 102.3 125.0 )
+gate 1152 ^ 152 227.6 s ( 102.5 125.1 )
+resign 1152 ^ 152 429.8 s ( 0.3 266.4 163.1 )
+gate 1152 ^ 152 228.3 s ( 102.5 125.8 )
+gate 1152 ^ 152 228.2 s ( 102.4 125.8 )
+start RSA key generation base 1152 bits exponent 152 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 1152 ^ 152 429.8 s ( 0.3 266.5 163.0 )
+resign 1152 ^ 152 430.3 s ( 0.3 266.9 163.1 )
+gate 1152 ^ 152 228.5 s ( 102.3 126.2 )
+gate 1152 ^ 152 228.8 s ( 102.5 126.3 )
+resign 1152 ^ 152 429.5 s ( 0.3 266.2 163.0 )
+gate 1152 ^ 152 228.9 s ( 102.5 126.3 )
+gate 1152 ^ 152 228.7 s ( 102.5 126.2 )
+resign 1152 ^ 152 429.5 s ( 0.3 266.1 163.1 )
+gate 1152 ^ 152 228.2 s ( 102.4 125.8 )
+gate 1152 ^ 152 227.9 s ( 102.5 125.4 )
+### TEST INIT RESIGN PARAMETERS:
+###    base   1184	148 bytes
+###    exp    160	20 bytes
+###    attr   4
+start RSA key generation base 1184 bits exponent 160 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 1184 ^ 160 452.6 s ( 0.3 280.2 172.1 )
+resign 1184 ^ 160 453.2 s ( 0.3 280.9 171.9 )
+gate 1184 ^ 160 241.3 s ( 107.9 133.3 )
+gate 1184 ^ 160 241.5 s ( 108.0 133.4 )
+resign 1184 ^ 160 453.2 s ( 0.3 281.2 171.7 )
+gate 1184 ^ 160 240.6 s ( 107.9 132.6 )
+gate 1184 ^ 160 240.8 s ( 108.1 132.6 )
+resign 1184 ^ 160 453.3 s ( 0.3 281.0 172.0 )
+gate 1184 ^ 160 241.7 s ( 108.0 133.7 )
+gate 1184 ^ 160 241.6 s ( 108.0 133.5 )
+start RSA key generation base 1184 bits exponent 160 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 1184 ^ 160 454.0 s ( 0.3 281.5 172.2 )
+resign 1184 ^ 160 453.2 s ( 0.3 280.9 172.0 )
+gate 1184 ^ 160 241.4 s ( 108.0 133.4 )
+gate 1184 ^ 160 241.5 s ( 107.9 133.5 )
+resign 1184 ^ 160 453.6 s ( 0.3 281.2 172.1 )
+gate 1184 ^ 160 241.3 s ( 108.0 133.3 )
+gate 1184 ^ 160 241.9 s ( 108.1 133.7 )
+resign 1184 ^ 160 454.0 s ( 0.3 281.5 172.2 )
+gate 1184 ^ 160 240.6 s ( 107.9 132.7 )
+gate 1184 ^ 160 240.5 s ( 107.9 132.6 )
+start RSA key generation base 1184 bits exponent 160 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 1184 ^ 160 452.7 s ( 0.3 280.3 172.1 )
+resign 1184 ^ 160 453.0 s ( 0.3 280.8 171.8 )
+gate 1184 ^ 160 241.5 s ( 108.1 133.4 )
+gate 1184 ^ 160 241.7 s ( 108.2 133.4 )
+resign 1184 ^ 160 453.3 s ( 0.3 280.9 172.1 )
+gate 1184 ^ 160 241.5 s ( 108.0 133.5 )
+gate 1184 ^ 160 241.4 s ( 108.0 133.3 )
+resign 1184 ^ 160 453.1 s ( 0.3 280.9 171.9 )
+gate 1184 ^ 160 241.4 s ( 108.0 133.3 )
+gate 1184 ^ 160 241.5 s ( 108.1 133.4 )
+### TEST INIT RESIGN PARAMETERS:
+###    base   1216	152 bytes
+###    exp    160	20 bytes
+###    attr   4
+start RSA key generation base 1216 bits exponent 160 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 1216 ^ 160 477.7 s ( 0.3 296.0 181.4 )
+resign 1216 ^ 160 477.7 s ( 0.3 296.1 181.2 )
+gate 1216 ^ 160 254.3 s ( 113.9 140.4 )
+gate 1216 ^ 160 254.4 s ( 113.8 140.5 )
+resign 1216 ^ 160 477.7 s ( 0.3 296.2 181.2 )
+gate 1216 ^ 160 254.4 s ( 113.8 140.5 )
+gate 1216 ^ 160 254.2 s ( 113.7 140.5 )
+resign 1216 ^ 160 478.6 s ( 0.3 296.7 181.5 )
+gate 1216 ^ 160 253.7 s ( 114.0 139.7 )
+gate 1216 ^ 160 253.9 s ( 114.1 139.7 )
+start RSA key generation base 1216 bits exponent 160 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 1216 ^ 160 477.5 s ( 0.3 295.7 181.5 )
+resign 1216 ^ 160 478.6 s ( 0.3 296.9 181.3 )
+gate 1216 ^ 160 254.6 s ( 113.9 140.6 )
+gate 1216 ^ 160 254.1 s ( 113.9 140.2 )
+resign 1216 ^ 160 479.6 s ( 0.3 298.0 181.2 )
+gate 1216 ^ 160 252.8 s ( 113.9 138.9 )
+gate 1216 ^ 160 252.8 s ( 113.9 138.8 )
+resign 1216 ^ 160 478.6 s ( 0.3 296.7 181.6 )
+gate 1216 ^ 160 253.5 s ( 113.9 139.6 )
+gate 1216 ^ 160 253.5 s ( 114.0 139.5 )
+start RSA key generation base 1216 bits exponent 160 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 1216 ^ 160 478.3 s ( 0.3 296.5 181.5 )
+resign 1216 ^ 160 480.0 s ( 0.3 298.0 181.7 )
+gate 1216 ^ 160 254.4 s ( 114.0 140.4 )
+gate 1216 ^ 160 254.6 s ( 114.1 140.5 )
+resign 1216 ^ 160 478.3 s ( 0.3 296.3 181.7 )
+gate 1216 ^ 160 253.9 s ( 114.0 139.9 )
+gate 1216 ^ 160 253.7 s ( 114.0 139.6 )
+resign 1216 ^ 160 478.6 s ( 0.3 296.6 181.7 )
+gate 1216 ^ 160 254.7 s ( 114.1 140.6 )
+gate 1216 ^ 160 254.5 s ( 114.0 140.4 )
+### TEST INIT RESIGN PARAMETERS:
+###    base   1248	156 bytes
+###    exp    160	20 bytes
+###    attr   4
+start RSA key generation base 1248 bits exponent 160 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 1248 ^ 160 503.7 s ( 0.3 312.2 191.2 )
+resign 1248 ^ 160 503.4 s ( 0.3 311.9 191.1 )
+gate 1248 ^ 160 267.8 s ( 120.2 147.6 )
+gate 1248 ^ 160 267.8 s ( 120.3 147.5 )
+resign 1248 ^ 160 503.4 s ( 0.3 312.0 191.0 )
+gate 1248 ^ 160 267.7 s ( 120.0 147.7 )
+gate 1248 ^ 160 267.7 s ( 119.9 147.6 )
+resign 1248 ^ 160 504.6 s ( 0.3 313.1 191.2 )
+gate 1248 ^ 160 267.7 s ( 120.1 147.6 )
+gate 1248 ^ 160 268.1 s ( 120.4 147.7 )
+start RSA key generation base 1248 bits exponent 160 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 1248 ^ 160 504.1 s ( 0.3 312.7 191.1 )
+resign 1248 ^ 160 505.2 s ( 0.3 313.6 191.3 )
+gate 1248 ^ 160 267.7 s ( 120.0 147.6 )
+gate 1248 ^ 160 267.8 s ( 120.1 147.7 )
+resign 1248 ^ 160 503.4 s ( 0.3 312.1 191.0 )
+gate 1248 ^ 160 267.9 s ( 119.9 147.9 )
+gate 1248 ^ 160 267.9 s ( 120.1 147.8 )
+resign 1248 ^ 160 503.6 s ( 0.3 312.0 191.2 )
+gate 1248 ^ 160 267.8 s ( 120.0 147.8 )
+gate 1248 ^ 160 267.8 s ( 120.1 147.7 )
+start RSA key generation base 1248 bits exponent 160 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 1248 ^ 160 503.7 s ( 0.3 312.2 191.2 )
+resign 1248 ^ 160 504.4 s ( 0.3 312.9 191.1 )
+gate 1248 ^ 160 267.8 s ( 120.1 147.7 )
+gate 1248 ^ 160 267.9 s ( 120.2 147.7 )
+resign 1248 ^ 160 503.8 s ( 0.3 312.1 191.3 )
+gate 1248 ^ 160 266.7 s ( 119.9 146.8 )
+gate 1248 ^ 160 267.1 s ( 120.1 147.0 )
+resign 1248 ^ 160 503.7 s ( 0.3 312.1 191.2 )
+gate 1248 ^ 160 267.9 s ( 120.0 147.8 )
+gate 1248 ^ 160 267.9 s ( 120.1 147.8 )
+### TEST INIT RESIGN PARAMETERS:
+###    base   1280	160 bytes
+###    exp    160	20 bytes
+###    attr   4
+start RSA key generation base 1280 bits exponent 160 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 1280 ^ 160 528.5 s ( 0.3 327.4 200.7 )
+resign 1280 ^ 160 530.6 s ( 0.3 329.3 201.0 )
+gate 1280 ^ 160 281.1 s ( 126.2 154.9 )
+gate 1280 ^ 160 281.1 s ( 126.3 154.8 )
+resign 1280 ^ 160 529.4 s ( 0.3 328.0 201.0 )
+gate 1280 ^ 160 281.1 s ( 126.1 155.0 )
+gate 1280 ^ 160 281.1 s ( 126.1 155.0 )
+resign 1280 ^ 160 529.1 s ( 0.3 328.0 200.8 )
+gate 1280 ^ 160 280.3 s ( 126.1 154.2 )
+gate 1280 ^ 160 280.4 s ( 126.2 154.2 )
+start RSA key generation base 1280 bits exponent 160 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 1280 ^ 160 528.8 s ( 0.3 327.4 201.1 )
+resign 1280 ^ 160 529.2 s ( 0.3 327.9 201.0 )
+gate 1280 ^ 160 280.6 s ( 126.1 154.5 )
+gate 1280 ^ 160 280.6 s ( 126.3 154.3 )
+resign 1280 ^ 160 529.4 s ( 0.3 328.0 201.1 )
+gate 1280 ^ 160 280.5 s ( 126.0 154.4 )
+gate 1280 ^ 160 280.6 s ( 126.2 154.4 )
+resign 1280 ^ 160 529.7 s ( 0.3 328.5 200.8 )
+gate 1280 ^ 160 280.0 s ( 126.2 153.7 )
+gate 1280 ^ 160 280.0 s ( 126.1 153.9 )
+start RSA key generation base 1280 bits exponent 160 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 1280 ^ 160 528.6 s ( 0.3 327.4 201.0 )
+resign 1280 ^ 160 529.9 s ( 0.3 328.7 200.9 )
+gate 1280 ^ 160 279.8 s ( 126.1 153.7 )
+gate 1280 ^ 160 280.0 s ( 126.2 153.8 )
+resign 1280 ^ 160 530.9 s ( 0.3 329.6 200.9 )
+gate 1280 ^ 160 280.5 s ( 126.1 154.4 )
+gate 1280 ^ 160 280.5 s ( 126.1 154.3 )
+resign 1280 ^ 160 530.0 s ( 0.3 328.7 201.0 )
+gate 1280 ^ 160 280.5 s ( 126.1 154.4 )
+gate 1280 ^ 160 280.6 s ( 126.2 154.3 )
+### TEST INIT RESIGN PARAMETERS:
+###    base   1312	164 bytes
+###    exp    168	21 bytes
+###    attr   4
+start RSA key generation base 1312 bits exponent 168 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 1312 ^ 168 554.7 s ( 0.3 343.6 210.8 )
+resign 1312 ^ 168 554.9 s ( 0.3 343.9 210.7 )
+gate 1312 ^ 168 294.4 s ( 132.4 162.0 )
+gate 1312 ^ 168 294.6 s ( 132.3 162.3 )
+resign 1312 ^ 168 555.2 s ( 0.3 344.1 210.7 )
+gate 1312 ^ 168 295.3 s ( 132.3 162.9 )
+gate 1312 ^ 168 295.2 s ( 132.4 162.8 )
+resign 1312 ^ 168 555.0 s ( 0.3 344.1 210.5 )
+gate 1312 ^ 168 295.3 s ( 132.2 163.1 )
+gate 1312 ^ 168 295.3 s ( 132.5 162.8 )
+start RSA key generation base 1312 bits exponent 168 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 1312 ^ 168 555.0 s ( 0.3 343.9 210.8 )
+resign 1312 ^ 168 555.6 s ( 0.3 344.6 210.6 )
+gate 1312 ^ 168 294.9 s ( 132.2 162.7 )
+gate 1312 ^ 168 294.7 s ( 132.3 162.4 )
+resign 1312 ^ 168 554.5 s ( 0.3 343.8 210.4 )
+gate 1312 ^ 168 294.7 s ( 132.2 162.5 )
+gate 1312 ^ 168 294.8 s ( 132.3 162.4 )
+resign 1312 ^ 168 555.4 s ( 0.3 344.6 210.5 )
+gate 1312 ^ 168 294.7 s ( 132.2 162.4 )
+gate 1312 ^ 168 294.4 s ( 132.2 162.2 )
+start RSA key generation base 1312 bits exponent 168 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 1312 ^ 168 553.7 s ( 0.3 343.1 210.3 )
+resign 1312 ^ 168 554.5 s ( 0.3 343.9 210.3 )
+gate 1312 ^ 168 294.9 s ( 132.2 162.7 )
+gate 1312 ^ 168 294.8 s ( 132.2 162.6 )
+resign 1312 ^ 168 554.3 s ( 0.3 343.5 210.5 )
+gate 1312 ^ 168 294.0 s ( 132.3 161.7 )
+gate 1312 ^ 168 294.2 s ( 132.2 162.0 )
+resign 1312 ^ 168 554.3 s ( 0.3 343.6 210.4 )
+gate 1312 ^ 168 294.8 s ( 132.2 162.6 )
+gate 1312 ^ 168 295.0 s ( 132.2 162.8 )
+### TEST INIT RESIGN PARAMETERS:
+###    base   1344	168 bytes
+###    exp    168	21 bytes
+###    attr   4
+start RSA key generation base 1344 bits exponent 168 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 1344 ^ 168 580.2 s ( 0.3 359.4 220.5 )
+resign 1344 ^ 168 581.0 s ( 0.3 360.3 220.4 )
+gate 1344 ^ 168 308.3 s ( 138.7 169.6 )
+gate 1344 ^ 168 308.3 s ( 138.6 169.6 )
+resign 1344 ^ 168 581.2 s ( 0.3 360.2 220.6 )
+gate 1344 ^ 168 308.8 s ( 138.5 170.3 )
+gate 1344 ^ 168 308.7 s ( 138.5 170.2 )
+resign 1344 ^ 168 580.9 s ( 0.3 360.1 220.5 )
+gate 1344 ^ 168 309.0 s ( 138.5 170.4 )
+gate 1344 ^ 168 309.3 s ( 138.7 170.5 )
+start RSA key generation base 1344 bits exponent 168 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 1344 ^ 168 580.1 s ( 0.3 359.4 220.4 )
+resign 1344 ^ 168 581.7 s ( 0.3 360.7 220.7 )
+gate 1344 ^ 168 307.9 s ( 138.6 169.3 )
+gate 1344 ^ 168 308.2 s ( 138.6 169.6 )
+resign 1344 ^ 168 580.7 s ( 0.3 360.0 220.4 )
+gate 1344 ^ 168 307.9 s ( 138.6 169.3 )
+gate 1344 ^ 168 307.9 s ( 138.5 169.4 )
+resign 1344 ^ 168 581.0 s ( 0.3 360.2 220.4 )
+gate 1344 ^ 168 307.9 s ( 138.5 169.4 )
+gate 1344 ^ 168 308.0 s ( 138.6 169.4 )
+start RSA key generation base 1344 bits exponent 168 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 1344 ^ 168 580.2 s ( 0.3 359.4 220.5 )
+resign 1344 ^ 168 580.7 s ( 0.3 360.0 220.3 )
+gate 1344 ^ 168 308.3 s ( 138.4 169.9 )
+gate 1344 ^ 168 308.7 s ( 138.5 170.2 )
+resign 1344 ^ 168 580.5 s ( 0.3 359.9 220.3 )
+gate 1344 ^ 168 308.6 s ( 138.5 170.1 )
+gate 1344 ^ 168 308.6 s ( 138.5 170.0 )
+resign 1344 ^ 168 580.9 s ( 0.3 360.1 220.5 )
+gate 1344 ^ 168 308.7 s ( 138.6 170.1 )
+gate 1344 ^ 168 308.2 s ( 138.3 169.9 )
+### TEST INIT RESIGN PARAMETERS:
+###    base   1376	172 bytes
+###    exp    168	21 bytes
+###    attr   4
+start RSA key generation base 1376 bits exponent 168 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 1376 ^ 168 608.0 s ( 0.3 377.3 230.4 )
+resign 1376 ^ 168 607.9 s ( 0.3 377.1 230.5 )
+gate 1376 ^ 168 322.8 s ( 144.8 178.0 )
+gate 1376 ^ 168 322.7 s ( 144.7 177.9 )
+resign 1376 ^ 168 607.6 s ( 0.3 376.5 230.7 )
+gate 1376 ^ 168 322.8 s ( 144.7 178.0 )
+gate 1376 ^ 168 322.7 s ( 144.8 177.9 )
+resign 1376 ^ 168 607.5 s ( 0.3 376.8 230.4 )
+gate 1376 ^ 168 321.1 s ( 144.8 176.2 )
+gate 1376 ^ 168 320.9 s ( 144.9 176.0 )
+start RSA key generation base 1376 bits exponent 168 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 1376 ^ 168 606.5 s ( 0.3 375.7 230.5 )
+resign 1376 ^ 168 607.8 s ( 0.3 377.1 230.4 )
+gate 1376 ^ 168 322.9 s ( 144.9 178.0 )
+gate 1376 ^ 168 322.8 s ( 144.9 177.9 )
+resign 1376 ^ 168 607.2 s ( 0.3 376.3 230.5 )
+gate 1376 ^ 168 322.7 s ( 144.8 177.9 )
+gate 1376 ^ 168 322.6 s ( 144.8 177.8 )
+resign 1376 ^ 168 607.3 s ( 0.3 376.3 230.6 )
+gate 1376 ^ 168 322.9 s ( 144.8 178.1 )
+gate 1376 ^ 168 322.5 s ( 144.8 177.7 )
+start RSA key generation base 1376 bits exponent 168 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 1376 ^ 168 607.5 s ( 0.3 376.5 230.6 )
+resign 1376 ^ 168 608.6 s ( 0.3 377.8 230.4 )
+gate 1376 ^ 168 322.5 s ( 144.7 177.8 )
+gate 1376 ^ 168 322.7 s ( 144.9 177.7 )
+resign 1376 ^ 168 608.6 s ( 0.3 377.7 230.5 )
+gate 1376 ^ 168 322.5 s ( 144.7 177.8 )
+gate 1376 ^ 168 322.7 s ( 144.8 177.8 )
+resign 1376 ^ 168 607.4 s ( 0.3 376.4 230.6 )
+gate 1376 ^ 168 322.7 s ( 144.8 177.9 )
+gate 1376 ^ 168 322.8 s ( 144.9 177.8 )
+### TEST INIT RESIGN PARAMETERS:
+###    base   1408	176 bytes
+###    exp    168	21 bytes
+###    attr   4
+start RSA key generation base 1408 bits exponent 168 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 1408 ^ 168 634.4 s ( 0.3 392.9 241.1 )
+resign 1408 ^ 168 634.8 s ( 0.3 393.4 241.0 )
+gate 1408 ^ 168 335.7 s ( 151.4 184.3 )
+gate 1408 ^ 168 335.7 s ( 151.3 184.4 )
+resign 1408 ^ 168 634.9 s ( 0.3 393.5 241.1 )
+gate 1408 ^ 168 335.6 s ( 151.2 184.3 )
+gate 1408 ^ 168 335.6 s ( 151.4 184.2 )
+resign 1408 ^ 168 634.9 s ( 0.3 393.4 241.1 )
+gate 1408 ^ 168 336.4 s ( 151.5 184.9 )
+gate 1408 ^ 168 336.3 s ( 151.4 184.9 )
+start RSA key generation base 1408 bits exponent 168 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 1408 ^ 168 635.0 s ( 0.3 393.5 241.2 )
+resign 1408 ^ 168 634.7 s ( 0.3 393.3 241.0 )
+gate 1408 ^ 168 336.9 s ( 151.3 185.6 )
+gate 1408 ^ 168 336.9 s ( 151.4 185.5 )
+resign 1408 ^ 168 636.4 s ( 0.3 395.1 241.0 )
+gate 1408 ^ 168 336.9 s ( 151.4 185.5 )
+gate 1408 ^ 168 336.8 s ( 151.3 185.4 )
+resign 1408 ^ 168 634.5 s ( 0.3 393.3 240.8 )
+gate 1408 ^ 168 336.7 s ( 151.2 185.4 )
+gate 1408 ^ 168 336.8 s ( 151.3 185.5 )
+start RSA key generation base 1408 bits exponent 168 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 1408 ^ 168 634.1 s ( 0.3 392.8 241.0 )
+resign 1408 ^ 168 634.6 s ( 0.3 393.4 240.9 )
+gate 1408 ^ 168 336.7 s ( 151.2 185.5 )
+gate 1408 ^ 168 336.8 s ( 151.3 185.5 )
+resign 1408 ^ 168 634.8 s ( 0.3 393.3 241.2 )
+gate 1408 ^ 168 336.3 s ( 151.4 184.8 )
+gate 1408 ^ 168 336.6 s ( 151.7 184.9 )
+resign 1408 ^ 168 636.1 s ( 0.3 394.6 241.2 )
+gate 1408 ^ 168 337.4 s ( 151.4 185.9 )
+gate 1408 ^ 168 337.6 s ( 151.5 186.1 )
+### TEST INIT RESIGN PARAMETERS:
+###    base   1440	180 bytes
+###    exp    176	22 bytes
+###    attr   4
+start RSA key generation base 1440 bits exponent 176 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 1440 ^ 176 664.5 s ( 0.3 412.0 252.2 )
+resign 1440 ^ 176 663.9 s ( 0.3 411.4 252.1 )
+gate 1440 ^ 176 351.4 s ( 158.4 193.0 )
+gate 1440 ^ 176 351.4 s ( 158.5 192.9 )
+resign 1440 ^ 176 664.4 s ( 0.3 411.8 252.2 )
+gate 1440 ^ 176 352.0 s ( 158.3 193.6 )
+gate 1440 ^ 176 352.0 s ( 158.3 193.7 )
+resign 1440 ^ 176 666.4 s ( 0.3 413.8 252.2 )
+gate 1440 ^ 176 351.2 s ( 158.4 192.8 )
+gate 1440 ^ 176 351.1 s ( 158.3 192.7 )
+start RSA key generation base 1440 bits exponent 176 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 1440 ^ 176 663.5 s ( 0.3 411.1 252.0 )
+resign 1440 ^ 176 666.5 s ( 0.3 414.1 252.0 )
+gate 1440 ^ 176 352.5 s ( 158.3 194.2 )
+gate 1440 ^ 176 352.4 s ( 158.3 194.0 )
+resign 1440 ^ 176 664.5 s ( 0.3 412.2 251.9 )
+gate 1440 ^ 176 352.7 s ( 158.3 194.4 )
+gate 1440 ^ 176 352.9 s ( 158.4 194.5 )
+resign 1440 ^ 176 663.9 s ( 0.3 411.4 252.1 )
+gate 1440 ^ 176 351.7 s ( 158.3 193.4 )
+gate 1440 ^ 176 351.7 s ( 158.2 193.4 )
+start RSA key generation base 1440 bits exponent 176 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 1440 ^ 176 663.1 s ( 0.3 410.8 252.0 )
+resign 1440 ^ 176 663.6 s ( 0.3 411.4 251.9 )
+gate 1440 ^ 176 351.7 s ( 158.2 193.4 )
+gate 1440 ^ 176 352.0 s ( 158.4 193.6 )
+resign 1440 ^ 176 663.9 s ( 0.3 411.5 252.0 )
+gate 1440 ^ 176 351.7 s ( 158.3 193.3 )
+gate 1440 ^ 176 351.8 s ( 158.3 193.5 )
+resign 1440 ^ 176 664.2 s ( 0.3 411.6 252.2 )
+gate 1440 ^ 176 352.3 s ( 158.4 193.8 )
+gate 1440 ^ 176 352.3 s ( 158.6 193.7 )
+### TEST INIT RESIGN PARAMETERS:
+###    base   1472	184 bytes
+###    exp    176	22 bytes
+###    attr   4
+start RSA key generation base 1472 bits exponent 176 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 1472 ^ 176 692.8 s ( 0.3 429.1 263.3 )
+resign 1472 ^ 176 694.8 s ( 0.3 431.2 263.2 )
+gate 1472 ^ 176 367.4 s ( 165.4 201.9 )
+gate 1472 ^ 176 367.0 s ( 165.3 201.6 )
+resign 1472 ^ 176 696.5 s ( 0.3 432.5 263.6 )
+gate 1472 ^ 176 368.0 s ( 165.5 202.5 )
+gate 1472 ^ 176 368.5 s ( 165.5 202.9 )
+resign 1472 ^ 176 694.7 s ( 0.3 431.0 263.3 )
+gate 1472 ^ 176 368.3 s ( 165.5 202.8 )
+gate 1472 ^ 176 368.2 s ( 165.4 202.8 )
+start RSA key generation base 1472 bits exponent 176 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 1472 ^ 176 694.0 s ( 0.3 430.2 263.5 )
+resign 1472 ^ 176 693.8 s ( 0.3 429.9 263.5 )
+gate 1472 ^ 176 368.3 s ( 165.5 202.7 )
+gate 1472 ^ 176 368.0 s ( 165.4 202.6 )
+resign 1472 ^ 176 693.9 s ( 0.3 430.1 263.4 )
+gate 1472 ^ 176 368.0 s ( 165.5 202.5 )
+gate 1472 ^ 176 368.2 s ( 165.4 202.8 )
+resign 1472 ^ 176 693.8 s ( 0.3 430.1 263.4 )
+gate 1472 ^ 176 368.0 s ( 165.4 202.5 )
+gate 1472 ^ 176 368.4 s ( 165.4 202.9 )
+start RSA key generation base 1472 bits exponent 176 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 1472 ^ 176 693.9 s ( 0.3 429.8 263.8 )
+resign 1472 ^ 176 694.4 s ( 0.3 430.6 263.5 )
+gate 1472 ^ 176 368.8 s ( 165.5 203.3 )
+gate 1472 ^ 176 369.1 s ( 165.7 203.3 )
+resign 1472 ^ 176 694.1 s ( 0.3 430.2 263.5 )
+gate 1472 ^ 176 367.9 s ( 165.6 202.3 )
+gate 1472 ^ 176 368.1 s ( 165.6 202.4 )
+resign 1472 ^ 176 694.8 s ( 0.3 430.6 263.9 )
+gate 1472 ^ 176 369.3 s ( 165.7 203.5 )
+gate 1472 ^ 176 369.2 s ( 165.7 203.5 )
+### TEST INIT RESIGN PARAMETERS:
+###    base   1504	188 bytes
+###    exp    176	22 bytes
+###    attr   4
+start RSA key generation base 1504 bits exponent 176 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 1504 ^ 176 723.6 s ( 0.3 448.3 275.0 )
+resign 1504 ^ 176 724.2 s ( 0.3 448.9 274.9 )
+gate 1504 ^ 176 384.6 s ( 172.8 211.7 )
+gate 1504 ^ 176 384.6 s ( 172.8 211.7 )
+resign 1504 ^ 176 724.3 s ( 0.3 448.9 275.1 )
+gate 1504 ^ 176 384.5 s ( 172.8 211.7 )
+gate 1504 ^ 176 384.5 s ( 172.7 211.8 )
+resign 1504 ^ 176 724.3 s ( 0.3 449.1 274.9 )
+gate 1504 ^ 176 384.3 s ( 172.7 211.5 )
+gate 1504 ^ 176 384.3 s ( 172.8 211.5 )
+start RSA key generation base 1504 bits exponent 176 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 1504 ^ 176 723.4 s ( 0.3 448.1 275.0 )
+resign 1504 ^ 176 724.6 s ( 0.3 449.2 275.0 )
+gate 1504 ^ 176 383.9 s ( 172.7 211.2 )
+gate 1504 ^ 176 384.2 s ( 172.8 211.3 )
+resign 1504 ^ 176 726.2 s ( 0.3 450.7 275.1 )
+gate 1504 ^ 176 384.4 s ( 172.8 211.6 )
+gate 1504 ^ 176 384.6 s ( 172.9 211.6 )
+resign 1504 ^ 176 726.5 s ( 0.3 451.3 274.9 )
+gate 1504 ^ 176 384.1 s ( 172.7 211.3 )
+gate 1504 ^ 176 384.2 s ( 172.7 211.5 )
+start RSA key generation base 1504 bits exponent 176 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 1504 ^ 176 723.6 s ( 0.3 448.4 274.9 )
+resign 1504 ^ 176 725.1 s ( 0.3 449.6 275.0 )
+gate 1504 ^ 176 384.3 s ( 172.6 211.6 )
+gate 1504 ^ 176 384.4 s ( 172.6 211.7 )
+resign 1504 ^ 176 724.0 s ( 0.3 448.7 274.9 )
+gate 1504 ^ 176 384.1 s ( 172.6 211.5 )
+gate 1504 ^ 176 384.2 s ( 172.6 211.5 )
+resign 1504 ^ 176 725.9 s ( 0.3 450.7 274.8 )
+gate 1504 ^ 176 384.2 s ( 172.7 211.4 )
+gate 1504 ^ 176 384.0 s ( 172.7 211.3 )
+### TEST INIT RESIGN PARAMETERS:
+###    base   1536	192 bytes
+###    exp    176	22 bytes
+###    attr   4
+start RSA key generation base 1536 bits exponent 176 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 1536 ^ 176 753.9 s ( 0.3 467.1 286.4 )
+resign 1536 ^ 176 754.8 s ( 0.3 468.0 286.4 )
+gate 1536 ^ 176 400.3 s ( 179.9 220.4 )
+gate 1536 ^ 176 400.4 s ( 180.0 220.3 )
+resign 1536 ^ 176 754.9 s ( 0.3 467.8 286.7 )
+gate 1536 ^ 176 400.2 s ( 179.8 220.3 )
+gate 1536 ^ 176 400.2 s ( 179.9 220.3 )
+resign 1536 ^ 176 754.9 s ( 0.3 467.8 286.7 )
+gate 1536 ^ 176 400.6 s ( 180.1 220.4 )
+gate 1536 ^ 176 400.7 s ( 180.1 220.5 )
+start RSA key generation base 1536 bits exponent 176 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 1536 ^ 176 754.4 s ( 0.3 467.6 286.5 )
+resign 1536 ^ 176 756.1 s ( 0.3 469.1 286.7 )
+gate 1536 ^ 176 400.5 s ( 179.9 220.6 )
+gate 1536 ^ 176 400.6 s ( 180.0 220.5 )
+resign 1536 ^ 176 754.6 s ( 0.3 467.7 286.5 )
+gate 1536 ^ 176 400.5 s ( 179.9 220.5 )
+gate 1536 ^ 176 400.2 s ( 180.0 220.2 )
+resign 1536 ^ 176 754.8 s ( 0.3 467.5 286.8 )
+gate 1536 ^ 176 400.3 s ( 180.0 220.3 )
+gate 1536 ^ 176 400.5 s ( 180.0 220.4 )
+start RSA key generation base 1536 bits exponent 176 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 1536 ^ 176 753.9 s ( 0.3 467.0 286.5 )
+resign 1536 ^ 176 754.7 s ( 0.3 467.7 286.6 )
+gate 1536 ^ 176 400.6 s ( 179.9 220.7 )
+gate 1536 ^ 176 400.7 s ( 180.1 220.5 )
+resign 1536 ^ 176 754.6 s ( 0.3 467.6 286.7 )
+gate 1536 ^ 176 399.3 s ( 179.8 219.4 )
+gate 1536 ^ 176 399.7 s ( 180.0 219.7 )
+resign 1536 ^ 176 754.6 s ( 0.3 467.8 286.4 )
+gate 1536 ^ 176 400.4 s ( 180.0 220.4 )
+gate 1536 ^ 176 400.6 s ( 180.0 220.6 )
+### TEST INIT RESIGN PARAMETERS:
+###    base   1568	196 bytes
+###    exp    184	23 bytes
+###    attr   4
+start RSA key generation base 1568 bits exponent 184 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 1568 ^ 184 785.5 s ( 0.3 486.9 298.3 )
+resign 1568 ^ 184 787.4 s ( 0.3 488.7 298.3 )
+gate 1568 ^ 184 415.1 s ( 187.3 227.7 )
+gate 1568 ^ 184 415.1 s ( 187.5 227.6 )
+resign 1568 ^ 184 785.4 s ( 0.3 486.8 298.1 )
+gate 1568 ^ 184 415.8 s ( 187.3 228.5 )
+gate 1568 ^ 184 416.0 s ( 187.4 228.5 )
+resign 1568 ^ 184 785.6 s ( 0.3 487.0 298.3 )
+gate 1568 ^ 184 415.9 s ( 187.4 228.5 )
+gate 1568 ^ 184 416.1 s ( 187.6 228.4 )
+start RSA key generation base 1568 bits exponent 184 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 1568 ^ 184 785.2 s ( 0.3 486.4 298.4 )
+resign 1568 ^ 184 785.4 s ( 0.3 486.6 298.4 )
+gate 1568 ^ 184 415.5 s ( 187.3 228.1 )
+gate 1568 ^ 184 415.6 s ( 187.3 228.2 )
+resign 1568 ^ 184 785.6 s ( 0.3 486.7 298.5 )
+gate 1568 ^ 184 416.6 s ( 187.3 229.3 )
+gate 1568 ^ 184 416.8 s ( 187.5 229.2 )
+resign 1568 ^ 184 785.9 s ( 0.3 487.3 298.2 )
+gate 1568 ^ 184 416.3 s ( 187.1 229.1 )
+gate 1568 ^ 184 416.5 s ( 187.5 229.0 )
+start RSA key generation base 1568 bits exponent 184 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 1568 ^ 184 785.8 s ( 0.3 487.2 298.3 )
+resign 1568 ^ 184 786.1 s ( 0.3 487.2 298.4 )
+gate 1568 ^ 184 416.4 s ( 187.3 229.0 )
+gate 1568 ^ 184 416.3 s ( 187.2 229.0 )
+resign 1568 ^ 184 785.8 s ( 0.3 486.9 298.5 )
+gate 1568 ^ 184 416.5 s ( 187.4 229.0 )
+gate 1568 ^ 184 416.5 s ( 187.5 229.0 )
+resign 1568 ^ 184 785.6 s ( 0.3 487.0 298.2 )
+gate 1568 ^ 184 416.5 s ( 187.4 229.0 )
+gate 1568 ^ 184 416.3 s ( 187.3 228.9 )
+### TEST INIT RESIGN PARAMETERS:
+###    base   1600	200 bytes
+###    exp    184	23 bytes
+###    attr   4
+start RSA key generation base 1600 bits exponent 184 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 1600 ^ 184 818.1 s ( 0.3 507.5 310.3 )
+resign 1600 ^ 184 818.9 s ( 0.3 508.2 310.3 )
+gate 1600 ^ 184 433.6 s ( 194.9 238.6 )
+gate 1600 ^ 184 433.4 s ( 194.8 238.5 )
+resign 1600 ^ 184 816.9 s ( 0.3 506.3 310.2 )
+gate 1600 ^ 184 432.3 s ( 194.8 237.4 )
+gate 1600 ^ 184 432.3 s ( 194.8 237.4 )
+resign 1600 ^ 184 820.5 s ( 0.3 509.9 310.2 )
+gate 1600 ^ 184 433.5 s ( 194.8 238.7 )
+gate 1600 ^ 184 433.5 s ( 194.8 238.6 )
+start RSA key generation base 1600 bits exponent 184 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 1600 ^ 184 817.6 s ( 0.3 506.8 310.5 )
+resign 1600 ^ 184 817.8 s ( 0.3 507.1 310.4 )
+gate 1600 ^ 184 433.5 s ( 194.9 238.5 )
+gate 1600 ^ 184 433.1 s ( 194.9 238.2 )
+resign 1600 ^ 184 816.2 s ( 0.3 505.8 310.0 )
+gate 1600 ^ 184 432.3 s ( 194.8 237.4 )
+gate 1600 ^ 184 432.5 s ( 194.9 237.5 )
+resign 1600 ^ 184 817.9 s ( 0.3 507.3 310.2 )
+gate 1600 ^ 184 433.2 s ( 194.7 238.4 )
+gate 1600 ^ 184 433.1 s ( 194.8 238.3 )
+start RSA key generation base 1600 bits exponent 184 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 1600 ^ 184 816.9 s ( 0.3 506.5 310.1 )
+resign 1600 ^ 184 819.6 s ( 0.3 508.5 310.7 )
+gate 1600 ^ 184 433.1 s ( 195.0 238.0 )
+gate 1600 ^ 184 432.8 s ( 194.9 237.8 )
+resign 1600 ^ 184 818.1 s ( 0.3 507.0 310.7 )
+gate 1600 ^ 184 434.1 s ( 195.0 239.0 )
+gate 1600 ^ 184 434.1 s ( 195.1 239.0 )
+resign 1600 ^ 184 817.9 s ( 0.3 506.9 310.6 )
+gate 1600 ^ 184 433.8 s ( 194.9 238.9 )
+gate 1600 ^ 184 434.0 s ( 195.0 238.9 )
+### TEST INIT RESIGN PARAMETERS:
+###    base   1632	204 bytes
+###    exp    184	23 bytes
+###    attr   4
+start RSA key generation base 1632 bits exponent 184 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 1632 ^ 184 849.5 s ( 0.3 526.2 322.9 )
+resign 1632 ^ 184 850.7 s ( 0.3 527.4 322.8 )
+gate 1632 ^ 184 448.8 s ( 202.6 246.1 )
+gate 1632 ^ 184 449.2 s ( 202.9 246.2 )
+resign 1632 ^ 184 849.8 s ( 0.3 526.8 322.7 )
+gate 1632 ^ 184 449.8 s ( 202.8 247.0 )
+gate 1632 ^ 184 450.1 s ( 202.8 247.3 )
+resign 1632 ^ 184 851.0 s ( 0.3 527.8 322.7 )
+gate 1632 ^ 184 449.9 s ( 202.7 247.2 )
+gate 1632 ^ 184 449.8 s ( 202.6 247.1 )
+start RSA key generation base 1632 bits exponent 184 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 1632 ^ 184 849.9 s ( 0.3 526.5 323.0 )
+resign 1632 ^ 184 850.2 s ( 0.3 526.9 322.9 )
+gate 1632 ^ 184 450.0 s ( 202.7 247.2 )
+gate 1632 ^ 184 449.8 s ( 202.8 246.9 )
+resign 1632 ^ 184 851.4 s ( 0.3 528.0 323.0 )
+gate 1632 ^ 184 451.1 s ( 202.8 248.3 )
+gate 1632 ^ 184 451.2 s ( 202.9 248.2 )
+resign 1632 ^ 184 852.4 s ( 0.3 529.0 323.0 )
+gate 1632 ^ 184 451.2 s ( 202.9 248.3 )
+gate 1632 ^ 184 450.9 s ( 202.7 248.2 )
+start RSA key generation base 1632 bits exponent 184 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 1632 ^ 184 850.1 s ( 0.3 526.7 323.1 )
+resign 1632 ^ 184 850.7 s ( 0.3 527.3 323.0 )
+gate 1632 ^ 184 450.9 s ( 202.8 248.0 )
+gate 1632 ^ 184 451.2 s ( 202.9 248.3 )
+resign 1632 ^ 184 852.0 s ( 0.3 528.4 323.2 )
+gate 1632 ^ 184 450.3 s ( 203.0 247.2 )
+gate 1632 ^ 184 450.3 s ( 202.9 247.4 )
+resign 1632 ^ 184 850.8 s ( 0.3 527.4 323.0 )
+gate 1632 ^ 184 451.2 s ( 202.9 248.2 )
+gate 1632 ^ 184 451.7 s ( 203.2 248.4 )
+### TEST INIT RESIGN PARAMETERS:
+###    base   1664	208 bytes
+###    exp    184	23 bytes
+###    attr   4
+start RSA key generation base 1664 bits exponent 184 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 1664 ^ 184 884.2 s ( 0.3 548.2 335.7 )
+resign 1664 ^ 184 884.7 s ( 0.3 548.7 335.6 )
+gate 1664 ^ 184 468.7 s ( 210.7 257.9 )
+gate 1664 ^ 184 468.8 s ( 210.9 257.9 )
+resign 1664 ^ 184 886.3 s ( 0.3 550.3 335.6 )
+gate 1664 ^ 184 467.4 s ( 210.7 256.5 )
+gate 1664 ^ 184 467.3 s ( 210.8 256.5 )
+resign 1664 ^ 184 885.7 s ( 0.3 549.7 335.5 )
+gate 1664 ^ 184 468.4 s ( 210.6 257.8 )
+gate 1664 ^ 184 468.3 s ( 210.6 257.6 )
+start RSA key generation base 1664 bits exponent 184 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 1664 ^ 184 882.2 s ( 0.3 546.6 335.2 )
+resign 1664 ^ 184 883.3 s ( 0.3 547.7 335.2 )
+gate 1664 ^ 184 466.4 s ( 210.3 256.0 )
+gate 1664 ^ 184 466.5 s ( 210.5 256.0 )
+resign 1664 ^ 184 882.9 s ( 0.3 547.3 335.2 )
+gate 1664 ^ 184 467.2 s ( 210.5 256.6 )
+gate 1664 ^ 184 467.2 s ( 210.5 256.6 )
+resign 1664 ^ 184 882.3 s ( 0.3 546.8 335.1 )
+gate 1664 ^ 184 466.1 s ( 210.4 255.6 )
+gate 1664 ^ 184 466.1 s ( 210.4 255.6 )
+start RSA key generation base 1664 bits exponent 184 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 1664 ^ 184 882.4 s ( 0.3 546.9 335.1 )
+resign 1664 ^ 184 883.1 s ( 0.3 547.7 335.0 )
+gate 1664 ^ 184 467.0 s ( 210.3 256.7 )
+gate 1664 ^ 184 467.4 s ( 210.5 256.9 )
+resign 1664 ^ 184 882.6 s ( 0.3 547.0 335.2 )
+gate 1664 ^ 184 467.3 s ( 210.4 256.8 )
+gate 1664 ^ 184 467.2 s ( 210.5 256.7 )
+resign 1664 ^ 184 884.1 s ( 0.3 548.7 334.9 )
+gate 1664 ^ 184 466.1 s ( 210.4 255.7 )
+gate 1664 ^ 184 466.2 s ( 210.3 255.9 )
+### TEST INIT RESIGN PARAMETERS:
+###    base   1696	212 bytes
+###    exp    192	24 bytes
+###    attr   4
+start RSA key generation base 1696 bits exponent 192 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 1696 ^ 192 916.5 s ( 0.3 568.0 348.1 )
+resign 1696 ^ 192 916.1 s ( 0.3 568.0 347.7 )
+gate 1696 ^ 192 485.8 s ( 218.4 267.3 )
+gate 1696 ^ 192 485.8 s ( 218.4 267.3 )
+resign 1696 ^ 192 917.4 s ( 0.3 569.3 347.7 )
+gate 1696 ^ 192 485.5 s ( 218.3 267.2 )
+gate 1696 ^ 192 485.6 s ( 218.3 267.2 )
+resign 1696 ^ 192 916.7 s ( 0.3 568.2 348.0 )
+gate 1696 ^ 192 486.0 s ( 218.5 267.5 )
+gate 1696 ^ 192 485.9 s ( 218.5 267.3 )
+start RSA key generation base 1696 bits exponent 192 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 1696 ^ 192 915.1 s ( 0.3 567.0 347.7 )
+resign 1696 ^ 192 915.8 s ( 0.3 567.5 347.9 )
+gate 1696 ^ 192 485.9 s ( 218.5 267.4 )
+gate 1696 ^ 192 485.7 s ( 218.4 267.2 )
+resign 1696 ^ 192 916.1 s ( 0.3 567.8 347.9 )
+gate 1696 ^ 192 485.7 s ( 218.2 267.4 )
+gate 1696 ^ 192 485.5 s ( 218.4 267.0 )
+resign 1696 ^ 192 915.8 s ( 0.3 567.5 347.9 )
+gate 1696 ^ 192 484.4 s ( 218.3 266.0 )
+gate 1696 ^ 192 484.7 s ( 218.4 266.3 )
+start RSA key generation base 1696 bits exponent 192 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+resign 1696 ^ 192 915.2 s ( 0.3 567.1 347.7 )
+resign 1696 ^ 192 916.4 s ( 0.3 568.3 347.7 )
+gate 1696 ^ 192 485.1 s ( 218.5 266.5 )
+gate 1696 ^ 192 485.0 s ( 218.2 266.7 )
+resign 1696 ^ 192 915.6 s ( 0.3 567.5 347.7 )
+gate 1696 ^ 192 484.8 s ( 218.3 266.4 )
+gate 1696 ^ 192 485.0 s ( 218.2 266.7 )
+resign 1696 ^ 192 915.6 s ( 0.3 567.4 347.7 )
+### Test applet host driver
+### Card testframe started on 14 April 2009 11:53:40 CEST
+### command ./cardtestframe -test-size -r 0 -plain -base-length 1728 
+### Parameters:
+###    type   PLAIN_RSA_APPLET
+###    base   1728
+###    exp    192
+###    attr   4
+###    year   2009
+###    resign 3
+###    proof  2
+###    verb   0
+Connecting to card terminals ... connected
+##############################################################################
+### TEST INIT RESIGN PARAMETERS:
+###    base   1728	216 bytes
+###    exp    192	24 bytes
+###    attr   4
+###    started at 14 April 2009 11:53:40 CEST
+start RSA key generation base 1728 bits exponent 192 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+### Start issue procedure
+resign 1728 ^ 192 953.4 s ( 0.3 591.4 361.7 )
+### Start 3 resign rounds
+resign 1728 ^ 192 951.7 s ( 0.3 589.8 361.4 )
+gate 1728 ^ 192 504.0 s ( 227.0 276.9 )
+gate 1728 ^ 192 503.6 s ( 227.0 276.6 )
+resign 1728 ^ 192 952.3 s ( 0.3 590.2 361.7 )
+gate 1728 ^ 192 503.7 s ( 227.1 276.6 )
+gate 1728 ^ 192 504.1 s ( 227.1 276.9 )
+resign 1728 ^ 192 953.2 s ( 0.3 591.1 361.7 )
+gate 1728 ^ 192 503.7 s ( 226.9 276.7 )
+gate 1728 ^ 192 504.0 s ( 227.1 276.8 )
+start RSA key generation base 1728 bits exponent 192 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+### Start issue procedure
+resign 1728 ^ 192 953.5 s ( 0.3 591.4 361.7 )
+### Start 3 resign rounds
+resign 1728 ^ 192 954.5 s ( 0.3 592.2 361.9 )
+gate 1728 ^ 192 503.7 s ( 227.1 276.5 )
+gate 1728 ^ 192 503.5 s ( 227.1 276.3 )
+resign 1728 ^ 192 952.9 s ( 0.3 590.6 361.9 )
+gate 1728 ^ 192 503.8 s ( 227.2 276.6 )
+gate 1728 ^ 192 503.7 s ( 227.1 276.5 )
+resign 1728 ^ 192 953.1 s ( 0.3 590.9 361.8 )
+gate 1728 ^ 192 503.9 s ( 227.1 276.7 )
+gate 1728 ^ 192 504.2 s ( 227.4 276.7 )
+start RSA key generation base 1728 bits exponent 192 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+### Start issue procedure
+resign 1728 ^ 192 953.8 s ( 0.3 591.3 362.2 )
+### Start 3 resign rounds
+resign 1728 ^ 192 953.4 s ( 0.3 590.9 362.0 )
+gate 1728 ^ 192 505.3 s ( 227.3 278.0 )
+gate 1728 ^ 192 505.1 s ( 227.2 277.8 )
+resign 1728 ^ 192 953.4 s ( 0.3 590.9 362.1 )
+gate 1728 ^ 192 505.4 s ( 227.7 277.7 )
+gate 1728 ^ 192 505.4 s ( 227.4 277.9 )
+resign 1728 ^ 192 954.0 s ( 0.3 591.5 362.1 )
+gate 1728 ^ 192 505.6 s ( 227.4 278.1 )
+gate 1728 ^ 192 505.7 s ( 227.7 278.0 )
+### TEST finished at 14 April 2009 17:49:02 CEST (duration 05:55:21)
+##############################################################################
+##############################################################################
+### TEST INIT RESIGN PARAMETERS:
+###    base   1760	220 bytes
+###    exp    192	24 bytes
+###    attr   4
+###    started at 14 April 2009 17:49:02 CEST
+start RSA key generation base 1760 bits exponent 192 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+### Start issue procedure
+resign 1760 ^ 192 988.8 s ( 0.3 613.0 375.4 )
+### Start 3 resign rounds
+resign 1760 ^ 192 989.3 s ( 0.3 613.4 375.4 )
+gate 1760 ^ 192 522.6 s ( 235.7 286.8 )
+gate 1760 ^ 192 522.4 s ( 235.6 286.7 )
+resign 1760 ^ 192 989.1 s ( 0.3 613.5 375.2 )
+gate 1760 ^ 192 522.1 s ( 235.5 286.5 )
+gate 1760 ^ 192 521.9 s ( 235.5 286.3 )
+resign 1760 ^ 192 987.7 s ( 0.3 612.3 374.9 )
+gate 1760 ^ 192 521.8 s ( 235.4 286.4 )
+gate 1760 ^ 192 522.0 s ( 235.5 286.4 )
+start RSA key generation base 1760 bits exponent 192 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+### Start issue procedure
+resign 1760 ^ 192 986.0 s ( 0.3 610.9 374.8 )
+### Start 3 resign rounds
+resign 1760 ^ 192 986.3 s ( 0.3 611.3 374.5 )
+gate 1760 ^ 192 522.7 s ( 235.1 287.5 )
+gate 1760 ^ 192 522.4 s ( 235.1 287.2 )
+resign 1760 ^ 192 985.9 s ( 0.3 611.2 374.2 )
+gate 1760 ^ 192 522.3 s ( 235.0 287.2 )
+gate 1760 ^ 192 523.1 s ( 235.5 287.5 )
+resign 1760 ^ 192 986.8 s ( 0.3 611.8 374.6 )
+gate 1760 ^ 192 522.9 s ( 235.3 287.5 )
+gate 1760 ^ 192 523.0 s ( 235.4 287.6 )
+start RSA key generation base 1760 bits exponent 192 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+### Start issue procedure
+resign 1760 ^ 192 985.4 s ( 0.3 610.4 374.6 )
+### Start 3 resign rounds
+resign 1760 ^ 192 988.5 s ( 0.3 613.3 374.7 )
+gate 1760 ^ 192 522.3 s ( 235.3 286.9 )
+gate 1760 ^ 192 522.1 s ( 235.3 286.8 )
+resign 1760 ^ 192 987.9 s ( 0.3 613.0 374.5 )
+gate 1760 ^ 192 522.0 s ( 235.0 287.0 )
+gate 1760 ^ 192 522.5 s ( 235.2 287.2 )
+resign 1760 ^ 192 986.9 s ( 0.3 612.2 374.3 )
+gate 1760 ^ 192 522.2 s ( 235.0 287.1 )
+gate 1760 ^ 192 522.1 s ( 235.3 286.7 )
+### TEST finished at 14 April 2009 23:57:04 CEST (duration 06:08:02)
+##############################################################################
+##############################################################################
+### TEST INIT RESIGN PARAMETERS:
+###    base   1792	224 bytes
+###    exp    192	24 bytes
+###    attr   4
+###    started at 14 April 2009 23:57:04 CEST
+start RSA key generation base 1792 bits exponent 192 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+### Start issue procedure
+resign 1792 ^ 192 1020.4 s ( 0.3 632.2 387.9 )
+### Start 3 resign rounds
+resign 1792 ^ 192 1021.4 s ( 0.3 633.1 387.9 )
+gate 1792 ^ 192 539.8 s ( 243.5 296.3 )
+gate 1792 ^ 192 539.7 s ( 243.5 296.2 )
+resign 1792 ^ 192 1021.3 s ( 0.3 633.0 387.9 )
+gate 1792 ^ 192 541.0 s ( 243.5 297.4 )
+gate 1792 ^ 192 541.2 s ( 243.6 297.5 )
+resign 1792 ^ 192 1021.4 s ( 0.3 633.1 387.8 )
+gate 1792 ^ 192 541.0 s ( 243.5 297.5 )
+gate 1792 ^ 192 540.7 s ( 243.4 297.2 )
+start RSA key generation base 1792 bits exponent 192 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+### Start issue procedure
+resign 1792 ^ 192 1020.2 s ( 0.3 632.1 387.8 )
+### Start 3 resign rounds
+resign 1792 ^ 192 1022.0 s ( 0.3 633.8 387.8 )
+gate 1792 ^ 192 539.7 s ( 243.7 295.9 )
+gate 1792 ^ 192 539.5 s ( 243.4 296.0 )
+resign 1792 ^ 192 1022.2 s ( 0.3 634.0 387.7 )
+gate 1792 ^ 192 539.4 s ( 243.5 295.9 )
+gate 1792 ^ 192 539.5 s ( 243.5 296.0 )
+resign 1792 ^ 192 1019.9 s ( 0.3 632.2 387.3 )
+gate 1792 ^ 192 539.8 s ( 243.2 296.5 )
+gate 1792 ^ 192 540.2 s ( 243.5 296.7 )
+start RSA key generation base 1792 bits exponent 192 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+### Start issue procedure
+resign 1792 ^ 192 1019.0 s ( 0.3 631.2 387.4 )
+### Start 3 resign rounds
+resign 1792 ^ 192 1019.8 s ( 0.3 632.2 387.2 )
+gate 1792 ^ 192 539.8 s ( 243.0 296.6 )
+gate 1792 ^ 192 539.9 s ( 243.2 296.6 )
+resign 1792 ^ 192 1019.2 s ( 0.3 631.4 387.4 )
+gate 1792 ^ 192 537.8 s ( 243.4 294.4 )
+gate 1792 ^ 192 537.6 s ( 243.2 294.4 )
+resign 1792 ^ 192 1019.7 s ( 0.3 631.9 387.3 )
+gate 1792 ^ 192 540.2 s ( 243.4 296.7 )
+gate 1792 ^ 192 539.8 s ( 243.2 296.5 )
+### TEST finished at 15 April 2009 06:17:23 CEST (duration 06:20:19)
+##############################################################################
+### Test applet host driver
+### Card testframe started on 15 April 2009 09:42:40 CEST
+### command ./cardtestframe -test-size -r 0 -plain -base-length 1824 
+### Parameters:
+###    type   PLAIN_RSA_APPLET
+###    base   1824
+###    exp    192
+###    attr   4
+###    year   2009
+###    resign 3
+###    proof  2
+###    verb   0
+Connecting to card terminals ... connected
+##############################################################################
+### TEST INIT RESIGN PARAMETERS:
+###    base   1824	228 bytes
+###    exp    192	24 bytes
+###    attr   4
+###    started at 15 April 2009 09:42:40 CEST
+start RSA key generation base 1824 bits exponent 192 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+### Start issue procedure
+resign 1824 ^ 192 1056.9 s ( 0.3 654.9 401.6 )
+### Start 3 resign rounds
+resign 1824 ^ 192 1057.4 s ( 0.3 655.3 401.7 )
+gate 1824 ^ 192 558.7 s ( 252.2 306.4 )
+gate 1824 ^ 192 558.9 s ( 252.3 306.6 )
+resign 1824 ^ 192 1057.9 s ( 0.3 655.6 401.8 )
+gate 1824 ^ 192 560.1 s ( 252.1 307.9 )
+gate 1824 ^ 192 560.0 s ( 252.1 307.9 )
+resign 1824 ^ 192 1057.9 s ( 0.3 655.7 401.8 )
+gate 1824 ^ 192 559.5 s ( 252.0 307.5 )
+gate 1824 ^ 192 559.8 s ( 252.2 307.5 )
+start RSA key generation base 1824 bits exponent 192 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+### Start issue procedure
+resign 1824 ^ 192 1058.8 s ( 0.3 656.4 402.0 )
+### Start 3 resign rounds
+resign 1824 ^ 192 1058.7 s ( 0.3 656.3 402.0 )
+gate 1824 ^ 192 560.4 s ( 252.1 308.2 )
+gate 1824 ^ 192 560.0 s ( 252.2 307.8 )
+resign 1824 ^ 192 1057.7 s ( 0.3 655.5 401.7 )
+gate 1824 ^ 192 560.7 s ( 252.4 308.2 )
+gate 1824 ^ 192 560.4 s ( 252.5 307.9 )
+resign 1824 ^ 192 1058.3 s ( 0.3 655.7 402.1 )
+gate 1824 ^ 192 560.4 s ( 252.3 307.9 )
+gate 1824 ^ 192 560.6 s ( 252.3 308.2 )
+start RSA key generation base 1824 bits exponent 192 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+### Start issue procedure
+resign 1824 ^ 192 1058.1 s ( 0.3 655.5 402.2 )
+### Start 3 resign rounds
+resign 1824 ^ 192 1059.9 s ( 0.3 657.2 402.3 )
+gate 1824 ^ 192 560.2 s ( 252.4 307.7 )
+gate 1824 ^ 192 559.9 s ( 252.3 307.5 )
+resign 1824 ^ 192 1058.5 s ( 0.3 655.9 402.2 )
+gate 1824 ^ 192 559.2 s ( 252.2 306.9 )
+gate 1824 ^ 192 558.8 s ( 252.3 306.5 )
+resign 1824 ^ 192 1058.9 s ( 0.3 656.1 402.4 )
+gate 1824 ^ 192 560.1 s ( 252.2 307.8 )
+gate 1824 ^ 192 559.8 s ( 252.2 307.5 )
+### TEST finished at 15 April 2009 16:17:00 CEST (duration 06:34:20)
+##############################################################################
+##############################################################################
+### TEST INIT RESIGN PARAMETERS:
+###    base   1856	232 bytes
+###    exp    200	25 bytes
+###    attr   4
+###    started at 15 April 2009 16:17:00 CEST
+start RSA key generation base 1856 bits exponent 200 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+### Start issue procedure
+resign 1856 ^ 200 1094.6 s ( 0.3 677.8 416.4 )
+### Start 3 resign rounds
+resign 1856 ^ 200 1096.7 s ( 0.3 680.1 416.2 )
+gate 1856 ^ 200 580.3 s ( 261.3 318.9 )
+gate 1856 ^ 200 581.1 s ( 261.6 319.5 )
+resign 1856 ^ 200 1097.4 s ( 0.3 680.4 416.6 )
+gate 1856 ^ 200 580.7 s ( 261.5 319.1 )
+gate 1856 ^ 200 580.2 s ( 261.4 318.7 )
+resign 1856 ^ 200 1096.0 s ( 0.3 679.2 416.4 )
+gate 1856 ^ 200 580.2 s ( 261.3 318.8 )
+gate 1856 ^ 200 580.1 s ( 261.3 318.7 )
+start RSA key generation base 1856 bits exponent 200 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+### Start issue procedure
+resign 1856 ^ 200 1095.0 s ( 0.3 678.6 416.0 )
+### Start 3 resign rounds
+resign 1856 ^ 200 1096.1 s ( 0.3 678.9 416.7 )
+gate 1856 ^ 200 580.5 s ( 261.4 319.0 )
+gate 1856 ^ 200 580.4 s ( 261.3 319.0 )
+resign 1856 ^ 200 1097.6 s ( 0.3 680.7 416.4 )
+gate 1856 ^ 200 580.5 s ( 261.4 319.0 )
+gate 1856 ^ 200 580.8 s ( 261.5 319.1 )
+resign 1856 ^ 200 1098.1 s ( 0.3 681.2 416.4 )
+gate 1856 ^ 200 579.0 s ( 261.4 317.5 )
+gate 1856 ^ 200 579.0 s ( 261.3 317.6 )
+start RSA key generation base 1856 bits exponent 200 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+### Start issue procedure
+resign 1856 ^ 200 1094.9 s ( 0.3 678.3 416.2 )
+### Start 3 resign rounds
+resign 1856 ^ 200 1095.6 s ( 0.3 679.0 416.2 )
+gate 1856 ^ 200 580.1 s ( 261.1 318.9 )
+gate 1856 ^ 200 580.1 s ( 261.2 318.8 )
+resign 1856 ^ 200 1095.6 s ( 0.3 679.1 416.1 )
+gate 1856 ^ 200 580.0 s ( 261.2 318.8 )
+gate 1856 ^ 200 579.9 s ( 261.0 318.8 )
+resign 1856 ^ 200 1094.7 s ( 0.3 678.6 415.6 )
+gate 1856 ^ 200 579.4 s ( 260.8 318.6 )
+gate 1856 ^ 200 579.8 s ( 261.2 318.5 )
+### TEST finished at 15 April 2009 23:05:24 CEST (duration 06:48:23)
+##############################################################################
+##############################################################################
+### TEST INIT RESIGN PARAMETERS:
+###    base   1888	236 bytes
+###    exp    200	25 bytes
+###    attr   4
+###    started at 15 April 2009 23:05:24 CEST
+start RSA key generation base 1888 bits exponent 200 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+### Start issue procedure
+resign 1888 ^ 200 1131.1 s ( 0.3 700.8 429.9 )
+### Start 3 resign rounds
+resign 1888 ^ 200 1134.5 s ( 0.3 704.2 429.8 )
+gate 1888 ^ 200 598.2 s ( 269.8 328.4 )
+gate 1888 ^ 200 598.6 s ( 269.9 328.6 )
+resign 1888 ^ 200 1136.0 s ( 0.3 705.7 429.8 )
+gate 1888 ^ 200 598.5 s ( 269.8 328.7 )
+gate 1888 ^ 200 598.7 s ( 270.0 328.7 )
+resign 1888 ^ 200 1133.2 s ( 0.3 702.5 430.2 )
+gate 1888 ^ 200 599.1 s ( 270.0 329.0 )
+gate 1888 ^ 200 598.9 s ( 269.9 329.0 )
+start RSA key generation base 1888 bits exponent 200 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+### Start issue procedure
+resign 1888 ^ 200 1131.2 s ( 0.3 700.7 430.1 )
+### Start 3 resign rounds
+resign 1888 ^ 200 1132.4 s ( 0.3 701.9 430.0 )
+gate 1888 ^ 200 599.1 s ( 270.0 329.0 )
+gate 1888 ^ 200 598.7 s ( 270.0 328.6 )
+resign 1888 ^ 200 1134.6 s ( 0.3 704.0 430.2 )
+gate 1888 ^ 200 598.6 s ( 269.8 328.7 )
+gate 1888 ^ 200 599.1 s ( 269.9 329.1 )
+resign 1888 ^ 200 1132.9 s ( 0.3 702.5 429.9 )
+gate 1888 ^ 200 598.9 s ( 270.0 328.8 )
+gate 1888 ^ 200 598.8 s ( 269.8 328.9 )
+start RSA key generation base 1888 bits exponent 200 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+### Start issue procedure
+resign 1888 ^ 200 1131.3 s ( 0.3 700.9 430.0 )
+### Start 3 resign rounds
+resign 1888 ^ 200 1134.6 s ( 0.3 704.0 430.2 )
+gate 1888 ^ 200 598.8 s ( 269.9 328.8 )
+gate 1888 ^ 200 598.8 s ( 270.0 328.7 )
+resign 1888 ^ 200 1132.2 s ( 0.3 701.8 430.0 )
+gate 1888 ^ 200 598.7 s ( 269.9 328.7 )
+gate 1888 ^ 200 598.6 s ( 270.0 328.5 )
+resign 1888 ^ 200 1132.3 s ( 0.3 701.7 430.1 )
+gate 1888 ^ 200 598.7 s ( 269.9 328.7 )
+gate 1888 ^ 200 598.4 s ( 269.9 328.5 )
+### TEST finished at 16 April 2009 06:07:16 CEST (duration 07:01:51)
+##############################################################################
+##############################################################################
+### TEST INIT RESIGN PARAMETERS:
+###    base   1920	240 bytes
+###    exp    200	25 bytes
+###    attr   4
+###    started at 16 April 2009 06:07:16 CEST
+start RSA key generation base 1920 bits exponent 200 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+### Start issue procedure
+resign 1920 ^ 200 1167.8 s ( 0.3 723.4 444.0 )
+### Start 3 resign rounds
+resign 1920 ^ 200 1168.7 s ( 0.3 724.3 443.9 )
+gate 1920 ^ 200 618.0 s ( 278.5 339.4 )
+gate 1920 ^ 200 617.9 s ( 278.6 339.2 )
+resign 1920 ^ 200 1168.1 s ( 0.3 723.8 443.9 )
+gate 1920 ^ 200 617.7 s ( 278.6 339.1 )
+gate 1920 ^ 200 617.8 s ( 278.6 339.1 )
+resign 1920 ^ 200 1168.1 s ( 0.3 723.9 443.7 )
+gate 1920 ^ 200 617.6 s ( 278.5 339.0 )
+gate 1920 ^ 200 617.8 s ( 278.5 339.2 )
+start RSA key generation base 1920 bits exponent 200 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+### Start issue procedure
+resign 1920 ^ 200 1167.5 s ( 0.3 723.3 443.8 )
+### Start 3 resign rounds
+resign 1920 ^ 200 1169.7 s ( 0.3 725.1 444.1 )
+gate 1920 ^ 200 619.3 s ( 278.9 340.3 )
+gate 1920 ^ 200 618.8 s ( 278.6 340.1 )
+resign 1920 ^ 200 1170.2 s ( 0.3 725.0 444.7 )
+gate 1920 ^ 200 619.3 s ( 278.8 340.4 )
+gate 1920 ^ 200 619.4 s ( 279.0 340.3 )
+resign 1920 ^ 200 1170.0 s ( 0.3 725.1 444.4 )
+gate 1920 ^ 200 619.9 s ( 279.2 340.6 )
+gate 1920 ^ 200 619.7 s ( 279.3 340.3 )
+start RSA key generation base 1920 bits exponent 200 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+### Start issue procedure
+resign 1920 ^ 200 1169.6 s ( 0.3 724.6 444.6 )
+### Start 3 resign rounds
+resign 1920 ^ 200 1170.6 s ( 0.3 725.3 444.8 )
+gate 1920 ^ 200 618.2 s ( 279.1 339.0 )
+gate 1920 ^ 200 618.5 s ( 279.3 339.0 )
+resign 1920 ^ 200 1171.3 s ( 0.3 725.8 445.1 )
+gate 1920 ^ 200 620.3 s ( 279.5 340.7 )
+gate 1920 ^ 200 620.2 s ( 279.6 340.5 )
+resign 1920 ^ 200 1172.4 s ( 0.3 726.7 445.3 )
+gate 1920 ^ 200 619.9 s ( 279.4 340.4 )
+gate 1920 ^ 200 620.1 s ( 279.5 340.6 )
+### TEST finished at 16 April 2009 13:22:58 CEST (duration 07:15:42)
+##############################################################################
+##############################################################################
+### TEST INIT RESIGN PARAMETERS:
+###    base   1952	244 bytes
+###    exp    200	25 bytes
+###    attr   4
+###    started at 16 April 2009 13:22:58 CEST
+start RSA key generation base 1952 bits exponent 200 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+### Start issue procedure
+resign 1952 ^ 200 1210.4 s ( 0.3 750.0 459.9 )
+### Start 3 resign rounds
+resign 1952 ^ 200 1213.3 s ( 0.4 752.5 460.3 )
+gate 1952 ^ 200 638.7 s ( 288.8 349.8 )
+gate 1952 ^ 200 638.7 s ( 288.7 349.9 )
+resign 1952 ^ 200 1214.6 s ( 0.4 753.9 460.2 )
+gate 1952 ^ 200 640.0 s ( 288.7 351.2 )
+gate 1952 ^ 200 639.6 s ( 288.7 350.8 )
+resign 1952 ^ 200 1211.6 s ( 0.4 750.8 460.2 )
+gate 1952 ^ 200 640.1 s ( 289.1 351.0 )
+gate 1952 ^ 200 640.5 s ( 289.1 351.3 )
+start RSA key generation base 1952 bits exponent 200 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+### Start issue procedure
+resign 1952 ^ 200 1211.3 s ( 0.3 750.3 460.6 )
+### Start 3 resign rounds
+resign 1952 ^ 200 1211.7 s ( 0.4 750.7 460.4 )
+gate 1952 ^ 200 640.1 s ( 288.7 351.3 )
+gate 1952 ^ 200 640.2 s ( 288.9 351.2 )
+resign 1952 ^ 200 1211.5 s ( 0.4 750.7 460.2 )
+gate 1952 ^ 200 640.1 s ( 288.8 351.2 )
+gate 1952 ^ 200 640.1 s ( 288.8 351.2 )
+resign 1952 ^ 200 1212.1 s ( 0.4 751.7 459.9 )
+gate 1952 ^ 200 639.7 s ( 288.7 350.9 )
+gate 1952 ^ 200 639.8 s ( 288.7 351.0 )
+start RSA key generation base 1952 bits exponent 200 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+### Start issue procedure
+resign 1952 ^ 200 1209.2 s ( 0.3 749.1 459.6 )
+### Start 3 resign rounds
+resign 1952 ^ 200 1211.1 s ( 0.4 751.0 459.5 )
+gate 1952 ^ 200 639.5 s ( 288.3 351.1 )
+gate 1952 ^ 200 639.4 s ( 288.5 350.8 )
+resign 1952 ^ 200 1209.6 s ( 0.4 749.8 459.2 )
+gate 1952 ^ 200 639.1 s ( 288.3 350.6 )
+gate 1952 ^ 200 639.0 s ( 288.3 350.6 )
+resign 1952 ^ 200 1209.0 s ( 0.4 749.3 459.2 )
+gate 1952 ^ 200 637.8 s ( 288.3 349.5 )
+gate 1952 ^ 200 638.3 s ( 288.6 349.6 )
+### TEST finished at 16 April 2009 20:53:37 CEST (duration 07:30:39)
+##############################################################################
+##############################################################################
+### TEST INIT RESIGN PARAMETERS:
+###    base   1984	248 bytes
+###    exp    200	25 bytes
+###    attr   4
+###    started at 16 April 2009 20:53:37 CEST
+start RSA key generation base 1984 bits exponent 200 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+(Re-)Install applet, Query card status ..........Query card status finished
+package ds_ov2_prsa found, deleting it ..Delete finished
+Load applet _java_build_dir/plain_rsa_card/front/ds_ov2_prsa/javacard/ds_ov2_prsa.cap DEBUG: packagePath: ds_ov2_prsa/javacard/
+DEBUG: package: ds_ov2_prsa
+DEBUG: package AID: 64 73 5F 6F 76 32 5F 70 72 73 61 
+DEBUG: applet AIDs: [64 73 5F 6F 76 32 5F 70 72 73 61 2E 61 70 70 ]
+....................................................................................................................Load applet finished
+Install applet ds_ov2_prsa.app of package ds_ov2_prsa
+..Install finished
+Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0F no NE 
+   data: 6473.5F6F.7632.5F70.7273.612E.6170.70
+### Start issue procedure

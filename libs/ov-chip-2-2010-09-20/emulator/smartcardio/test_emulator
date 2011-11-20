@@ -1,0 +1,10 @@
+#!/bin/bash
+
+#set -x
+
+JCKIT=/home/tews/java/card/jckits/jc222
+APDUIOJAR=$JCKIT/lib/apduio.jar
+EMULATORIOJAR=emulatorio.jar
+
+java -ea -classpath .:$APDUIOJAR:$EMULATORIOJAR \
+    ds/javacard/emulator/test/Test_emulator $*

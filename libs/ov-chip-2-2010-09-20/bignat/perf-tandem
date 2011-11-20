@@ -1,0 +1,46 @@
+performance test
+
+test 1 -DBIGNAT_USE_INT
+write test data to file data1
+###### Vector exponent
+#### size 264
+### 1. bignat time 0.02902 sec (29.024 sec for 1000 rounds)
+### 1. BigInt time 0.06469 sec (64.690 sec for 1000 rounds)
+### 1. bignat/BigInt ratio 0.449
+Use same data for second round from data1
+### 2. bignat time 0.02890 sec (28.900 sec for 1000 rounds)
+### 2. BigInt time 0.06431 sec (64.305 sec for 1000 rounds)
+### 2. bignat/BigInt ratio 0.449
+
+test 1 -DBIGNAT_USE_INT -DOPT_DOUBLE_ADD
+read test data from file data1
+###### Vector exponent
+#### size 264
+### 1. bignat time 0.03394 sec (33.945 sec for 1000 rounds)
+### 1. BigInt time 0.06054 sec (60.537 sec for 1000 rounds)
+### 1. bignat/BigInt ratio 0.561
+### 2. bignat time 0.03379 sec (33.793 sec for 1000 rounds)
+### 2. BigInt time 0.05991 sec (59.907 sec for 1000 rounds)
+### 2. bignat/BigInt ratio 0.564
+
+test 1 -DBIGNAT_USE_INT -DOPT_SKIP_DEVIDE
+read test data from file data1
+###### Vector exponent
+#### size 264
+### 1. bignat time 0.02809 sec (28.089 sec for 1000 rounds)
+### 1. BigInt time 0.06078 sec (60.779 sec for 1000 rounds)
+### 1. bignat/BigInt ratio 0.462
+### 2. bignat time 0.02780 sec (27.802 sec for 1000 rounds)
+### 2. BigInt time 0.05984 sec (59.841 sec for 1000 rounds)
+### 2. bignat/BigInt ratio 0.465
+
+test 1 -DBIGNAT_USE_INT -DOPT_SPECIAL_SQUARE
+read test data from file data1
+###### Vector exponent
+#### size 264
+### 1. bignat time 0.03335 sec (33.353 sec for 1000 rounds)
+### 1. BigInt time 0.06132 sec (61.325 sec for 1000 rounds)
+### 1. bignat/BigInt ratio 0.544
+### 2. bignat time 0.03339 sec (33.394 sec for 1000 rounds)
+### 2. BigInt time 0.06147 sec (61.468 sec for 1000 rounds)
+### 2. bignat/BigInt ratio 0.543

@@ -1,0 +1,8 @@
+#!/bin/bash
+
+#JCKIT=
+#JCCP=$JCKIT/lib/api.jar
+
+CLASSPATH=_java_build_dir/testframe
+#set -x
+java -ea -classpath $CLASSPATH ds/ov2/bignat/Testbignat $*

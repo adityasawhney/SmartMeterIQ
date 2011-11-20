@@ -1,0 +1,136 @@
+// 
+// OV-chip 2.0 project
+// 
+// Digital Security (DS) group at Radboud Universiteit Nijmegen
+// 
+// Copyright (C) 2008, 2009
+// 
+// This program is free software; you can redistribute it and/or
+// modify it under the terms of the GNU General Public License as
+// published by the Free Software Foundation; either version 2 of
+// the License, or (at your option) any later version.
+// 
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+// General Public License in file COPYING in this or one of the
+// parent directories for more details.
+// 
+// Created 2.10.08 by Hendrik
+// 
+// protocol description for misc protocols
+// 
+// $Id: Misc_protocols.id,v 1.3 2010-02-16 10:26:09 tews Exp $
+
+
+package ds.ov2.test
+
+host import ds.ov2.util.APDU_boolean
+host import ds.ov2.util.APDU_short
+host import ds.ov2.util.APDU_byte_array
+
+card import javacard.framework.JCSystem
+
+
+var APDU_short short_bignat_size()
+var APDU_short long_bignat_size()
+var APDU_short double_bignat_size()
+var APDU_short cipher_size()
+var APDU_short mem_persistent();
+var APDU_short mem_transient_reset();
+var APDU_short mem_transient_deselect();
+
+
+constructor argument Test_protocols test_protocols
+var Test_protocols test_protocols
+constructor statement this.test_protocols = test_protocols
+
+constructor argument APDU_short max_short_bignat_size
+var APDU_short max_short_bignat_size
+constructor statement this.max_short_bignat_size = max_short_bignat_size
+
+constructor argument APDU_short max_long_bignat_size
+var APDU_short max_long_bignat_size
+constructor statement this.max_long_bignat_size = max_long_bignat_size
+ 
+constructor argument APDU_short max_double_bignat_size
+var APDU_short max_double_bignat_size
+constructor statement this.max_double_bignat_size = max_double_bignat_size
+
+constructor argument APDU_short max_vector_length
+var APDU_short max_vector_length
+constructor statement this.max_vector_length = max_vector_length
+
+constructor argument APDU_byte_array cap_creation_time
+var APDU_byte_array cap_creation_time
+constructor statement this.cap_creation_time = cap_creation_time
+host initializer cap_creation_time size()
+
+var APDU_boolean assertions_on()
+constructor statement \
+  #ifdef NO_CARD_ASSERT \
+    assertions_on.value = false; \
+  #else \
+    assertions_on.value = true; \
+  #endif \
+
+
+var APDU_boolean use_squared_rsa_mult_4()
+constructor statement \
+  #ifdef USE_SQUARED_RSA_MULT_4 \
+    use_squared_rsa_mult_4.value = true; \
+  #else \
+    use_squared_rsa_mult_4.value = false; \
+  #endif \
+
+
+
+protocol Ping
+
+  step ping: ->
+    call nothing
+    measure time
+    message ping
+
+
+
+protocol set_size
+
+  step set_size: short_bignat_size, long_bignat_size, \
+                               double_bignat_size, cipher_size ->
+    call Resize.resize_bignats(short_bignat_size.value, \
+                               long_bignat_size.value, \
+                               double_bignat_size.value, \
+                               cipher_size.value); \
+         test_protocols.set_result_sizes();
+    message bignat size
+
+
+
+protocol mem_size
+  step mem_size: -> mem_persistent, mem_transient_reset, mem_transient_deselect
+    call \
+      mem_persistent.value = \
+          JCSystem.getAvailableMemory(JCSystem.MEMORY_TYPE_PERSISTENT); \
+      mem_transient_reset.value = \
+          JCSystem.getAvailableMemory(JCSystem.MEMORY_TYPE_TRANSIENT_RESET); \
+      mem_transient_deselect.value = \
+          JCSystem.getAvailableMemory(JCSystem.MEMORY_TYPE_TRANSIENT_DESELECT)
+    message report ram size
+
+
+
+
+protocol status
+  step status: -> max_short_bignat_size, max_long_bignat_size, \
+                  max_double_bignat_size, max_vector_length, \
+                  cap_creation_time, assertions_on, use_squared_rsa_mult_4
+    call nothing
+    message applet status
+
+
+
+/// Local Variables:
+/// mode: c
+/// eval: (add-hook 'write-contents-hooks 'untabify-buffer)
+/// End:

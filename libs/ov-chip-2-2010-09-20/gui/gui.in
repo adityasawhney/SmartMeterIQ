@@ -1,0 +1,28 @@
+#!/bin/bash
+
+## jcop emulator stuff
+## export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/tews/java/card/lib/x86
+## 
+## # Path to jpcsc.jar
+## JPCSC=/home/tews/java/card/lib/jar/jpcsc.jar
+## 
+# Path to offcard.jar
+#OFFCARD=/home/tews/java/card/lib/jar/offcard.jar
+
+FORCE_IPV4=-Djava.net.preferIPv4Stack=true
+
+#JCKIT=
+OFFCARD=
+
+#APDUIOJAR=$JCKIT/lib/apduio.jar
+#EMULATORIOJAR=../emulator/smartcardio/emulatorio.jar
+JCOPIO=../emulator/jcop/jcopio.jar
+#JCCP=$JCKIT/lib/api.jar
+
+GPM=
+
+#CLASSPATH=_java_build_dir/test_host:$EMULATORIOJAR:$APDUIOJAR:$JCOPIO:$OFFCARD
+CLASSPATH=_java_build_dir/rsa_gui:$OFFCARD:$JCOPIO:$GPM
+
+#set -x
+java $FORCE_IPV4 -ea -classpath $CLASSPATH ds/ov2/gui/Ov_demo_gui $*

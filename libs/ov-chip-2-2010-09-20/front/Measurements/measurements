@@ -1,0 +1,99 @@
+tandem front 41> ./cardtestframe -r 0 -proof-rounds 1 -resign-rounds 5 -base-length 512
+Connecting to card terminals ... connected
+HP Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0E no NE 
+   data: 6473.5F6F.7632.5F72.7361.2E61.7070
+start RSA key generation base 512 bits exponent 96 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+resign 512 ^ 96 92.6 s ( 0.2 57.3 35.1 )
+resign 512 ^ 96 92.7 s ( 0.2 57.4 35.2 )
+gate 512 ^ 96 50.0 s ( 22.1 27.9 )
+resign 512 ^ 96 70.7 s ( 0.2 57.3 13.2 )
+
+
+
+tandem front 44> ./cardtestframe -r 0 -proof-rounds 1 -resign-rounds 5 -base-length 576
+Connecting to card terminals ... connected
+HP Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0E no NE 
+   data: 6473.5F6F.7632.5F72.7361.2E61.7070
+start RSA key generation base 576 bits exponent 104 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+resign 576 ^ 104 115.3 s ( 0.2 71.4 43.8 )
+resign 576 ^ 104 115.6 s ( 0.2 71.7 43.8 )
+gate 576 ^ 104 62.4 s ( 27.6 34.8 )
+resign 576 ^ 104 115.7 s ( 0.2 71.7 43.7 )
+gate 576 ^ 104 62.3 s ( 27.6 34.7 )
+resign 576 ^ 104 115.6 s ( 0.2 71.6 43.8 )
+gate 576 ^ 104 62.3 s ( 27.5 34.7 )
+resign 576 ^ 104 88.5 s ( 0.2 71.8 16.5 )
+
+
+
+
+
+tandem front 47> ./cardtestframe -r 0 -proof-rounds 1 -resign-rounds 5 -base-length 640
+Connecting to card terminals ... connected
+HP Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0E no NE 
+   data: 6473.5F6F.7632.5F72.7361.2E61.7070
+start RSA key generation base 640 bits exponent 112 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+resign 640 ^ 112 140.7 s ( 0.2 87.1 53.4 )
+resign 640 ^ 112 141.0 s ( 0.2 87.2 53.6 )
+gate 640 ^ 112 76.2 s ( 33.7 42.4 )
+resign 640 ^ 112 141.0 s ( 0.2 87.2 53.6 )
+gate 640 ^ 112 76.3 s ( 33.7 42.6 )
+resign 640 ^ 112 140.8 s ( 0.2 87.2 53.4 )
+gate 640 ^ 112 76.0 s ( 33.7 42.4 )
+resign 640 ^ 112 141.0 s ( 0.2 87.3 53.5 )
+gate 640 ^ 112 76.1 s ( 33.7 42.4 )
+resign 640 ^ 112 141.0 s ( 0.2 87.3 53.5 )
+gate 640 ^ 112 76.1 s ( 33.6 42.4 )
+
+
+
+tandem front 26> ./cardtestframe -r 0 -base-length 704 -proof-rounds 1 -resign-rounds 5
+Connecting to card terminals ... connected
+HP Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0E no NE 
+   data: 6473.5F6F.7632.5F72.7361.2E61.7070
+start RSA key generation base 704 bits exponent 120 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+resign 704 ^ 120 168.8 s ( 0.2 104.5 64.1 )
+resign 704 ^ 120 169.0 s ( 0.2 104.6 64.2 )
+gate 704 ^ 120 91.1 s ( 40.4 50.7 )
+resign 704 ^ 120 169.0 s ( 0.2 104.7 64.1 )
+gate 704 ^ 120 91.0 s ( 40.3 50.6 )
+resign 704 ^ 120 169.1 s ( 0.2 104.6 64.3 )
+gate 704 ^ 120 90.9 s ( 40.3 50.6 )
+resign 704 ^ 120 169.0 s ( 0.2 104.8 64.1 )
+gate 704 ^ 120 90.9 s ( 40.3 50.6 )
+resign 704 ^ 120 169.3 s ( 0.2 104.9 64.2 )
+gate 704 ^ 120 91.2 s ( 40.5 50.7 )
+
+
+
+tandem front 32> ./cardtestframe -r 0 -proof-rounds 1 -resign-rounds 5 -base-length 736 
+Connecting to card terminals ... connected
+HP Select applet CLA:00 INS:A4 P1:04 P2:00 NC:0E no NE 
+   data: 6473.5F6F.7632.5F72.7361.2E61.7070
+start RSA key generation base 736 bits exponent 120 bits
+RSA key generation complete
+PTLS parameter setup complete
+Init round 0
+resign 736 ^ 120 183.7 s ( 0.2 113.7 69.8 )
+resign 736 ^ 120 183.7 s ( 0.2 113.8 69.7 )
+gate 736 ^ 120 98.9 s ( 44.0 54.9 )
+resign 736 ^ 120 184.1 s ( 0.2 114.2 69.7 )
+gate 736 ^ 120 98.8 s ( 44.0 54.8 )
+resign 736 ^ 120 183.8 s ( 0.2 113.8 69.8 )
+gate 736 ^ 120 98.8 s ( 43.9 54.9 )
+resign 736 ^ 120 183.8 s ( 0.2 113.8 69.8 )
+gate 736 ^ 120 98.8 s ( 44.0 54.9 )
+resign 736 ^ 120 184.0 s ( 0.2 113.9 69.9 )
+gate 736 ^ 120 98.9 s ( 43.9 54.9 )

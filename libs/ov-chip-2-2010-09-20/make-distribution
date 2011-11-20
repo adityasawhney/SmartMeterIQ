@@ -1,0 +1,195 @@
+#!/bin/bash
+
+wwwovchip_host="lilo"
+wwwovchip_dir="/www/sos/web-docs/ovchip"
+
+#wwwovchip_host="localhost"
+#wwwovchip_dir="/tmp/tews/www"
+
+
+wwwovchip="$wwwovchip_host:$wwwovchip_dir"
+
+tempdir=/tmp/tews/ov-dist
+
+date_string=$(date '+%Y-%m-%d')
+file="ov-chip-2-$date_string"
+patchfile="patch-$date_string"
+tag="ov-chip-release-$date_string"
+rm -rf $tempdir
+mkdir $tempdir
+
+################## checkout cvs repository
+
+pushd $tempdir
+
+if [ $(hostname) = 'blau' ] ; then
+    cvsroot="/home/tews/Store"
+else
+    cvsroot="blau:/home/tews/Store"
+fi
+
+cvs -d $cvsroot export -r HEAD -d $file src/OV-chip-2/src
+#tar -czf ../$file.tgz $file; exit
+#tar -xzf ../$file.tgz 
+pushd $file
+
+################## delete some files/directories
+
+todelete="ec 
+          lib 
+	  misc/ECTest.java 
+	  misc/Test.java 
+	  misc/iotest.java 
+	  misc/ResponseAPDUTest.java
+	  misc/security.java
+	  misc/T.java
+          schnorr-id
+	"
+
+for f in $todelete ; do rm -rf $f; done
+
+popd
+# back in $tempdir
+
+cp -a $file $file-doc
+
+
+################## cut out patents
+
+pushd $file
+
+patentfiles=$(grep -lr 'START PATENT CUT' . | grep -v make-distribution)
+echo $patentfiles
+
+sed -i -e "/START PATENT CUT/{p
+        a\
+	\        The code of this method is covered by patents owned by Microsoft.\n\
+        Microsoft lawyers are still pondering our request from January\n\
+        2009 to permit the distribution of the complete sources.\n\
+        See \`\`Rethinking Public Key Infrastructures and Digital\n\
+        Certificates: Building in Privacy'' by Brands or \`\`Performance\n\
+        issues of Selective Disclosure and Blinded Issuing Protocols\n\
+        on Java Card'' by Tews and Jacobs for a description of the\n\
+        algorithm to fill in here. 
+        }" \
+    -e '/END PATENT CUT/p' \
+    -e '/START PATENT CUT/,/END PATENT CUT/d' $patentfiles
+
+popd
+# back in $tempdir
+
+cp -a $file $file-patched
+
+pushd $file-patched
+sed -i -e '/START PATENT CUT/,/END PATENT CUT/s|^\([ \t]*\)|\1// |' \
+    $patentfiles
+
+popd
+# back in $tempdir
+
+diff -ur $file $file-patched > $patchfile
+
+popd
+# back to startdir
+
+################## make doc in an unchanged source tree and copy it
+
+cp ConfigMakefile $tempdir/$file-doc
+
+pushd $tempdir
+pushd $file-doc
+make guide
+make doc
+
+popd
+# back to $tempdir
+
+hacker_guide_files="
+        doc/hacker-guide.dvi
+        doc/hacker-guide.ps
+        doc/hacker-guide.pdf
+        doc/hacker-guide.html
+        "
+
+api_doc_files="
+	doc/generated
+        "
+
+docfiles="$hacker_guide_files $api_doc_files"
+
+for f in $docfiles ; do cp -a $file-doc/$f $file/$f; done
+
+
+################## checkout, build and copy the global platform manager
+
+#svn co svn+ssh://solo.science.ru.nl/vol/sos/repos/svn/sospublic/woj/GlobalPlatformManager
+
+tar -xzf /home/tews/src/GlobalPlatformManager/gpm-from-solo.tgz
+
+pushd GlobalPlatformManager/src
+make jar
+
+cp gpm.jar ../../$file
+
+popd
+# back to $tempdir
+
+################## build tar file
+
+tar -czf $file.tar.gz $file
+
+
+################## prepare windows cpp version
+
+cp $file-doc/ConfigMakefile $file
+echo 'CPPFLAGS:=-DUSE_SQUARED_RSA_MULT_4' > $file/test/LocalMakefile
+
+pushd $file
+
+make windows-cpp
+
+popd
+# back to $tempdir
+
+rm $file/ConfigMakefile $file/test/LocalMakefile
+
+zip -r $file.zip $file
+
+
+
+
+################## copy to website
+
+echo %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+echo %%% copy files to $wwwovchip tag with $tag
+echo %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+echo -n "copy files [N/y]:"
+read answer
+
+if [  ${answer:=n} = n -o $answer = N ] ; then
+    exit
+fi
+
+#set -x
+scp $file.tar.gz $wwwovchip/releases
+scp $file.zip $wwwovchip/releases
+scp $patchfile $wwwovchip/releases
+
+pushd $file-doc
+
+ssh $wwwovchip_host rm -rf $wwwovchip_dir/api
+scp -r $api_doc_files $wwwovchip/api
+
+ssh $wwwovchip_host rm -rf $wwwovchip_dir/hacker-guide
+ssh $wwwovchip_host mkdir $wwwovchip_dir/hacker-guide
+scp -r $hacker_guide_files $wwwovchip/hacker-guide
+
+popd
+# back to $tempdir
+
+popd
+# back to startdir
+
+echo cvs tag $tag
+#cvs tag $tag

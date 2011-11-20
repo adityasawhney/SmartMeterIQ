@@ -1,0 +1,1728 @@
+2010-09-20  Hendrik Tews  <tews@blau.inf.tu-dresden.de>
+
+	* third windows distrib fix
+
+2010-09-20  Hendrik Tews  <tews@blau.inf.tu-dresden.de>
+
+	* second windows distrib fix
+
+2010-09-20  Hendrik Tews  <tews@blau.inf.tu-dresden.de>
+
+	* first windows distrib fix
+
+2010-09-20  Hendrik Tews  <tews@blau.inf.tu-dresden.de>
+
+	* windows cpp preparation and README
+
+2010-09-20  Hendrik Tews  <tews@blau.inf.tu-dresden.de>
+
+	* some small changes
+
+2010-03-12  Hendrik Tews  <tews@blau.inf.tu-dresden.de>
+
+        util:
+        * use calibration records for calibrating
+          Security_parameters (instead of hardwired data)
+        * add a calibration record for the RSA 768 factorization
+          of 2009
+
+        front:
+        * new option -768 selects the calibration form the RSA
+          768 factorization in 2009
+
+2010-03-12  Hendrik Tews  <tews@blau.inf.tu-dresden.de>
+
+        * some java IPV4 fixes
+        * some new measurementss
+
+2010-03-01  Hendrik Tews  <tews@blau.inf.tu-dresden.de>
+
+        * report nice warnings for some card communication errors
+          in the entry-gate protocol
+
+2010-02-18  Hendrik Tews  <tews@gromit.cs.ru.nl>
+
+        gui:
+        * updated for square 4 applet
+
+2010-02-18  Hendrik Tews  <tews@gromit.cs.ru.nl>
+
+        * renamed short_squared_rsa_mult ->
+          short_squared_rsa_mult_2
+
+        front:
+        * changed square 4 applet to use short_squared_rsa_mult_4
+
+2010-02-18  Hendrik Tews  <tews@gromit.cs.ru.nl>
+
+        * short_squared_rsa_mult_4 runs in test applet
+        * added various measurements
+
+2010-02-16  Hendrik Tews  <tews@gromit.cs.ru.nl>
+
+        * square 4 fix for -keep-mod
+
+2010-02-16  Hendrik Tews  <tews@gromit.cs.ru.nl>
+
+        * new defines USE_SQUARED_RSA_MULT_4 and SQUARED_RSA_MULT
+          to control which squaring multiplication is
+          used (affects, for instance,
+          Vector.squared_rsa_exponent_mod)
+
+        bignat:
+        * renamed squared_rsa_mult -> squared_rsa_mult_2
+        * renumbered assertions
+
+        test:
+        * USE_SQUARED_RSA_MULT_4/SQUARED_RSA_MULT defines control
+          now which squaring multiplication is used by
+          -squared-vec-exp-{check,perf}
+        * second modulus with multiples allocated for square 4
+          mult; squared-vec-exp chooses the modulus depending on
+          USE_SQUARED_RSA_MULT_4/SQUARED_RSA_MULT
+        * enhanced applet status with USE_SQUARED_RSA_MULT_4
+
+        front:
+        * new square 4 applet; shares RSA_squared_card with the
+          old squaring applet; distinguished by
+          USE_SQUARED_RSA_MULT_4/SQUARED_RSA_MULT
+        * new option -square4 in Card_testframe
+        * simplified Makefile a little bit
+        * initial applet type selection in Test_state now done
+          with cpp defines
+
+        gui
+        * not yet adjusted to USE_SQUARED_RSA_MULT_4/SQUARED_RSA_MULT
+
+
+2010-02-16  Hendrik Tews  <tews@gromit.cs.ru.nl>
+
+        * new squaring mult measurements
+
+2010-02-12  Hendrik Tews  <tews@gromit.cs.ru.nl>
+
+        * update cpp defines doc
+
+2010-02-12  Hendrik Tews  <tews@gromit.cs.ru.nl>
+
+        * move multiples of modulus into Modulus class
+
+2010-02-12  Hendrik Tews  <tews@gromit.cs.ru.nl>
+
+        * new squared multiplication run in the card test frame
+
+2010-02-10  Hendrik Tews  <tews@gromit.cs.ru.nl>
+
+        * new squared multiplication squared_rsa_mult_4 based on
+          x*y = ((x+y)^2 - (x-y)^2) / 4 works in the bignat
+          testframe.
+
+2010-02-09  Hendrik Tews  <tews@gromit.cs.ru.nl>
+
+        * another set such minor changes
+
+2010-02-09  Hendrik Tews  <tews@gromit.cs.ru.nl>
+
+        * minor changes that were lying on my hard disk probably
+          since the WISTP workshop
+
+2009-06-26  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * contact info in readme
+        * cvs release tag
+
+2009-06-26  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * changes for release
+
+2009-06-24  F. Kooman  <F.Kooman@student.science.ru.nl>
+
+        * add Nokia 6212 Classic vector exponent test measurements
+
+2009-06-22  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * add -jcop, -r <reader> options to gui
+
+2009-06-21  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * avoid double applet installation in front/Testframe
+
+2009-06-19  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * pondering note in patent deletions
+        * phone measurements and comparison
+
+2009-06-19  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * fix structured javadoc comments
+
+2009-06-18  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        front:
+        * push applet state into RSA_data
+        * add reset protocol in RSA_card_debug.id
+        * -reset option for all testframes to use reset instead
+          of reinstallation
+
+        gui:
+        * reset button
+
+2009-06-17  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        front:
+        * compile the host test frames with the int/long bignat
+          config and fix various bugs
+
+2009-06-17  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        emulator/jcop
+        * optional int array with port numbers as factory
+          argument; connect to possibly several jcop instances at
+          different ports
+
+        test/front/gui
+        * add -jcop-port option to configure the jcop port
+
+2009-06-16  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * some measurements
+
+        gui:
+        * progress messages in separate window
+        * card id and action log
+        * accelerator q, C-q for quitting the gui
+        * option parsing for the gui, -load-ptls-params
+
+2009-06-15  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        front:
+        * simplified interface of the resign method: it takes now
+          one BigInteger array, whose elements might be negative
+
+2009-06-12  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * distribution script
+
+2009-06-12  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * removed patt files
+        * first part distribution script
+
+2009-06-12  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * patent cuts
+        * doc changes
+
+2009-06-11  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * API documentation completed!!!
+          3 items are not counted because they are in an included
+          file and doccount does not follow includes. The
+          remainig about 100 items without documentation are
+          generated by the netbeans ide without documentation.
+        * doc level 95.16% 2377/2498
+
+2009-06-09  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        jcop emulator:
+        * terminals singleton object to enable equality test
+
+        GUI
+        * moved applet type selection to the top
+        * key size checks
+        * terminal thread runs from the beginning
+        * use JTextPane to print some messages in bold
+        * other small changes
+
+2009-06-05  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * test commit messages on lilo/porthos
+
+2009-06-05  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * test commit messages on solo
+
+2009-06-05  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * some measurements
+
+2009-06-02  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * State.long_size is without Mongomery digits
+
+2009-06-02  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * finished documentation in test, the remaining 3 entries
+          are in documented in an #included file, that the
+          counting script misses
+        * doc level 93.20% 2315/2484
+
+2009-06-02  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * added a little command line parsing library to util and
+          rewrote all command line parsing
+
+2009-05-28  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * loc counting and other minors
+
+2009-05-28  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * update/cleanup of various measurements
+
+2009-05-27  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * measurement of the squaring applet
+
+2009-05-27  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * squared mult charts
+
+2009-05-27  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * subtraction measurement
+
+2009-05-27  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        test:
+        * new protocols subtruct for subtraction performance,
+          option -subtract-perf
+
+2009-05-27  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * square measurement
+
+2009-05-27  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * add forgotten util/Commandline
+
+2009-05-27  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        test:
+        * added option -fixed-exponent to measure squaring times
+
+2009-05-27  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * improve command line parsing: common functionality has
+          been factored out in util/Commandline. The options
+          shared between host and card testframes in the
+          frontoffice are treated in shared code in
+          front/Testframe. 
+
+2009-05-27  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * more measurements about squared multiplication
+
+2009-05-27  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * some measurements about squared multiplication
+
+2009-05-26  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        gui:
+        * changes for squaring applet
+
+2009-05-26  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        front:
+        * new applet variation: the squaring RSA applet runs fine
+          everywhere 
+        * doc level 91.16% 2166/2376
+
+2009-05-25  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * front: added mem_size debug protocol, printed with -d
+        * doc level 89.80% 2103/2342
+
+2009-05-25  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * test: fix -keep-mod 
+        * doc level 89.23% 2063/2312
+
+2009-05-23  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        bignat:
+        * squared_rsa_exponent_mod: multi-power based on squared
+          multiplication 
+
+        test:
+        * RSA_exp without montgomery digits
+        * generalize vector_exp protocol + test for
+          squared_rsa_exponent_mod
+
+2009-05-20  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        bignat:
+        * renamed Vector.rsa_exponent_mod -> mont_rsa_exponent_mod
+
+2009-05-20  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        test:
+        * corner cases for squared multiplication
+
+2009-05-20  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        test:
+        * extended status protocol to report maximal values and
+          assertion checking
+
+2009-05-20  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * short_squared_rsa_mult 
+        * new test protocol for short squared multiplication,
+          option -short-squared-mult-perf
+        * implemented multiplication corner cases for short
+          squared multiplication
+        * doc level 87.97% 2004/2278
+
+2009-05-19  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * fix doc error in the last commit
+        * doc level 87.71% 1955/2229
+
+2009-05-19  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * refactor the protocols resize, ping, memory size into
+          Misc_protocols.id 
+        * new status protocol in Misc_protocols
+        * host driver automatically reinstalls the test applet if
+          the cap file creation time does not match
+
+2009-05-19  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * add support for double-sized numbers to Resize, extend
+          resize protocol/methods with a double-sized argument
+        * rename protocol for montgomery multiplication into mont_mult
+        * new test protocol "mult" for measuring normal multiplication,
+          option -normal-mult-perf
+        * measurement data for add and mult
+
+2009-05-18  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        test:
+        * add protocol for measuring addition, option -add-perf
+
+2009-05-18  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * source code formatting
+
+2009-05-18  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * fix x^0 = 0 again
+
+2009-05-18  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        test:
+        * refactor: all bignats, vectors, rsa exponents are
+          allocated in one place: Bignats
+
+2009-05-18  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        idl:
+        * card imports
+
+        test:
+        * mem_size protocol, option -mem-size to query memory sizes
+
+2009-05-18  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        bignat/test:
+        * resize operations in Resize and the resize protocol
+          takes now an extra size argument for the RSA cipher
+
+        test:
+        * new performance protocol for squared multiplication
+
+2009-05-16  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        Bignat:
+        * subtraction, modular subtraction, addition with carry
+          report, modular division by 2, squared_rsa_mult
+        * squared_rsa_mult runs in bignat testframe
+        * rename RSA_exponent.exponent -> power
+        * refactor RSA_exponent slightly: set_exponent,
+          fixed_power, offset argument
+
+2009-05-14  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * doc level 85.90% 1748/2035
+        * gui doc complete
+
+2009-05-12  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * some renamings in BigIntUtil
+
+2009-05-12  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * adoptions for gpm rev 28
+
+2009-05-11  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * doc level 83.53% 1699/2034
+        * fixed the UTF-8 dependency, the code should now run
+          fine under all charsets/encodings
+
+2009-05-11  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * refactor Terminal_thread and Card_protocols:
+          Terminal_thread does not contain any card related stuff
+          any more
+        * changed Gui_protocol_messages to properly publish its
+          gui updates
+        
+2009-05-11  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * fix doc of Bignat.copy
+
+2009-05-11  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        gui:
+        * gui demonstrator works again
+        * integrated global platform manager for card
+          maintenance, new dialog for deleting applets/packages
+        * added the Montgomerizing applet
+        * gui runs fine with the jcop emulator
+        * cleaned/redesigned the GUI and the terminal thread and
+          their communication
+        
+        Measurements:
+        * data for the wistp submission
+        
+        emulator/jcop:
+        * fixed loosing interrupts
+        
+        doc:
+        * fixed another doccount counting error
+        * doc level 80.48% 1633/2029
+
+2009-04-23  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * bignat: add performance measurement to
+          Bignat.exponent_mod, -exp. The Bignat exponent is
+          around two times slower than Bignat.
+
+2009-04-22  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * front: Refactored Applet_type into a top-level enum,
+          moved some of the utility methods in there
+
+2009-04-22  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * added make-changebars in doc to create a hacker guide
+          with change bars against a certain revision
+
+2009-04-22  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * added card status applet in misc/test_mem
+
+2009-04-22  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * doc level 76.88% 1530/1990
+
+2009-04-17  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * finished vector-rsa-exp-base-4-h3-wired.data
+
+2009-04-17  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * detailed description for RSA_plain_card.make_sig_hash
+        * doc level 74.94% 1492/1991
+
+2009-04-17  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * some test data and some gnuplot scripts
+
+2009-04-15  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * completed usage info for the all three front test
+        frames
+
+2009-04-14  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * added usage info for the test host driver to the
+          hackers guide and in javadoc
+
+2009-04-14  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * hacker-guide: small changes
+
+2009-04-14  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        front:
+        * some more timing output
+
+2009-04-14  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * doc level 74.82% 1489/1990
+
+2009-04-09  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        IDL
+        * fixed @CPP tag text
+        * added javadoc constructor for inner classes
+        * doc level 72.09% 1413/1960
+
+2009-04-09  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * moved some methods from util/Misc_host to
+          util/BigIntUtil
+        * some other methods have been moved from util/Misc_host
+          to util/Convert_serializable
+        * util doc finished 
+        * doc level 70.92% 1390/1960
+
+        IDL
+        * added javadoc import to get rid of the RSA_exponent
+          unknown error
+
+2009-04-07  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * Montgomerizing applet runs on the card
+        * doc level 66.09% 1296/1961
+
+2009-04-07  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        front:
+        * integrate Montgomerizing applet, adopt host driver code
+        * Montgomerizing applet runs in the host test frame
+
+2009-04-06  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * Makefile setup for montgomerizing host testframe
+        * unprecious .prejava
+
+2009-04-06  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * Renamed front/RSA_card -> front/RSA_plain_card
+        * Montgomerizing RSA applet compiles
+        * doc level 65.61% 1286/1960
+
+2009-04-03  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * more guide + little Bignat fixes
+
+2009-04-03  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * hacker guide: config and compile
+
+2009-04-03  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * hacker guide: structure of the sources
+
+2009-04-03  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * some more hacker guide
+
+2009-04-02  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * removed tools/gosh-2007* directory (because it was not
+          a vendor branch)
+        * use gosh from tools/gosh now (which is a vendor branch)
+        * lift the appearance of the hackers guide
+
+2009-03-31  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        front:
+        * adopted Makefile to the "plain" applet name
+
+2009-03-31  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        front:
+        * make hash sizes applet id dependent
+
+2009-03-30  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        util:
+        * new class APDU_byte
+
+        front:
+        * added applet ids, they are hardcoded in RSA_card and
+          stored in RSA_data. The first resign and gate steps
+          send the applet id to make it possible for the host to
+          adopt its behavior.
+
+        * doc level 63.08% 1213/1923
+
+2009-03-30  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        front:
+        * changed data layout on the card: The blinding is now in
+          the last index of the bases array. Therefore also the v
+          moves into the last index of the attributes. 
+        * doc level 62.73% 1195/1905
+
+2009-03-26  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * add overview page to the docs, containing CPP macros
+          and assert tags
+        * reorganize @CPP tag to contain only hyperlinks into the
+          overview page
+        * substituted OV-chip protocol layer of custom RMI layer
+        * renumbered assert tags in Bignat.java
+        * doc level 60.08% 1144/1904
+
+2009-03-23  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * Refactorized main applet class and
+          Registered_protocols. Functionality that is common for
+          all applets has been moved to util/Protocol_applet and
+          util/Registered_protocols. The remaining applet
+          specific code is now in test/Test_protocols and
+          front/RSA_protocols.
+
+          An applet X needs now one instance of the following
+          classes:
+          -X_applet, extending util/Protcol_applet as main applet
+           class. Constructor and install must be filled in.
+           Creates X_protocols and registers the applet in the
+           Java Card VM.
+          -util/Registered_protocols for managing the registered
+           protocols array
+          -util/Card_protocol, for running protocols. The
+           Card_protocol instance is managed completely in
+           util/Protocol_applet, X-specific code does not need to
+           touch it.
+          -X_protocols, completely applet specific. Creates the
+           list of registered protocols and the instance of
+           util/Registered_protocols and registers the former in
+           the latter. Makes the Registered_protocols instance
+           available, such that X_applet can register it.
+
+        * doc level 57.83% 1101/1904
+
+2009-03-20  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        misc:
+        * developed test_int applet in a general short/int
+          performance measuring tool
+
+2009-03-20  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * misc/Makefile separate goal for int-test to let make
+        all succeed
+
+2009-03-20  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        misc:
+        * int multiplication performance test for Wojciechs G&D 2.2 card
+
+2009-03-19  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * fix resize for int/long in Bignat
+        * fix test/Test_host for int/long Bignats
+
+2009-03-17  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * URL's in README
+
+2009-03-16  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * add misc/test_int
+        * fix cref problems in misc
+
+2009-03-13  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * added BNPairings sources in lib/bncurves
+
+2009-03-12  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * refix gui/Makefile brace expansion problem
+
+2009-03-12  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * fix gui/Makefile brace expansion problem
+
+2009-03-12  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * also added *eps, *jpg
+
+2009-03-12  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * add components.eps to be independent of dia
+
+2009-03-12  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * fix for doc/Makefile 
+        * one hacker-guide para
+
+2009-03-06  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * hacker-guideL components figure
+
+2009-03-05  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * hacker-guide: add apdu figure
+
+2009-03-04  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * -include ConfigMakefile to be able to make the hacker guide
+
+2009-03-04  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * added hackers guide to all, core targets
+
+2009-03-04  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * fix gui makefile bug
+
+2009-02-26  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * bignat doc complete, doc level 55.80% 1054/1889
+
+2009-02-25  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * move make_montgomery_corrections into Host_vector as static
+        method
+        * doc level 53.02% 1002/1890 (bignat without testframe)
+
+2009-02-25  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * changed order of doccount
+
+2009-02-25  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * Modulus, Resize doc
+        * doc level 51.59% 975/1890
+
+2009-02-24  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * some doc restructure
+        * Vector doc finished
+        * doccount fix (inherited fields)
+        * doc level 50.00% 944/1888
+
+2009-02-23  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * renamed package frontoffice->front
+        * addprefix shortens Makefiles
+
+2009-02-23  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * bignat/RSA_exponent_interface to abstract from RSA_exponent and
+          Fake_rsa_exponent, this way cpp define RSA_EXPONENT is not any
+          longer needed in bignat and test. It is still needed in front.
+
+2009-02-22  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * doc level 48.95% 932/1904
+
+2009-02-20  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * fix x^0 problem of RSA exponent leading to these signature
+          errors 
+
+2009-02-20  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * fixed misc host drivers
+        * removed configurable path' in many scripts
+
+2009-02-20  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * copyright 2009
+
+2009-02-20  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * central configuration in ConfigMakefile
+        * central README added
+
+2009-02-19  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        bignat
+        * define MONTGOMERY_MULT_SHORTCUT for very fast (and incorrect)
+          multiplication 
+        
+        front
+        * integrated Wojciechs global platform manager, the cardtestframe
+          now automatically reinstalls the applet
+        * option -test-size runs performance test with different sizes
+          (and reinstallation in between)
+        * define CARD_SIGNATURE_ALWAYS_ACCEPT and option -ignore for
+          montgomery shortcutting
+
+2009-02-19  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * hacker guide: apdu format + limitations
+        * rename do-not-edit-warning -> not-edit-warning
+
+2009-02-16  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * more hacker guide
+        * minor doc change in APDU_Serializable
+
+2009-02-16  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * hacker-guide, first version
+        * added a modified gosh in the tools directory
+
+2009-02-12  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * dots only feature for APDUListener
+
+2009-02-12  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * Misc_host.serializable_array_{from,to}_bytes (de)serializes
+          arrays
+        * use that in Host_protocol
+        * doc level 48.49% 915/1887
+
+        test:
+        * use GlobalPlatformManager as library to (re-)install the applet
+
+2009-02-10  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * refactor card connection an applet selection
+        * fix doccount error for enums
+        * doc level 48.35% 909/1880
+
+2009-02-10  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * doc level 48.11% 905/1881
+
+2009-02-10  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * deleted unnecessary cpp dependencies
+
+2009-02-10  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * Replaced WITH_{SUN,JCOP}_EMULATOR cpp directives with on demand
+          class loading
+
+        emulator/smartcardio:
+        * check for the presence of apduio.jar in the provider constructor
+
+2009-02-09  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * fixed the javacard javadoc problem
+
+2009-02-01  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * idl compiler generates doc for *_stubs and *_test_stubs
+        * doc level 47.60% 893/1876
+
+2009-01-30  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * doc level 28.89% 542/1876
+          100.0% (10/10) bignat.APDU_BigInteger
+          100.0% (17/17) bignat.Bignat_array
+          100.0% ( 8/ 8) util.Serializable_array
+          
+2009-01-29  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        util/bignat:
+        * small factoraizations: check_compatibility throws exceptions
+          instead of assertions, it is used in Host_protocol,
+          bn_to/from_bi in Convenience
+        * new class bignat/Convenience gives some Bignat methods a
+          BigInteger interface
+
+        * doc level 27.83% 523/1879
+
+2009-01-28  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        bignat:
+        * BigInteger convenience interface for exponent_mod added
+
+2009-01-28  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * convert tabs to spaces and fixed some make clean
+
+2009-01-28  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * doc level 26.96% 503/1866
+
+2009-01-27  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * fix a doc counting error: doc level 26.85% 501/1866
+
+2009-01-27  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * measurements to compare those new blue nxp cards
+
+2009-01-27  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * doc level 25.44% 501/1969
+
+2009-01-27  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        bignat
+        * modular exponent runs fine in bignat testframe
+
+2009-01-27  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * doc level 24.89% 489/1965
+          100.0% (50/50) bignat.Bignat
+
+2009-01-26  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * generate doc's in description classes
+        * doc level 22.39% 440/1965
+
+2009-01-26  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * doc level 8.73% 163/1868
+
+2009-01-26  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * small test adjustments to test these new NXP cards
+        * test data for new cards
+
+2009-01-22  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * small fixes and adoptions
+
+2009-01-19  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * script to compute documentation level
+        * doc level 8.41% 157/1867
+
+2009-01-19  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * more doc
+
+2009-01-15  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * more doc
+
+2009-01-13  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        front:
+        * card test frame prints state
+
+        all:
+        * mod doc
+
+2009-01-13  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * Makefile changes for javadoc doc generation
+        * doc blueprint for all classes, interfaces
+
+2009-01-12  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        jcop smartcardio
+        * add all required features for Wojciechs global platform manager
+          and more
+
+2009-01-08  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * fixed the jcop error in Registered_protocols, which was a stupid 
+          programming fault.
+
+2009-01-08  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * added progress messages for the various message windows, but
+          they don't work yet
+
+2009-01-07  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * fix delayed RMI init in gui when loading params
+
+2009-01-07  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * fix ptls params read version check
+
+2009-01-07  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        front:
+        * refactor host side delayed protocol init
+
+2009-01-07  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * save/load ptls parameters
+
+2009-01-07  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * gui entry gate works
+
+2009-01-07  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        gui:
+        * resigning works
+
+2009-01-07  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        gui:
+        * filled automaton, entry tabs
+        * simplified synchronization with terminal thread
+
+2009-01-06  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        gui:
+        * non-static action classes, top-level Ov_demo allocates
+          everything 
+        * simple card maintanence works
+
+        front, util:
+        * little refactoring
+
+2009-01-06  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        gui:
+        * applet file name in config
+        * terminal thread synchronization
+        * status, install, delete applet
+
+2009-01-05  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * fix misc/Makefile 
+        * small fixes in emulator/jcop
+
+2009-01-05  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        gui:
+        * added terminal background thread
+        * disable role changing without ptls parameters
+
+2009-01-05  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * added config dialog
+
+2009-01-04  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        front:
+        * less general state
+
+        test:
+        * adoptions to idl compiler changes on 2008-12-05
+
+        gui:
+        * bases selection dialog with actions in Bases_actions
+        * ptls parameter generation with random bases works
+
+2008-12-19  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        gui, ptls office tab
+        * rsa key size checks
+        * automatic exponent updates
+
+2008-12-18  Hendrik Tews  <tews@gromit>
+
+        * new dir gui will contain a demonstrator GUI
+        * first GUI without any actions
+
+2008-12-11  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        front:
+        * proof and resign runs also on real cards
+        * added timings and measurements
+
+2008-12-05  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * proof and resign run in the jcop emulator
+        
+        idl.perl:
+        * delayed init in test stubs
+        * removed verbosity arg in stubs
+
+2008-12-05  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * delayed stub initialization + small fixes
+
+2008-12-05  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        front:
+        * split testframe into ``host test frame'' (linking applet and
+          host code in one application) and ``card test frame'' (same tests,
+          but applet is on a card)
+
+2008-12-04  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * front: compile card test frame
+
+2008-12-04  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * give test_stubs and stubs the same constructor interface
+
+2008-12-04  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * refactored RSA_card and RSA_data. RSA_card should not be
+          necessary on the host side, only RSA_data.
+
+2008-12-03  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * real applet compiles and installs on emulator
+
+2008-12-03  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * make exponent length divisible by 8
+
+2008-12-03  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * resigning (formally called recertification) works in the
+          testframe 
+
+2008-12-03  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * Certification -> Signature
+
+2008-12-03  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * step/protocol update methods generated from idl compiler
+
+2008-12-03  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        front:
+        *  several fixes and a lot of debugging output
+
+2008-12-02  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * explanation fix
+
+2008-12-02  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * deal with the jdk 2.2.2 problem for the sun emulators
+
+2008-12-02  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * control support for sun emulators with WITH_SUN_EMULATOR
+
+2008-12-01  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * fixed link problem in emulators
+
+2008-12-01  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * adjust Makefiles for standard jcdk
+
+2008-12-01  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * recertification compiles, but certificates don't check (yet)
+        
+        bignat
+        * added equality, receiving of vectors
+
+        util:
+        * Misc.get_message_digest, transactions
+
+2008-11-28  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * OO restructure: Serializable_array is now an abstract base class
+
+2008-11-28  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        misc:
+        * added jcop emulator support
+        * new SHA test applet in test_sha
+
+        front:
+        * some recertification progress
+
+2008-11-26  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * sorted cpp macros out, see CPP-MACROS
+
+        front:
+        * init, proof run in applet testframe
+        * enable debugging output in the applet code
+        * set RSA key parameters via -i
+        * permit short RSA key sizes for testing
+
+        bignat:
+        * fixed qotient size constraint
+        * fixed get_first_digit_mask
+        * fixed generation of montgomery correction factors
+
+2008-11-25  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * added debug output to test-frame stubs
+
+2008-11-25  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * in the test-frame stubs use the step method pointers from the
+          protocol steps
+
+2008-11-24  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * adjustments in front done
+
+2008-11-24  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        RMI layer:
+        * CardChannel is now an argument for the host-step methods and not
+          stored inside the Host_protocol data structure any more
+        * idl compiler adjusted
+
+        * soures in test have been adjusted, adjustments in front still
+          need to be done
+
+2008-11-20  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        front:
+        * init runs in testframe
+
+        bignat:
+        * Modulus clean up
+
+        misc:
+        * Bart's EC tests
+        * Identify program
+
+2008-11-14  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * Measurements: cleanup + add rsa-exp stuff
+
+2008-11-13  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        idl compiler
+        * generate a third file: stubs for testframes
+        * lots of small changes
+
+        bignat
+        * better response status for RSA exponent related errors
+        * new class Fake_rsa_exponent for simulating RSA_exponent in a
+          testframe 
+
+        test
+        * run rsa-exp-perf with fixed size exponent, which might be bigger
+          than the base
+        * new option -exp-size to set the exponent size
+
+        new subdir front
+        * will contain frontoffice code: card, host driver, testframe
+        * card data structures and protocols for initialization and
+          proving 
+        * compiles but untested 
+        
+2008-11-11  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        misc:
+        * restructured misc: rsa test applet is in subdir test_rsa
+        * new java card 2.2.2 test applet in test_jc222
+
+2008-11-10  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        bignat:
+        * division for numbers of different size
+        * rand, add, double_mult
+        * non-allocating constructors
+
+2008-11-07  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * add converter_errors.sh to not depend on ocaml
+
+2008-11-07  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * let Test_applet compute 5^5 with ALG_RSA_NOPAD, for Roel
+
+2008-11-05  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * minor test changes, some cleanup
+
+2008-11-03  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * catch the crypto exceptions in the host driver for rsa
+          parameters that are not supported
+
+2008-11-03  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * added security parameter estimation according to Lenstra: Key
+          Length in The Handbook of Information Security
+
+2008-11-02  Hendrik Tews  <tews@gromit>
+
+        * smartcardio wrapper for jcop emulator in emulator/jcop
+          the code is very similar with emulator/smartcardio
+        * util/Card_terminal supports the jcop emulator 
+          if WITH_JCOP_EMULATOR is defined
+        * test host driver works with jcop emulator (again)
+          
+
+2008-10-31  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * fixed a measurement problem, now bignat beats BigInteger:
+              ### 2. bignat time 0.02890 sec (28.900 sec for 1000 rounds)
+              ### 2. BigInt time 0.06431 sec (64.305 sec for 1000 rounds)
+              ### 2. bignat/BigInt ratio 0.449
+        * Implemented three bignat optimizations: OPT_DOUBLE_ADD,
+              OPT_SKIP_DEVIDE, OPT_SPECIAL_SQUARE. Only OPT_SKIP_DEVIDE
+              seems to hava a marginal effect, the other two slow down the
+              code, at least in the bignat testframe.
+        * bignat testframe can write test data to a file and reuse it
+
+2008-10-29  Hendrik Tews  <tews@gromit>
+
+        * compile Bignat/Vector using int digits instead of byte to have a
+          better comparison with BigInteger. We beat BigInteger for long
+          exponent sizes > 600 bits. For 2048 bits base, 204 bits
+          exponenent we get
+
+              ### 2. bignat time 0.320 sec (3.2 sec for 10 rounds)
+              ### 2. BigInt time 0.128 sec (1.3 sec for 10 rounds)
+              ### 2. bignat/BigInt ratio 2.504
+
+2008-10-23  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * measure Bignat performance in the bignat testframe
+
+2008-10-22  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * cut off first two empty bytes from exponent
+        * compile emulator/smartcardio without cpp
+
+2008-10-22  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * little more info for performance tests
+
+2008-10-21  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * added vector exponent using RSA public key encryption
+
+2008-10-20  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * additional argument to Bignat_size.set_size controls whether the
+          rsa keys are reinitialized (which only works for certain sizes)
+
+2008-10-20  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * added misc/test_applet, a very simple applet for testing certain
+          features 
+
+2008-10-19  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * exponent computation via rsa public key encryption, this time
+          properly integrated with Bignat
+
+        
+2008-10-17  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * support for short and long bignats
+
+        bignat:
+        * every Bignat has its own size field
+        * bignat_size is a constructor argument in many cases
+        * resizing is done with Resize, which is ifdef TESTFRAME
+        * bignat testframe compiles but untested
+
+        emulator/wrapper:
+        * handle dieing clients
+
+        test
+        * make exponent tests with shorter exponents
+        * Registered_protocols is completely static now
+        * lots of adoptions
+
+        util
+        * added support for constructor statements in the idl compiler
+        * changed/enhanced host initializer     
+        
+
+2008-10-10  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        emulator
+        * less verbose
+        * support disconnect, exclusive access
+
+        util
+        * Card_terminal works with emulator/smartcardio to connect to
+          emulators
+        
+        test
+        * works with jcwde/cref emulators
+
+2008-10-09  Hendrik Tews  <tews@gromit>
+
+        emulator/smartcardio
+        * build jar file
+
+2008-10-09  Hendrik Tews  <tews@gromit>
+
+        * new directory emulator/smartcardio: TerminalFactory for
+          jref/jcwde
+        * new directory emulator/wrapper: wrapper for emulators
+        * support for printing apdutool lines
+
+2008-10-03  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        idl compiler
+        * card variables in _description
+        * multiple return values
+        * in-out arguments
+
+        util
+        * APDU_boolean, APDU_short_array
+        * install parameters hack for cref
+        * print apdutool lines 
+
+        test
+        * use idl compiler for all protocols
+        * make support for cref emulator
+
+2008-10-01  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * changed host code to use smartcardio instead of jcop
+
+2008-09-26  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * changed compilation to JDK 1.6
+
+2008-09-26  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * change number of precomputed factors in vector exponent measurements
+
+2008-09-25  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * performance measurements for vector exponents
+
+2008-09-25  Hendrik Tews  <tews@gromit>
+
+        * protocol idl compiler 
+        * Vector exponent on emulator
+        
+        bignat
+        * vector length is adjustable in TESTFRAME'S
+        * demontgomerization factor in Host_modulus
+
+        test
+        * new Exponent_perf tests use idl compiler
+        * new install arg max_vector_length
+        * fixed alloc bug in Bignat_size description
+        * simple rsa exponent test discontinued
+
+2008-09-22  Hendrik Tews  <tews@gromit>
+
+        test
+        * adjust tests to new Modulus
+        * use/measure explicit demontgomerization
+
+2008-09-19  Hendrik Tews  <tews@gromit>
+
+        bignat:
+        * synchronous exponentiation works in the bignat testframe
+        * modulus is encapsulated in its own class with all necessary
+          additional info
+        * moved APDU_BigInteger from util
+        * new classes Bignat_array, Host_modulus, Host_vector, Modulus,
+          Vector
+
+        util:
+        * new classes Convert_serializable, Serializable_array
+        
+        general:
+        * made applet classes non-public
+        * compile all java files in one go, enabling recursive dependencies
+
+2008-09-15  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * complete div performance data
+        * decoding install parameters
+
+2008-09-12  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        test
+        * compute exponent via RSA encryption (forging a public key),
+          did performance measurements
+        * additional performance measurings
+        
+        util
+        * Resizable_buffer can allocate in RAM
+        * other small changes
+        
+        Schnorr
+        * fixed the problems that lead to crashes on my jcop 31 cards
+        * compiles, but not tested
+
+2008-09-09  Hendrik Tews  <tews@gromit>
+
+        * minor change in performance graphs
+
+2008-09-09  Hendrik Tews  <tews@gromit>
+
+        * performance tests for division
+
+2008-09-04  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * run Bignat on the card, do performance tests for Montgomery
+          multiplication 
+
+        test:
+        * new protocols for Montgomery multiplication performance and
+          changing Bignat size
+        * compile without assertion (on the card) with setting
+          CPPFLAGS=-DNO_CARD_ASSERT 
+
+        bignat:
+        * port Bignat to the card
+        * Bignat.size now in Bignat_size with the possibility to change
+          the size at runtime
+        
+        util:
+        * Misc_host contains utilities only needed at the host
+        * new APDU_Serializable datatypes: short, BigInteger
+        
+        tools:
+        * better exist status for converter_errors
+
+2008-09-01  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        test:
+        * card performance measurements for sending, receiving and for the
+          proof protocol
+
+        util:
+        * fixed two bugs in the data transmission
+
+2008-09-01  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        util:
+        * adopt protocol encoding to always have CLA == 0
+        * protocol_id's are not fixed any more, they are determined in
+          Registered_protocols now
+        * PCSC debug messages only printed for verbosity >= 10
+        * permit response length of 256
+        * renamed Util into Misc
+        * added Resizable_buffer as APDU_Serializable mainly for testing
+
+        test:
+        * data transmission works fine for emulator and cards
+        * first performance tests for data transmissions
+
+2008-08-28  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        util/test:
+        * Registered_protocols, *_description are now singleton classes,
+          they are initialized during applet installation,
+          it's their responsibility to initialize the classes that hold
+          the applet functionality.
+
+2008-08-28  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * new directories
+          - tools for small utility tools
+          - util for more general utility classes
+          - test for test applications
+
+        tools:
+        * Applet_id generates AID's in hex
+        * converter_errors converts error messages from the converter into
+          a sensible format
+
+        util:
+        * protocol abstraction and drivers for card and host
+        * utilities for response APDU's
+        * some other stuff
+
+        test:
+        * test applet and host driver for the most simplest protocol: ping
+
+        schnorr-id:
+        * some Makefile improvements
+        
+2008-08-25  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        schnorr_id:
+        * let host communicate via contact-less readers
+        * addes -r, -list-readers options
+
+2008-08-25  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        schnorr_id:
+        * compilation and usage info in README
+
+2008-08-22  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        Bignat:
+        * added and tested Montgomery multiplication
+
+2008-08-21  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        Bignat:
+        * performance fix for division
+        * added and tested mult_mod
+
+2008-08-20  Hendrik Tews  <tews@gromit>
+
+        * moved this ChangeLog to OV/src
+        * started java card Bignat lib with test frame in subdir bignat
+          division/modulo implemented and tested
+        * added small code snippets to misc, most notably "Silly tests by
+          Bart" in misc/Test.java
+
+2008-07-27  Hendrik Tews  <tews@gromit>
+
+        * everything runs fine on real card
+
+2008-07-25  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * implement -cheat xx for host
+        * cheating applet runs on the emulator
+        
+2008-07-25  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * new class Commands for the applet commands
+        * host and applet completed for normal case: runs in emulator
+        
+
+2008-07-24  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * new APDU_Message to construct apdu commands
+        * new interface APDU_Serializable
+        * new Response_Status for response apdu's
+        * some host progress
+        * lots of static-method-interface trouble
+
+2008-07-24  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * use persistent/transient byte arrays (in Ram) in BigInt_15
+        * adjust BigInt_Mutable interface
+        * prover/cheater allocate in RAM, if possible
+        * rudimentary host application 
+        * refactoring: some code in Test goes into Host_Util, Parameters
+          to be shared with the host
+        * Verifier uses again more standard java
+
+2008-07-18  Hendrik Tews  <tews@gromit>
+
+        * first, minimal, non-functional applet version
+          can be loaded into the simulator or a real card
+        * lot's of changes to get the applet through the converter
+        * q = 359 is far too big for 15 bit arithmetic, changed to 
+          q = 179 p = 89 omega = 2 alpha = 4
+
+2008-07-17  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * provide access to the big_int in BigInt_Mutable
+
+2008-07-17  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * some more reorganization: everything goes now into 
+          the package ds.ov2.schnorr_id
+        * rename Crypto_Number_Short into BigInt_15Bit
+        * added BigInt_Mutable relying on java.math.BigInteger
+        * cpp define USE_BIGINTEGER_15_BIT chooses between the two BigInt's
+
+2008-07-16  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * reorganized sources, everything is now in src/schnorr-id, the
+          Makefile moves stuff around
+        * setup cpp preprocessing
+
+2008-07-15  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * added ~1000 comment lines, increasing their percentage 
+          from 50% to 60%
+
+2008-07-14  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * use final fields and switch
+
+2008-07-14  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * removed enums in prover and cheater
+
+2008-07-14  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * changed to byte array interfaces
+
+2008-07-14  Hendrik Tews  <tews@tandem.cs.ru.nl>
+
+        * gave up on interfaces/abstract classes, restructured numbers
+        * make host and applets mostly allocation free
+        * fixed cheater bug
+
+2008-07-11  Hendrik Tews  <tews@tandem.cs.ru.nl>
+        
+        * first version of Schnorr's identification protocol, featuring
+          - prover
+          - cheater (a prover without private key, trying to cheat)
+          - verifier
+          - test frame
+          - abstract big number lib, currently implemented with shorts

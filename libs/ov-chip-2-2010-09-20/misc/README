@@ -1,0 +1,88 @@
+OV-chip 2.0 Project   Radboud Universiteit Nijmegen
+
+This directory contains various one-shot programs and a few very
+simple applets.
+
+Contents
+===========================================================================
+
+Test Applets in subdirectories
+
+- test_rsa		use the RSA_NOPAD cipher to compute 5^5
+
+- test_jc222		invoke 
+			javacardx.framework.math.BigNumber.getMaxBytesSupported
+			to see if the applet runs on a 2.2.2
+			platform. Works in the sun emulators,
+			fails on all cards that I have.
+
+- test_sha		Try SHA hashes on the card, in 2.2.1 the
+                        hases are 20 bytes long and if the output
+			array is not long enough a
+                        ArrayIndexOutOfBounds exception is
+                        produced.
+
+- test_int		Test int type.
+
+
+
+Standalone programs:
+
+- Host			generic host application for the test
+			applets, started with the ``host'' script
+
+- SHA_host		Invoke the SHA applet and check the
+                        generated hash. Started via the sha_host script.
+
+- identify		send identify apdu to a card and print the result
+
+- iotest		test javax.smartcardio package of java 1.6
+
+- ResponseAPDUTest	test ResponseAPDU printing 
+			(which is very unsatisfactory)
+
+- security		compute various security parameters
+                        according to "Key Length" by Arjen K.
+                        Lenstra
+
+- Test			experiments with the java crypto api
+
+- ECTest		experiments with BouncyCastle EC crypto
+
+- T			test some java features
+
+
+
+Build instructions
+===========================================================================
+
+Follow these instructions to build the test applets, the generic
+Host driver and the identify program. The other programs can
+simply be compiled with javac.
+
+
+1. first build the Applet_id tool
+
+   make -C ../tools Applet_id.class
+
+2. build the emulatorio libraries (only needed for Host.java, not
+   for the applets)
+
+   make -C ../emulator/smartcardio emulatorio.jar
+   make -C ../emulator/jcop jcopio.jar
+
+2. edit the config section of the Makefile there (or copy the
+   config section into LocalMakefile, make your changes there)
+
+3. compile the applets and the Host application
+
+   make
+
+
+
+
+==============================================================================
+
+Local Variables:
+mode: indented-text
+End:

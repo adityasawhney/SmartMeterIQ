@@ -1,0 +1,134 @@
+doc level 95.13% 2538/2668
+
+117/123 files completed (95.1%)
+
+Packages summary
+    util	100.0% (343/343)
+    bignat	100.0% (268/268)
+    test	 99.7% (1089/1092)
+    front	100.0% (571/571)
+    gui		 67.8% (267/394)
+
+100.0% ( 5/ 5) util.APDU_Serializable
+100.0% ( 8/ 8) util.APDU_boolean
+100.0% ( 8/ 8) util.APDU_byte
+100.0% ( 8/ 8) util.APDU_byte_array
+100.0% ( 8/ 8) util.APDU_long
+100.0% (10/10) util.APDU_short
+100.0% (12/12) util.APDU_short_array
+100.0% ( 3/ 3) util.Action
+100.0% (11/11) util.BigIntUtil
+100.0% ( 5/ 5) util.BigInt_hex_input_option
+100.0% ( 5/ 5) util.BigInt_input_option
+100.0% ( 5/ 5) util.BigInteger_inputs
+100.0% ( 4/ 4) util.Bool_int_option
+100.0% ( 4/ 4) util.Bool_option
+100.0% (16/16) util.Card_protocol
+100.0% (21/21) util.Card_terminal
+100.0% ( 8/ 8) util.Commandline
+100.0% (12/12) util.Convert_serializable
+100.0% ( 3/ 3) util.Empty_void_method
+100.0% (16/16) util.Host_protocol
+100.0% ( 3/ 3) util.Installation_arguments
+100.0% ( 5/ 5) util.Int_option
+100.0% ( 5/ 5) util.Message_digest_wrapper
+100.0% (12/12) util.Misc
+100.0% ( 7/ 7) util.Misc_host
+100.0% ( 6/ 6) util.Option
+100.0% ( 8/ 8) util.Parse_commandline
+100.0% ( 6/ 6) util.PrintWriter_APDUListener
+100.0% ( 5/ 5) util.Protocol
+100.0% ( 7/ 7) util.Protocol_applet
+100.0% ( 9/ 9) util.Protocol_step
+100.0% ( 4/ 4) util.Reference
+100.0% (10/10) util.Registered_protocols
+100.0% (10/10) util.Resizable_buffer
+100.0% (21/21) util.Response_apdu
+100.0% (13/13) util.Response_status
+100.0% (17/17) util.Security_parameter
+100.0% ( 8/ 8) util.Serializable_array
+100.0% ( 5/ 5) util.String_option
+100.0% ( 3/ 3) util.Unsecure_rsa_key
+100.0% ( 5/ 5) util.Value_option
+100.0% ( 2/ 2) util.Void_method
+100.0% (10/10) bignat.APDU_BigInteger
+100.0% (68/68) bignat.Bignat
+100.0% (17/17) bignat.Bignat_array
+100.0% (10/10) bignat.Convenience
+100.0% (11/11) bignat.Fake_rsa_exponent
+100.0% (13/13) bignat.Host_modulus
+100.0% (11/11) bignat.Host_vector
+100.0% ( 3/ 3) bignat.Inverse_mod_256
+100.0% (17/17) bignat.Modulus
+100.0% (12/12) bignat.RSA_exponent
+100.0% ( 7/ 7) bignat.RSA_exponent_interface
+100.0% (29/29) bignat.Resize
+100.0% (50/50) bignat.Testbignat
+100.0% (10/10) bignat.Vector
+100.0% (247/247) test.Bignat_protocols_description
+100.0% (155/155) test.Bignat_protocols_stubs
+100.0% (62/62) test.Bignat_protocols_test_stubs
+100.0% (18/18) test.Bignats
+100.0% (15/15) test.Card_performance
+100.0% ( 7/ 7) test.Check_data_transmission
+100.0% ( 5/ 5) test.Data_protocol_card
+100.0% (18/18) test.Data_protocol_host
+100.0% (47/47) test.Data_protocol_stubs
+100.0% (34/34) test.Data_protocol_test_stubs
+100.0% (10/10) test.Exponent_perf_card
+100.0% (52/52) test.Exponent_perf_description
+100.0% (25/25) test.Exponent_perf_host
+100.0% (23/23) test.Exponent_perf_stubs
+100.0% (10/10) test.Exponent_perf_test_stubs
+100.0% (48/48) test.Misc_protocols_description
+100.0% (14/14) test.Misc_protocols_host
+100.0% (31/31) test.Misc_protocols_stubs
+100.0% (22/22) test.Misc_protocols_test_stubs
+100.0% ( 5/ 5) test.Performance_mult_card
+100.0% (86/86) test.Performance_mult_host
+100.0% (31/31) test.State
+100.0% ( 9/ 9) test.Test_applet
+100.0% (50/50) test.Test_host
+100.0% ( 9/ 9) test.Test_protocols
+ 94.9% (56/59) test.Data_protocol_description
+100.0% (15/15) front.Applet_type
+100.0% ( 4/ 4) front.Card_services
+100.0% (11/11) front.Card_testframe
+100.0% ( 8/ 8) front.Front_protocols
+100.0% ( 4/ 4) front.Hash_size
+100.0% (16/16) front.Host_signature
+100.0% (16/16) front.Host_testframe
+100.0% (29/29) front.PTLS_rsa_parameters
+100.0% ( 3/ 3) front.RSA_applet
+100.0% (14/14) front.RSA_card_debug
+100.0% (33/33) front.RSA_card_debug_description
+100.0% (37/37) front.RSA_card_debug_stubs
+100.0% (30/30) front.RSA_card_debug_test_stubs
+100.0% (63/63) front.RSA_card_protocol_description
+100.0% (53/53) front.RSA_card_protocol_stubs
+100.0% (38/38) front.RSA_card_protocol_test_stubs
+100.0% (42/42) front.RSA_data
+100.0% (13/13) front.RSA_host_card
+100.0% (24/24) front.RSA_mont_card
+100.0% (23/23) front.RSA_plain_card
+100.0% (16/16) front.RSA_protocol_messages
+100.0% (25/25) front.RSA_squared_card
+100.0% (14/14) front.Signature
+100.0% (11/11) front.State
+100.0% (15/15) front.Test_state
+100.0% (14/14) front.Testframe
+100.0% (11/11) gui.Applet_list_actions
+100.0% ( 4/ 4) gui.Bases_actions
+100.0% (26/26) gui.Card_protocols
+100.0% ( 9/ 9) gui.Config_actions
+100.0% (55/55) gui.Gui_actions
+100.0% (22/22) gui.Gui_protocol_messages
+100.0% (21/21) gui.Gui_state
+100.0% ( 7/ 7) gui.Ov_demo
+100.0% ( 6/ 6) gui.Printable_aid
+100.0% (71/71) gui.Terminal_thread
+ 50.0% ( 5/10) gui.Progress_messages
+ 30.0% ( 6/20) gui.Applet_list_window
+ 23.1% ( 6/26) gui.Base_selection
+ 18.2% ( 6/33) gui.Config_window
+ 16.4% (12/73) gui.Ov_demo_gui

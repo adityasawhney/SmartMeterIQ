@@ -1,0 +1,91 @@
+set version ""
+
+### EVERYTHING AFTER HEADER ###
+set style_begin(afterheader)    {^[^\ ]}
+set style_continue(afterheader) {(^\ +.+)|(^\n)}
+
+### WRITE HEADER OF TEX FILE ###
+proc produce_head_latex {} {
+	global title authors version
+	
+	printline {\documentclass[11pt,a4paper,bigheadings]{scrartcl}}
+	printline {\usepackage[T1]{fontenc}}
+	printline {\usepackage[latin1]{inputenc}}
+	printline {\usepackage[small,bf,hang]{caption2}}
+	printline {\usepackage{epsfig}}
+	printline {\usepackage{mathptmx}}
+	printline {\emergencystretch = 20pt}
+	printline {\tolerance = 1000}
+	printline {\clubpenalty = 10000}
+	printline {\widowpenalty = 10000}
+	printline {\displaywidowpenalty = 10000}
+    printline {\usepackage[dvips]{changebar}}
+    printline {\setlength{\changebarwidth}{0.5em}}
+    printline {\newcommand*{\cbnew}{\marginpar{\textsf{New}}}}
+    printline {\newcommand*{\cbdel}{\cbdelete[1.2em]\marginpar{\hspace{1.3em}\textsf{deletion}}}}
+	printline {\usepackage{amsmath}}
+	printline {\usepackage{amssymb}}
+	printline {\begin{document}}
+	
+	if {$title != ""} {
+		printline "\\title{[out_latex $title]}"
+		if {$authors != ""} {
+			printline "\\author{[out_latex $authors]}"
+		}
+		if {$version != ""} {
+		    regsub {\$()Revision: (.*) \$} $version "\\2" revisionnumber
+		    printline "\\date{\\today\\\\\[5mm]"
+		    printline "\\normalsize Revision $revisionnumber}"
+		}
+		printline {\maketitle}
+	}
+#	printline {\tableofcontents}
+}
+
+
+### HEADER - FIND OUT ABOUT TITLE AND AUTHORS ###
+proc process_header {txtblock} {
+	global title authors version
+	
+	set block ""
+	foreach txtline $txtblock {
+		set txtline [lineregsub {^\ +} $txtline ""]
+#		regsub {^\ +} $txtline "" txtline
+		if {[linetxt $txtline] != ""} {
+			set block [append block " " [linetxt $txtline]]
+		} else {
+			regsub {^\ +} $block "" block
+			if {$block != ""} {
+				if {$title == ""} {
+					set title $block
+				} elseif {$authors == ""} {
+					set authors $block
+				} else {
+				        set version $block
+				}
+
+			}
+			set block ""
+		}
+	}
+}
+
+
+### ABSTRACT ###
+proc process_abstract_latex {txtblock} {
+	set title [linetxt [lindex $txtblock 0]]
+	printline ""
+	printline "%     -+*|\[ [string toupper $title] \]|*+-\n"
+        printline "\\begin{abstract}\\label{$title}\\noindent"
+        printline "\\subparagraph{Abstract}"
+	handle_txtblock abstract [lrange $txtblock 2 end]
+	printline "\\end{abstract}"
+        printline "\\thispagestyle{empty}"
+        printline "\\clearpage\\tableofcontents\\clearpage"
+}
+
+
+
+### Local Variables:
+### mode: tcl
+### End:

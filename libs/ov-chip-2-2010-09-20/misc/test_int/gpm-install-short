@@ -1,0 +1,4 @@
+#!/bin/bash
+
+set -x
+gpm $* -list -delete '|int_test.app|' -delete '|int_test|' -load _java_build_dir/only_short/test_int/javacard/test_int.cap -install

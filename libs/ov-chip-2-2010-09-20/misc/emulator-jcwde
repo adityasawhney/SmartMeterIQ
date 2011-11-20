@@ -1,0 +1,25 @@
+#!/bin/bash
+
+if [ $# -lt 1 ] ; then
+    echo "usage: emulator-jcwde test-id"
+    echo "where test-id is one of the subdirs that identifies a test applet"
+    echo "emulator-jcwde will access test-id/create.apduscript and"
+    echo "test-id/jcwde-config.app"
+    exit 1
+fi
+
+test_id=$1
+shift
+
+JCKIT=/home/tews/java/card/jckits/jc222
+
+
+make -C ../emulator/wrapper owrapper
+
+
+(sleep 1; $JCKIT/bin/apdutool $test_id/create.apduscript)&
+
+set -x 
+
+../emulator/wrapper/owrapper -cp . $test_id/jcwde-config.app $*
+

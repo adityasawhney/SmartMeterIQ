@@ -1,0 +1,8 @@
+*.class
+LocalMakefile
+_jar_compiled
+_jar_loopback_exists
+_test_compiled
+_test_loopback_exists
+ds
+jcopio.jar

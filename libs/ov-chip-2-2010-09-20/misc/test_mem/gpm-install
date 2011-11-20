@@ -1,0 +1,4 @@
+#!/bin/bash
+
+set -x
+gpm $* -list -deletedeps -delete '|mem_test|' -load javacard/test_mem.cap -install

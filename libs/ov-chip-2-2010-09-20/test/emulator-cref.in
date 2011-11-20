@@ -1,0 +1,8 @@
+#!/bin/bash
+
+JCKIT=
+eeprom_created=_java_build_dir/card/test/ov_test/javacard/ov_test_eeprom.created
+
+make -C ../emulator/wrapper owrapper
+
+../emulator/wrapper/owrapper -i $eeprom_created -cref $*

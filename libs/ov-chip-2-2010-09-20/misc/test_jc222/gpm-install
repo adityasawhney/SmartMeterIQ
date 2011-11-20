@@ -1,0 +1,4 @@
+#!/bin/bash
+
+set -x
+gpm $* -list -delete '|jc222_test|' -load javacard/test_jc222.cap -install

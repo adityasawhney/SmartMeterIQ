@@ -1,0 +1,11 @@
+#!/bin/bash
+
+#set -x
+
+#JCKIT=/home/tews/java/card/jckits/jc222
+#APDUIOJAR=$JCKIT/lib/apduio.jar
+
+WRAPPER_DIR=PWD
+
+java -ea -classpath $WRAPPER_DIR/_java_build_dir/wrapper \
+    ds/javacard/emulator/wrapper/Wrapper $*

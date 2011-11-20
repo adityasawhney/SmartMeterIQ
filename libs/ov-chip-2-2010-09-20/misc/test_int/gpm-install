@@ -1,0 +1,4 @@
+#!/bin/bash
+
+set -x
+gpm $* -list -delete '|int_test.app|' -delete '|int_test|' -load javacard/test_int.cap -install

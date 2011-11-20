@@ -1,0 +1,121 @@
+
+
+BUILD INSTRUCTIONS
+============================================================================
+
+Some optional features can be configured and prepared in step 3.
+They require additional software to be installed. None of these
+features is necessary for just talking to a java card.
+
+
+1. Download and install the java card development kits version
+   2.2.1 and unzip it (unzip java_card_kit-2_2_1-linux-dom.zip).
+
+2. Configure the base path of the development kit in Makefile in
+   variable JCKIT221.
+   (Optionally copy to config section into the new file LocalMakefile and
+    configure there).
+
+3. [Optional, can safely be skipped]
+
+   Configure and prepare any of the optional features, described below.
+
+4. build everything
+
+   make
+
+   The applet will be in
+   _java_build_dir/card/test/ov_test/javacard/ov_test.cap
+   The host application will be in
+   _java_build_dir/test_host/ds/ov2/*/*, to be started via
+   ./test_host.
+
+
+
+
+ADDING OPTIONAL FEATURES
+=======================================================================
+
+support for the jcop emulator
+=======================================
+   To enable support for connecting to the jcop emulator
+   do the following:
+
+     1. Find offcard.jar, coming from the jcop libraries, on your system.
+
+     2. Configure its location in Makefile or LocalMakefile.
+
+     3. make jcopio-jar
+
+
+support for SUN emulators (cref, jcwde)
+=======================================
+   Note: Both SUN emulators have various limitiations that makes
+   it impossible to run all the tests on these emulators. On cref
+   applet installation fails because of insufficient memory. On
+   jcwde the RSA cipher is not available.
+
+   To enable support for connecting to one of the SUN emulators
+   do the following:
+
+     1. Download and install the java card sdk version 2.2.2.
+        Replace JDKDIR with the directory where you install(ed) this.
+
+        cd JDKDIR
+
+	unzip java_card_kit-2_2_2-linux.zip
+	cd java_card_kit-2_2_2
+	unzip java_card_kit-2_2_2-rr-ant-tasks.zip 
+	unzip java_card_kit-2_2_2-rr-bin-docs-do.zip 
+	unzip java_card_kit-2_2_2-rr-bin-linux-do.zip 
+	unzip java_card_kit-2_2_2-rr-specs.zip 
+
+	cd back-to-this-directory
+
+     2. Configure the location of the sdk version 2.2.2 in
+        Makefile or LocalMakefile in the variable JCKIT222.
+
+     3. make emulatorio-jar
+
+
+
+Emacs error messages from the converter
+=======================================
+   [Obviously only needed for development.]
+
+      1. Install ocamlopt.opt.
+
+      2. make -C ../tools converter_errors
+
+
+   If not present converter_errors.sh uses cat, otherwise the
+   error messages of the converter are changed into a form that
+   emacs can parse.
+
+
+
+
+## OV-chip 2.0 project
+## 
+## Digital Security (DS) group at Radboud Universiteit Nijmegen
+## 
+## Copyright (C) 2008, 2009
+## 
+## This program is free software; you can redistribute it and/or
+## modify it under the terms of the GNU General Public License as
+## published by the Free Software Foundation; either version 2 of
+## the License, or (at your option) any later version.
+## 
+## This program is distributed in the hope that it will be useful,
+## but WITHOUT ANY WARRANTY; without even the implied warranty of
+## MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+## General Public License in file COPYING in this or one of the
+## parent directories for more details.
+## 
+## Created 2.12.08 by Hendrik
+## 
+## $Id: README,v 1.5 2009-02-20 15:29:29 tews Exp $
+##
+## Local Variables:
+## mode: indented-text
+## End:

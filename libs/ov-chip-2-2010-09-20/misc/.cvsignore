@@ -1,0 +1,7 @@
+*.class
+LocalMakefile
+host
+identify
+int_host
+mem_host
+sha_host

@@ -1,0 +1,130 @@
+// 
+// OV-chip 2.0 project
+// 
+// Digital Security (DS) group at Radboud Universiteit Nijmegen
+// 
+// Copyright (C) 2008, 2009
+// 
+// This program is free software; you can redistribute it and/or
+// modify it under the terms of the GNU General Public License as
+// published by the Free Software Foundation; either version 2 of
+// the License, or (at your option) any later version.
+// 
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+// General Public License in file COPYING in this or one of the
+// parent directories for more details.
+// 
+// Created 2.10.08 by Hendrik
+// 
+// Data protocols
+// 
+// $Id: Data_protocol.id,v 1.6 2009-03-23 12:24:53 tews Exp $
+
+
+package ds.ov2.test
+
+host import ds.ov2.util.Resizable_buffer
+host import ds.ov2.util.APDU_boolean
+host import ds.ov2.util.APDU_short_array
+
+constructor argument Test_protocols test_protocols
+var Test_protocols test_protocols
+constructor statement this.test_protocols = test_protocols
+
+cardvar Data_protocol_card data()
+
+// check_data_max_size is declared in Data_protocol_descrition_include
+
+var Resizable_buffer buf_0(check_data_max_size, false)
+var Resizable_buffer buf_1(check_data_max_size, false)
+var Resizable_buffer buf_2(check_data_max_size, false)
+var Resizable_buffer buf_3(check_data_max_size, false)
+var Resizable_buffer buf_4(check_data_max_size, false)
+var Resizable_buffer buf_5(check_data_max_size, false)
+var Resizable_buffer buf_6(check_data_max_size, false)
+var Resizable_buffer buf_7(check_data_max_size, false)
+var Resizable_buffer buf_8(check_data_max_size, false)
+var Resizable_buffer buf_9(check_data_max_size, false)
+
+
+host initializer buf_0 size()
+host initializer buf_1 size()
+host initializer buf_2 size()
+host initializer buf_3 size()
+host initializer buf_4 size()
+host initializer buf_5 size()
+host initializer buf_6 size()
+host initializer buf_7 size()
+host initializer buf_8 size()
+host initializer buf_9 size()
+
+
+var APDU_short_array buf_sizes((short)10)
+host initializer buf_sizes get_length()
+
+var APDU_boolean performance_test()
+
+
+include Data_protocol_description_include.java
+
+
+protocol check_data
+  step check_data: buf_0, buf_1, buf_2, buf_3, buf_4 -> \
+                                  buf_5, buf_6, buf_7, buf_8, buf_9
+    call if(!performance_test.value) \
+                data.check(buf_0, buf_1, buf_2, buf_3, buf_4, \
+                           buf_5, buf_6, buf_7, buf_8, buf_9)
+    measure time
+    message data check
+
+
+
+protocol set_size
+   step set_size: buf_sizes, performance_test -> buf_sizes
+      call set_size()
+      message data set size
+
+
+
+
+protocol data_performance_receive
+   step data_performance_receive: buf_0 ->
+      call nothing
+      measure time
+      message data measure send
+
+
+protocol data_performance_send
+   step data_performance_send: -> buf_5
+      call nothing
+      measure time
+      message data measure receive
+
+
+// buf's usage for proof immitation
+// buf_0         gate meta data
+// buf_1         card meta data
+// buf_2         A', a large bigint
+// buf_3         w, another large bigint
+// buf_4         gamma, a small bigint
+// buf_5..buf_8  r_i, small bigints  
+// buf_9         s, a large bigint
+
+protocol data_perf_proof
+   step data_perf_proof_commit: buf_0 -> buf_1, buf_2, buf_3
+      call nothing
+      message card commit
+
+   step data_perf_answer_to_challenge: \
+                        buf_4 -> buf_5, buf_6, buf_7, buf_8, buf_9
+      call nothing
+      message card response to challenge
+
+
+
+/// Local Variables:
+/// mode: c
+/// eval: (add-hook 'write-contents-hooks 'untabify-buffer)
+/// End:

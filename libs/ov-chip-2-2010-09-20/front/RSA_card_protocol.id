@@ -1,0 +1,161 @@
+// 
+// OV-chip 2.0 project
+// 
+// Digital Security (DS) group at Radboud Universiteit Nijmegen
+// 
+// Copyright (C) 2008, 2009
+// 
+// This program is free software; you can redistribute it and/or
+// modify it under the terms of the GNU General Public License as
+// published by the Free Software Foundation; either version 2 of
+// the License, or (at your option) any later version.
+// 
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+// General Public License in file COPYING in this or one of the
+// parent directories for more details.
+// 
+// Created 10.11.08 by Hendrik
+// 
+// protocol description for ov2, rsa version
+// 
+// $Id: RSA_card_protocol.id,v 1.17 2009-06-18 11:57:38 tews Exp $
+
+
+package ds.ov2.front
+
+host import java.math.BigInteger
+host import ds.ov2.util.APDU_byte
+host import ds.ov2.util.APDU_short
+host import ds.ov2.util.APDU_boolean
+host import ds.ov2.bignat.APDU_BigInteger
+host import ds.ov2.bignat.Host_modulus
+host import ds.ov2.bignat.Host_vector
+
+constructor argument Front_protocols front_protocols
+var Front_protocols front_protocols
+constructor statement this.front_protocols = front_protocols
+
+var RSA_data data()
+cardvar RSA_CARD card(data, front_protocols)
+
+
+var APDU_short short_bignat_size()
+var APDU_short long_bignat_size()
+var APDU_short attribute_length()
+var APDU_short mont_correction_len()
+
+var APDU_boolean signature_accepted()
+
+
+vartype APDU_byte data.applet_id
+vartype Modulus data.n
+vartype Bignat data.v
+vartype Bignat data.ptls_key
+vartype Vector data.bases
+vartype Vector data.base_factors
+vartype Vector data.current_attributes
+vartype Bignat data.montgomerized_one
+vartype Vector data.montgomery_corrections
+vartype Bignat data.current_blinded_a
+vartype Bignat data.result
+vartype Bignat data.gamma_beta_3
+vartype Vector data.remainders
+vartype Bignat data.host_alpha
+vartype Bignat data.host_response
+vartype Bignat data.sig_remainder
+vartype Signature data.current_signature
+
+
+host initializer data.v size()
+host initializer data.ptls_key size()
+host initializer data.montgomerized_one size()
+host initializer data.current_blinded_a size()
+host initializer data.result size()
+host initializer data.gamma_beta_3 size()
+host initializer data.remainders get_bignat_size()
+host initializer data.remainders get_length()
+host initializer data.host_alpha size()
+host initializer data.host_response size()
+host initializer data.sig_remainder size()
+host initializer data.current_signature sig_short_size
+host initializer data.current_signature sig_long_size
+host initializer data.current_signature applet_id
+
+
+protocol allocate
+
+   // Almost all of the variables for arguments and results of the 
+   // other protocols are only initialized after the allocate protocol.
+   // Therefore delayed initialization is triggered here after the allocate 
+   // method finished and the protocol array is reinitialized. 
+   // When the debug features are present the applet can be reset via the 
+   // reset protocol there and then allocate can run a second time on the 
+   // same applet. It is then necessary to update all protocols, such that 
+   // arguments and result references point to the newly allocated variables.
+   step allocate: short_bignat_size, long_bignat_size, \
+                               attribute_length, mont_correction_len ->
+      call card.allocate(short_bignat_size.value, \
+                             long_bignat_size.value, \
+                             attribute_length.value, \
+                             mont_correction_len.value); \
+           delayed_init(); \
+           #ifdef TESTFRAME \
+              front_protocols.rsa_debug.delayed_init(); \
+              update_all(); \
+              front_protocols.rsa_debug.update_all(); \
+           #endif \
+           front_protocols.init_protocols();
+      message allocate
+
+
+protocol initialize
+   delayed protocol init
+
+   step init_data: data.n, data.ptls_key, data.bases, data.base_factors, \
+             data.current_attributes, data.montgomerized_one, \
+             data.montgomery_corrections ->
+      call card.initialize()
+      message initialize
+
+
+protocol resign
+   delayed protocol init
+
+   step get_signature: -> data.applet_id, data.current_blinded_a, \
+                                                  data.current_signature
+      call nothing
+      measure time
+      message resign get attribute signature
+
+   step make_sig_hash: data.host_alpha, data.remainders -> data.sig_remainder
+      call card.make_sig_hash()
+      measure time
+      message resign make hash
+
+   step finish_signature: data.host_response -> signature_accepted
+      call card.finish_signature(signature_accepted)
+      measure time
+      message signature finish
+
+
+protocol gate
+   delayed protocol init
+
+   step commit: -> data.applet_id, data.current_blinded_a, \
+                                   data.current_signature, data.result
+      call card.proof_commit()
+      measure time
+      message gate commit
+
+   step respond: data.gamma_beta_3 -> data.remainders, data.result
+      call card.respond_to_challenge()
+      measure time
+      message gate card response
+
+
+/// Local Variables:
+/// mode: c
+/// eval: (add-hook 'write-contents-hooks 'untabify-buffer)
+/// End:

@@ -1,0 +1,62 @@
+#!/bin/bash
+
+if [ $# != 1 ] ; then
+    echo usage: make-changebar revision-number
+    exit 1
+fi
+
+set -x
+
+revision=$1
+
+tempdir=tmp
+
+mkdir -p $tempdir
+
+touch hacker-guide
+
+goshline=$(make -n hacker-guide.tex | sed 's/>.*//')
+goshline=$(echo $goshline | sed 's/ov-guide.gosh/ov-guide-bars.gosh/')
+echo $goshline
+
+$goshline > hacker-guide.tex
+
+revision_line=$(grep '\normalsize Revision' hacker-guide.tex | sed 's/}//')
+
+revision_line="$revision_line with changebars against $revision}"
+
+revision_line=$(echo $revision_line | sed 's/\\/\\\\\\/g')
+
+sed "/\\\\normalsize Revision/ c\
+$revision_line" \
+    < hacker-guide.tex > $tempdir/hacker-guide-current.tex
+
+new_guide=$tempdir/hacker-guide-current
+old_guide=$tempdir/hacker-guide-$revision
+
+cvs update -p -r $revision hacker-guide > $old_guide
+
+oldgoshline=$(echo $goshline | sed "s|hacker-guide|$old_guide|")
+
+$oldgoshline > $old_guide.tex
+
+sed "/\\\\normalsize Revision/ c\
+$revision_line" \
+    < $old_guide.tex > $old_guide-rev.tex
+
+bar_guide=hacker-guide-bars-$revision
+
+#    --old-group-format="\cbdel\cbstart%c'\012'%<\cbend%c'\012'" \
+
+diff --ignore-space-change --minimal \
+    --new-group-format="\cbnew\cbstart%c'\012'%>\cbend%c'\012'" \
+    --old-group-format="\cbdel%c'\012'" \
+    --changed-group-format="\cbstart%c'\012'%>\cbend%c'\012'" \
+    $old_guide-rev.tex $new_guide.tex \
+    > $bar_guide.tex
+
+latex $bar_guide.tex
+latex $bar_guide.tex
+make $bar_guide.ps
+pdflatex $bar_guide.tex
+pdflatex $bar_guide.tex

@@ -1,0 +1,141 @@
+// 
+// OV-chip 2.0 project
+// 
+// Digital Security (DS) group at Radboud Universiteit Nijmegen
+// 
+// Copyright (C) 2008, 2009
+// 
+// This program is free software; you can redistribute it and/or
+// modify it under the terms of the GNU General Public License as
+// published by the Free Software Foundation; either version 2 of
+// the License, or (at your option) any later version.
+// 
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+// General Public License in file COPYING in this or one of the
+// parent directories for more details.
+// 
+// Created 10.11.08 by Hendrik
+// 
+// debug protocols for ov2, rsa version
+// 
+// $Id: RSA_card_debug.id,v 1.9 2009-06-18 11:57:38 tews Exp $
+
+
+package ds.ov2.front
+
+
+host import java.math.BigInteger;
+host import ds.ov2.util.APDU_byte;
+host import ds.ov2.util.APDU_short;
+host import ds.ov2.util.APDU_boolean;
+host import ds.ov2.bignat.Host_modulus;
+host import ds.ov2.bignat.Host_vector;
+host import ds.ov2.bignat.APDU_BigInteger;
+
+card import javacard.framework.JCSystem
+
+
+var RSA_data data
+constructor argument RSA_card_protocol_description pd
+constructor statement data = pd.data;
+
+vartype APDU_byte data.applet_id
+vartype Modulus data.n
+vartype Bignat data.v
+vartype Bignat data.ptls_key
+vartype Vector data.bases
+vartype Vector data.current_attributes
+vartype Vector data.new_attributes
+vartype Bignat data.current_blinding
+vartype Bignat data.new_blinding
+vartype Bignat data.current_blinded_a
+vartype Bignat data.new_blinded_a
+vartype Signature data.current_signature
+vartype Signature data.new_signature
+vartype Vector data.montgomery_corrections
+
+
+host initializer data.n m.size()
+host initializer data.v size()
+host initializer data.ptls_key size()
+host initializer data.bases get_bignat_size()
+host initializer data.bases get_length()
+host initializer data.current_attributes get_bignat_size()
+host initializer data.current_attributes get_length()
+host initializer data.new_attributes get_bignat_size()
+host initializer data.new_attributes get_length()
+host initializer data.current_blinding size()
+host initializer data.new_blinding size()
+host initializer data.current_blinded_a size()
+host initializer data.new_blinded_a size()
+host initializer data.current_signature sig_short_size
+host initializer data.current_signature sig_long_size
+host initializer data.current_signature applet_id
+host initializer data.new_signature sig_short_size
+host initializer data.new_signature sig_long_size
+host initializer data.new_signature applet_id
+host initializer data.montgomery_corrections get_bignat_size()
+host initializer data.montgomery_corrections get_length()
+
+
+var APDU_short mem_persistent();
+var APDU_short mem_transient_reset();
+var APDU_short mem_transient_deselect();
+
+var APDU_boolean assertions_on()
+constructor statement \
+  #ifdef NO_CARD_ASSERT \
+    assertions_on.value = false; \
+  #else \
+    assertions_on.value = true; \
+  #endif \
+
+
+
+
+
+protocol status
+   delayed protocol init
+
+   step get: -> data.applet_id, data.n, data.v, data.ptls_key, data.bases, \
+                    data.current_attributes, data.new_attributes, \
+                    data.current_blinding, data.new_blinding, \
+                    data.current_blinded_a, data.new_blinded_a, \
+                    data.current_signature, data.new_signature, \
+                    data.montgomery_corrections
+      call nothing
+      message get status
+
+
+
+protocol mem_size
+  step mem_size: -> assertions_on, mem_persistent, \
+                      mem_transient_reset, mem_transient_deselect
+    call \
+      #ifdef JAVACARD_APPLET \
+        mem_persistent.value = \
+            JCSystem.getAvailableMemory(JCSystem.MEMORY_TYPE_PERSISTENT); \
+        mem_transient_reset.value = \
+            JCSystem.getAvailableMemory(JCSystem.MEMORY_TYPE_TRANSIENT_RESET); \
+        mem_transient_deselect.value = \
+          JCSystem.getAvailableMemory(JCSystem.MEMORY_TYPE_TRANSIENT_DESELECT) \
+      #else \
+        mem_persistent.value = -1; \
+        mem_transient_reset.value = -1; \
+        mem_transient_deselect.value = -1; \
+      #endif \
+
+    message report ram size
+
+protocol reset_applet_state
+  step reset: ->
+    call data.state = data.UNALLOCTED
+    message reset applet state
+
+
+/// Local Variables:
+/// mode: c
+/// eval: (add-hook 'write-contents-hooks 'untabify-buffer)
+/// End:

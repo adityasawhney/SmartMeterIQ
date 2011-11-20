@@ -1,0 +1,330 @@
+### Performance test started on 21 November 2008 10:36:32 CET
+### command ./test_host -rsa-vec-exp-perf -keep-mod -vec-len 4 -rounds 10 -r 3 
+### Performance test constants:
+###   int rsa_year   : 2009
+###   short size     : 244
+###   long size      : 258
+###   int short_bit_size : 1952
+###   int start_size : 0
+###   vector length  : 4
+###   pre computed   : 5
+###   divisor length : 100
+###   keep modulus   : true
+###   rounds         : 10
+###   start size     : 0
+###   verbosity      : 0
+###   apduscript     : false
+###   terminal       : PCSC_TERMINAL
+###   card reader    : 3
+################# rsa exp perf start
+## Effective size base 2 bytes (16 bits) exponent 2 bits (in 1 bytes)
+## Size 2 not supported
+## Effective size base 4 bytes (32 bits) exponent 2 bits (in 1 bytes)
+## Size 4 not supported
+## Effective size base 6 bytes (48 bits) exponent 5 bits (in 1 bytes)
+## Size 6 not supported
+## Effective size base 8 bytes (64 bits) exponent 12 bits (in 2 bytes)
+## Size 8 not supported
+## Effective size base 10 bytes (80 bits) exponent 18 bits (in 3 bytes)
+## Size 10 not supported
+## Effective size base 12 bytes (96 bits) exponent 23 bits (in 3 bytes)
+## Size 12 not supported
+## Effective size base 14 bytes (112 bits) exponent 28 bits (in 4 bytes)
+## Size 14 not supported
+## Effective size base 16 bytes (128 bits) exponent 32 bits (in 4 bytes)
+## Size 16 not supported
+## Effective size base 18 bytes (144 bits) exponent 36 bits (in 5 bytes)
+## Size 18 not supported
+## Effective size base 20 bytes (160 bits) exponent 40 bits (in 5 bytes)
+## Size 20 not supported
+## Effective size base 22 bytes (176 bits) exponent 44 bits (in 6 bytes)
+## Size 22 not supported
+## Effective size base 24 bytes (192 bits) exponent 47 bits (in 6 bytes)
+## Size 24 not supported
+## Effective size base 26 bytes (208 bits) exponent 50 bits (in 7 bytes)
+## Size 26 not supported
+## Effective size base 28 bytes (224 bits) exponent 53 bits (in 7 bytes)
+## Size 28 not supported
+## Effective size base 30 bytes (240 bits) exponent 56 bits (in 7 bytes)
+## Size 30 not supported
+## Effective size base 32 bytes (256 bits) exponent 59 bits (in 8 bytes)
+## Size 32 not supported
+## Effective size base 34 bytes (272 bits) exponent 62 bits (in 8 bytes)
+## Size 34 not supported
+## Effective size base 36 bytes (288 bits) exponent 64 bits (in 8 bytes)
+## Size 36 not supported
+## Effective size base 38 bytes (304 bits) exponent 67 bits (in 9 bytes)
+## Size 38 not supported
+## Effective size base 40 bytes (320 bits) exponent 69 bits (in 9 bytes)
+## Size 40 not supported
+## Effective size base 42 bytes (336 bits) exponent 72 bits (in 9 bytes)
+## Size 42 not supported
+## Effective size base 44 bytes (352 bits) exponent 74 bits (in 10 bytes)
+## Size 44 not supported
+## Effective size base 46 bytes (368 bits) exponent 76 bits (in 10 bytes)
+## Size 46 not supported
+## Effective size base 48 bytes (384 bits) exponent 78 bits (in 10 bytes)
+## Size 48 not supported
+## Effective size base 50 bytes (400 bits) exponent 81 bits (in 11 bytes)
+## Size 50 not supported
+## Effective size base 52 bytes (416 bits) exponent 83 bits (in 11 bytes)
+## Size 52 not supported
+## Effective size base 54 bytes (432 bits) exponent 85 bits (in 11 bytes)
+## Size 54 not supported
+## Effective size base 56 bytes (448 bits) exponent 87 bits (in 11 bytes)
+## Size 56 not supported
+## Effective size base 58 bytes (464 bits) exponent 89 bits (in 12 bytes)
+## Size 58 not supported
+## Effective size base 60 bytes (480 bits) exponent 91 bits (in 12 bytes)
+## Size 60 not supported
+## Effective size base 62 bytes (496 bits) exponent 93 bits (in 12 bytes)
+## Size 62 not supported
+## Effective size base 64 bytes (512 bits) exponent 94 bits (in 12 bytes)
+size 512 ^ 94 39.420 s (0.069 s 39.489 s)
+size 512 ^ 94 25.333 s (0.082 s 25.415 s)
+size 512 ^ 94 25.336 s (0.082 s 25.418 s)
+size 512 ^ 94 25.397 s (0.070 s 25.466 s)
+size 512 ^ 94 25.369 s (0.084 s 25.453 s)
+size 512 ^ 94 25.311 s (0.086 s 25.398 s)
+size 512 ^ 94 25.347 s (0.088 s 25.436 s)
+size 512 ^ 94 25.374 s (0.069 s 25.444 s)
+size 512 ^ 94 25.317 s (0.081 s 25.398 s)
+size 512 ^ 94 25.320 s (0.079 s 25.399 s)
+## Effective size base 66 bytes (528 bits) exponent 96 bits (in 12 bytes)
+## Size 66 not supported
+## Effective size base 68 bytes (544 bits) exponent 98 bits (in 13 bytes)
+size 544 ^ 98 34.513 s (0.076 s 34.590 s)
+size 544 ^ 98 28.574 s (0.082 s 28.656 s)
+size 544 ^ 98 28.598 s (0.075 s 28.673 s)
+size 544 ^ 98 28.638 s (0.085 s 28.723 s)
+size 544 ^ 98 28.599 s (0.077 s 28.677 s)
+size 544 ^ 98 28.602 s (0.077 s 28.680 s)
+size 544 ^ 98 28.597 s (0.079 s 28.676 s)
+size 544 ^ 98 28.601 s (0.077 s 28.678 s)
+size 544 ^ 98 28.641 s (0.081 s 28.722 s)
+size 544 ^ 98 28.642 s (0.081 s 28.723 s)
+## Effective size base 70 bytes (560 bits) exponent 100 bits (in 13 bytes)
+## Size 70 not supported
+## Effective size base 72 bytes (576 bits) exponent 101 bits (in 13 bytes)
+size 576 ^ 101 37.897 s (0.077 s 37.974 s)
+size 576 ^ 101 31.768 s (0.069 s 31.838 s)
+size 576 ^ 101 31.754 s (0.077 s 31.831 s)
+size 576 ^ 101 31.746 s (0.084 s 31.831 s)
+size 576 ^ 101 31.751 s (0.082 s 31.833 s)
+size 576 ^ 101 31.759 s (0.069 s 31.828 s)
+size 576 ^ 101 31.769 s (0.069 s 31.838 s)
+size 576 ^ 101 31.752 s (0.085 s 31.838 s)
+size 576 ^ 101 31.755 s (0.085 s 31.840 s)
+size 576 ^ 101 31.767 s (0.070 s 31.837 s)
+## Effective size base 74 bytes (592 bits) exponent 103 bits (in 13 bytes)
+## Size 74 not supported
+## Effective size base 76 bytes (608 bits) exponent 105 bits (in 14 bytes)
+size 608 ^ 105 41.514 s (0.069 s 41.583 s)
+size 608 ^ 105 35.304 s (0.069 s 35.373 s)
+size 608 ^ 105 35.361 s (0.069 s 35.430 s)
+size 608 ^ 105 35.380 s (0.069 s 35.449 s)
+size 608 ^ 105 35.312 s (0.069 s 35.381 s)
+size 608 ^ 105 35.377 s (0.069 s 35.446 s)
+size 608 ^ 105 35.365 s (0.069 s 35.435 s)
+size 608 ^ 105 35.434 s (0.069 s 35.503 s)
+size 608 ^ 105 35.320 s (0.069 s 35.389 s)
+size 608 ^ 105 35.377 s (0.069 s 35.447 s)
+## Effective size base 78 bytes (624 bits) exponent 106 bits (in 14 bytes)
+## Size 78 not supported
+## Effective size base 80 bytes (640 bits) exponent 108 bits (in 14 bytes)
+size 640 ^ 108 45.179 s (0.069 s 45.248 s)
+size 640 ^ 108 39.309 s (0.069 s 39.378 s)
+size 640 ^ 108 39.023 s (0.069 s 39.092 s)
+size 640 ^ 108 39.307 s (0.069 s 39.376 s)
+size 640 ^ 108 38.969 s (0.069 s 39.039 s)
+size 640 ^ 108 39.012 s (0.069 s 39.081 s)
+size 640 ^ 108 38.963 s (0.069 s 39.032 s)
+size 640 ^ 108 39.257 s (0.070 s 39.327 s)
+size 640 ^ 108 38.971 s (0.069 s 39.040 s)
+size 640 ^ 108 39.258 s (0.069 s 39.327 s)
+## Effective size base 82 bytes (656 bits) exponent 110 bits (in 14 bytes)
+## Size 82 not supported
+## Effective size base 84 bytes (672 bits) exponent 111 bits (in 14 bytes)
+size 672 ^ 111 48.940 s (0.069 s 49.009 s)
+size 672 ^ 111 42.987 s (0.069 s 43.056 s)
+size 672 ^ 111 43.050 s (0.069 s 43.119 s)
+size 672 ^ 111 43.107 s (0.069 s 43.176 s)
+size 672 ^ 111 42.979 s (0.069 s 43.049 s)
+size 672 ^ 111 43.022 s (0.069 s 43.092 s)
+size 672 ^ 111 43.046 s (0.069 s 43.114 s)
+size 672 ^ 111 43.043 s (0.069 s 43.112 s)
+size 672 ^ 111 43.001 s (0.069 s 43.071 s)
+size 672 ^ 111 42.987 s (0.069 s 43.055 s)
+## Effective size base 86 bytes (688 bits) exponent 113 bits (in 15 bytes)
+## Size 86 not supported
+## Effective size base 88 bytes (704 bits) exponent 114 bits (in 15 bytes)
+size 704 ^ 114 53.020 s (0.069 s 53.089 s)
+size 704 ^ 114 47.234 s (0.069 s 47.303 s)
+size 704 ^ 114 47.182 s (0.069 s 47.251 s)
+size 704 ^ 114 47.181 s (0.069 s 47.250 s)
+size 704 ^ 114 47.169 s (0.069 s 47.237 s)
+size 704 ^ 114 47.170 s (0.070 s 47.239 s)
+size 704 ^ 114 47.223 s (0.069 s 47.292 s)
+size 704 ^ 114 46.887 s (0.069 s 46.956 s)
+size 704 ^ 114 47.126 s (0.069 s 47.195 s)
+size 704 ^ 114 47.173 s (0.069 s 47.242 s)
+## Effective size base 90 bytes (720 bits) exponent 116 bits (in 15 bytes)
+## Size 90 not supported
+## Effective size base 92 bytes (736 bits) exponent 117 bits (in 15 bytes)
+size 736 ^ 117 57.276 s (0.069 s 57.346 s)
+size 736 ^ 117 51.114 s (0.069 s 51.183 s)
+size 736 ^ 117 51.169 s (0.069 s 51.238 s)
+size 736 ^ 117 51.099 s (0.069 s 51.169 s)
+size 736 ^ 117 51.103 s (0.069 s 51.172 s)
+size 736 ^ 117 51.117 s (0.069 s 51.186 s)
+size 736 ^ 117 51.173 s (0.069 s 51.242 s)
+size 736 ^ 117 51.111 s (0.069 s 51.180 s)
+size 736 ^ 117 51.112 s (0.069 s 51.181 s)
+size 736 ^ 117 51.108 s (0.069 s 51.176 s)
+## Effective size base 94 bytes (752 bits) exponent 119 bits (in 15 bytes)
+## Size 94 not supported
+## Effective size base 96 bytes (768 bits) exponent 120 bits (in 15 bytes)
+size 768 ^ 120 61.683 s (0.069 s 61.752 s)
+size 768 ^ 120 55.717 s (0.069 s 55.786 s)
+size 768 ^ 120 55.764 s (0.069 s 55.833 s)
+size 768 ^ 120 55.747 s (0.069 s 55.815 s)
+size 768 ^ 120 55.714 s (0.069 s 55.784 s)
+size 768 ^ 120 55.846 s (0.069 s 55.915 s)
+size 768 ^ 120 55.712 s (0.069 s 55.781 s)
+size 768 ^ 120 55.845 s (0.069 s 55.914 s)
+size 768 ^ 120 55.700 s (0.069 s 55.769 s)
+size 768 ^ 120 55.773 s (0.069 s 55.842 s)
+## Effective size base 98 bytes (784 bits) exponent 122 bits (in 16 bytes)
+## Size 98 not supported
+## Effective size base 100 bytes (800 bits) exponent 123 bits (in 16 bytes)
+size 800 ^ 123 66.112 s (0.077 s 66.188 s)
+size 800 ^ 123 60.202 s (0.080 s 60.283 s)
+size 800 ^ 123 60.263 s (0.085 s 60.348 s)
+size 800 ^ 123 60.215 s (0.069 s 60.284 s)
+size 800 ^ 123 60.210 s (0.069 s 60.279 s)
+size 800 ^ 123 60.269 s (0.076 s 60.345 s)
+size 800 ^ 123 60.330 s (0.085 s 60.415 s)
+size 800 ^ 123 60.189 s (0.087 s 60.276 s)
+size 800 ^ 123 60.208 s (0.073 s 60.281 s)
+size 800 ^ 123 60.266 s (0.069 s 60.335 s)
+## Effective size base 102 bytes (816 bits) exponent 125 bits (in 16 bytes)
+## Size 102 not supported
+## Effective size base 104 bytes (832 bits) exponent 126 bits (in 16 bytes)
+size 832 ^ 126 70.962 s (0.069 s 71.030 s)
+size 832 ^ 126 65.053 s (0.085 s 65.138 s)
+size 832 ^ 126 65.107 s (0.069 s 65.176 s)
+size 832 ^ 126 65.059 s (0.069 s 65.128 s)
+size 832 ^ 126 65.020 s (0.085 s 65.104 s)
+size 832 ^ 126 65.163 s (0.069 s 65.232 s)
+size 832 ^ 126 65.099 s (0.069 s 65.168 s)
+size 832 ^ 126 65.039 s (0.073 s 65.112 s)
+size 832 ^ 126 65.059 s (0.069 s 65.128 s)
+size 832 ^ 126 65.107 s (0.069 s 65.176 s)
+## Effective size base 106 bytes (848 bits) exponent 127 bits (in 16 bytes)
+## Size 106 not supported
+## Effective size base 108 bytes (864 bits) exponent 129 bits (in 17 bytes)
+size 864 ^ 129 76.010 s (0.069 s 76.079 s)
+size 864 ^ 129 70.023 s (0.069 s 70.093 s)
+size 864 ^ 129 70.112 s (0.069 s 70.181 s)
+size 864 ^ 129 70.040 s (0.069 s 70.109 s)
+size 864 ^ 129 70.046 s (0.070 s 70.116 s)
+size 864 ^ 129 70.039 s (0.069 s 70.108 s)
+size 864 ^ 129 70.009 s (0.073 s 70.081 s)
+size 864 ^ 129 70.015 s (0.085 s 70.100 s)
+size 864 ^ 129 70.035 s (0.069 s 70.104 s)
+size 864 ^ 129 70.016 s (0.089 s 70.104 s)
+## Effective size base 110 bytes (880 bits) exponent 130 bits (in 17 bytes)
+## Size 110 not supported
+## Effective size base 112 bytes (896 bits) exponent 131 bits (in 17 bytes)
+size 896 ^ 131 81.049 s (0.069 s 81.118 s)
+size 896 ^ 131 75.282 s (0.069 s 75.351 s)
+size 896 ^ 131 75.207 s (0.069 s 75.277 s)
+size 896 ^ 131 75.103 s (0.085 s 75.188 s)
+size 896 ^ 131 75.205 s (0.070 s 75.275 s)
+size 896 ^ 131 75.191 s (0.085 s 75.276 s)
+size 896 ^ 131 75.131 s (0.077 s 75.208 s)
+size 896 ^ 131 75.119 s (0.080 s 75.200 s)
+size 896 ^ 131 75.105 s (0.069 s 75.174 s)
+size 896 ^ 131 75.194 s (0.069 s 75.263 s)
+## Effective size base 114 bytes (912 bits) exponent 133 bits (in 17 bytes)
+## Size 114 not supported
+## Effective size base 116 bytes (928 bits) exponent 134 bits (in 17 bytes)
+size 928 ^ 134 86.451 s (0.069 s 86.519 s)
+size 928 ^ 134 80.324 s (0.069 s 80.393 s)
+size 928 ^ 134 80.324 s (0.069 s 80.393 s)
+size 928 ^ 134 80.355 s (0.069 s 80.424 s)
+size 928 ^ 134 80.342 s (0.069 s 80.411 s)
+size 928 ^ 134 80.361 s (0.069 s 80.431 s)
+size 928 ^ 134 80.373 s (0.070 s 80.443 s)
+size 928 ^ 134 80.355 s (0.069 s 80.424 s)
+size 928 ^ 134 80.338 s (0.070 s 80.407 s)
+size 928 ^ 134 80.317 s (0.070 s 80.387 s)
+## Effective size base 118 bytes (944 bits) exponent 135 bits (in 17 bytes)
+## Size 118 not supported
+## Effective size base 120 bytes (960 bits) exponent 136 bits (in 17 bytes)
+size 960 ^ 136 92.091 s (0.070 s 92.160 s)
+size 960 ^ 136 86.012 s (0.069 s 86.081 s)
+size 960 ^ 136 85.949 s (0.069 s 86.018 s)
+size 960 ^ 136 86.062 s (0.069 s 86.131 s)
+size 960 ^ 136 85.917 s (0.069 s 85.986 s)
+size 960 ^ 136 85.993 s (0.069 s 86.063 s)
+size 960 ^ 136 86.022 s (0.070 s 86.092 s)
+size 960 ^ 136 86.182 s (0.069 s 86.251 s)
+size 960 ^ 136 86.021 s (0.069 s 86.090 s)
+size 960 ^ 136 86.028 s (0.069 s 86.097 s)
+## Effective size base 122 bytes (976 bits) exponent 138 bits (in 18 bytes)
+## Size 122 not supported
+## Effective size base 124 bytes (992 bits) exponent 139 bits (in 18 bytes)
+size 992 ^ 139 97.530 s (0.069 s 97.599 s)
+size 992 ^ 139 91.626 s (0.070 s 91.696 s)
+size 992 ^ 139 91.585 s (0.069 s 91.653 s)
+size 992 ^ 139 91.596 s (0.069 s 91.665 s)
+size 992 ^ 139 91.706 s (0.069 s 91.775 s)
+size 992 ^ 139 91.597 s (0.069 s 91.666 s)
+size 992 ^ 139 91.627 s (0.069 s 91.697 s)
+size 992 ^ 139 91.713 s (0.069 s 91.783 s)
+size 992 ^ 139 91.692 s (0.069 s 91.761 s)
+size 992 ^ 139 91.695 s (0.069 s 91.764 s)
+## Effective size base 126 bytes (1008 bits) exponent 140 bits (in 18 bytes)
+## Size 126 not supported
+## Effective size base 128 bytes (1024 bits) exponent 141 bits (in 18 bytes)
+size 1024 ^ 141 103.353 s (0.069 s 103.422 s)
+size 1024 ^ 141 97.466 s (0.070 s 97.536 s)
+size 1024 ^ 141 97.557 s (0.069 s 97.627 s)
+size 1024 ^ 141 97.469 s (0.069 s 97.538 s)
+size 1024 ^ 141 97.455 s (0.069 s 97.525 s)
+size 1024 ^ 141 97.458 s (0.069 s 97.527 s)
+size 1024 ^ 141 97.438 s (0.069 s 97.507 s)
+size 1024 ^ 141 97.458 s (0.069 s 97.527 s)
+size 1024 ^ 141 97.463 s (0.069 s 97.531 s)
+size 1024 ^ 141 97.476 s (0.069 s 97.544 s)
+## Effective size base 130 bytes (1040 bits) exponent 143 bits (in 18 bytes)
+## Size 130 not supported
+## Effective size base 132 bytes (1056 bits) exponent 144 bits (in 18 bytes)
+size 1056 ^ 144 109.538 s (0.069 s 109.606 s)
+size 1056 ^ 144 103.732 s (0.070 s 103.802 s)
+size 1056 ^ 144 103.642 s (0.069 s 103.711 s)
+size 1056 ^ 144 103.622 s (0.070 s 103.692 s)
+size 1056 ^ 144 103.615 s (0.069 s 103.684 s)
+size 1056 ^ 144 103.616 s (0.070 s 103.686 s)
+size 1056 ^ 144 103.638 s (0.069 s 103.706 s)
+size 1056 ^ 144 103.646 s (0.069 s 103.715 s)
+size 1056 ^ 144 103.630 s (0.070 s 103.699 s)
+size 1056 ^ 144 103.639 s (0.069 s 103.708 s)
+## Effective size base 134 bytes (1072 bits) exponent 145 bits (in 19 bytes)
+## Size 134 not supported
+## Effective size base 136 bytes (1088 bits) exponent 146 bits (in 19 bytes)
+size 1088 ^ 146 115.913 s (0.069 s 115.982 s)
+size 1088 ^ 146 109.790 s (0.070 s 109.860 s)
+size 1088 ^ 146 109.759 s (0.081 s 109.840 s)
+size 1088 ^ 146 109.695 s (0.085 s 109.780 s)
+size 1088 ^ 146 110.036 s (0.069 s 110.105 s)
+size 1088 ^ 146 109.691 s (0.069 s 109.760 s)
+size 1088 ^ 146 109.691 s (0.069 s 109.760 s)
+size 1088 ^ 146 109.687 s (0.069 s 109.756 s)
+size 1088 ^ 146 109.708 s (0.069 s 109.777 s)
+size 1088 ^ 146 109.776 s (0.081 s 109.857 s)
+## Effective size base 138 bytes (1104 bits) exponent 147 bits (in 19 bytes)
+## Size 138 not supported
+## Effective size base 140 bytes (1120 bits) exponent 148 bits (in 19 bytes)
+Card communication error: javax.smartcardio.CardException: sun.security.smartcardio.PCSCException: SCARD_F_COMM_ERROR

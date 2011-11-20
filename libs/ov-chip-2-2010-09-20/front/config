@@ -1,0 +1,202 @@
+// 
+// OV-chip 2.0 project
+// 
+// Digital Security (DS) group at Radboud Universiteit Nijmegen
+// 
+// Copyright (C) 2008, 2009
+// 
+// This program is free software; you can redistribute it and/or
+// modify it under the terms of the GNU General Public License as
+// published by the Free Software Foundation; either version 2 of
+// the License, or (at your option) any later version.
+// 
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+// General Public License in file COPYING in this or one of the
+// parent directories for more details.
+// 
+// Created 5.11.08 by Hendrik
+// 
+// preprocessor config directives
+// 
+// $Id: config,v 1.16 2010-02-18 12:40:38 tews Exp $
+
+
+#ifdef OV_PLAIN_RSA_TEST_APPLET
+
+  #define OV_PLAIN_RSA_APPLET
+  #define CARD_TESTFRAME
+  #define TESTFRAME
+
+#elif defined(OV_MONT_RSA_TEST_APPLET)
+
+  #define OV_MONT_RSA_APPLET
+  #define CARD_TESTFRAME
+  #define TESTFRAME
+
+#elif defined(OV_SQUARE_RSA_TEST_APPLET)
+
+  #define OV_SQUARE_RSA_APPLET
+  #define CARD_TESTFRAME
+  #define TESTFRAME
+
+#elif defined(OV_SQUARE4_RSA_TEST_APPLET)
+
+  #define OV_SQUARE4_RSA_APPLET
+  #define CARD_TESTFRAME
+  #define TESTFRAME
+
+#endif
+
+
+#ifdef OV_PLAIN_RSA_APPLET
+
+  // XXX the applet id is also hardwired in Makefile!
+  #define PACKAGE ds_ov2_prsa
+  #define JAVACARD_APPLET 
+  #define RSA_CARD RSA_plain_card
+
+#elif defined(OV_MONT_RSA_APPLET)
+
+  // XXX the applet id is also hardwired in Makefile!
+  #define PACKAGE ds_ov2_mrsa
+  #define JAVACARD_APPLET 
+  #define RSA_CARD RSA_mont_card
+
+#elif defined(OV_SQUARE_RSA_APPLET)
+
+  // XXX the applet id is also hardwired in Makefile!
+  #define PACKAGE ds_ov2_srsa
+  #define JAVACARD_APPLET 
+  #define RSA_CARD RSA_squared_card
+
+#elif defined(OV_SQUARE4_RSA_APPLET)
+
+  // XXX the applet id is also hardwired in Makefile!
+  #define PACKAGE ds_ov2_s4rsa
+  #define JAVACARD_APPLET 
+  #define RSA_CARD RSA_squared_card
+  #define USE_SQUARED_RSA_MULT_4
+
+#endif
+
+
+#ifdef JAVACARD_APPLET
+
+  #ifdef NO_CARD_ASSERT
+    #define ASSERT_TAG(expr, tag)
+  #else
+    #define ASSERT_TAG(expr, tag)	Misc.myassert(expr, (short)(tag))
+  #endif
+
+  #define PUBLIC
+
+  #define RANDOM RandomData
+
+  #define RSA_EXPONENT RSA_exponent
+
+  #define MESSAGE_DIGEST MessageDigest
+
+#elif defined(JAVADOC)
+
+  #define PUBLIC public
+
+  #define RANDOM RandomData
+
+  #define RSA_EXPONENT RSA_exponent
+
+  #define MESSAGE_DIGEST MessageDigest
+
+#else
+
+  #define ASSERT_TAG(expr, tag)	assert(expr)
+
+  #define PUBLIC public
+
+  #define RANDOM Random
+
+  #define RSA_EXPONENT Fake_rsa_exponent
+
+  #define MESSAGE_DIGEST Message_digest_wrapper
+
+#endif
+
+
+#ifdef HOST_TESTFRAME
+
+  #define TESTFRAME
+
+#endif
+
+
+#ifdef PLAIN_APPLET_TESTFRAME
+
+  #define APPLET_TESTFRAME
+
+  #define RSA_CARD RSA_plain_card
+
+#elif defined(MONT_APPLET_TESTFRAME)
+
+  #define APPLET_TESTFRAME
+
+  #define RSA_CARD RSA_mont_card
+
+#elif defined(SQUARE_APPLET_TESTFRAME)
+
+  #define APPLET_TESTFRAME
+
+  #define RSA_CARD RSA_squared_card
+
+#elif defined(SQUARE4_APPLET_TESTFRAME)
+
+  #define APPLET_TESTFRAME
+
+  #define RSA_CARD RSA_squared_card
+
+  #define USE_SQUARED_RSA_MULT_4
+
+#endif
+
+
+#ifdef USE_SQUARED_RSA_MULT_4
+  #define SQUARED_RSA_MULT squared_rsa_mult_4
+  #define SHORT_SQUARED_RSA_MULT short_squared_rsa_mult_4
+#else
+  #define SQUARED_RSA_MULT squared_rsa_mult_2
+  #define SHORT_SQUARED_RSA_MULT short_squared_rsa_mult_2
+#endif
+
+
+#ifdef APPLET_TESTFRAME
+
+  #define TESTFRAME
+
+  #define HOST_TESTFRAME
+
+  #define RSA_CARD_PROTOCOL_STUBS RSA_card_protocol_test_stubs
+
+  #define RSA_DEBUG_PROTOCOL_STUBS RSA_card_debug_test_stubs
+
+#else
+
+  #define RSA_CARD_PROTOCOL_STUBS RSA_card_protocol_stubs
+
+  #if defined(HOST_TESTFRAME) || defined(JAVADOC)
+
+    #define RSA_DEBUG_PROTOCOL_STUBS RSA_card_debug_stubs
+
+    #define RSA_CARD RSA_plain_card
+
+  #endif
+
+#endif
+
+
+
+#define ASSERT(expr)	ASSERT_TAG(expr, 0)
+
+
+/// Local Variables:
+/// mode: c
+/// End:

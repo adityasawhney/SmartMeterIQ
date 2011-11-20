@@ -1,0 +1,179 @@
+                   OV-Chip 2.0 Repository
+
+
+This directory contains the software developed in the OV-Chip 2.0
+project of the Radboud Universiteit Nijmegen. For more
+information on the project visit http://ovchip.cs.ru.nl/OV-chip_2.0
+
+Because of patent issues the public releases of the OV-chip
+sources are missing a number of method bodies. These omissions
+prevent the compilation of the OV-chip applets in the 'front'
+directory. The algorithms that are implemented in these method
+bodies are extensively described in "Performance issues of
+Selective Disclosure and Blinded Issuing Protocols on Java Card"
+by Tews and Jacobs [1] and "Rethinking Public Key Infrastructures
+and Digital Certificates: Building in Privacy" by Brands [2] and
+the API documentation. It should therefore not be too hard to
+rewrite the missing methods. The test applet in the 'test'
+subdirectory and the Bignat test frame are not affected by patent
+issues. They can always be build and run.
+
+
+Contact and latest releases
+###########################
+
+New releases will be placed on http://www.sos.cs.ru.nl/ovchip
+
+For questions and comments contact Hendrik Tews at ovchip@askra.de.
+
+
+Documentation
+#############
+
+The ``OV-Chip 2.0 Hacker Guide'' contains a lot of information
+about the OV-chip sources.
+
+The public OV-chip releases contain the hacker guide in a number
+of formats in the subdirectory doc. It is also online available
+at www.sos.cs.ru.nl/ovchip.
+
+To recompile the hacker guide issue
+
+    make guide
+
+and navigate to doc/hacker-guide.html, doc/hacker-guide.dvi,
+doc/hacker-guide.ps, or doc/hacker-guide.pdf. 
+(Makeing the hacker guide requires no configuration.)
+
+
+The complete API is fully documented with javadoc. The public
+OV-chip releases contain the API documentation in doc/generated.
+The API documentation is also online available at
+www.sos.cs.ru.nl/ovchip.
+
+Building the API documentation requires configuration, see below.
+
+
+Requirements
+############
+
+Compilation requires Java 1.6 because the javax.smartcardio
+package is used. The following additional libraries are required:
+
+Java card kit 2.2.1: 
+  For compiling the applet and the host drivers. Download from 
+  http://java.sun.com/javacard/downloads
+
+Global platform manager from Wojciech Mostowski:
+  For installing and deleting applets. The global platform
+  manager will soon be released as open source. Until then it is
+  included in the OV-chip releases as gpm.jar.
+
+  If you got this OV-chip source tree as a cvs checkout from the
+  sospublic repository, then you have to checkout and build the
+  Global platform manager yourself. Do
+
+  svn co svn+ssh://username@solo.science.ru.nl/vol/sos/repos/svn/sospublic/woj/GlobalPlatformManager
+
+  change to GlobalPlatformManager/src and do ``make jar'' to
+  produce gpm.jar.
+
+
+The following components are optional. They are not required for
+``make core'', but ``make all'' will fail without them.
+
+jcop tools:
+  The jcop tools (which are not any longer distributed by NXP)
+  contain a nice Java Card emulator, which can be used to test
+  and run all applets of this repository. If you can find a copy
+  configure the offcard.jar library. This will enable the
+  emulator/jcop library for talking to the jcop emulator via the
+  smartcardio library.
+
+Ocaml:
+  Needed for tools/converter_errors, which converts the error
+  messages of the java card applet converter into a standard
+  format (which emacs understands).
+
+  Additionally emulator/wrapper contains a wrapper for the SUN
+  Java Card emulators, see emulator/wrapper/README. But this is
+  of marginally use, because the emulators themselves are so
+  useless. 
+
+Java Card Kit 2.2.2:
+  There is a 2.2.2 test applet in misc/test_jc222, which checks
+  for the presence of javacardx.framework.math.BigNumber.
+
+  The 2.2.2 kit is further needed for the library in
+  emulator/smartcardio, which makes it possible to talk to the
+  SUN emulators via the smartcardio package. However, these
+  emulators are not of much use...
+   
+
+Configuration
+#############
+
+To configure fill the makefile variables in ConfigMakefile. If
+ConfigMakefile is not present, copy ConfigMakefile.in to
+ConfigMakefile.
+
+
+Compilation
+###########
+
+make all:
+  Builds everything, but requires that all optional requirements
+  are present and configured.
+
+make core:
+  Builds all those parts that do not need any of the optional
+  requirements. 
+
+Both goals fail for an unmodified OV-chip release source tree
+because some method bodies have been erased because of patent
+issues. However, when the compilation fails in the front
+directory, the test applet and the Bignat test frame have already
+been compiled and are ready to run.
+
+The javadoc documentation of the source code is build with both
+goals. It is located in doc/generated afterwards.
+
+
+
+References
+##########
+
+[1] H. Tews and B. Jacobs. Performance issues of Selective
+    Disclosure and Blinded Issuing Protocols on Java Card. To
+    appear in the proceedings of WISTP 2009. Available at
+    www.sos.cs.ru.nl/ovchip. 
+
+[2] S. Brands. Rethinking Public Key Infrastructures and Digital
+    Certificates: Building in Privacy. MIT Press 2000. Freely
+    available at www.credentica.com.
+
+
+## OV-chip 2.0 project
+## 
+## Digital Security (DS) group at Radboud Universiteit Nijmegen
+## 
+## Copyright (C) 2009
+## 
+## This program is free software; you can redistribute it and/or
+## modify it under the terms of the GNU General Public License as
+## published by the Free Software Foundation; either version 2 of
+## the License, or (at your option) any later version.
+## 
+## This program is distributed in the hope that it will be useful,
+## but WITHOUT ANY WARRANTY; without even the implied warranty of
+## MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+## General Public License in file COPYING in this or one of the
+## parent directories for more details.
+## 
+## Created 20.2.09 by Hendrik
+## 
+## $Id: README,v 1.6 2010-09-20 13:55:34 tews Exp $
+##
+## Local Variables:
+## mode: indented-text
+## End:

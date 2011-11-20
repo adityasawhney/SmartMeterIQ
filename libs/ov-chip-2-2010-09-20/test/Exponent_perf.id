@@ -1,0 +1,149 @@
+// 
+// OV-chip 2.0 project
+// 
+// Digital Security (DS) group at Radboud Universiteit Nijmegen
+// 
+// Copyright (C) 2008, 2009
+// 
+// This program is free software; you can redistribute it and/or
+// modify it under the terms of the GNU General Public License as
+// published by the Free Software Foundation; either version 2 of
+// the License, or (at your option) any later version.
+// 
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+// General Public License in file COPYING in this or one of the
+// parent directories for more details.
+// 
+// Created 23.9.08 by Hendrik
+// 
+// protocol description for exponent test
+// 
+// $Id: Exponent_perf.id,v 1.16 2010-02-16 10:26:09 tews Exp $
+
+
+package ds.ov2.test
+
+host import java.math.BigInteger
+host import ds.ov2.util.APDU_short
+host import ds.ov2.util.APDU_boolean
+host import ds.ov2.bignat.Bignat
+host import ds.ov2.bignat.APDU_BigInteger
+host import ds.ov2.bignat.Modulus
+host import ds.ov2.bignat.Host_modulus
+host import ds.ov2.bignat.Vector
+host import ds.ov2.bignat.Host_vector
+host import ds.ov2.bignat.Resize
+
+constructor argument Test_protocols test_protocols
+var Test_protocols test_protocols
+constructor statement this.test_protocols = test_protocols
+
+constructor argument Bignats bignats
+var Bignats bignats
+constructor statement this.bignats = bignats
+
+cardvar Exponent_perf_card exponent_perf_card(bignats)
+
+
+vartype Vector bignats.base
+vartype Vector bignats.exponent
+vartype Vector bignats.base_factors
+vartype Modulus bignats.modulus
+
+var Bignat one_or_correction
+constructor statement one_or_correction = bignats.n_1;
+host initializer one_or_correction size()
+
+var Modulus vec_exp_modulus
+constructor statement vec_exp_modulus = bignats.modulus
+host initializer vec_exp_modulus size()
+
+
+// n1: new vector_length or base_factor_size
+var APDU_short n1()
+
+// n2: new factors_length 
+var APDU_short n2()
+
+// The multi-power variant: 0 for exponent_mod, 
+// 1 for mont_rsa_exponent_mod and 2 for squared_rsa_exponent_mod
+// cpp define SQUARED_RSA_MULT controls which squared multiplication 
+// is used inside squared_rsa_exponent_mod.
+var APDU_short vector_exp_variant()
+
+// Whether the modulus is still valid from the last test.
+var APDU_boolean keep_modulus()
+
+// The result reference used here must be identical to the one in 
+// Exponent_perf_card. We just cannot refer to the result field there, 
+// because this variable is needed on the host too, where 
+// Exponent_perf_card is not available.
+var Bignat result
+constructor statement result = bignats.r_1;
+host initializer result size()
+
+
+
+protocol Vector_length
+
+  step set_vector_length: n1, n2 ->
+    call Resize.resize_vectors(n1.value, n2.value); \
+         test_protocols.set_result_sizes()
+    message set vector length
+
+
+protocol Vector_exp
+  step vector_exp_choose_mod: vector_exp_variant ->
+    call if(vector_exp_variant.value == (short)2) { \
+             #ifdef USE_SQUARED_RSA_MULT_4 \
+                vec_exp_modulus = bignats.mult_modulus; \
+             #else \
+                vec_exp_modulus = bignats.modulus; \
+             #endif \
+         } else { \
+             vec_exp_modulus = bignats.modulus; \
+         } \
+         ASSERT(bignats.mult_modulus.size() == bignats.modulus.size()); \
+         update_vector_exp_init_step()
+    message vector exponent set modulus
+
+  step vector_exp_init: bignats.base, bignats.exponent, vec_exp_modulus, \
+                             n1, bignats.base_factors, one_or_correction, \
+                             keep_modulus ->
+    call exponent_perf_card.vector_exp_init(vec_exp_modulus, \
+                                            vector_exp_variant.value, \
+                                            keep_modulus.value)
+    message vector exponent init
+
+  step vector_exp_1: ->
+    message vector exponent 1
+    measure time
+    call exponent_perf_card.vector_exp(bignats.base, bignats.exponent, \
+                                       vec_exp_modulus,                 \
+                                       n1.value, bignats.base_factors,  \
+                                       one_or_correction,               \
+                                       vector_exp_variant.value,        \
+                                       false)
+
+  step vector_exp_2: ->
+    message vector exponent 2
+    measure time
+    call exponent_perf_card.vector_exp(bignats.base, bignats.exponent, \
+                                       vec_exp_modulus,                \
+                                       n1.value, bignats.base_factors, \
+                                       one_or_correction,               \
+                                       vector_exp_variant.value,        \
+                                       true)
+
+  step vector_exp_result: -> result
+    message vector result
+    call nothing
+
+
+
+/// Local Variables:
+/// mode: c
+/// eval: (add-hook 'write-contents-hooks 'untabify-buffer)
+/// End:

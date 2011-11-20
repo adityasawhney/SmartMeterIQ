@@ -1,0 +1,458 @@
+
+################
+#              #
+# HTML BACKEND #
+#              #
+################
+
+
+### UTILITY: PRINT BEGIN TAG OF FONT STYLE BLOCK ###
+proc font_style_begin {} {
+	global curr_section_type
+	global config_html_p_colored text_color
+	if {!$config_html_p_colored} {
+		return ""
+	}
+	return "<font color=\"$text_color($curr_section_type)\">"
+}
+
+### UTILITY PRINT END TAG OF FONT STYLE BLOCK ###
+proc font_style_end {} {
+	global config_html_p_colored
+	if {!$config_html_p_colored} {
+		return ""
+	}
+	return "</font>"
+}
+
+### UTILITY: PRINT BEGIN TAG OF PARAGRAPH BLOCK ###
+proc p_style_begin {} {
+	global config_html_p_justify
+	set p_tag "<p"
+	if {$config_html_p_justify == 1} {
+		append p_tag " align=\"justify\""
+	}
+	append p_tag ">"
+	return $p_tag
+}
+
+### UTILITY: PRINT END TAG OF PARAGRAPH BLOCK ###
+proc p_style_end {} {
+	return "</p>"
+}
+
+### FILTER TEXTUAL OUTPUT ###
+proc out_html {string} {
+	global references config_html_keep_tags
+
+	set string " $string "
+
+	# prevent < and > to be interpreted as html tags #
+	if {!$config_html_keep_tags} {
+		regsub -all {<} $string {_§%and%§_lt;} string
+		regsub -all {>} $string {_§%and%§_gt;} string
+	}
+
+	# italic style #
+	while {[regexp {([ \"\(])_(.+?)_([ \)\.\",!?])} $string dummy head_char emph_text tail_char]} {
+		regsub -all {_} $emph_text " " emph_text
+		regsub {([ \"\(])_(.+?)_([ \)\.\",!?])} $string "$head_char<i>$emph_text</i>$tail_char" string
+	}
+
+	# bold style #
+	while {[regexp {([ \"\(])\*(.+?)\*([ \)\.\",!?])} $string dummy head_char bf_text tail_char]} {
+		regsub -all {\*} $bf_text " " bf_text
+		regsub {([ \"\(])\*(.+?)\*([ \)\.\",!?])} $string "$head_char<b>$bf_text</b>$tail_char" string
+	}
+	
+	# monospace style #
+	while {[regexp {([ \"\(])\'(.+?)\'([ \-\)\.\",!?])} $string dummy head_char code_text tail_char]} {
+		regsub {([ \"\(])\'(.+?)\'([ \-\)\.\",!?])} $string "$head_char<code>$code_text</code>$tail_char" string
+	}
+	
+	# FIXME: kick out monospace style via hashes #
+	while {[regexp {\#([^#]+)\#} $string dummy code_text]} {
+		regsub {\#([^#]+)\#} $string "<code>$code_text</code>" string
+		puts stderr "Warning: Monospace using #hashes# is deprecated because it looks ugly."
+		puts stderr "         Please use 'apostrophes' instead. Thanks, your GOSH maintainer."
+	}
+	
+	# hexadecimal numbers #
+	regsub -all {0x(([a-fA-F0-9]+)[\+\-\*\/]?(0x)?)+} $string "<code>&</code>" string
+	
+	set linktext ""
+	# insert references and citations #
+	while {[regexp {\[([^\]]+)\]} $string dummy ref_text]} {
+		if {[info exists references($ref_text,type)]} {
+			if {$references($ref_text,type) == "tabcap"} {
+				regsub {\[([^\]]+)\]} $string "<a href=\"#[label_html $ref_text]\">$references($ref_text,index)</a>" string
+			} else {
+				regsub {\[([^\]]+)\]} $string "<a href=\"#[label_html $ref_text]\">$ref_text</a>" string
+			}
+		} else {
+			set url ""
+			set linktext ""
+			set tooltip ""
+			regexp {^(\w+:[^ ]+)} $ref_text url
+			regexp {^(\w+:[^ ]+) - ([^\(]+)} $ref_text dummy dummy linktext
+			regexp {\((.*)\)} $ref_text dummy tooltip
+			if {$url == ""} {
+				set url $ref_text
+			}
+			if {$linktext == ""} {
+				set linktext $url
+			}
+			set tooltiptext " title=\"$tooltip\""
+			if {$tooltip == ""} {
+				set tooltiptext ""
+			}
+			regsub {^http:([^/])} $url {\1} url
+			regsub { +$} $linktext "" linktext
+			regsub -all {&} $url "_§%and%§_" url
+			regsub -all -- {---} $url      "_§%3xminus%§_" url
+			regsub -all -- {--}  $url      "_§%2xminus%§_" url
+			regsub -all -- {---} $linktext "_§%3xminus%§_" alttext
+			regsub -all -- {--}  $linktext "_§%2xminus%§_" alttext
+			regsub {\[([^\]]+)\]} $string "<a href=\"$url\" alt=\"$alttext\"$tooltiptext>$linktext</a>" string
+		}
+	}
+	regsub -all {_§%and%§_} $string {\&} string
+	regsub -all -- {\-\-\-} $string {\&mdash;} string
+	regsub -all -- {\-\-} $string {\&ndash;} string
+	regsub -all {_§%3xminus%§_} $string {---} string
+	regsub -all {_§%2xminus%§_} $string {--} string
+
+	# clear spaces at the end of a line #
+	regsub { +$} $string "" string
+	regsub {^ } $string "" string
+	
+	return $string
+}
+
+### FILTER LABEL ###
+proc label_html {string} {
+	regsub -all {"} $string ""  string
+	regsub -all { } $string "_" string
+	return $string
+}
+
+### WRITE HEADER OF TEX FILE ###
+proc produce_head_html {} {
+	global title authors references toc_refs config_html_toc
+	printline "<html><head><title>$title</title></head>"
+	printline "<body>"
+	if {$title != ""} {
+		printline "<h1><center>$title</center></h1>"
+	}
+	if {$authors != ""} {
+		printline "<b><center>$authors</center></b>"
+	}
+	printline "<center>[exec date --iso-8601]</center>"
+	
+	# table of contents #
+	if {$config_html_toc} {
+		printline "<hr/>"
+		printline "<table align=\"center\" cellpadding=\"5\"><tr><td>"
+		printline "<h3>Table of contents</h3>"
+		foreach ref_name $toc_refs {
+			if {$references($ref_name,type) == "chapter"} {
+				printline "<b><a href=\"#[label_html $ref_name]\">$references($ref_name,index). $ref_name</a></b><br/>"
+			}
+			if {$references($ref_name,type) == "section"} {
+				printline "<code>&nbsp;&nbsp;</code><a href=\"#[label_html $ref_name]\">$references($ref_name,index). $ref_name</a><br/>"
+			}
+			if {$references($ref_name,type) == "subsection"} {
+				printline "<code>&nbsp;&nbsp;&nbsp;&nbsp;</code><a href=\"#[label_html $ref_name]\">$references($ref_name,index). $ref_name</a><br/>"
+			}
+		}
+		printline "</td></tr></table>"
+	}
+	printline "<hr/><br/>"
+}
+
+### WRITE TAIL OF TEX FILE ###
+proc produce_tail_html {} {
+	global authors
+	printline "<hr/><br/>"
+	printline "<i>$authors</i>"
+	printline "</body>"
+	printline "</html>"
+}
+
+### VERBATIM  ###
+proc process_verbatim_html {txtblock} {
+	global config_html_keep_tags
+	while {[lindex $txtblock end] == ""} {
+		set txtblock [lrange $txtblock 0 [expr [llength $txtblock]-2]]
+	}
+	puts "<pre>"
+	foreach txtline $txtblock {
+		set txt [linetxt $txtline]
+		regsub {^\!} $txt "" txt
+		regsub -all {\t} $txt "  " txt
+		regsub -all {&} $txt "_§%and%§_" txt
+		if {!$config_html_keep_tags} {
+			regsub -all {<} $txt {_§%and%§_lt;} txt
+			regsub -all {>} $txt {_§%and%§_gt;} txt
+		}
+		regsub -all {_§%and%§_} $txt {\&} txt
+		puts "$txt"
+	}
+	puts "</pre>"
+}
+
+### ITEMIZE ###
+proc process_itemize_html {txtblock} {
+	printline "<ul>"
+	handle_txtblock itemize $txtblock
+	printline "</ul>"
+}
+
+### ITEM ###
+proc process_item_html {itemtxtblock} {
+	printline "<li>"
+	handle_txtblock item [extract_item_text $itemtxtblock]
+	printline "</li>"
+}
+
+### DESCRIPTION ###
+proc process_description_html {txtblock} {
+	printline "<dl>"
+	handle_txtblock description $txtblock
+	printline "</dl>"
+}
+
+### DESCRIPTION ITEM ###
+proc process_descitem_html {itemtxtblock} {
+	set txtline [lindex $itemtxtblock 0]
+	set desc_name ""
+	set txt [linetxt $txtline]
+	regexp {^\:(.+)\:} $txt dummy desc_name
+	set txtline [lineregsub {^\:(.+)\: *} $txtline ""]
+	printline "<dt>[out_html $desc_name]</dt>"
+	printline "<dd>"
+	lappend txtblock $txtline
+	foreach txtline [lrange $itemtxtblock 1 end] {
+		set txtline [lineregsub {^\ \ } $txtline ""]
+		lappend txtblock $txtline
+	}
+	handle_txtblock descitem $txtblock
+	printline "</dd>"
+}
+
+### ENUMERATION ###
+proc process_enumeration_html {txtblock} {
+	printline "<ol>"
+	handle_txtblock enumeration $txtblock
+	printline "</ol>"
+}
+
+### ENUM ITEM ###
+proc process_enum_html {itemtxtblock} {
+	process_item_html $itemtxtblock
+}
+
+
+### PLAIN ###
+proc process_plain_html {plaintxtblock} {
+	global depth
+	printline "[p_style_begin][font_style_begin]"
+	incr depth
+	foreach txtline $plaintxtblock {
+		printline "[out_html [linetxt $txtline]]"
+	}
+	incr depth -1
+	printline "[font_style_end][p_style_end]"
+}
+
+### ABSTRACT ###
+proc process_abstract_html {txtblock} {
+	printline "<h1>Abstract</h1>"
+	printline "<i>"
+	handle_txtblock abstract [lrange $txtblock 2 end]
+	printline "</i><hr/><br/>"
+}
+
+### CHAPTER ###
+proc process_chapter_html {txtblock} {
+	global references curr_chapter curr_section_type config_html_sec_enum
+	set curr_section_type chapter
+	set title [linetxt [lindex $txtblock 0]]
+	set curr_chapter $references($title,index)
+	set sec_prefix ""
+	if {$config_html_sec_enum} { set sec_prefix "$curr_chapter " }
+	printline "<a name=\"[label_html $title]\"></a>"
+	printline "<h1>[font_style_begin]$sec_prefix[out_html $title][font_style_end]</h1>"
+	handle_txtblock chapter [lrange $txtblock 2 end]
+}
+
+### SECTION ###
+proc process_section_html {txtblock} {
+	global references curr_chapter curr_section curr_section_type text_color config_html_sec_enum
+	set curr_section_type section
+	set title [linetxt [lindex $txtblock 0]]
+	set curr_section $references($title,index)
+	set sec_prefix ""
+	if {$config_html_sec_enum} { set sec_prefix "$curr_chapter.$curr_section " }
+	printline "<a name=\"[label_html $title]\"></a>"
+	printline "<h2>[font_style_begin]$sec_prefix[out_html $title][font_style_end]</h2>"
+	handle_txtblock section [lrange $txtblock 2 end]
+}
+
+### SUBSECTION ###
+proc process_subsection_html {txtblock} {
+	global references curr_chapter curr_section curr_subsection curr_section_type text_color config_html_sec_enum
+	set curr_section_type subsection
+	set title [linetxt [lindex $txtblock 0]]
+	set curr_subsection $references($title,index)
+	set sec_prefix ""
+	if {$config_html_sec_enum} { set sec_prefix "$curr_chapter.$curr_section.$curr_subsection " }
+	printline "<a name=\"[label_html $title]\"></a>"
+	printline "<h3>[font_style_begin]$sec_prefix[out_html $title][font_style_end]</h3>"
+	handle_txtblock subsection [lrange $txtblock 2 end]
+}
+
+### PARAGRAPH ###
+proc process_paragraph_html {txtblock} {
+	global curr_section_type text_color
+	set curr_section_type paragraph
+	set title [linetxt [lindex $txtblock 0]]
+	printline "<a name=\"[label_html $title]\"></a>"
+	printline "<h4>[font_style_begin][out_html $title][font_style_end]</h4>"
+	handle_txtblock paragraph [lrange $txtblock 2 end]
+}
+
+### IMAGE ###
+proc process_image_html {txtblock} {
+	set img_info ""
+	set img_size 80
+	set img_angle "0"
+	regexp {\[(image \w+.*)\]} [lindex $txtblock 0] dummy img_info
+	if {$img_info == ""} return
+	set img_name [lindex $img_info 1]
+	regexp { (\d+)%} $img_info dummy img_size
+	regexp { (\d+)°} $img_info dummy img_angle
+	
+	set img_cap ""
+	foreach img_capline $txtblock {
+		set txt [linetxt $img_capline]
+		regsub {^\[.*\]} $txt "" txt
+		regsub {^ *} $txt "" txt
+		append img_cap $txt " "
+	}
+	regsub { *$} $img_cap "" img_cap
+	
+	printline "<table cellspacing=\"10\"><tr><td>"
+	printline "  <img src=\"$img_name.jpg\" border=\"0\">"
+	if {$img_cap != ""} {
+		printline "</td><td valign=\"center\">"
+		printline "  <font size=\"-1\">$img_cap</font>"
+	}
+	printline "</td></tr></table>"
+}
+
+
+### DETERMINE NUMBER OF TABLE COLUMNS
+#
+# 'rows' contains the complete table information as a list of rows.
+# Each row is a two-element list {<rowtype> <rowtextlines>}.
+# Each rowtextline is a two-element list of {<line number> <string>}.
+# A table string is contains pipe symbols as column separators.
+#
+proc table_num_cols {rows} {
+	return [llength [split [lindex [lindex [lindex [lindex $rows 0] 1] 0] 1] "|"]]
+}
+
+
+### REQUEST LIST OF TEXT LINES OF SPECIFIED TABLE CELL ###
+proc table_row_cell_txt {row col_idx} {
+	set row_type  [lindex $row 0]
+	set row_lines [lindex $row 1]
+
+	set cell_txt ""
+
+	if {$row_type == "tabrow"} {
+		foreach row_line $row_lines {
+
+			set col_txt_list [split [linetxt $row_line] "|"]
+
+			if {$col_idx < [llength $col_txt_list]} {
+				set col_txt [lindex $col_txt_list $col_idx]
+				lappend cell_txt $col_txt
+			}
+		}
+	}
+	return $cell_txt
+}
+
+
+### TABLE ###
+proc output_table_html {col_attr rows caption} {
+	global references
+	set cap ""
+	foreach cap_line $caption {
+		set txt [linetxt $cap_line]
+		regsub  {^ +} $txt " "  txt
+		append cap $txt
+	}
+	if {[regexp {^\[table ([^ \]]+)\]} $cap dummy cap_lab cap_txt]} {
+		printline "<a name=\"[label_html \"$cap_lab\"]\"></a>"
+	}
+
+	printline "<br/><center><table cellspacing=\"0\" cellpadding=\"3\" border=\"1\">"
+	printline "<tr>"
+
+	set num_cols [table_num_cols $rows]
+	set first_row 1
+	foreach row $rows {
+		set row_type  [lindex $row 0]
+		set row_lines [lindex $row 1]
+
+		if {$row_type == "tabrow"} {
+			for {set col 0} {$col < $num_cols} {incr col} {
+				set cell_txt [table_row_cell_txt $row $col]
+
+				set cell_tag "td"
+				if {$first_row} { set cell_tag "th" }
+
+				set cell_out " <$cell_tag>"
+				foreach cell_txt_line $cell_txt {
+					append cell_out "[out_html $cell_txt_line]<br/>"
+				}
+				append cell_out "</$cell_tag>"
+				printline "$cell_out"
+			}
+		}
+
+		if {$row_type == "tabhline"} {
+			printline "</tr><tr>"
+		}
+
+		set first_row 0
+	}
+	printline "</tr>"
+	printline "</table>"
+
+	if {[regexp {^\[table ([^ \]]+)[^\]]*\](.*)$} $cap dummy cap_lab cap_txt]} {
+		regsub  {^ +} $cap_txt ""  cap_txt
+		printline "Table $references($cap_lab,index): [out_html $cap_txt]"
+	}
+	printline "</center><br/>"
+}
+
+set text_color(default)    "#000000"
+set text_color(chapter)    "#000014"
+set text_color(section)    "#202040"
+set text_color(subsection) "#404060"
+set text_color(paragraph)  "#505090"
+set curr_section_type default
+set outmode html
+
+#
+# Process command line arguments
+#
+set config_html_toc       [regexp {\--html-toc}       $argv dummy]
+set config_html_p_justify [regexp {\--html-p-justify} $argv dummy]
+set config_html_p_colored [regexp {\--html-p-colored} $argv dummy]
+set config_html_sec_enum  [regexp {\--html-sec-enum}  $argv dummy]
+set config_html_keep_tags [regexp {\--html-keep-tags} $argv dummy]

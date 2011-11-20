@@ -1,0 +1,1845 @@
+<html><head><title>OV-Chip 2.0 Hacker's Guide</title></head>
+<body>
+<h1><center>OV-Chip 2.0 Hacker's Guide</center></h1>
+<b><center>			 $Revision: 1.16 $</center></b>
+<center>2010-09-20</center>
+<hr/><br/>
+ <h1>Abstract</h1>
+ <i>
+  <p>
+   This document provides a high-level description of the different
+   source code components of the OV-Chip 2.0 project and their
+   interplay. It augments the rather low level javadoc generated
+   documentation of the sources.
+  </p>
+ </i><hr/><br/>
+ <a name="Introduction"></a>
+ <h1>Introduction</h1>
+  <p>
+   One aim of the OV-chip 2.0 project was to check whether and how
+   selective disclosure protocols can be implemented on Java Smart
+   Cards. The OV-chip 2.0 project is sponsored by the NLnet
+   foundation, see <code>https://ovchip.cs.ru.nl/OV-chip_2.0</code> and
+   <code>http://www.nlnet.nl/</code>. The project started in July 2008. Until
+   spring 2009 applets and corresponding host driver code has been
+   developed to implement the RSA variants of Brands selective
+   disclosure protocols <a href="Brands00" alt="Brands00">Brands00</a>.
+  </p>
+  <p>
+   Apart from writing the applet code and host driver code itself it
+   was also necessary to invest in general infrastructure and test
+   and performance measurement code. For all the Java code a javadoc
+   generated API documentation is available. This document
+   complements this API documentation by explaining the structure of
+   the code on a somewhat higher level.
+  </p>
+  <a name="*_Obtaining_the_javadoc_API_documentation"></a>
+  <h2>* Obtaining the javadoc API documentation</h2>
+   <p>
+    The OV-chip source code releases contain prebuild API
+    documentation in the directory <code>doc/generated</code>.
+   </p>
+   <p>
+    To generate the API documentation it is necessary to configure
+    the sources. Therefore follow the steps in Section
+    <a href="#Configuration">Configuration</a> or in the file <code>src/README</code> in the distribution.
+    After configuration execute <code>make doc</code> in the <code>src</code> directory.
+    Afterwards navigate to <code>src/doc/generated/index.html</code>.
+   </p>
+  <a name="*_Problems_of_the_Java_Card_Platform"></a>
+  <h2>* Problems of the Java Card Platform</h2>
+   <p>
+    As any Java Card application the OV-Chip sources consist of
+    applet code, which is running on the Java Card, and host-driver
+    code, which is running on the host to which the Java Card reader
+    is attached. In this document I simply use the terms <i>applet</i> and
+    <i>host driver</i>, respectively, to refer to both software pieces.
+    Actually, the OV-Chip 2.0 repository contains several applets and
+    host drivers, see Section <a href="#Structure_of_the_OV-chip_Source_Tree">Structure of the OV-chip Source Tree</a>.
+   </p>
+   <p>
+    The applet must be written in the Java Card language, which is
+    usually described as a subset of Standard Java. The applet is
+    moreover limited to the Java Card Application Programming
+    Interface (API), which is <i>much</i> simpler and smaller than the
+    Standard Java API. The host driver is a standard Java program and
+    can use any library available on the system. In this document
+    <i>Java</i> always refers to Standard Java, for the card dialect I
+    explicitly use the term <i>Java Card</i>.
+   </p>
+   <p>
+    The host driver controls the applet by sending Command APDU's to
+    the card and receiving the card responses as Response APDU's. The
+    card only performs computations when triggered by a Command APDU.
+    After the Response APDU is sent back from the card to the host
+    the computation on the card stops until the next Command APDU
+    arrives.
+   </p>
+   <p>
+    For developing non-toy Java Card applets one has to deal with the following
+    problems.
+   </p>
+   <ul>
+    <li>
+     <p>
+      Although Java Card is a subset of Java, the API's and the
+      programming conventions and requirements differ so much that
+      one cannot share non-trivial code between the host and the
+      card. Package and import declarations are different on the two
+      platforms and even some standard methods are called differently
+      (e.g., javacard.framework.Util.arrayCopyNonAtomic versus
+      System.arraycopy). In the OV-Chip 2.0 project non-trivial
+      portions of the code must be shared between the host and the
+      card. Duplicating this code for just changing the imports is
+      <i>obviously not</i> a solution. (For testing purposes,
+      it is possible to compile applet <i>and</i> host driver code into
+      one application that can be tested and debugged without card or
+      emulator on the standard Java virtual machine with a normal
+      debugger or, more trivially, by adding print statements into
+      the applet code. Duplicating the applet code for this purpose
+      would be absurd.)
+     </p>
+    </li>
+    <li>
+     <p>
+      Command and Response APDU's are limited to 255 bytes of data.
+      Often, arguments and/or results of a method invocation on the
+      card are longer and have to be sent with several APDU's.
+     </p>
+    </li>
+    <li>
+     <p>
+      The existing Java Card Remote Method Interface (RMI) is limited
+      to one APDU, that is to 255 bytes for arguments and results,
+      respectively. The Java Card RMI is therefore often not
+      applicable. The existing libraries for sending APDU's
+      work on byte arrays. However, for convenient programming one
+      wishes a typed method interface.
+     </p>
+    </li>
+   </ul>
+   <p>
+    A bit more OV-Chip 2.0 specific are the following two problems:
+   </p>
+   <ul>
+    <li>
+     <p>
+      Cryptographic protocols typically consist of several steps,
+      whose order must not be changed. The applet must maintain some
+      state to protect itself against malicious host drivers that
+      call the protocol steps in the wrong order.
+     </p>
+    </li>
+    <li>
+     <p>
+      There is no big integer library for programming cryptography on
+      Java Card. Because of the limited resources on the card (e.g.,
+      applet deletion is often the only form of garbage collection)
+      and the limitations in Java Card existing Java big integer
+      libraries (e.g., java.lang.BigInteger or bouncy castle) cannot
+      easily be ported.
+     </p>
+    </li>
+   </ul>
+   <p>
+    This hacker guide to the OV-Chip 2.0 sources explains the
+    solutions developed for these problems in the OV-Chip 2.0 project
+    on a more abstract level. This guide should be considered as an
+    abstract introduction to the javadoc generated documentation of
+    the sources.
+   </p>
+   <table cellspacing="10"><tr><td>
+     <img src="applet-architecture.jpg" border="0">
+   </td><td valign="center">
+     <font size="-1">Applet and host driver structure for the OV-Chip application. The communication layer is provided by the OV-Chip protocol layer, which provides a typed method interface for the components sitting on top of it. The Bignat library provides big integer functionality for the card. On the host the standard big integer library 'java.math.BigInteger' is used.</font>
+   </td></tr></table>
+   <p>
+    The first problem (sharing code between host and card without
+    duplication) is solved by preprocessing the real sources with
+    cpp, the standard C preprocessor. The compilation system and the
+    use of the preprocessor are covered in Section
+    <a href="#Compilation">Compilation</a>.
+   </p>
+   <p>
+    The last problem (big integers) is solved by a special purpose
+    big integer library, the Bignat library, covered in Section
+    <a href="#The_Bignat_Library">The Bignat Library</a>.
+   </p>
+   <p>
+    The remaining problems (stateful typed method invocation with
+    arguments and results of arbitrary number and size) is solved by
+    the <i>OV-Chip 2.0 Java Card protocol layer</i>, shortly
+    <i>protocol layer</i>, described in the next section.
+   </p>
+   <p>
+    The mentioned problems and the developed solutions induced a
+    particular structure of the applet and the host driver, see
+    Figure <a href="#applet-architecture">applet-architecture</a>.
+   </p>
+  <a name="*_Terminology"></a>
+  <h2>* Terminology</h2>
+   <p>
+    In the OV-Chip sources there are a number of (outer) classes that
+    only consist of static fields and whose constructor is protected
+    to disable object creation. Such classes are called
+    <i>static classes</i> in this document and in the javadoc generated
+    documentation.
+   </p>
+   <p>
+    The notation util/APDU_short refers to the class APDU_short
+    that is defined in the file <code>util/APDU_short.java</code> in the <code>src</code>
+    subdirectory. When preprocessed and compiled for the host driver
+    it belongs to the package ds.ov2.util. When preprocessed and
+    compiled for an applet the package depends on the applet name.
+   </p>
+   <p>
+    The notation util/APDU_short.size refers to the field or method
+    size of util/APDU_short.
+   </p>
+ <a name="Structure_of_the_OV-chip_Source_Tree"></a>
+ <h1>Structure of the OV-chip Source Tree</h1>
+  <p>
+   <b>A new structure of the repository is in the pipeline.</b>
+  </p>
+  <p>
+   <b>The following documents the current state and will soon change.</b>
+  </p>
+  <p>
+   The source tree contains the following top-level directories.
+  </p>
+  <dl>
+   <dt><b>src/misc</b></dt>
+   <dd>
+    <p>
+     Miscellaneous, unrelated code.
+    </p>
+    <p>
+     Contains small standalone programs that test specific features
+     as well as small test applets with their host drivers. There is
+     also a program that queries the card identification string.
+    </p>
+   </dd>
+  </dl>
+  <dl>
+   <dt><b>src/emulator</b></dt>
+   <dd>
+    <p>
+     javax.smartcardio.TerminalFactory providers
+     <code>JcopEmulator</code> and <code>SunEmulator</code> for the jcop emulator and the
+     Sun emulators <code>cref</code> and <code>jcwde</code>.
+    </p>
+    <p>
+     These providers complement the standard <code>PC/SC</code> provider for
+     talking to one of the mentioned emulators. Most host driver
+     code in the OV-chip sources checks at start-up for the presence
+     of these providers. When present they connect to the <code>jcop</code>
+     emulator by default. The Sun emulators or a real Java Card in a
+     PC/SC terminal can be selected via options (<code>-sun</code> and <code>-c</code> or
+     <code>-r</code> <i>n</i>).
+    </p>
+    <p>
+     The provider code is completely independent of the other
+     OV-chip sources and documented separately.
+    </p>
+    <p>
+     In addition to the providers there is also wrapper for the Sun
+     emulators that fixes the annoying terminate-on-disconnect
+     problem of the Sun providers.
+    </p>
+   </dd>
+  </dl>
+  <dl>
+   <dt><b>src/tools</b></dt>
+   <dd>
+    <p>
+     General tools. Contains, with decreasing
+     importance:
+    </p>
+    <dl>
+     <dt><b>IDL compiler</b></dt>
+     <dd>
+      <p>
+       Perl script <code>idl.perl</code> for transforming ASCII
+       text protocol descriptions into Java source code for using
+       these protocols with the OV-chip protocol layer. See Section
+       <a href="#The_IDL_Compiler">The IDL Compiler</a>.
+      </p>
+     </dd>
+    </dl>
+    <dl>
+     <dt><b>Applet_id</b></dt>
+     <dd>
+      <p>
+       Standalone Java program to convert strings into
+       hex applet ID's that are needed for the command line of the
+       Java Card applet converter.
+      </p>
+     </dd>
+    </dl>
+    <dl>
+     <dt><b>gosh</b></dt>
+     <dd>
+      <p>
+       from Norman Feske. Tool for typesetting Usenet style
+       ASCII files. Used for this Hackers guide. The gosh sources
+       are in a cvs vendor branch to facilitate tracking new
+       upstream releases.
+      </p>
+     </dd>
+    </dl>
+    <dl>
+     <dt><b>Transform converter error messages</b></dt>
+     <dd>
+      <p>
+       An ocaml program
+       <code>converter_errors</code> to transform the error messages of the
+       Java Card applet converter into a standard format that is
+       recognized by Emacs.
+      </p>
+     </dd>
+    </dl>
+    <dl>
+     <dt><b>port dump</b></dt>
+     <dd>
+      <p>
+       An Ocaml program to dump the traffic that goes
+       over a local port. Can be used to dump the communication with
+       the Java Card emulators.
+      </p>
+     </dd>
+    </dl>
+   </dd>
+  </dl>
+  <dl>
+   <dt><b>src/util</b></dt>
+   <dd>
+    <p>
+     Base library for the OV-chip applets and host
+     drivers.
+    </p>
+    <p>
+     Contains the code for the OV-chip protocol layer and provides
+     some platform independent interfaces for some of the
+     differences between standard Java and Java Card. Contains
+     additionally some miscellaneous code that does not fit
+     elsewhere.
+    </p>
+   </dd>
+  </dl>
+  <dl>
+   <dt><b>src/bignat</b></dt>
+   <dd>
+    <p>
+     The bignat library.
+    </p>
+    <p>
+     Contains the bignat library for manipulating long natural
+     numbers on Java Card. Contains also some support classes for
+     host drivers that provides a more convenient interface with
+     standard Java BigInteger's. Finally, there is a test frame for
+     testing the bignat library on a standard JVM.
+    </p>
+   </dd>
+  </dl>
+  <dl>
+   <dt><b>src/test</b></dt>
+   <dd>
+    <p>
+     Test and Performance applet and host driver.
+    </p>
+    <p>
+     The test applet tests and measures the performance of the
+     OV-chip protocol layer and of various methods of the bignat
+     library.
+    </p>
+   </dd>
+  </dl>
+  <dl>
+   <dt><b>src/front</b></dt>
+   <dd>
+    <p>
+     Frontoffice code of the OV-chip project.
+    </p>
+    <p>
+     Contains three applets that implement the RSA flavour of Brands
+     selective disclosure protocols. The first one, the
+     <i>plain RSA applet</i>, uses the RSA cipher on card to compute the
+     exponent and Montgomery multiplication to compute products. The
+     second one, the <i>Montgomerizing RSA applet</i>, computes all
+     powers and products with Montgomery multiplication on the Java
+     Card VM without crypto coprocessor. Its name stems from the
+     fact that it exchanges all data in Montgomerized form with the
+     host driver. The third one, the <i>squaring RSA applet</i>, uses the
+     RSA cipher for computing both, powers and products. Its name is
+     inspired by the equation used to compute products with
+     exponentiation: <code>a * b = ((a + b)^2 - a^2 - b^2)/2</code>.
+    </p>
+    <p>
+     The directory additionally contains the necessary host driver code that
+     implements key generation, applet installation and
+     personalization and the host side of the protocols. There is
+     also a standalone program that can run and measure arbitrary
+     rounds of the protocol.
+    </p>
+   </dd>
+  </dl>
+  <dl>
+   <dt><b>src/gui</b></dt>
+   <dd>
+    <p>
+     Presentation GUI for the RSA applets.
+    </p>
+    <p>
+     The GUI imitates different locations that are important in the
+     OV-chip 2.0 context: The office of the service provider, a
+     resigning automaton and an entry gate.
+    </p>
+   </dd>
+  </dl>
+  <dl>
+   <dt><b>src/doc</b></dt>
+   <dd>
+    <p>
+     Documentation.
+    </p>
+    <p>
+     Contains this Hackers guide and some necessary data for
+     generating the javadoc API documentation. The API documentation
+     is generated in the Makefile in <code>src</code>. When built the API
+     documentation is located in the subdirectory <code>generated</code>.
+    </p>
+   </dd>
+  </dl>
+  <dl>
+   <dt><b>src/ec</b></dt>
+   <dd>
+    <p>
+     Elliptic cure test code.
+    </p>
+   </dd>
+  </dl>
+  <dl>
+   <dt><b>src/lib</b></dt>
+   <dd>
+    <p>
+     (Mostly) third party library code.
+    </p>
+    <p>
+     Contains the bouncy castle library in a vendor branch with
+     generalizations for elliptic curves.
+    </p>
+   </dd>
+  </dl>
+  <dl>
+   <dt><b>src/schnorr-id</b></dt>
+   <dd>
+    <p>
+     Schnorr's identification protocol.
+    </p>
+    <p>
+     First test applet that has been implemented in the project to
+     gain experience with the Java Card platform.
+    </p>
+   </dd>
+  </dl>
+  <dl>
+   <dt><b>src/_doc_build_dir</b></dt>
+   <dd>
+    <p>
+     Build directory for the javadoc API
+     documentation. Will be created when the API documentation is
+     generated.
+    </p>
+   </dd>
+  </dl>
+  <p>
+   The sources in the subdirectories <code>util</code>, <code>bignat</code>, <code>test</code>,
+   <code>front</code> and <code>gui</code> do not use standard Java compilation. For
+   compilation the Makefile's in these directories construct
+   (possibly several) Java conform source trees in the subdirectory
+   <code>_java_build_dir</code> on the fly. The Makefile of <code>src/front</code>, for
+   instance, will create the subdirectories <code>plain_rsa_card</code>,
+   <code>mont_rsa_card</code>, <code>rsa_card_test</code> and <code>rsa_host_test</code> inside
+   <code>src/front/_java_build_dir</code>. Each of these subdirectories will
+   contain a complete source tree for, respectively, the plain RSA
+   applet, the Montgomerizing RSA applet, the standalone host driver
+   and the host-only test frame. To populate these source trees the
+   original sources, from e.g., <code>src/util</code>, are copied and
+   preprocessed by cpp and sed. See Section <a href="#Compilation">Compilation</a> for
+   details on the build system.
+  </p>
+ <a name="Building_and_running_the_code"></a>
+ <h1>Building and running the code</h1>
+  <p>
+   Because of patent issues the public releases of the OV-chip
+   sources are missing a number of method bodies. These omissions
+   prevent the compilation of the OV-chip applets in the <code>front</code>
+   directory. The algorithms that are implemented in these method
+   bodies are extensively described in <a href="ovchip09" alt="ovchip09">ovchip09</a> and <a href="Brands00" alt="Brands00">Brands00</a> and
+   the API documentation. It should therefore not be too hard to
+   rewrite the missing methods.
+  </p>
+  <p>
+   The test applet in the <code>test</code> subdirectory and the Bignat
+   test frame are not affected by patent issues. They can always be
+   build and run.
+  </p>
+  <p>
+   The requirements for compiling and the configuration of the code
+   are described in the first two subsections. The programs that one
+   can experiment with are described in section <a href="#Running">Running</a> below.
+  </p>
+  <a name="Requirements"></a>
+  <h2>Requirements</h2>
+   <p>
+    Compilation requires Java 1.6 because the javax.smartcardio
+    package is used. A number of third party packages are required or
+    optionally needed. Without the required packages only this
+    Hackers Guide can be compiled into a printable version
+    (<code>make guide</code> in <code>src</code>). With only the required packages one can
+    build the main applets, the host drivers and run them on real Java
+    Cards (<code>make core</code> in <code>src</code>). With the optional packages one can
+    run the applets in one of the emulators (<code>make all</code> in <code>src</code>). If
+    only some of the additional packages are available it might be
+    possible to build more that what <code>make core</code> does. This has to be
+    done on a per-subdirectory basis then.
+   </p>
+   <a name="*_Required_packages"></a>
+   <h3>* Required packages</h3>
+    <dl>
+     <dt><b>Java Card Kit 2.2.1</b></dt>
+     <dd>
+      <p>
+       for compiling applets.
+      </p>
+      <p>
+       Get it from
+       <code>http://java.sun.com/javacard/downloads</code>
+      </p>
+     </dd>
+    </dl>
+    <dl>
+     <dt><b>Global platform manager</b></dt>
+     <dd>
+      <p>
+       from Wojciech Mostowski. For
+       installing and deleting applets. The global platform manager
+       will soon be released as open source. Until then it is included
+       in the OV-chip releases as gpm.jar.
+      </p>
+      <p>
+       If you got this OV-chip source tree as a cvs checkout from the
+       sospublic repository, then you have to checkout and build the
+       Global platform manager yourself. Do
+      </p>
+<pre>
+svn co svn+ssh://username@solo.science.ru.nl/vol/sos/repos
+           /svn/sospublic/woj/GlobalPlatformManager
+</pre>
+      <p>
+       (the command must be on one line without space between <code>repos</code>
+       and <code>/svn</code>). Change to <code>GlobalPlatformManager/src</code> and do 'make
+       jar' to produce gpm.jar.
+      </p>
+     </dd>
+    </dl>
+   <a name="*_Optional_packages"></a>
+   <h3>* Optional packages</h3>
+    <dl>
+     <dt><b>jcop tools</b></dt>
+     <dd>
+      <p>
+       The jcop tools (which are not any longer distributed by NXP)
+       contain a nice Java Card emulator, which can be used to test
+       and run all applets of this repository.
+      </p>
+     </dd>
+    </dl>
+    <dl>
+     <dt><b>Ocaml</b></dt>
+     <dd>
+      <p>
+       Needed for some non-essential tools.
+      </p>
+     </dd>
+    </dl>
+    <dl>
+     <dt><b>Java Card Kit 2.2.2</b></dt>
+     <dd>
+      <p>
+       Needed for the <code>SunEmulator</code> provider
+       that can talk to the SUN emulators. Further, there is a 2.2.2
+       test applet in <code>src/misc/test_jc222</code>, which checks for the presence
+       of the package javacardx.framework.math.BigNumber on the card.
+      </p>
+     </dd>
+    </dl>
+  <a name="Configuration"></a>
+  <h2>Configuration</h2>
+   <p>
+    Until somebody writes a neat configuration script, configuration
+    has to be done by editing a makefile. For that copy
+    <code>src/ConfigMakefile.in</code> to <code>src/ConfigMakefile</code> and fill the
+    variable definitions therein appropriately. All makefiles include
+    <code>ConfigMakefile</code> to access the configuration.
+   </p>
+   <p>
+    Additionally all makefiles optionally include a file
+    <code>LocalMakefile</code>. Optional inclusion (with <code>-include</code>) here means
+    that in case <code>LocalMakefile</code> is not present it is treated as it were
+    empty. The <code>LocalMakefile</code> can be used to override the
+    configuration on a per-directory basis, to add additional
+    goals, or to set the default goal.
+   </p>
+  <a name="Compilation"></a>
+  <h2>Compilation</h2>
+   <p>
+    This section describes the compilation system used for the
+    OV-chip applet and host driver sources, that is for the
+    directories <code>src/util</code>, <code>src/bignat</code>, <code>src/test</code>, <code>src/front</code> and
+    <code>src/gui</code>. All other directories use the default Java system,
+    were <code>.java</code> files are compiled in the same directory into
+    <code>.class</code> files and the application is started with a shell script
+    that gathers all the arguments for the <code>java</code> executable.
+   </p>
+   <p>
+    To achieve platform independence and in order to select
+    variations of the code, many source files must be preprocessed
+    with the C preprocessor cpp. As a rule of thumb, code for the
+    card is always preprocessed, while code that runs solely on the
+    host does only need preprocessing under special circumstances.
+    (For simplicity the Makefile's pipe all files through cpp, but
+    those which do not need preprocessing could just as well be
+    copied.) The javadoc API documentation list for every class which
+    cpp directives are used in the sources of that class. A list of
+    all cpp directives is in <code>src/doc/generated/index.html</code> (after
+    the API documentation has been generated).
+   </p>
+   <p>
+    The preprocessor inserts line directives in its output. Therefore
+    the files must be further processed with the stream editor <code>sed</code>
+    to push the line directives into comments.
+   </p>
+   <p>
+    The cpp preprocessing is controlled with a <code>config</code> file that is
+    '#include''d in all files that need preprocessing. On the basis
+    of certain top-level directives the <code>config</code> file enables and
+    defines other directives. This way cpp invocations in the
+    Makefiles contain no more than one hard-coded <code>-D</code> switch. For
+    example for building the plain RSA applet the make-goal <code>applet</code>
+    causes the source files to be preprocessed with
+    <code>-DOV_PLAIN_RSA_TEST_APPLET</code>. The directive
+    <code>OV_PLAIN_RSA_TEST_APPLET</code> is only used in <code>src/front/config</code> to
+    define the right set of directives.
+   </p>
+   <p>
+    Depending on the preprocessor directives one source file might
+    give rise to different incompatible Java classes. Building jar
+    files would therefore be rather complicated. Every application
+    and applet is therefore compiled in its own complete source tree
+    that is generated by the Makefile on the fly. For instance, the
+    file <code>util/APDU_Serializable</code> is necessary in both, the plain RSA
+    applet and the host driver. When building these two things, the
+    makefile <code>src/front/Makefile</code> first preprocesses
+    <code>util/APDU_Serializable</code> with <code>-DOV_PLAIN_RSA_TEST_APPLET</code> and
+    copies the result to <code>_java_build_dir/plain_rsa_card/util/ds_ov2_prsa</code>,
+    where <code>javac</code> can compile it. Later the same file is preprocessed
+    with <code>-DHOST_TESTFRAME</code> and the result is copied to
+    <code>_java_build_dir/rsa_card_test/ds/ov2/util</code>, where it is compiled
+    again.
+   </p>
+   <p>
+    Because of this copy process the makefiles have to list all
+    source files that are needed for a given goal. This is a bit
+    inconvenient, because it means that one usually has to change
+    several makefiles when one source file is added, see Section
+    <a href="#Howto_add_a_new_source_file">Howto add a new source file</a>.
+   </p>
+   <p>
+    As stated already in Section
+    <a href="#Structure_of_the_OV-chip_Source_Tree">Structure of the OV-chip Source Tree</a> all compilation is done in
+    a temporary <code>_java_build_dir</code> subdirectory, which contains one
+    subdirectory for every build goal. For instance
+    <code>_java_build_dir/plain_rsa_card</code> inside <code>src/front</code> for the plain
+    RSA applet. Inside this goal-specific build directory more
+    subdirectories are created as follows.
+   </p>
+   <p>
+    For normal applications (that run on the standard JVM)
+    everything is as expected. These applications are declared to be
+    in a third-level package inside <code>ds.ov2</code>, for instance
+    <code>ds.ov2.bignat</code> for the bignat test frame. Therefore the
+    goal-specific build directory contains a subdirectory <code>ds/ov2</code>
+    with further subdirectories <code>util</code>, <code>bignat</code> and so on, as needed.
+    Source files from <code>src/util</code> are preprocessed into <code>ds/ov2/util</code>,
+    as one would expect.
+   </p>
+   <p>
+    Applets are placed into a top-level package, for instance
+    <code>ds_ov2_prsa</code> for the plain RSA applet. So the Java compiler
+    expects all sources in a subdirectory with the name
+    <code>ds_ov2_prsa</code>. The makefile, however, must keep track whether a
+    given source files comes from <code>src/util</code> or <code>src/bignat</code> or
+    somewhere else. Therefore the goal-specific build directory
+    contains one subdirectory, say <code>front/ds_ov2_prsa</code>. Additionally
+    there are symbolic links <code>util</code>, <code>bignat</code>, and so on, that all
+    point to the <code>front</code> directory. This has the following effect:
+    For the java compiler all sources lay in one
+    directory. The makefile however, can for instance distinguish
+    between <code>util/ds_ov2_prsa/APDU_Serializable</code> and
+    <code>bignat/ds_ov2_prsa/Bignat</code> in order to retrieve
+    <code>APDU_Serializable</code> from <code>src/util</code> and <code>Bignat</code> from
+    <code>src/bignat</code>.
+   </p>
+   <a name="Compilation_steps"></a>
+   <h3>Compilation steps</h3>
+    <p>
+     In order to compile an applet or a normal application the
+     following steps are performed by the makefile.
+    </p>
+    <dl>
+     <dt><b>directory creation</b></dt>
+     <dd>
+      <p>
+       Create the needed directory structure
+       inside <code>_java_build_dir</code>, as explained before.
+      </p>
+     </dd>
+    </dl>
+    <dl>
+     <dt><b>cpp prepreocessing</b></dt>
+     <dd>
+      <p>
+       Create a preprocessed <code>.prejava</code> file with
+       line number directives.
+      </p>
+      <p>
+       First the do-not-edit-warning from <code>src/not-edit-warning.java</code>
+       is copied into the final location. Then the source file is
+       piped through cpp and the output is appended to the final
+       location. The cpp command line receives one <code>-D</code> switch with
+       the top-level directive. Some goals, for instance the host
+       driver of the test applet are build without a top-level
+       directive.
+      </p>
+      <p>
+       Additional directives can be specified in the <code>CPPFLAGS</code>
+       variable. This is empty by default, but could for instance set
+       to <code>-DOPT_SPECIAL_SQUARE</code> to compile the bignat library with
+       the special square optimization, see Section
+       <a href="#Variations_of_the_sources">Variations of the sources</a>.
+      </p>
+     </dd>
+    </dl>
+    <dl>
+     <dt><b>sed preprocessing</b></dt>
+     <dd>
+      <p>
+       Push the line directives into comments and
+       make the resulting <code>.java</code> file read-only to prevent accidental
+       changes of generated files.
+      </p>
+     </dd>
+    </dl>
+    <dl>
+     <dt><b>java compilation</b></dt>
+     <dd>
+      <p>
+       with <code>javac</code> to produce <code>.class</code> files.
+      </p>
+     </dd>
+    </dl>
+    <dl>
+     <dt><b>cap file conversion</b></dt>
+     <dd>
+      <p>
+       for applets only.
+      </p>
+     </dd>
+    </dl>
+  <a name="Running"></a>
+  <h2>Running</h2>
+   <p>
+    The applets must of course be loaded onto a Java Card or into an
+    emulator before they can run. Note that the SUN emulators are
+    only good enough for some test applets from <code>src/misc</code> because
+    they lack an RSA cipher. The host driver of the test applet and
+    the front office host driver are linked with Wojciech Mostowski's
+    global platform manager and can therefore install their applets
+    themselves. The test host driver checks the applet creation date
+    and some global parameter and automatically reinstalls the test
+    applet on any mismatch. The options <code>-reinstall</code> and
+    <code>-keep-applet</code> force a different behavior. The front
+    office host driver always reinstalls the selected applet.
+   </p>
+   <p>
+    Because starting normal Java applications is somewhat difficult
+    there are shell scripts that build the right <code>java</code> command line.
+    Sometimes these shell scripts depend on the configuration and are
+    therefore created from by the makefile from corresponding <code>.in</code>
+    files.
+   </p>
+   <p>
+    Apart from the presentation GUI in <code>src/gui</code> all these
+    applications are non-interactive command line tools that are
+    controlled with command line switches. They all support the
+    switches <code>-h</code>, <code>-help</code> and <code>&ndash;help</code>.
+   </p>
+   <p>
+    There are the following scripts for running different parts of
+    the OV-chip code.
+   </p>
+   <dl>
+    <dt><b>bignat/run-testbignat</b></dt>
+    <dd>
+     <p>
+      The bignat test frame. This test frame
+      can test several aspects of the bignat library on a
+      conventional JVM (i.e., running on a PC and <i>not</i> on a Java Card)
+      and evaluate their performance. For more documentation about
+      the bignat test frame see the javadoc documentation for
+      bignat/Testbignat.
+     </p>
+    </dd>
+   </dl>
+   <dl>
+    <dt><b>bignat/performance-test</b></dt>
+    <dd>
+     <p>
+      Measure the performance of the bignat
+      test frame for different configurations against the standard
+      BigInteger library. This is a shell script that recompiles and
+      runs the bignat test frame several times in different
+      configurations.
+     </p>
+    </dd>
+   </dl>
+   <dl>
+    <dt><b>test/test_host</b></dt>
+    <dd>
+     <p>
+      The test host driver. This host driver gives
+      access to the test applet. It can be used to check the
+      functionality of the bignat library on Java Card and to measure
+      its performance. For more information about using the test
+      applet see the javadoc documentation of test/Test_host.
+     </p>
+    </dd>
+   </dl>
+   <dl>
+    <dt><b>test/gpm-install</b></dt>
+    <dd>
+     <p>
+      Install the test applet on a card or the
+      jcop emulator. Not really needed any more, because of the
+      automatic reinstallation done by the test host driver. Assumes <code>gpm</code> to
+      call the global platform manager. The most common installation
+      parameters are hard coded in this script, which is a potential
+      pitfall, because they have to agree with the values hard coded
+      in test/State.
+     </p>
+    </dd>
+   </dl>
+   <dl>
+    <dt><b>front/cardtestframe</b></dt>
+    <dd>
+     <p>
+      The front office test frame that
+      (re-)installs and communicates with one of the RSA applets on a
+      card or emulator. For more documentation see the javadoc
+      documentation of front/Card_testframe.
+     </p>
+    </dd>
+   </dl>
+   <dl>
+    <dt><b>front/plainhosttestframe</b></dt>
+    <dd>
+     <p>
+      The front office host test frame
+      that runs host driver and the plain RSA applet code in one
+      application on the normal JVM. For more documentation see the
+      javadoc documentation of front/Host_testframe.
+     </p>
+    </dd>
+   </dl>
+   <dl>
+    <dt><b>front/monthosttestframe</b></dt>
+    <dd>
+     <p>
+      The front office host test frame that
+      runs host driver and the Montgomerizing applet code in one
+      application on the normal JVM. For more documentation see the
+      javadoc documentation of front/Host_testframe.
+     </p>
+    </dd>
+   </dl>
+   <dl>
+    <dt><b>front/squarehosttestframe</b></dt>
+    <dd>
+     <p>
+      The front office host test frame that
+      runs host driver and the squaring applet code in one
+      application on the normal JVM. For more documentation see the
+      javadoc documentation of front/Host_testframe.
+     </p>
+    </dd>
+   </dl>
+   <dl>
+    <dt><b>gui/gui</b></dt>
+    <dd>
+     <p>
+      Start the presentation GUI. The presentation GUI is
+      mostly self explaining and displays tool-tip help where not.
+     </p>
+    </dd>
+   </dl>
+   <dl>
+    <dt><b>misc/identify</b></dt>
+    <dd>
+     <p>
+      Issue the card identification APDU and display
+      the result.
+     </p>
+    </dd>
+   </dl>
+   <dl>
+    <dt><b>misc/host</b></dt>
+    <dd>
+     <p>
+      Generic misc host driver, to be used with the RSA
+      test applet in <code>misc/test_rsa</code> and the 2.2.2 test applet in
+      <code>misc/test_jc222</code>.
+     </p>
+    </dd>
+   </dl>
+   <dl>
+    <dt><b>misc/sha_host</b></dt>
+    <dd>
+     <p>
+      Host driver for the SHA-1 test applet.
+     </p>
+    </dd>
+   </dl>
+   <dl>
+    <dt><b>misc/int_host</b></dt>
+    <dd>
+     <p>
+      Host applet for the int/short performance
+      applet in <code>misc/test_int</code>.
+     </p>
+    </dd>
+   </dl>
+   <dl>
+    <dt><b>misc/emulator-cref</b></dt>
+    <dd>
+     <p>
+      Run a given applet inside the <code>cref</code>
+      emulator inside <code>owrapper</code>. (The <code>owrapper</code> tool keeps the
+      connection to the emulator open, such that it does not die when
+      the host driver disconnects, see Section
+      <a href="#Structure_of_the_OV-chip_Source_Tree">Structure of the OV-chip Source Tree</a>.)
+     </p>
+    </dd>
+   </dl>
+   <dl>
+    <dt><b>misc/emulator-jcwde</b></dt>
+    <dd>
+     <p>
+      Ditto for the <code>jcwde</code> emulator.
+     </p>
+    </dd>
+   </dl>
+   <dl>
+    <dt><b>misc/test_</b> <code>*</code> <b>/gpm-install</b></dt>
+    <dd>
+     <p>
+      Install one of the applets,
+      using the global platform manager through an assumed gpm
+      executable.
+     </p>
+    </dd>
+   </dl>
+   <dl>
+    <dt><b>doc/doccount.perl</b></dt>
+    <dd>
+     <p>
+      Computes the documentation coverage, see
+      <code>src/doc/count</code>.
+     </p>
+    </dd>
+   </dl>
+  <a name="Variations_of_the_sources"></a>
+  <h2>Variations of the sources</h2>
+  <a name="Major_makefile_goals"></a>
+  <h2>Major makefile goals</h2>
+ <a name="The_OV-Chip_protocol_layer"></a>
+ <h1>The OV-Chip protocol layer</h1>
+  <p>
+   Technically the OV-Chip protocol layer is a patchwork, consisting
+   of a library (of Java classes), hand-written, and generated code.
+   The protocol layer is the low-level communication layer between
+   host driver and applet, see Figure <a href="#applet-architecture">applet-architecture</a>.
+   Its respective parts run inside the host
+   driver and the applet. Essential parts of the code are shared
+   between host driver and applet. The hand-written and generated
+   code are applet specific. The code generation is done by an IDL
+   compiler (written in perl, because I felts here-documents might
+   be useful). The IDL compiler takes protocol files as
+   input and generates the so-called <i>protocol descriptions</i> and two
+   versions of the <i>host stub code</i>. The first version, the real stub
+   code, is for communicating with the applet. The second version,
+   the <i>test stub code</i> is for use in test frames, see Section
+   <a href="#Host_only_Test_Frame">Host only Test Frame</a>.
+  </p>
+  <p>
+   A central notion for the protocol layer is that of a <i>protocol</i>.
+   A protocol is a relatively independent piece of functionality of
+   an applet. Typically an applet implements several protocols that
+   can (more or less) arbitrarily selected from the host driver. In
+   general the functionality of one protocol requires several
+   message pairs to be send between host driver and the applet.
+   Usually, for each message pair one method of the applet is run on
+   the card.
+  </p>
+  <p>
+   For example, the current implementation of the OV-Chip 2.0 applet
+   implements 4 protocols:
+  </p>
+  <dl>
+   <dt>allocate and initialise</dt>
+   <dd>
+    <p>
+     For technical reasons (see Section <a href="#Initialization">Initialization</a>)
+     applet initialisation and personalisation
+     is split into two protocols, the first one for allocating all
+     data structures on the card and the second one for initialising
+     those data structures. These two protocols both consist just of
+     one step.
+    </p>
+   </dd>
+   <dt>resign</dt>
+   <dd>
+    <p>
+     To change its blinding and to obtain a signature of the new
+     blinded attribute expression three steps are necessary. In the
+     first step the applet sends its current blinded attribute
+     expression together with the signature to the host (which will
+     then check the validity of the signature). In the second step
+     the card computes the hash and in the third step the signature
+     is completed.
+    </p>
+   </dd>
+   <dt>entry gate</dt>
+   <dd>
+    <p>
+     The protocol for entry gates consists of two steps. In the
+     first the card commits to its blinded attribute expression and
+     in the second one it responds to the challenge of the host.
+    </p>
+   </dd>
+  </dl>
+  <p>
+   For both, the resign and entry gate protocols the steps must be
+   executed in the right order and it is not permitted to interleave
+   the protocols.
+  </p>
+  <p>
+   In the context of the OV-Chip protocol layer a protocol is
+   defined as a tuple, consisting of a protocol identification
+   number and an array of <i>protocol steps</i>, see class
+   <code>util/Protocol</code>. Each protocol step consists of a method together
+   with one array of argument objects and one array of result
+   objects, see class <code>util/Protocol_step</code>. The protocol
+   identification number is used to select the protocol when talking
+   to the card, it is not fixed for a given protocol but determined
+   during initialisation, see Section <a href="#Initialization">Initialization</a>. The method
+   of a protocol step is a method of the applet. To execute a
+   protocol step, first the arguments are transferred to the card,
+   then the method is executed on the card and finally, the results
+   are copied back to the host. Both, transferring arguments and
+   results, can require several APDU's if the respective data size
+   exceeds 255 bytes (which happens very often for the OV-Chip
+   protocols).
+  </p>
+  <p>
+   The OV-Chip 2.0 protocol layer implements the following features.
+  </p>
+  <ul>
+   <li>
+    <p>
+     Remote method invocation on the card with transferring
+     arguments and results of arbitrary size.
+    </p>
+   </li>
+   <li>
+    <p>
+     Enforcing the order of the single steps of each protocol.
+    </p>
+   </li>
+   <li>
+    <p>
+     Data type conversion from host to card data types and back.
+    </p>
+   </li>
+   <li>
+    <p>
+     Measuring the duration of methods on the card.
+    </p>
+   </li>
+   <li>
+    <p>
+     Provide a simple test environment for applet code.
+    </p>
+   </li>
+  </ul>
+  <a name="Exemplifying_the_OV-Chip_2.0_Protocol_Layer"></a>
+  <h2>Exemplifying the OV-Chip 2.0 Protocol Layer</h2>
+   <p>
+    Lets look closer at the second step of the entry gate protocol.
+    Its signature is described in the file
+    <code>front/RSA_card_protocol.id</code> as follows.
+   </p>
+<pre>
+     step respond: data.gamma_beta_3 -&gt; data.remainders, data.result
+       call card.respond_to_challenge()
+</pre>
+   <p>
+    Here <code>step</code> is a keyword that introduces a protocol step
+    declaration (of name <code>respond</code>) and <code>call</code> is the keyword that
+    defines the method belonging to this step.
+    The Variable <code>data</code> refers to an instance of class <code>front/RSA_data</code>,
+    which contains (among others) two <code>bignat/Bignat</code> fields
+    <code>gamma_beta_3</code> and <code>result</code> and one <code>bignat/Vector</code> field
+    <code>remainders</code>. The variable <code>card</code> refers to an instance of class
+    <code>front/RSA_card</code>, which contains a method <code>respond_to_challenge</code>.
+   </p>
+   <p>
+    The method <code>front/RSA_card_protocol_stubs.respond_call</code>
+    represents the top-level interface of this protocol step on the host
+    side.
+   </p>
+<pre>
+     public Respond_result respond_call(CardChannel _cc, 
+                       BigInteger _data_gamma_beta_3_host_arg)
+     throws CardException
+</pre>
+   <p>
+    (Note that the class <code>front/RSA_card_protocol_stubs</code> is generated
+    by the IDL compiler and therefore not present in the vanilla
+    sources.) The inner class <code>Respond_result</code> is a record with the
+    following three elements.
+   </p>
+<pre>
+        public final long duration;
+        public final Host_vector data_remainders;
+        public final BigInteger data_result;
+</pre>
+   <p>
+    The first field contains the duration that it takes to execute
+    the step on the card, see Section <a href="#Measuring_Step_Duration">Measuring Step Duration</a>. The
+    other two fields contain the declared results of the step. Note
+    the type differences between the declaration of the <code>respond</code>
+    step and the <code>respond_call</code> method. Note also how the two results
+    of the step are wrapped in a record.
+   </p>
+   <p>
+    The method that is called on the card for this protocol step
+    has the following signature
+    (see front/RSA_card).
+   </p>
+<pre>
+     public void respond_to_challenge()
+</pre>
+   <p>
+    Note that the arguments and results do not really appear as
+    arguments and results here. Because there is usually no garbage
+    collector on the card, the objects that are used as arguments and
+    results must be statically allocated. The method can therefore
+    access arguments and results via their static references.
+   </p>
+   <p>
+    The stub method <code>respond_call</code> performs the following actions,
+    when called from the host driver.
+   </p>
+   <ol>
+    <li>
+     <p>
+      It wraps the actual <code>gamma_beta_3</code> argument into an
+      bignat/APDU_BigInteger object and checks compatibility with the
+      declared argument.
+     </p>
+     <p>
+      The wrapping is necessary, because only
+      objects with the util/APDU_Serializable interface can be sent
+      to or received from the card. The big integers of type
+      bignat/Bignat are static in size. The compatibility
+      check therefore ensures that the actual argument (which is a
+      dynamically sized BigInteger) fits into the size of the
+      declared argument.
+     </p>
+    </li>
+    <li>
+     <p>
+      The actual argument is converted to an array of bytes and sent
+      to the card in as many APDU's as necessary.
+     </p>
+    </li>
+    <li>
+     <p>
+      On the card, the meta information in the received APDU's is
+      decoded to determine that the host wishes to execute the second
+      step of the entry-gate protocol now. It is then checked whether
+      the protocol layer in the applet is in the right state in order
+      to execute this step (which is only the case if the first step
+      has just been finished with the preceding APDU).
+     </p>
+    </li>
+    <li>
+     <p>
+      The applet protocol layer copies the data from the argument
+      APDU's into the statically allocated argument objects.
+     </p>
+    </li>
+    <li>
+     <p>
+      After the last argument byte has been received the method
+      <code>respond_to_challenge</code> is called on the card.
+     </p>
+    </li>
+    <li>
+     <p>
+      After completion of the method <code>respond_to_challenge</code> the data
+      in the statically allocated result objects is sent in response
+      APDU's to the host. The protocol layer inside the host driver
+      has to issue sufficiently many APDU's to enable the card to
+      send all result data back.
+     </p>
+    </li>
+    <li>
+     <p>
+      Before sending the last response APDU, the protocol layer in
+      the applet increases as last action the protocol-step counter.
+      Thereby it notices that the entry-gate protocol has been
+      finished and it therefore resets the current protocol pointer
+      on the card. The host driver can then select a different
+      protocol with the next APDU.
+     </p>
+    </li>
+    <li>
+     <p>
+      On the host the received data is copied into freshly allocated
+      objects, the measurement of the duration of the step is
+      completed and a freshly allocated <code>Respond_result</code> record is
+      filled, which is then returned as result of the <code>respond_call</code>
+      method.
+     </p>
+    </li>
+   </ol>
+   <table cellspacing="10"><tr><td>
+     <img src="components.jpg" border="0">
+   </td><td valign="center">
+     <font size="-1">Components of the OV-Chip protocol layer.</font>
+   </td></tr></table>
+   <p>
+    There are several components in the protocol layer both on the
+    host and on the card that have to play together to achieve the
+    just described behavior. In particular:
+   </p>
+   <ul>
+    <li>
+     <p>
+      The util/APDU_Serializable interface and its implementations
+      for converting typed data to and from byte arrays.
+     </p>
+    </li>
+    <li>
+     <p>
+      On the card an instances of util/Protocol_applet,
+      util/Registered_protocols and util/Card_protocol implement
+      together the protocol layer. These classes are instantiated and
+      parametrized with typically two applet specific classes. For
+      the plain RSA applet these are front/RSA_applet and
+      front/Front_protocols. The first one, front/RSA_applet, is the
+      main applet class. It extends util/Protocol_applet and provides
+      the applet installation method. The second one,
+      front/Front_protocols, creates an array containing all
+      supported protocols. See Sections
+      <a href="#The_Protocol_data_structure:_util/Protocol_and_util/Protocol_step">The Protocol data structure: util/Protocol and util/Protocol_step</a> &ndash;
+      <a href="#Card_Part:_The_Applet_Class_and_util/Card_protocol">Card Part: The Applet Class and util/Card_protocol</a>
+      for further explanations.
+     </p>
+    </li>
+    <li>
+     <p>
+      Inside the host driver there is one instance of
+      util/Host_protocol for each protocol step. Its method run_step
+      performs the compatibility checks, the encoding of the
+      arguments into possibly several command APDU's and the decoding
+      of the results from possibly several response APDU's.
+     </p>
+    </li>
+    <li>
+     <p>
+      The stub code, which is generated by the IDL compiler, is part
+      of the host driver. The stub code initialises one
+      util/Host_protocol instance for each step. It further defines
+      one xxx_call method for each step that wrapps the actual
+      arguments into APDU_Serializable's, allocates the return value
+      objects and measures time. (Time measurements are only part of
+      the generated stub code if explicitly requested with the key
+      phrase <code>measure time</code> in the protocol description file.)
+     </p>
+    </li>
+    <li>
+     <p>
+      The class front/Front_protocols and instances of the
+      protocol description classes are part of both, the applet <i>and</i>
+      the host driver. Together, they form the data structure
+      describing all protocols with their steps and their respective
+      arguments and results. The parts mentioned in the preceding
+      items access this data structure on various occasions.
+     </p>
+    </li>
+   </ul>
+   <p>
+    Figure <a href="#components">components</a> shows these components together with the
+    control flow and the data dependencies. The following sections
+    elaborate on these components.
+   </p>
+  <a name="Declared_and_Actual_Arguments_and_Results"></a>
+  <h2>Declared and Actual Arguments and Results</h2>
+   <p>
+    Protocols, protocol steps, their arguments and results are
+    described in the protocol files (with suffix <code>.id</code>). The IDL
+    compiler reads the protocol files and generates (among others)
+    protocol description classes with suffix <code>_description</code> (in files
+    <code>_description.java</code>). The description classes contain one
+    instance of <code>util/Protocol_step</code> for each protocol step. Each
+    protocol-step instance contains one array of argument objects and
+    one array of result objects. These arrays are of type
+    <code>util/APDU_Serializable</code>, see Section
+    <a href="#util/APDU_Serializable:_Convert_Typed_Objects_to_and_from_Byte_Arrays">util/APDU_Serializable: Convert Typed Objects to and from Byte Arrays</a>.
+    The argument and result objects in these arrays are called the
+    <i>declared arguments</i> and the <i>declared results</i>, respectively.
+    (These declared arguments and results are textually identical
+    with those appearing in the input files of the IDL compiler.)
+   </p>
+   <p>
+    The description class is part of the applet <i>and</i> the host
+    driver. In the applet the declared arguments and results are
+    directly used during the data transfer. Incoming argument data is
+    copied into the declared arguments and the methods that run on
+    the card access their arguments there. Similarly for the declared
+    return values on the card.
+   </p>
+   <p>
+    The declared arguments that appear in the host drivers copy of
+    the description class are only used for compatibility checking,
+    see Section
+    <a href="#Compatibility_between_card_and_host_data_types">Compatibility between card and host data types</a>.
+    The arguments that are passed into the stub methods and the
+    results that the stub methods return are completely different
+    objects. These arguments and results of the stub methods are
+    called the <i>actual arguments</i> and the <i>actual results</i>,
+    respectively.
+   </p>
+  <a name="util/APDU_Serializable:_Convert_Typed_Objects_to_and_from_Byte_Arrays"></a>
+  <h2>util/APDU_Serializable: Convert Typed Objects to and from Byte Arrays</h2>
+   <p>
+    Command and Respond APDU's only transfer bytes. The conversion
+    from typed data to and from byte arrays are achieved via the
+    methods to_byte_array and from_byte_array of the interface
+    util/APDU_Serializable. Strictly speaking, all arguments and
+    results of all protocol steps must implement the
+    util/APDU_Serializable interface. However, to make live easier,
+    the IDL compiler knows how certain types can be wrapped into an
+    APDU_Serializable interface. For instance, on the host driver
+    side arguments of type BigInteger are wrapped into
+    bignat/APDU_BigInteger instances by the generated stub code. For
+    results the stub code internally allocates APDU_BigInteger's but
+    returns only their value field (which is of type BigInteger) to
+    the outside.
+   </p>
+   <p>
+    The term <i>serialisation</i> is used here and in the javadoc
+    documentation to refer to the process of converting a typed
+    object into a byte array. The term <i>deserialisation</i> refers to
+    the reverse process of converting a byte array into a type
+    object.
+   </p>
+   <a name="Compatibility_between_card_and_host_data_types"></a>
+   <h3>Compatibility between card and host data types</h3>
+    <p>
+     The general idea is that serialisation/deserialisation is only
+     possible between objects of the same type. However, because of
+     the limitations of the Java Card environment, the Java Card data
+     types are often rather inconvenient to use. Therefore, careful
+     cheating about the actual types is permitted. The only point
+     where the types of the declared and the actual arguments are
+     compared is the compatibility check performed in the host driver.
+     For the compatibility check the method is_compatible_with is
+     invoked on the declared argument with the actual argument as
+     parameter. All type checking is therefore in the responsibility
+     of the implementor or the implementation of the APDU_Serializable
+     interface.
+    </p>
+    <p>
+     Although it is against intuition, the compatibility relation that
+     the is_compatible_with method implements need not be symmetric.
+     That is, the result of <code>x.is_compatible_with(y)</code> can be different
+     from <code>y.is_compatible_with(x)</code>.
+    </p>
+    <p>
+     The compatibility check is always invoked on the declared
+     arguments with the actual arguments as parameter. The
+     compatibility check is also performed on the results by invoking
+     is_compatible_with on the declared result with the freshly
+     allocated actual result object as parameter. Checking the results
+     is a left-over from the time before the IDL compiler. Nowadays
+     the result checks can only fail because of bugs in the IDL
+     compiler.
+    </p>
+    <p>
+     The compatibility check does not only have to check the type, but
+     also that the actual argument fits in size into the object that
+     is used as argument on the card.
+    </p>
+    <p>
+     The fact that the method is_compatible_with is only invoked on
+     the declared arguments and results is used to ensure that certain
+     host-only data types that implement the APDU_Serializable
+     interface cannot appear in argument or result declarations of
+     protocol steps. For instance, bignat/APDU_BigInteger implements
+     the APDU_Serializable interface but it is only wrapping a
+     BigInteger and should therefore never appear in the interface of
+     a protocol step. To ensure this the method is_compatible_with of
+     APDU_BigInteger returns false on all arguments, making any
+     compatibility check fail.
+    </p>
+   <a name="Serialisation_Size"></a>
+   <h3>Serialisation Size</h3>
+    <p>
+     The <i>size</i> of a serialisable data type is the length of the byte
+     array that it occupies. In the OV-Chip context the size of most
+     arguments depends on the key length of the RSA key that is used.
+     That RSA key is only generated once in the lifetime of the whole
+     system, therefore arguments and results never change their size.
+     This observation was used to simplify the whole protocol layer.
+    </p>
+    <p>
+     The size of all arguments and result objects must not change. The
+     size must further not depend on the current state of the
+     particular argument or result. The size can be different for
+     different objects of the same type.
+    </p>
+    <p>
+     However, for performance measurements in the test applet this
+     rule is broken and the size of arguments and results of certain
+     protocol steps is changed there. The code that accomplishes that
+     is guarded with one of the TESTFRAME cpp directives and is
+     therefore only available in test frames. Changing the size of an
+     argument or result requires that certain parts of the protocol
+     layer get reinitialised, see Section
+     <a href="#Changing_the_Size_of_Arguments_or_Results">Changing the Size of Arguments or Results</a>.
+    </p>
+   <a name="Splitting"></a>
+   <h3>Splitting</h3>
+    <p>
+     Any data type with size larger than 1 byte must anticipate the
+     fact that it is split over two APDU's.  Further, because the APDU
+     buffer on the card is only guaranteed to be 32 bytes long, much
+     more than 2 calls to to_byte_array or from_byte_array might be
+     necessary to (de-)serialise one object.
+    </p>
+    <p>
+     When (de-)serialisation is split across many calls of
+     to_byte_array or from_byte_array the context who calls these
+     methods remembers how many bytes have been (de-)serialised (so
+     the serialisation methods do not have to remember that themselves).
+     The number of bytes that have been (de-)serialised in preceding
+     calls is passed in the second argument <code>this_index</code>.
+     (De-)serialisation must continue at the byte with index
+     <code>this_index</code>.
+    </p>
+    <p>
+     There is one peculiarity about the return value of the two
+     methods to_byte_array and from_byte_array. In principle they
+     return the number of bytes (de-)serialised in the current call.
+     There is an exception in order to distinguish the case where the
+     available buffer space is just sufficient to finish
+     (de-)serialisation, from the case, where the available buffer
+     space does not suffice (and (de-)serialisation must continue in
+     subsequent calls to the same method). The exception applies to
+     the case where <i>n</i> bytes of buffer space are available and
+     exactly <i>n</i> further bytes are needed to finish
+     (de-)serialisation. In this case (de-)serialisation must be
+     finished in this call and the return value must be <i>n</i> + 1'.
+    </p>
+  <a name="Command_and_Response_APDU_Format"></a>
+  <h2>Command and Response APDU Format</h2>
+   <table cellspacing="10"><tr><td>
+     <img src="long-apdu.jpg" border="0">
+   </td><td valign="center">
+     <font size="-1">APDU structure of the OV-chip protocol layer. The figure shows the APDU's exchanged for one protocol step, that is for calling one method on the card. A cross means that the respective field is not present in the APDU.</font>
+   </td></tr></table>
+   <p>
+    The size of arguments and results of all protocol step does never
+    change (see Section <a href="#Serialisation_Size">Serialisation Size</a>). Therefore the OV-Chip
+    protocol layer <i>does not</i> use a length-value encoding. The first
+    byte of the second argument directly follows the last byte of the
+    first argument in the payload of some APDU. Apart from the data
+    of the serialised arguments the command APDU's also carry some
+    meta information in the INS, P1 and P2 bytes. With one exception
+    all the meta information is only used for error checking on the
+    card. The exception is the first APDU of the first step of a
+    newly selected protocol. There the card uses the INS byte to
+    determine the protocol identification number of the new protocol.
+   </p>
+   <p>
+    The structure of the APDU's exchanged for one method step is
+    shown in Figure <a href="#long-apdu">long-apdu</a>.
+   </p>
+   <p>
+    The header bytes of the command APDU's are used as follows.
+   </p>
+   <dl>
+    <dt>CLA</dt>
+    <dd>
+     <p>
+      always <code>0x00</code>
+     </p>
+    </dd>
+    <dt>INS</dt>
+    <dd>
+     <p>
+      Protocol identification number
+     </p>
+    </dd>
+    <dt>P1</dt>
+    <dd>
+     <p>
+      Step number
+     </p>
+    </dd>
+    <dt>P2</dt>
+    <dd>
+     <p>
+      Batch. The batch counts the APDU's in one step. For arguments
+      it counts upwards from zero and for results it counts upwards
+      from -128 (i.e., <code>0x80</code>), that is, upwards from zero, but with
+      the first bit set.
+     </p>
+    </dd>
+   </dl>
+   <p>
+    For all APDU's exchanged by the protocol layer the status <code>0x9000</code>
+    is used to signal successful completion. Other response status
+    words signal an error, see Section <a href="#Response_Status">Response Status</a>.
+   </p>
+   <p>
+    Let the <i>n</i> be the total size (in bytes) of all arguments of some
+    fixed protocol step. To send the arguments to the card <i>n</i> / 255
+   </p>
+   <p>
+    + 1 argument APDU's are used (here / denotes integer division,
+    i.e., 509 / 255 = 1). All these argument APDU's have identical
+    INS and P1 bytes, namely the protocol identification number and
+    the index of the step (i.e., 1 for the second step). The P2 byte
+    (the batch) counts the argument APDU's from 0 to <i>n</i> / 255.
+    The protocol layer in the applet always checks the INS, P1 and P2
+    values and aborts the protocol execution with the appropriate
+    status, see Section <a href="#Response_Status">Response Status</a>.
+   </p>
+   <p>
+    The first <i>n</i> / 255 argument APDU's contain 255 bytes of data.
+    The first data byte of the first argument APDU is the first byte
+    of the serialization of the first argument. The remaining bytes
+    of the first argument and the remaining arguments follow without
+    gap.
+   </p>
+   <p>
+    For the first <i>n</i> / 255 argument APDU's the applet only copies
+    their data into the declared arguments by invoking
+    <code>from_byte_array</code>. The expected response length for these
+    argument APDU's is zero, that is, the LE byte is omitted in these
+    argument APDU's. When the applet receives the last argument APDU
+    it finishes the deserialisation of the arguments and then
+    immediately calls the action method of this protocol step. The
+    response APDU of the last argument APDU is already used to send
+    back the first part of the results. Therefore, the expected
+    response length of the last argument APDU is set to the total
+    size of all results or to 255, if that exceeds 255.
+   </p>
+   <p>
+    Let now <i>m</i> denote the total size of all results of this very
+    protocol step. Then <i>m</i> / 255 + 1 response APDU's are necessary
+    to send all results back to the host driver. Some cards can send
+    a response of 256 data bytes, even if the expected response
+    length (the LE byte) is set to 255. For these cards <i>m</i> / 256 + 1
+    response APDU's are necessary. The first response APDU is already
+    sent as response to the last argument APDU. After receiving that
+    the host driver sends <i>m</i> / 255 (or <i>m</i> / 256) result APDU's.
+   </p>
+   <p>
+    The INS and P1 byte of the result APDU's are identical to the
+    argument APDU's: They contain the protocol identification number
+    and the step index. The P2 byte (the batch) counts upwards from
+   </p>
+   <p>
+    -127 (<code>0x81</code>). So the first result APDU has batch -127 (<code>0x81</code>), the
+    second -126 (<code>0x82</code>), the third -125 (<code>0x83</code>), and so on. The
+    response APDU corresponding to batch -128 (<code>0x80</code>) is contained in
+    the last argument APDU. Therefore the batch value -128 (<code>0x80</code>)
+    does never appear.
+   </p>
+   <p>
+    None of the result APDU's transfers data bytes to the card.
+    Therefore the LC byte (the length of the data field in the
+    command APDU) is not present in all those APDU's. The expected
+    response length (the LE byte) is set to 255, except for the last
+    result APDU, where it is sent to the number of remaining bytes.
+   </p>
+   <p>
+    Apart from copying the results into the response APDU, the applet
+    performs no other action for any of the result APDU's.
+   </p>
+   <p>
+    After the last result APDU the host driver must directly send the
+    first argument APDU of the next protocol step of the same
+    protocol. The protocol layer in the applet will check that the P1
+    byte increases accordingly.
+   </p>
+   <p>
+    Only when the last protocol step of the current protocol has been
+    completed, the host driver might select a new protocol by sending
+    the first argument APDU of the first step of the newly selected
+    protocol. Thus there is <i>no</i> separate protocol selection APDU.
+   </p>
+  <a name="Limitations"></a>
+  <h2>Limitations</h2>
+   <p>
+    The number of protocols that applets supports is limited to
+    112, because the INS byte <code>0x70</code> is used for the manage channel
+    command, see Section 7.1.2 in <a href="ISO-7816-4" alt="ISO-7816-4">ISO-7816-4</a>. An assertion in the
+    util/Host_protocol constructor ensures that the protocol
+    identification number is lesser than <code>0x70</code>.
+   </p>
+   <p>
+    The number of steps in one protocol should not exceed 256.
+    (Although the current implementation might even work with more
+    steps.)
+   </p>
+   <p>
+    The batch limits the total size of arguments and results of one
+    protocol step. The total size of the arguments and results cannot
+    exceed 128 * 255 = 32640 bytes = 31.9 KB.
+   </p>
+  <a name="The_Protocol_data_structure:_util/Protocol_and_util/Protocol_step"></a>
+  <h2>The Protocol data structure: util/Protocol and util/Protocol_step</h2>
+   <p>
+    As described in the beginning of Section
+    <a href="#The_OV-Chip_protocol_layer">The OV-Chip protocol layer</a>, a protocol consists of several
+    steps that must be executed in order. Each step transfers some
+    data to the card, executes one method there and then transfers
+    some data back to the host. For the purpose of the OV-Chip
+    protocol layer, a protocol description is an instance of
+    <code>util/Protocol</code>. Each such instance contains the protocol
+    identification number and an array of protocol steps. The
+    identification number is the index in the protocol array over
+    which the protocol is selected. It is initialized by the protocol
+    layer, see Section
+    <a href="#The_Protocol_Descriptions_and_Registered_protocols">The Protocol Descriptions and Registered_protocols</a>.
+   </p>
+   <p>
+    Each protocol step contains the following data.
+   </p>
+   <ul>
+    <li>
+     <p>
+      <b>The declared arguments</b> as an array of type
+      <code>util/APDU_Serializable</code>.
+     </p>
+    </li>
+    <li>
+     <p>
+      <b>The code to run on the card</b> as an instance of the interface
+      <code>util/Void_method</code>. The code typically consists of just one
+      method call. However, in the protocol description files
+      arbitrary text can be specified as code. The IDL compiler
+      copies this text into the body of the method <code>method</code> of an
+      inner class with name <code>XXX_call</code>, where the name of the
+      protocol step is substituted for <code>XXX</code>. When the protocol is
+      initialized one instance of that inner class is created and
+      stored in the field <code>util/Protocol_step.method</code>.
+     </p>
+     <p>
+      The field <code>util/Protocol_step.method</code> and the inner classes are
+      only present on the card or in the host test frame (compare
+      Section <a href="#Host_only_Test_Frame">Host only Test Frame</a>). Therefore the host driver can
+      include the protocol definitions without including all applet
+      specific code.
+     </p>
+    </li>
+    <li>
+     <p>
+      <b>The declared results</b> as an array of type
+      <code>util/APDU_Serializable</code>.
+     </p>
+    </li>
+    <li>
+     <p>
+      <b>The step identification number.</b> This number must agree with
+      the <code>P1</code> byte of the argument and result APDU's for that step, see
+      Section <a href="#Command_and_Response_APDU_Format">Command and Response APDU Format</a>. The step
+      identification number is computed by the IDL compiler and
+      hard-coded in the protocol description classes (see Section
+      <a href="#The_Protocol_Descriptions_and_Registered_protocols">The Protocol Descriptions and Registered_protocols</a>).
+     </p>
+    </li>
+   </ul>
+   <p>
+    As an optimization and in order to check the response APDU length
+    on the applet, the protocol step does also contain the following:
+   </p>
+   <ul>
+    <li>
+     <p>
+      <b>The size of the declared results</b> in the field
+      <code>util/Protocol_step.result_size</code>, which is set with
+      <code>util/Protocol_step.set_result_size</code>. This method is called in
+      the IDL generated code that initializes the protocol steps.
+     </p>
+    </li>
+   </ul>
+   <p>
+    The protocol layer on the card interprets the data structure of
+    protocols and protocol steps in the obvious way. Internally the
+    protocol layer holds a reference of the current protocol and
+    current protocol step. When an APDU comes in, its <code>INS</code> and <code>P1</code>
+    bytes are checked against the current protocol ID and the current
+    step ID. The data in the APDU is used to deserialize some parts
+    of the declared arguments. When all arguments have been
+    deserialized the code for this step is executed and then the
+    results are sent back.
+   </p>
+   <p>
+    Care must be taken that the references in the argument and result
+    arrays always point to the right objects. The OV-chip RSA
+    applets, for instance, atomically switch from old to new blinded
+    attribute expressions by swapping the references in
+    <code>current_blinded_a</code> and <code>new_blinded_a</code>. After such a swap the
+    references in the protocol steps that point to the current
+    blinded attribute expression must of course be updated. To
+    facilitate this the IDL compiler generates <code>update_*</code> methods for
+    each protocol step, each protocol and one <code>update_all</code> for all
+    protocols in a given description class.
+   </p>
+   <p>
+    Because of the <code>result_size</code> field one cannot simply change the
+    size of the declared results, compare Sections
+    <a href="#Serialisation_Size">Serialisation Size</a> and
+    <a href="#Changing_the_Size_of_Arguments_or_Results">Changing the Size of Arguments or Results</a>.
+   </p>
+  <a name="The_Protocol_Descriptions_and_Registered_protocols"></a>
+  <h2>The Protocol Descriptions and Registered_protocols</h2>
+   <p>
+    The OV-chip protocol layer is driven by protocol descriptions,
+    which are stored as instances of type Protocol. As indicated in
+    Figure <a href="#components">components</a> these descriptions are shared between the
+    host and the card. Because there are no compiler-initialized
+    objects in Java Card the protocol description have to get
+    explicitly initialized. The descriptions and their initialization
+    code is kept in so-called <i>description classes</i>. These classes
+    are generated by the IDL compiler (see Section
+    <a href="#The_IDL_Compiler">The IDL Compiler</a>). If the input file for the IDL compiler has
+    the name <code>XXX.id</code> then the name of the description class is
+    <code>XXX_descriptions</code>. Each description class defines all the
+    protocols of its input file (which can be arbitrarily many). An
+    applet creates usually one instance of every description class to
+    initialize all protocols. The host driver also creates one
+    instance of every description class in order to have access to
+    the same protocols.
+   </p>
+   <p>
+    All protocols of an applet must be collected in one array, the
+    so-called <i>protocol array</i>, see field <code>protocols</code> in the class
+    <code>XXX_protocols</code> in Figure <a href="#components">components</a>. The instantiation
+    of the description classes and the collection of all protocols is
+    applet specific. Therefore the corresponding code has to be
+    written for every applet. For the test applet the corresponding
+    code can be found in <code>test/Test_protocols</code> for the two OV-chip
+    RSA applets it is in <code>front/Front_protocols</code>.
+   </p>
+   <p>
+    The library class <code>util/Registered_protocols</code> provides the
+    operations of the OV-chip protocol layer for protocol arrays.
+    Once the protocol array is created it must be registered with
+    <code>util/Registered_protocols.set_protocols</code>. This method
+    initializes the protocol identification numbers such that they
+    match the index of the protocol in the protocol array. The
+    protocol identification number must be put in the <code>INS</code> byte to
+    select a protocol, see Section
+    <a href="#Command_and_Response_APDU_Format">Command and Response APDU Format</a>. The method <code>set_protocols</code>
+    does also perform a consistency check on the protocols, see
+    javadoc documentation for details.
+   </p>
+   <p>
+    The protocol layer does not make a copy of the protocol array
+    when it is registered. It simply keeps an alias reference. The
+    protocol array can therefore only be changed under certain
+    conditions, see the javadoc documentation of
+    <code>util/Registered_protocols.set_protocols</code>.
+   </p>
+   <p>
+    The instance of Registered_protocols in which the protocol array
+    is registered must itself be registered in the main applet class
+    that extends <code>util/Protocol_applet</code>, see Section
+    <a href="#Card_Part:_The_Applet_Class_and_util/Card_protocol">Card Part: The Applet Class and util/Card_protocol</a>.
+   </p>
+   <p>
+    The method <code>util/Registered_protocols.set_protocols</code> can be
+    called several times. This can be used to initialize some
+    protocols at a later stage, after a certain protocol has been
+    run. Because there is no garbage collection on the card it is
+    sufficient to allocate the protocol array once
+    with its maximal size. Unused entries are simply filled with a
+    null reference. The protocol layer ignores the remaining array
+    contents beginning from the first null reference.
+   </p>
+   <p>
+    In the OV-chip RSA protocols this mechanism is used for the
+    configuration of the key size in the applet. On applet
+    installation only those objects that do not depend on the RSA key
+    size are allocated. Then a protocol array with just one non-null
+    reference, for the <i>allocate protocol</i>, is registered. The
+    allocate protocol transfers the sizes for those objects that
+    depend on the key size and allocates them. At the end of the
+    allocate protocol a now fully populated protocol array is
+    (re-)registered.
+   </p>
+  <a name="Card_Part:_The_Applet_Class_and_util/Card_protocol"></a>
+  <h2>Card Part: The Applet Class and util/Card_protocol</h2>
+  <a name="Host_Part:_util/Host_protocol"></a>
+  <h2>Host Part: util/Host_protocol</h2>
+  <a name="Initialization"></a>
+  <h2>Initialization</h2>
+  <a name="Response_Status"></a>
+  <h2>Response Status</h2>
+  <a name="Measuring_Step_Duration"></a>
+  <h2>Measuring Step Duration</h2>
+  <a name="Changing_the_Size_of_Arguments_or_Results"></a>
+  <h2>Changing the Size of Arguments or Results</h2>
+  <a name="Host_only_Test_Frame"></a>
+  <h2>Host only Test Frame</h2>
+ <a name="The_Bignat_Library"></a>
+ <h1>The Bignat Library</h1>
+ <a name="The_IDL_Compiler"></a>
+ <h1>The IDL Compiler</h1>
+ <a name="Howto_achieve_some_common_tasks"></a>
+ <h1>Howto achieve some common tasks</h1>
+  <a name="Howto_add_a_new_source_file"></a>
+  <h2>Howto add a new source file</h2>
+<hr/><br/>
+<i>			 $Revision: 1.16 $</i>
+</body>
+</html>

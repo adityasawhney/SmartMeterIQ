@@ -1,0 +1,19 @@
+#!/bin/bash
+
+if [ $# -lt 1 ] ; then
+    echo "usage: emulator-cref test-id"
+    echo "where test-id is one of the subdirs that identifies a test applet"
+    echo "emulator-cref will then load test-id/javacard/eeprom.created"
+    exit 1
+fi
+
+
+
+
+eeprom_created=$1/javacard/eeprom.created
+
+make -C ../emulator/wrapper owrapper
+
+set -x
+
+../emulator/wrapper/owrapper -i $eeprom_created -cref $*

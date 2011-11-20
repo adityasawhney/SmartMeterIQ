@@ -1,0 +1,81 @@
+mont-plain.gp
+	Vergleich plain, montgomerizing applet
+
+mont-shortcut-gate.gp
+	multiplication shortcut, gate/proof step times
+
+mont-shortcut.gp
+	multiplication shortcut, proof and resign times
+
+mont-shortcut-resign.gp
+	multiplication shortcut, resign step times
+
+mont-test-size-h3-wired.gp
+	montgomerizing applet, proof and resign times, dots for all steps
+
+mont-test-size-h3-wired-simple.gp
+	montgomerizing applet, proof and resign times, only totals
+	
+square-4-attr-comparison.gp
+	square-4 applet, comparison for various numbers of attributes
+
+square-plain.gp
+	plain and squaring applet, proof+resign total times
+
+square-test-size-comparison.gp
+	square and square-4, proof+resign total times, dots
+
+square-test-size-comparison-smooth.gp
+	square and square-4, proof+resign total times, smooth
+
+square-test-size-h3-wired.gp
+	squaring applet, proof+resign, dots for all steps
+
+square-test-size-h3-wired-smooth.gp
+	squaring applet, proof+resign, lines for all steps
+	
+test-size-h3-wired.gp
+	plain applet, wired, proof+resign, dots for all steps
+
+test-size-h3-wireless.gp
+	plain applet, wireless, proof+resign, dots for all steps
+
+test-size-various-cards.gp
+	alt; war vergleich verschiedener Karten
+
+test-size-various-cards-proof.gp
+	alt; war vergleich verschiedener Karten
+
+
+##############################################################################
+
+
+mont-shortcut-h3-wired.data
+	test-size multiplication shortcur, plain applet, wired, 4 attr
+	
+mont-test-size-h3-wired.data
+	test-size mont applet, wired, 4 attr
+
+square-4-test-size-attr-1-h3-wired.data
+	test size square-4, wired, 1 attr
+
+square-4-test-size-attr-2-h3-wired.data
+	test-size square-4, wired, 2 attr
+
+square-4-test-size-h3-wired.data
+	test-size square-4, wired, 4 attr
+
+square-test-size-attr-2-h3-wired.data
+	test-size square, wired, 2 attr
+
+square-test-size-h3-wired.data
+	test-size square, wired, 4 attr
+
+test-size-blue-wireless.data
+	hand selectierte uralt daten, plain applet, blue wireless, 4 attr
+
+test-size-h3-wired.data
+	test-size plain, wired, 4 attr
+
+test-size-h3-wireless.data
+	test-size plain, wireless, 4 attr

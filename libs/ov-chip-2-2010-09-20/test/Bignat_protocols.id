@@ -1,0 +1,366 @@
+// 
+// OV-chip 2.0 project
+// 
+// Digital Security (DS) group at Radboud Universiteit Nijmegen
+// 
+// Copyright (C) 2008, 2009
+// 
+// This program is free software; you can redistribute it and/or
+// modify it under the terms of the GNU General Public License as
+// published by the Free Software Foundation; either version 2 of
+// the License, or (at your option) any later version.
+// 
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+// General Public License in file COPYING in this or one of the
+// parent directories for more details.
+// 
+// Created 3.10.08 by Hendrik
+// 
+// Access to various various Bignat methods
+// 
+// $Id: Bignat_protocols.id,v 1.24 2010-02-18 12:40:39 tews Exp $
+
+package ds.ov2.test
+
+host import java.math.BigInteger
+host import ds.ov2.util.APDU_short
+host import ds.ov2.util.APDU_boolean
+host import ds.ov2.bignat.Bignat
+host import ds.ov2.bignat.Modulus
+host import ds.ov2.bignat.Host_modulus
+host import ds.ov2.bignat.Resize
+host import ds.ov2.bignat.APDU_BigInteger
+
+javadoc import ds.ov2.bignat.RSA_exponent
+
+constructor argument Bignats bignats
+var Bignats bignats
+constructor statement this.bignats = bignats
+
+vartype RSA_exponent bignats.rsa_exponent
+vartype RSA_exponent bignats.square_exp
+
+vartype Bignat bignats.n_1
+vartype Bignat bignats.n_2
+vartype Bignat bignats.s_1
+vartype Bignat bignats.s_2
+vartype Modulus bignats.modulus
+vartype Modulus bignats.mult_modulus
+vartype Bignat bignats.r_1
+vartype Bignat bignats.r_2
+vartype Bignat bignats.r_3
+vartype Bignat bignats.dr_1
+
+host initializer bignats.n_1 size()
+host initializer bignats.n_2 size()
+host initializer bignats.s_1 size()
+host initializer bignats.s_2 size()
+host initializer bignats.r_1 size()
+host initializer bignats.r_2 size()
+host initializer bignats.r_3 size()
+host initializer bignats.dr_1 size()
+
+
+
+var APDU_short rounds()
+
+var APDU_boolean carry()
+
+cardvar Performance_mult_card bignat_card()
+
+
+protocol mont_mult
+    step mont_mult_init : bignats.n_1, bignats.n_2, bignats.modulus ->
+        call nothing
+        message mont mult init
+
+    step mont_mult_1: rounds ->
+        call bignat_card.mont_mult(bignats.n_1, bignats.n_2, \
+                                   bignats.modulus, bignats.r_1, rounds.value)
+        measure time
+        message mont mult 1
+
+    step mont_mult_2: rounds ->
+        call bignat_card.mont_mult(bignats.n_1, bignats.n_2, \
+                              bignats.modulus, bignats.r_1, rounds.value)
+        measure time
+        message mont mult 2
+
+    step mont_mult_result: -> bignats.r_1
+        call nothing
+        message mont mult result
+
+
+
+protocol demontgomerize
+
+    step demont_init: bignats.r_1, bignats.modulus ->
+        call nothing
+        message demont init
+
+    step demont_1: rounds ->
+        call bignat_card.demontgomerize(bignats.r_1, bignats.modulus, \
+                                        bignats.r_2, rounds.value)
+        measure time
+        message demont 1
+   
+    step demont_2: rounds ->
+        call bignat_card.demontgomerize(bignats.r_1, bignats.modulus, \
+                                        bignats.r_2, rounds.value)
+        measure time
+        message demont 2
+
+    step demont_result: -> bignats.r_2
+        call nothing
+        message demont result
+
+
+
+protocol div
+
+    step div_init: bignats.n_1, bignats.n_2 ->
+        call nothing
+        message div init
+
+    step div_1: rounds ->
+        call bignat_card.remainder_divide(bignats.n_1, bignats.n_2, \
+                                          bignats.r_1, bignats.r_2, \
+                                          rounds.value)
+        measure time
+        message div 1
+   
+    step div_2: rounds ->
+        call bignat_card.remainder_divide(bignats.n_1, bignats.n_2, \
+                                          bignats.r_1, bignats.r_2, \
+                                          rounds.value)
+        measure time
+        message div 2
+
+    step div_result: -> bignats.r_1, bignats.r_2
+        call nothing
+        message div result
+   
+
+
+protocol RSA_exp
+    step rsa_exp_init: bignats.n_1, bignats.s_1, bignats.n_2, ->
+        call bignats.rsa_exponent.set_modulus(bignats.n_2, (short)0); \
+             bignats.rsa_exponent.set_exponent(bignats.s_1, bignats.r_1, \
+                                               (short)0)
+        message rsa exp init
+
+    step rsa_exp_parts_empty: ->
+        measure time
+        message rsa exp parts nothing
+
+    step rsa_exp_parts_exp: ->
+        call bignats.rsa_exponent.fixed_power(bignats.n_1, \
+                                              bignats.r_1, (short)0)
+        measure time
+        message rsa exp parts exp
+
+    step rsa_exp_full_empty: ->
+        call nothing
+        measure time
+        message rsa exp full empty
+
+    step rsa_exp_full_exp: ->
+        call bignats.rsa_exponent.power(bignats.n_1, bignats.s_1, \
+                                        bignats.r_2, (short)0)
+        measure time
+        message rsa exp full exp
+
+    step rsa_exp_result: -> bignats.r_1, bignats.r_2
+        call nothing
+        message rsa exp result
+
+
+
+protocol squared_mult
+    step sq_mult_init : bignats.n_1, bignats.n_2, bignats.modulus ->
+        call bignats.square_exp.set_modulus(bignats.modulus.m, (short)0); \
+             bignats.r_1.two(); \
+             bignats.square_exp.set_exponent(bignats.r_1, \
+                                             bignats.r_2, (short)0)
+        message squared mult init
+
+    step sq_mult_1: rounds ->
+        call for(short i = 0; i < rounds.value; i++) \
+                 bignats.r_1.squared_rsa_mult_2(bignats.n_1, bignats.n_2, \
+                                                bignats.modulus,        \
+                                                bignats.square_exp, bignats.r_2)
+        measure time
+        message squared mult 1
+
+    step sq_mult_2: rounds ->
+        call for(short i = 0; i < rounds.value; i++) \
+                 bignats.r_1.squared_rsa_mult_2(bignats.n_1, bignats.n_2, \
+                                              bignats.modulus, \
+                                              bignats.square_exp, bignats.r_2)
+        measure time
+        message squared mult 2
+
+    step sq_mult_result: -> bignats.r_1
+        call nothing
+        message squared mult result
+
+
+
+protocol short_squared_mult
+    step short_sq_mult_init : bignats.s_1, bignats.s_2, bignats.modulus ->
+        call bignats.square_exp.set_modulus(bignats.modulus.m, (short)0); \
+             bignats.r_1.two(); \
+             bignats.square_exp.set_exponent(bignats.r_1, \
+                                             bignats.r_2, (short)0)
+        message short squared mult init
+
+    step short_sq_mult_1: rounds ->
+        call for(short i = 0; i < rounds.value; i++) \
+                 bignats.dr_1.short_squared_rsa_mult_2(bignats.s_1, \
+                                                       bignats.s_2, \
+                                                       bignats.square_exp, \
+                                                       bignats.r_1, \
+                                                       bignats.r_2)
+        measure time
+        message short squared mult 1
+
+    step short_sq_mult_2: rounds ->
+        call for(short i = 0; i < rounds.value; i++) \
+                 bignats.dr_1.short_squared_rsa_mult_2(bignats.s_1, \
+                                                       bignats.s_2, \
+                                                       bignats.square_exp, \
+                                                       bignats.r_1, \
+                                                       bignats.r_2)
+        measure time
+        message short_squared mult 2
+
+    step short_sq_mult_result: -> bignats.dr_1
+        call nothing
+        message short squared mult result
+
+
+
+protocol squared_mult_4
+    step sq_mult_4_init : bignats.r_1, bignats.r_2, bignats.mult_modulus ->
+        call bignats.square_exp.set_modulus(bignats.mult_modulus.m, (short)0); \
+             bignats.r_3.two(); \
+             bignats.square_exp.set_exponent(bignats.r_3, \
+                                             bignats.r_4, (short)0)
+        message squared 4 mult init
+
+    step sq_mult_4_1: ->
+        call nothing
+        measure time
+        message squared 4 mult empty
+
+    step sq_mult_4_2: ->
+        call bignats.r_3.squared_rsa_mult_4(bignats.r_1, bignats.r_2, \
+                                            bignats.mult_modulus,        \
+                                            bignats.square_exp, bignats.r_4)
+        measure time
+        message squared 4 mult mult
+
+    step sq_mult_4_result: -> bignats.r_3
+        call nothing
+        message squared 4 mult result
+
+
+
+protocol short_square_4_mult
+    step short_sq_4_mult_init : bignats.s_1, bignats.s_2, bignats.modulus ->
+        call bignats.square_exp.set_modulus(bignats.modulus.m, (short)0); \
+             bignats.r_1.two(); \
+             bignats.square_exp.set_exponent(bignats.r_1, \
+                                             bignats.r_2, (short)0)
+        message short square 4 mult init
+
+    step short_sq_4_mult_1: ->
+        measure time
+        message short square 4 mult 1
+
+    step short_sq_4_mult_2: ->
+        call bignats.dr_1.short_squared_rsa_mult_4(bignats.s_1, \
+                                                   bignats.s_2, \
+                                                   bignats.square_exp, \
+                                                   bignats.r_1, \
+                                                   bignats.r_2)
+        measure time
+        message short_square 4 mult 2
+
+    step short_sq_4_mult_result: -> bignats.dr_1
+        call nothing
+        message short square 4 mult result
+
+
+
+protocol add
+    step add_init : bignats.r_1, bignats.r_2 ->
+        call nothing
+        message add init
+
+    step add_1: ->
+        call nothing
+        measure time
+        message add 1
+
+    step add_2: ->
+        call bignats.r_1.add(bignats.r_2)
+        measure time
+        message add 2
+
+    step add_result: -> bignats.r_1
+        call nothing
+        message add result
+
+
+
+protocol subtract
+    step subtract_init : bignats.r_1, bignats.r_2 ->
+        call nothing
+        message subtract init
+
+    step subtract_1: ->
+        call nothing
+        measure time
+        message subtract 1
+
+    step subtract_2: ->
+        call carry.value = bignats.r_1.subtract(bignats.r_2)
+        measure time
+        message subtract 2
+
+    step subtract_result: -> bignats.r_1, carry
+        call nothing
+        message subtract result
+
+
+
+protocol mult
+    step mult_init : bignats.r_1, bignats.r_2 ->
+        call nothing
+        message mult init
+
+    step mult_1: rounds ->
+        call for(short i = 0; i < rounds.value; i++) \
+                bignats.dr_1.mult(bignats.r_1, bignats.r_2)
+        measure time
+        message mult 1
+
+    step mult_2: rounds ->
+        call for(short i = 0; i < rounds.value; i++) \
+                bignats.dr_1.mult(bignats.r_1, bignats.r_2)
+        measure time
+        message mult 2
+
+    step mult_result: -> bignats.dr_1
+        call nothing
+        message mult result
+
+
+
+/// Local Variables:
+/// mode: c
+/// eval: (add-hook 'write-contents-hooks 'untabify-buffer)
+/// End:

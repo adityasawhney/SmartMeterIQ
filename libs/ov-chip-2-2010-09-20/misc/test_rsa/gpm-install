@@ -1,0 +1,4 @@
+#!/bin/bash
+
+set -x
+gpm $* -deletedeps -delete '|rsa_test|' -load javacard/test_rsa.cap -install

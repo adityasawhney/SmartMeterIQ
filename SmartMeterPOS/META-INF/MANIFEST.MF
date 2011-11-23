@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Application-Type: web
+Web-Context-Path: /smartmeterpos
+Runtime-Descriptor-Version: 3.0
+

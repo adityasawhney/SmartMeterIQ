@@ -1,0 +1,10 @@
+//Test script for Applet 'SmartMeterDataStore'
+
+powerup;
+// Select SmartMeterDataStore //aid/2F60E46DA6/EC7A16FF
+0x00 0xA4 0x04 0x00 0X09 0X2F 0X60 0XE4 0X6D 0XA6 0XEC 0X7A 0X16 0X00 0x7F;
+
+//Send the APDU here
+//0x80 0xCA 0x00 0x00 <length> <data> 0x7F;
+
+powerdown;

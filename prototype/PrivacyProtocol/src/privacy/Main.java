@@ -17,7 +17,7 @@ import qilin.primitives.concrete.Zpsafe;
 public class Main {
 
     static ZpPedersen createPedersen() {
-        final int BITS = 256;
+        final int BITS = 8;
         Random rand = new Random(1);
         Zpsafe grp = new Zpsafe(Zpsafe.randomSafePrime(BITS, 50, rand));
         BigInteger h = grp.sample(rand);
@@ -35,16 +35,20 @@ public class Main {
             this.C = C;
         }
 
-        public BigInteger[] getReadings() {
-            return this.V;
+        public int getDataCount() {
+            return this.V.length;
+        }
+        
+        public byte[] getReadings(int i) {
+            return this.V[i].toByteArray();
         }
 
-        public BigInteger[] getRandoms() {
-            return this.R;
+        public byte[] getRandoms(int i) {
+            return this.R[i].toByteArray();
         }
 
-        public BigInteger[] getCommitments() {
-            return this.C;
+        public byte[] getCommitments(int i) {
+            return this.C[i].toByteArray();
         }
     }
 
@@ -117,7 +121,7 @@ public class Main {
             BigInteger Pt = new BigInteger("0");
             BigInteger Rt = new BigInteger("0");
 
-            for (int i = 0; i < data.V.length; i++) {
+            for (int i = 0; i < data.getDataCount(); i++) {
                 Pt = Pt.add(data.V[i].multiply(T[i]));
                 Rt = Rt.add(data.R[i].multiply(T[i]));
             }

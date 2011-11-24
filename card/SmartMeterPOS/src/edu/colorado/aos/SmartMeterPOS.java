@@ -6,6 +6,9 @@ package edu.colorado.aos;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Enumeration;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -16,42 +19,100 @@ import javax.servlet.http.HttpServletResponse;
 public class SmartMeterPOS extends HttpServlet {
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws IOException {
+            throws IOException, ServletException {
+        String op = request.getParameter("op");
+        StringBuilder result = new StringBuilder();
+
+        // Handle operation
+        if (op != null) {
+            if (op.equals("Bill")) {
+                generateBill(result);
+            }
+            else if (op.equals("Reading")) {
+                generateReading(result);
+            }
+            else if (op.equals("Tarrif")) {
+                generateTarrif(result);
+            }
+            else if (op.equals("Tamper")) {
+                Database.toggleTamper();
+            }
+        }
+
+        // Compile response
+        addResultHeader(result);
+
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
-        try {
-            out.println("<html><head><title>SmartMeterPOS</title></head>");
-            out.println("<body><h1>SmartMeterPOS</h1>");
-            out.println("Hello from edu.colorado.aos.SmartMeterPOS to");
-            out.println(request.getParameter("name"));
-            out.println("</body></html>");
-        } finally {
-            out.close();
+        RequestDispatcher dispatcher = null;
+
+        dispatcher = request.getRequestDispatcher("/WEB-INF/header.i");
+        dispatcher.include(request, response);
+
+        dispatcher = request.getRequestDispatcher("/WEB-INF/index1.i");
+        dispatcher.include(request, response);
+
+        out.println(result);
+
+        dispatcher = request.getRequestDispatcher("/WEB-INF/index2.i");
+        dispatcher.include(request, response);
+
+        dispatcher = request.getRequestDispatcher("/WEB-INF/footer.i");
+        dispatcher.include(request, response);
+    }
+
+    private void addResultHeader(StringBuilder result) {
+        StringBuilder header = new StringBuilder();
+        header.append("Tamper is ");
+        header.append(Database.isTamperEnabled() ? "ENABLED" : "DISABLED");
+        header.append("\n");
+
+        result.insert(0, header.toString());
+    }
+
+    private void generateBill(StringBuilder result) {
+        
+    }
+
+    private void generateReading(StringBuilder result) {
+        // Header
+        result.append("\n");
+        result.append("TimeSlot");
+        result.append("\t");
+        result.append("Reading Value");
+        result.append("\t");
+        result.append("Commitment");
+        result.append("\t");
+        result.append("Randomness");
+        result.append("\n");
+
+        for (Reading r : Database.getReadings()) {
+            result.append(r.getTimeSlot());
+            result.append("\t\t");
+            result.append(r.getValue());
+            result.append("\t\t");
+            result.append(r.getCommitment());
+            result.append("\t\t");
+            result.append(r.getRandomness());
+            result.append("\n");
         }
     }
 
-/*
-    public void run() {
+    private void generateTarrif(StringBuilder result) {
+        // Header
+        result.append("\n");
+        result.append("TimeSlot");
+        result.append("\t");
+        result.append("Tarrif");
+        result.append("\n");
 
-        BigInteger T[] = { new BigInteger("5"), new BigInteger("7") };
-
-        SmartMeter meter = new SmartMeter();
-        PrivacyPlugin plugin = new PrivacyPlugin(meter);
-        Supplier supplier = new Supplier();
-
-        meter.setTarrif(T);
-        plugin.setTarrif(T);
-        supplier.setTarrif(T);
-
-        SmartMeterBill bill = plugin.retrieveBill();
-        boolean isValid = supplier.verifyBill(bill);
-        System.out.print(isValid);
-
-        plugin.toggleTamper();
-
-        bill = plugin.retrieveBill();
-        isValid = supplier.verifyBill(bill);
-        System.out.print(isValid);
- }
- */
+        for (Enumeration e = Database.getTarrifs().keys() ; e.hasMoreElements() ;) {
+            String slot = (String)e.nextElement();
+            result.append(slot);
+            result.append("\t\t");
+            result.append(Database.getTarrif(slot));
+            result.append("\t\t");
+            result.append("\n");
+        }
+    }
 }

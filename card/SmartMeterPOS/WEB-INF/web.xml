@@ -1,7 +1,5 @@
-<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         version="2.4"
-         xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/javacard/jcweb-app_3_0.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.4" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/javacard/jcweb-app_3_0.xsd">
     <display-name>Smart Meter POS</display-name>
     <servlet>
         <servlet-name>SmartMeterPOS</servlet-name>
@@ -9,6 +7,22 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>SmartMeterPOS</servlet-name>
-        <url-pattern>/smartmeterpos</url-pattern>
+        <url-pattern>/dashboard</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>SmartMeterReadingServlet</servlet-name>
+        <servlet-class>edu.colorado.aos.SmartMeterReadingServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SmartMeterReadingServlet</servlet-name>
+        <url-pattern>/reading</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>SmartMeterTarrifServlet</servlet-name>
+        <servlet-class>edu.colorado.aos.SmartMeterTarrifServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SmartMeterTarrifServlet</servlet-name>
+        <url-pattern>/tarrif</url-pattern>
     </servlet-mapping>
 </web-app>

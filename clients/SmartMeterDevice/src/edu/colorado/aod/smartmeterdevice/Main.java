@@ -17,7 +17,6 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import javax.swing.JTextArea;
 import javax.swing.table.DefaultTableModel;
 
 public class Main {
@@ -49,7 +48,7 @@ public class Main {
             btnSTART.addActionListener(
                 new ActionListener() {
                     public void actionPerformed(ActionEvent ae) {
-                        simulator.setDispatchReading(true);
+                        simulator.enable();
                     }
                 }
             );
@@ -58,7 +57,7 @@ public class Main {
             btnSTOP.addActionListener(
                 new ActionListener() {
                     public void actionPerformed(ActionEvent ae) {
-                        simulator.setDispatchReading(false);
+                        simulator.disable();
                     }
                 }
             );

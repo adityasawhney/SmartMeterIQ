@@ -15,7 +15,10 @@ import java.awt.event.WindowEvent;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.JTextArea;
+import javax.swing.table.DefaultTableModel;
 
 public class Main {
 
@@ -37,7 +40,7 @@ public class Main {
     
     public static class HttpClientFrame extends JFrame implements Simulator.Callback {
         private Simulator simulator = new Simulator();
-        private JTextArea taReadings;
+        private DefaultTableModel model = new DefaultTableModel();
 
         public HttpClientFrame() {
             JPanel panInput = new JPanel(new FlowLayout());
@@ -63,29 +66,31 @@ public class Main {
             panInput.add(btnSTART);
             panInput.add(btnSTOP);
 
-            taReadings = new JTextArea();
-            taReadings.setEditable(false);
-            taReadings.setCaretPosition(0);
+            JTable table = new JTable(model);
+            JScrollPane tablePane = new JScrollPane(table);
+            table.setFillsViewportHeight(true);
+
+            model.addColumn("Time Slot");
+            model.addColumn("Reading Value");
+            model.addColumn("Commitment");
+            model.addColumn("Randomness");
 
             this.getContentPane().setLayout(new BorderLayout());
             this.getContentPane().add(panInput, BorderLayout.NORTH);
-            this.getContentPane().add(taReadings, BorderLayout.CENTER);
+            this.getContentPane().add(tablePane, BorderLayout.CENTER);
 
             this.simulator.setCallback(this);
             this.simulator.start();
         }
 
         public void handle(Reading reading) {
-            StringBuilder data = new StringBuilder();
-            data.append(reading.getTimeSlot());
-            data.append("\t");
-            data.append(reading.getValue());
-            data.append("\t");
-            data.append(reading.getCommitment());
-            data.append("\t");
-            data.append(reading.getRandomness());
-            data.append("\n");
-            taReadings.append(data.toString());
+            model.addRow(new Object[]
+                {
+                    reading.getTimeSlot(),
+                    reading.getValue(),
+                    reading.getCommitment(),
+                    reading.getRandomness()
+                });
         }
     }
 }

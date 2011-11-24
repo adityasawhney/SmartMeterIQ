@@ -169,8 +169,8 @@ public class Main {
                     DefaultHttpClient httpclient = new DefaultHttpClient();
                     try {
                         HttpHost target = new HttpHost("localhost", 8019, "http");
-                        HttpGet req = new HttpGet("/sioclient/getsiovalue");
-
+//                        HttpGet req = new HttpGet("/sioclient/getsiovalue");
+                        HttpGet req = new HttpGet("/sioservice/setvalue?value=20");
                         System.out.println("executing request to " + target);
 
                         HttpResponse rsp = httpclient.execute(target, req);

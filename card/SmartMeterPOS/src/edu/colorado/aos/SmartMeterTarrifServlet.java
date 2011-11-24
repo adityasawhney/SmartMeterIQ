@@ -22,11 +22,14 @@ public class SmartMeterTarrifServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
         String timeSlot = request.getParameter("timeslots");
         String value = request.getParameter("values");
-
         StringTokenizer ts = new StringTokenizer(timeSlot, ",");
         StringTokenizer vs = new StringTokenizer(value, ",");
+
+        Database.purgeTarrif();
+
         while (ts.hasMoreTokens()) {
              Database.addTarrif(ts.nextToken(), vs.nextToken());
          }

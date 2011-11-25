@@ -5,7 +5,7 @@
 
 package edu.colorado.aod.smartmeterdevice;
 
-import edu.colorado.aos.crypto.DefaultConfig;
+import edu.coloado.aos.config.DefaultConfig;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 

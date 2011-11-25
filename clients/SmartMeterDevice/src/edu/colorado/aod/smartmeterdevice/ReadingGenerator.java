@@ -5,7 +5,7 @@
 
 package edu.colorado.aod.smartmeterdevice;
 
-import edu.colorado.aos.crypto.DefaultConfig;
+import edu.coloado.aos.config.DefaultConfig;
 import edu.colorado.aos.crypto.ZpPedersen;
 import java.math.BigInteger;
 import java.util.Random;

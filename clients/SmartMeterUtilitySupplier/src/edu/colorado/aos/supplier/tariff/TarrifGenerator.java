@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 
-package edu.colorado.aos.supplier;
+package edu.colorado.aos.supplier.tariff;
 
 import edu.coloado.aos.config.DefaultConfig;
 import java.math.BigInteger;

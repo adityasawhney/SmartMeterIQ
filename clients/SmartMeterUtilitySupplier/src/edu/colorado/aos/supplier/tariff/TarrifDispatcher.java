@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 
-package edu.colorado.aos.supplier;
+package edu.colorado.aos.supplier.tariff;
 
 import org.apache.http.HttpHost;
 import org.apache.http.HttpRequest;

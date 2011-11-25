@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 
-package edu.colorado.aos.supplier;
+package edu.colorado.aos.supplier.tariff;
 
 import java.util.Enumeration;
 import java.util.Hashtable;
@@ -21,6 +21,10 @@ public class Tarrif {
 
     public Hashtable<String, String> getTarrifs() {
         return tarrif;
+    }
+
+    public String getTarrif(String timeSlot) {
+        return tarrif.get(timeSlot);
     }
 
     public String getTimeSlots() {

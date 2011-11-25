@@ -5,7 +5,7 @@
 
 package edu.colorado.aos.supplier;
 
-import edu.colorado.aos.crypto.DefaultConfig;
+import edu.coloado.aos.config.DefaultConfig;
 import java.math.BigInteger;
 import java.util.Random;
 
@@ -25,7 +25,7 @@ public class TarrifGenerator {
         Tarrif tarrif = new Tarrif();
 
         int count = 0;
-        while (count++ <= DefaultConfig.MAX_SLOT) {
+        while (count++ < DefaultConfig.MAX_TARIFF_SLOT) {
             BigInteger timeSlot = generateTimeSlot();
             BigInteger value = generateValue();
             tarrif.addTarrif(timeSlot.toString(), value.toString());
@@ -35,8 +35,7 @@ public class TarrifGenerator {
     }
 
     private BigInteger generateTimeSlot() {
-        //int timeSlot = Calendar.getInstance().get(Calendar.HOUR_OF_DAY);
-        curTimeSlot = (curTimeSlot + 1) % DefaultConfig.MAX_SLOT;
+        curTimeSlot++;
         return new BigInteger(Integer.toString(curTimeSlot));
     }
 

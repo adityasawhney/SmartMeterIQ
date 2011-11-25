@@ -5,7 +5,7 @@
 
 package edu.colorado.aos.supplier;
 
-import edu.colorado.aos.crypto.DefaultConfig;
+import edu.coloado.aos.config.DefaultConfig;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;

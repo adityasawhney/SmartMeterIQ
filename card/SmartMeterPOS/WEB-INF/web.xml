@@ -25,4 +25,12 @@
         <servlet-name>SmartMeterTarrifServlet</servlet-name>
         <url-pattern>/tarrif</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>SmartMeterBillingServlet</servlet-name>
+        <servlet-class>edu.colorado.aos.SmartMeterBillingServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SmartMeterBillingServlet</servlet-name>
+        <url-pattern>/billing</url-pattern>
+    </servlet-mapping>
 </web-app>

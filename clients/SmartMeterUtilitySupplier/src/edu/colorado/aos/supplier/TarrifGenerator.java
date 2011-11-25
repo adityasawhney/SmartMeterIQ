@@ -35,8 +35,7 @@ public class TarrifGenerator {
     }
 
     private BigInteger generateTimeSlot() {
-        curTimeSlot++;
-        return new BigInteger(Integer.toString(curTimeSlot));
+        return new BigInteger(Integer.toString(curTimeSlot++));
     }
 
     private BigInteger generateValue() {

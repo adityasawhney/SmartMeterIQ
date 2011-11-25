@@ -14,13 +14,24 @@ import java.util.logging.Logger;
  * @author sawhneya
  */
 public class Simulator {
+
     public interface Callback {
         void handle(Reading reading);
     }
 
     private boolean dispatchReading = false;
     private Callback callback = null;
-
+    private ReadingGenerator generator = null;
+    private ReadingDispatcher dispatcher = null;
+    
+    public Simulator() {
+        this.generator = new ReadingGenerator();
+        this.dispatcher = new ReadingDispatcher(
+                DefaultConfig.HOST_NAME,
+                DefaultConfig.PORT);
+        
+    }
+    
     public void enable() {
         this.dispatchReading = true;
     }
@@ -29,16 +40,16 @@ public class Simulator {
         this.dispatchReading = false;
     }
 
+    void reset() {
+        this.generator = new ReadingGenerator();
+        enable();
+    }
+
     public void setCallback(Callback callback) {
         this.callback = callback;
     }
 
     public void start() {
-        final ReadingGenerator generator = new ReadingGenerator();
-        final ReadingDispatcher dispatcher = new ReadingDispatcher(
-                DefaultConfig.HOST_NAME,
-                DefaultConfig.PORT);
-
         new Thread() {
             @Override
             public void run() {

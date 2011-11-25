@@ -53,6 +53,18 @@ public class Main {
                 }
             );
 
+            final JButton btnRESTART = new JButton("RESTART");
+            btnRESTART.addActionListener(
+                new ActionListener() {
+                    public void actionPerformed(ActionEvent ae) {
+                        while (model.getRowCount() > 0) {
+                            model.removeRow(0);
+                        }
+                        simulator.reset();
+                    }
+                }
+            );
+
             final JButton btnSTOP = new JButton("STOP");
             btnSTOP.addActionListener(
                 new ActionListener() {
@@ -63,6 +75,7 @@ public class Main {
             );
 
             panInput.add(btnSTART);
+            panInput.add(btnRESTART);
             panInput.add(btnSTOP);
 
             JTable table = new JTable(model);

@@ -4,6 +4,8 @@
  */
 package edu.colorado.aos;
 
+import edu.colorado.aos.model.Reading;
+import edu.colorado.aos.data.Database;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Enumeration;
@@ -86,7 +88,8 @@ public class SmartMeterPOS extends HttpServlet {
         result.append("Randomness");
         result.append("\n");
 
-        for (Reading r : Database.getReadings()) {
+        for (Enumeration e = Database.getReadings().elements() ; e.hasMoreElements() ;) {
+            Reading r = (Reading)e.nextElement();
             result.append(r.getTimeSlot());
             result.append("\t\t");
             result.append(r.getValue());

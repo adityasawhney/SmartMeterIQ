@@ -5,6 +5,8 @@
 
 package edu.colorado.aos;
 
+import edu.colorado.aos.model.Reading;
+import edu.colorado.aos.data.Database;
 import java.io.IOException;
 import javax.servlet.ServletException;
 

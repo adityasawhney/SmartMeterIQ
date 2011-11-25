@@ -3,33 +3,29 @@
  * and open the template in the editor.
  */
 
-package edu.colorado.aos;
+package edu.colorado.aos.data;
 
+import edu.colorado.aos.model.Reading;
 import java.util.Hashtable;
-import java.util.Vector;
 
 /**
  *
  * @author sawhneya
  */
 public class Database {
-    private static Vector<Reading> items = new Vector<Reading>();
+    private static Hashtable<String, Reading> readings = new Hashtable<String, Reading>();
     private static Hashtable<String, String> tarrif = new Hashtable<String, String>();
     private static boolean tamper = false;
 
     // Reading
-    public static void addReading(Reading item) {
-        if (!items.contains(item)) {
-            items.addElement(item);
+    public static void addReading(Reading r) {
+        if (!readings.containsKey(r.getTimeSlot())) {
+            readings.put(r.getTimeSlot(), r);
         }
     }
 
-    public static Vector<Reading> getReadings() {
-        return items;
-    }
-
-    public static boolean deleteReading(Reading item) {
-        return items.removeElement(item);
+    public static Hashtable<String, Reading> getReadings() {
+        return readings;
     }
 
     // Tarrif

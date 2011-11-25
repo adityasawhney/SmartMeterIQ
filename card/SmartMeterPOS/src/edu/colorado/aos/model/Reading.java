@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 
-package edu.colorado.aos;
+package edu.colorado.aos.model;
 
 
 /**

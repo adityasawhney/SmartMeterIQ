@@ -269,9 +269,7 @@ run   - Builds and deploys the application and starts the browser.
     <target name="compile" depends="-init">
         <javac destdir="${build.classes.dir}" source="${javac.source}" target="${javac.target}" nowarn="${javac.deprecation}" debug="${javac.debug}" optimize="no" bootclasspathref="javacard.classpath" includeAntRuntime="no">
             <src path="${src.dir}"/>
-            <classpath>
-                <pathelement path="${dependency.SmartMeterExtLib.jar.origin}"/>
-            </classpath>
+            <classpath/>
         </javac>
         <copy todir="${build.classes.dir}">
             <fileset dir="${src.dir}" includes="${includes}" excludes="${excludes}"/>
@@ -289,9 +287,7 @@ run   - Builds and deploys the application and starts the browser.
         <mkdir dir="${build.classes.dir}"/>
     </target>
     <target name="build-dependencies" depends="-init" unless="dont.build.dependencies"/>
-    <target name="clean-dependencies" depends="-init" unless="dont.build.dependencies">
-        <fail>Classic and Extension Lib JAR undeployement w/o project not implemented</fail>
-    </target>
+    <target name="clean-dependencies" depends="-init" unless="dont.build.dependencies"/>
     <target name="clean-with-dependencies" description="Cleans this project and any projects it depends on" depends="clean,clean-dependencies"/>
     <target name="build-with-dependencies" description="Builds any projects this project depends on, then builds this project" depends="build-dependencies,pack"/>
 </project>

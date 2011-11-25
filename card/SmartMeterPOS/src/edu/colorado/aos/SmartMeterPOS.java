@@ -4,8 +4,10 @@
  */
 package edu.colorado.aos;
 
+import edu.colorado.aos.bill.BillCalculator;
 import edu.colorado.aos.model.Reading;
 import edu.colorado.aos.data.Database;
+import edu.colorado.aos.model.Bill;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Enumeration;
@@ -73,7 +75,26 @@ public class SmartMeterPOS extends HttpServlet {
     }
 
     private void generateBill(StringBuilder result) {
-        
+        Bill bill = BillCalculator.computerBill();
+        result.append("\n");
+        result.append("Total Amount:");
+        result.append("\t\t");
+        result.append(bill.getTotalAmount());
+
+        result.append("\n");
+        result.append("Total Randomness:");
+        result.append("\t");
+        result.append(bill.getTotalRandomness());
+
+        result.append("\n");
+        result.append("Time Slots:");
+        result.append("\t\t");
+        result.append(bill.getTimeSlots());
+
+        result.append("\n");
+        result.append("Commitments:");
+        result.append("\t\t");
+        result.append(bill.getCommitments());
     }
 
     private void generateReading(StringBuilder result) {

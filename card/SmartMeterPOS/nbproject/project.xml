@@ -11,9 +11,7 @@
             <source-roots>
                 <root id="src.dir"/>
             </source-roots>
-            <dependencies>
-                <dependency deployment="ALREADY_ON_CARD" id="SmartMeterExtLib.jar" kind="EXTENSION_LIB_JAR"/>
-            </dependencies>
+            <dependencies/>
         </data>
     </configuration>
 </project>
